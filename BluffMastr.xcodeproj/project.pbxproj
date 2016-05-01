@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41061CD5BFD200103F2A /* AppDelegate.swift */; };
+		CBDA41091CD5BFD200103F2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41081CD5BFD200103F2A /* ViewController.swift */; };
+		CBDA410C1CD5BFD200103F2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDA410A1CD5BFD200103F2A /* Main.storyboard */; };
+		CBDA410F1CD5BFD200103F2A /* BluffMastr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBDA410D1CD5BFD200103F2A /* BluffMastr.xcdatamodeld */; };
+		CBDA41111CD5BFD200103F2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDA41101CD5BFD200103F2A /* Assets.xcassets */; };
+		CBDA41141CD5BFD200103F2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDA41121CD5BFD200103F2A /* LaunchScreen.storyboard */; };
+		CBDA411F1CD5BFD200103F2A /* BluffMastrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA411E1CD5BFD200103F2A /* BluffMastrTests.swift */; };
+		CBDA412A1CD5BFD200103F2A /* BluffMastrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41291CD5BFD200103F2A /* BluffMastrUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBDA411B1CD5BFD200103F2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBDA40FB1CD5BFD100103F2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBDA41021CD5BFD200103F2A;
+			remoteInfo = BluffMastr;
+		};
+		CBDA41261CD5BFD200103F2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBDA40FB1CD5BFD100103F2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBDA41021CD5BFD200103F2A;
+			remoteInfo = BluffMastr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CBDA41031CD5BFD200103F2A /* BluffMastr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluffMastr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBDA41061CD5BFD200103F2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CBDA41081CD5BFD200103F2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CBDA410B1CD5BFD200103F2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CBDA410E1CD5BFD200103F2A /* BluffMastr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BluffMastr.xcdatamodel; sourceTree = "<group>"; };
+		CBDA41101CD5BFD200103F2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBDA41131CD5BFD200103F2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CBDA41151CD5BFD200103F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBDA411A1CD5BFD200103F2A /* BluffMastrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluffMastrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBDA411E1CD5BFD200103F2A /* BluffMastrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluffMastrTests.swift; sourceTree = "<group>"; };
+		CBDA41201CD5BFD200103F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBDA41251CD5BFD200103F2A /* BluffMastrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluffMastrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBDA41291CD5BFD200103F2A /* BluffMastrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluffMastrUITests.swift; sourceTree = "<group>"; };
+		CBDA412B1CD5BFD200103F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBDA41001CD5BFD200103F2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDA41171CD5BFD200103F2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDA41221CD5BFD200103F2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CBDA40FA1CD5BFD100103F2A = {
+			isa = PBXGroup;
+			children = (
+				CBDA41051CD5BFD200103F2A /* BluffMastr */,
+				CBDA411D1CD5BFD200103F2A /* BluffMastrTests */,
+				CBDA41281CD5BFD200103F2A /* BluffMastrUITests */,
+				CBDA41041CD5BFD200103F2A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBDA41041CD5BFD200103F2A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBDA41031CD5BFD200103F2A /* BluffMastr.app */,
+				CBDA411A1CD5BFD200103F2A /* BluffMastrTests.xctest */,
+				CBDA41251CD5BFD200103F2A /* BluffMastrUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBDA41051CD5BFD200103F2A /* BluffMastr */ = {
+			isa = PBXGroup;
+			children = (
+				CBDA41061CD5BFD200103F2A /* AppDelegate.swift */,
+				CBDA41081CD5BFD200103F2A /* ViewController.swift */,
+				CBDA410A1CD5BFD200103F2A /* Main.storyboard */,
+				CBDA41101CD5BFD200103F2A /* Assets.xcassets */,
+				CBDA41121CD5BFD200103F2A /* LaunchScreen.storyboard */,
+				CBDA41151CD5BFD200103F2A /* Info.plist */,
+				CBDA410D1CD5BFD200103F2A /* BluffMastr.xcdatamodeld */,
+			);
+			path = BluffMastr;
+			sourceTree = "<group>";
+		};
+		CBDA411D1CD5BFD200103F2A /* BluffMastrTests */ = {
+			isa = PBXGroup;
+			children = (
+				CBDA411E1CD5BFD200103F2A /* BluffMastrTests.swift */,
+				CBDA41201CD5BFD200103F2A /* Info.plist */,
+			);
+			path = BluffMastrTests;
+			sourceTree = "<group>";
+		};
+		CBDA41281CD5BFD200103F2A /* BluffMastrUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CBDA41291CD5BFD200103F2A /* BluffMastrUITests.swift */,
+				CBDA412B1CD5BFD200103F2A /* Info.plist */,
+			);
+			path = BluffMastrUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBDA41021CD5BFD200103F2A /* BluffMastr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBDA412E1CD5BFD200103F2A /* Build configuration list for PBXNativeTarget "BluffMastr" */;
+			buildPhases = (
+				CBDA40FF1CD5BFD200103F2A /* Sources */,
+				CBDA41001CD5BFD200103F2A /* Frameworks */,
+				CBDA41011CD5BFD200103F2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BluffMastr;
+			productName = BluffMastr;
+			productReference = CBDA41031CD5BFD200103F2A /* BluffMastr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBDA41191CD5BFD200103F2A /* BluffMastrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBDA41311CD5BFD200103F2A /* Build configuration list for PBXNativeTarget "BluffMastrTests" */;
+			buildPhases = (
+				CBDA41161CD5BFD200103F2A /* Sources */,
+				CBDA41171CD5BFD200103F2A /* Frameworks */,
+				CBDA41181CD5BFD200103F2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBDA411C1CD5BFD200103F2A /* PBXTargetDependency */,
+			);
+			name = BluffMastrTests;
+			productName = BluffMastrTests;
+			productReference = CBDA411A1CD5BFD200103F2A /* BluffMastrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CBDA41241CD5BFD200103F2A /* BluffMastrUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBDA41341CD5BFD200103F2A /* Build configuration list for PBXNativeTarget "BluffMastrUITests" */;
+			buildPhases = (
+				CBDA41211CD5BFD200103F2A /* Sources */,
+				CBDA41221CD5BFD200103F2A /* Frameworks */,
+				CBDA41231CD5BFD200103F2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBDA41271CD5BFD200103F2A /* PBXTargetDependency */,
+			);
+			name = BluffMastrUITests;
+			productName = BluffMastrUITests;
+			productReference = CBDA41251CD5BFD200103F2A /* BluffMastrUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBDA40FB1CD5BFD100103F2A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Srikant Viswanath";
+				TargetAttributes = {
+					CBDA41021CD5BFD200103F2A = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					CBDA41191CD5BFD200103F2A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = CBDA41021CD5BFD200103F2A;
+					};
+					CBDA41241CD5BFD200103F2A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = CBDA41021CD5BFD200103F2A;
+					};
+				};
+			};
+			buildConfigurationList = CBDA40FE1CD5BFD100103F2A /* Build configuration list for PBXProject "BluffMastr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CBDA40FA1CD5BFD100103F2A;
+			productRefGroup = CBDA41041CD5BFD200103F2A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBDA41021CD5BFD200103F2A /* BluffMastr */,
+				CBDA41191CD5BFD200103F2A /* BluffMastrTests */,
+				CBDA41241CD5BFD200103F2A /* BluffMastrUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBDA41011CD5BFD200103F2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBDA41141CD5BFD200103F2A /* LaunchScreen.storyboard in Resources */,
+				CBDA41111CD5BFD200103F2A /* Assets.xcassets in Resources */,
+				CBDA410C1CD5BFD200103F2A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDA41181CD5BFD200103F2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDA41231CD5BFD200103F2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBDA40FF1CD5BFD200103F2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBDA41091CD5BFD200103F2A /* ViewController.swift in Sources */,
+				CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */,
+				CBDA410F1CD5BFD200103F2A /* BluffMastr.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDA41161CD5BFD200103F2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBDA411F1CD5BFD200103F2A /* BluffMastrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDA41211CD5BFD200103F2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBDA412A1CD5BFD200103F2A /* BluffMastrUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBDA411C1CD5BFD200103F2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBDA41021CD5BFD200103F2A /* BluffMastr */;
+			targetProxy = CBDA411B1CD5BFD200103F2A /* PBXContainerItemProxy */;
+		};
+		CBDA41271CD5BFD200103F2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBDA41021CD5BFD200103F2A /* BluffMastr */;
+			targetProxy = CBDA41261CD5BFD200103F2A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CBDA410A1CD5BFD200103F2A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBDA410B1CD5BFD200103F2A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CBDA41121CD5BFD200103F2A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBDA41131CD5BFD200103F2A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CBDA412C1CD5BFD200103F2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBDA412D1CD5BFD200103F2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBDA412F1CD5BFD200103F2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BluffMastr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "viswanath-srikant.BluffMastr";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CBDA41301CD5BFD200103F2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BluffMastr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "viswanath-srikant.BluffMastr";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CBDA41321CD5BFD200103F2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BluffMastrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "viswanath-srikant.BluffMastrTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluffMastr.app/BluffMastr";
+			};
+			name = Debug;
+		};
+		CBDA41331CD5BFD200103F2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BluffMastrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "viswanath-srikant.BluffMastrTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluffMastr.app/BluffMastr";
+			};
+			name = Release;
+		};
+		CBDA41351CD5BFD200103F2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BluffMastrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "viswanath-srikant.BluffMastrUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BluffMastr;
+			};
+			name = Debug;
+		};
+		CBDA41361CD5BFD200103F2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BluffMastrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "viswanath-srikant.BluffMastrUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BluffMastr;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBDA40FE1CD5BFD100103F2A /* Build configuration list for PBXProject "BluffMastr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBDA412C1CD5BFD200103F2A /* Debug */,
+				CBDA412D1CD5BFD200103F2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBDA412E1CD5BFD200103F2A /* Build configuration list for PBXNativeTarget "BluffMastr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBDA412F1CD5BFD200103F2A /* Debug */,
+				CBDA41301CD5BFD200103F2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CBDA41311CD5BFD200103F2A /* Build configuration list for PBXNativeTarget "BluffMastrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBDA41321CD5BFD200103F2A /* Debug */,
+				CBDA41331CD5BFD200103F2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CBDA41341CD5BFD200103F2A /* Build configuration list for PBXNativeTarget "BluffMastrUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBDA41351CD5BFD200103F2A /* Debug */,
+				CBDA41361CD5BFD200103F2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CBDA410D1CD5BFD200103F2A /* BluffMastr.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CBDA410E1CD5BFD200103F2A /* BluffMastr.xcdatamodel */,
+			);
+			currentVersion = CBDA410E1CD5BFD200103F2A /* BluffMastr.xcdatamodel */;
+			path = BluffMastr.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CBDA40FB1CD5BFD100103F2A /* Project object */;
+}
