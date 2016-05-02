@@ -20,6 +20,7 @@ class ViewController: UIViewController {
            3. Display the gameTokenId for the game in StagingVC
            4. SHow the masterUser as the first player in the room
          */
+        print("Something Fishy!!")
         performSegueWithIdentifier(SEGUE_LANDING_STAGING, sender: nil)
     }
     
