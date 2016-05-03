@@ -23,7 +23,7 @@ class StagingVC: UIViewController {
         if isGameCreator! {
             joinerStaticLbl.hidden = true
             codeEnteredTxt.hidden = true
-            
+            joinBtn.hidden = true
         } else {
             createdGameCode.hidden = true
             creatorStaticLbl.hidden = true
