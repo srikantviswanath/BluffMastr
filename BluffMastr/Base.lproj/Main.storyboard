@@ -9,7 +9,7 @@
         <!--LandingVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="LandingVC" customClass="ViewController" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="LandingVC" customClass="LandingVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -156,6 +156,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="peI-Xj-f3y"/>
                     <connections>
+                        <outlet property="screenNameTxt" destination="1Pe-Cs-NxQ" id="0uW-hF-kif"/>
                         <segue destination="nNm-V0-MeH" kind="showDetail" identifier="LandingToStaging" id="7ZZ-nX-YNF"/>
                     </connections>
                 </viewController>
@@ -219,7 +220,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xbg-7R-GYl" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="20" y="82" width="560" height="177"/>
+                                <rect key="frame" x="20" y="82" width="560" height="187"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UEB-pb-KRo">
                                         <rect key="frame" x="8" y="33" width="544" height="112"/>
@@ -237,12 +238,12 @@
                                                         <rect key="frame" x="0.0" y="28" width="544" height="30"/>
                                                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-sm-xLh">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-sm-xLh">
                                                 <rect key="frame" x="0.0" y="58" width="544" height="54"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share the following code with other players:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-h0-osX">
@@ -251,7 +252,7 @@
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="qwertyui" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6G-i9-9Lw">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qwertyui" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6G-i9-9Lw">
                                                         <rect key="frame" x="0.0" y="28" width="544" height="26"/>
                                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                                         <color key="textColor" red="0.82745098039215681" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
@@ -261,14 +262,40 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Io0-bs-ITa" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                        <rect key="frame" x="252" y="153" width="49" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="BFp-j2-jcM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
+                                        <state key="normal" title="JOIN">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="joinGame:" destination="nNm-V0-MeH" eventType="touchUpInside" id="JZR-qo-NHp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="CKe-VM-LhT"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="UEB-pb-KRo" secondAttribute="trailing" id="DOM-pL-phk"/>
+                                    <constraint firstItem="Io0-bs-ITa" firstAttribute="top" secondItem="UEB-pb-KRo" secondAttribute="bottom" constant="8" id="HXf-Rj-bM4"/>
+                                    <constraint firstAttribute="height" constant="185" id="V1Q-dh-Kfb"/>
+                                    <constraint firstItem="Io0-bs-ITa" firstAttribute="centerX" secondItem="xbg-7R-GYl" secondAttribute="centerX" id="goE-l8-USe"/>
                                     <constraint firstItem="UEB-pb-KRo" firstAttribute="leading" secondItem="xbg-7R-GYl" secondAttribute="leadingMargin" id="iMa-26-F0a"/>
                                     <constraint firstItem="UEB-pb-KRo" firstAttribute="centerY" secondItem="xbg-7R-GYl" secondAttribute="centerY" id="mMK-wQ-k5w"/>
+                                    <constraint firstAttribute="height" constant="190" id="odd-uQ-DQF"/>
                                     <constraint firstAttribute="height" constant="175" id="ptZ-dX-Pox"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CKe-VM-LhT"/>
+                                        <exclude reference="V1Q-dh-Kfb"/>
+                                        <exclude reference="ptZ-dX-Pox"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -296,6 +323,7 @@
                         <outlet property="codeEnteredTxt" destination="USl-Qf-MPn" id="q9f-rs-sAR"/>
                         <outlet property="createdGameCode" destination="Q6G-i9-9Lw" id="eQ6-IS-Ujj"/>
                         <outlet property="creatorStaticLbl" destination="4DO-h0-osX" id="RVg-F2-A1i"/>
+                        <outlet property="joinBtn" destination="Io0-bs-ITa" id="cYY-PL-NO9"/>
                         <outlet property="joinerStaticLbl" destination="ppM-1j-WwX" id="TcR-iw-jUE"/>
                     </connections>
                 </viewController>

@@ -8,39 +8,41 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LandingVC: UIViewController {
 
-    var isGameCreator = true
+    @IBOutlet weak var screenNameTxt: UITextField!
     
+    var isGameCreator = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    func showErrorMsg(title: String!, msg: String!){
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+    }
+
+    
     @IBAction func createGame(sender: UIButton!){
-        /* 1. Create a game session in Firebase
-           2. Create an anonymous user session for the master
-           3. Display the gameTokenId for the game in StagingVC
-           4. SHow the masterUser as the first player in the room
-         */
-        FDataService.fDataService.REF_BASE.authAnonymouslyWithCompletionBlock { err, authData in
-            if err != nil {
-                print("Error logging user anonymously")
-            } else {
-                
-            }
-            
+        if let screenName = screenNameTxt.text where screenName != "" {
+            isGameCreator = true
+            performSegueWithIdentifier(SEGUE_LANDING_STAGING, sender: nil)
+        } else {
+            showErrorMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG )
         }
-        isGameCreator = true
-        performSegueWithIdentifier(SEGUE_LANDING_STAGING, sender: nil)
+        
     }
     
     @IBAction func joinGame(sender: UIButton!){
-        /* 1. Enter a gameTokenId and submit
-           2. If successful add the slaveUser to the list of currentPlayers in the room
-         */
-
-        isGameCreator = false
-        performSegueWithIdentifier(SEGUE_LANDING_STAGING, sender: nil)
+        if let screenName = screenNameTxt.text where screenName != "" {
+            isGameCreator = false
+            performSegueWithIdentifier(SEGUE_LANDING_STAGING, sender: nil)
+        } else {
+            showErrorMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
