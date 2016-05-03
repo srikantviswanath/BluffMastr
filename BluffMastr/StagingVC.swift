@@ -10,9 +10,26 @@ import UIKit
 
 class StagingVC: UIViewController {
 
+    var isGameCreator: Bool!
+    
+    @IBOutlet weak var joinerStaticLbl: UILabel!
+    @IBOutlet weak var codeEnteredTxt: UITextField!
+    @IBOutlet weak var creatorStaticLbl: UILabel!
+    @IBOutlet weak var createdGameCode: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if isGameCreator! {
+            joinerStaticLbl.hidden = true
+            codeEnteredTxt.hidden = true
+        } else {
+            createdGameCode.hidden = true
+            creatorStaticLbl.hidden = true
+        }
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        
+    }
+    
 }
