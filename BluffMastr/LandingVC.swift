@@ -49,6 +49,7 @@ class LandingVC: UIViewController {
         if segue.identifier == SEGUE_LANDING_STAGING {
             let destVC = segue.destinationViewController as! StagingVC
             destVC.isGameCreator = isGameCreator
+            destVC.screenTitle = screenNameTxt.text
         }
     }
 

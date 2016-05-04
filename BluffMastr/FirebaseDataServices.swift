@@ -9,17 +9,21 @@
 import Foundation
 import Firebase
 
-let URL_BASE = "https://bluffmastr.firebaseio.com/"
+let URL_BASE = "https://bluffmastr.firebaseio.com"
 
 class FDataService {
     
     static let fDataService = FDataService()
     
     private var _REF_BASE = Firebase(url: "\(URL_BASE)")
-     var _REF_USER = Firebase(url: "\(URL_BASE)users")
+    private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
     
     var REF_BASE: Firebase {
         return _REF_BASE
+    }
+    
+    var REF_USERS: Firebase {
+        return _REF_USERS
     }
     
 }
