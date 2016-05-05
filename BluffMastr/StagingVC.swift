@@ -83,6 +83,10 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    @IBAction func leaveGame(sender: UIButton!){
+        performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
+    }
+    
     /* UITableView delegate methods */
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

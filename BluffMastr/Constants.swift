@@ -15,7 +15,8 @@ let SHADOW_COLOR: CGFloat = 155.0/255.0
 
 /* Segue and TableViewCell constants */
 
-let SEGUE_LANDING_STAGING = "LandingToStaging"
+let SEGUE_CREATE_JOIN_GAME = "CreateOrJoinGame"
+let SEGUE_LEAVE_GAME = "LeaveGame"
 let CELL_PLAYER_IN_ROOM = "PlayerInRoomCell"
 
 /* Error Messages */
