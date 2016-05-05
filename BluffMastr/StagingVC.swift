@@ -77,29 +77,27 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
 
     
+    /*validate the entered code and enter this player in the game room*/
     @IBAction func joinGame(sender: UIButton!){
-        if let gameCode = codeEnteredTxt.text where gameCode != "" {
-            //validate code and enter this player in the game room
-            
-            let ref = FDataService.fDataService.REF_GAMES
-            
-            ref.queryOrderedByChild("sharedToken").queryEqualToValue(gameCode).observeSingleEventOfType(.Value, withBlock: { snapshot in
-                
+        var foundGameUID: String!
+        if let enteredCode = codeEnteredTxt.text where enteredCode != "" {
+            let refGames = FDataService.fDataService.REF_GAMES
+            refGames.queryOrderedByChild(FB_SHARED_TOKEN).queryEqualToValue(enteredCode).observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if snapshot.value is NSNull {
-                    print("shared token not found.")
+                    self.showErrorMsg(ERR_WRONG_CODE_TITLE, msg: ERR_WRONG_CODE_MSG)
                 } else {
-                    var temp: String = "nil"
                     if let gameDict = snapshot.value as? Dictionary<String, AnyObject> {
-                        temp = Array(gameDict.keys)[0]
+                        foundGameUID = Array(gameDict.keys)[0]
                     }
-                    
-                    let thisGameRef = ref.childByAppendingPath(temp + "/gameMembers")
+                    let thisGameRef = refGames.childByAppendingPath("\(foundGameUID)/\(FB_GAME_MEMBERS)")
                     thisGameRef.updateChildValues([self.screenTitle:true], withCompletionBlock:{ error, ref in
-                        self.playersInRoom.append(self.screenTitle)
+                        if error != nil {
+                            self.showErrorMsg(ERR_JOIN_GAME_TITLE, msg: "\(ERR_JOIN_GAME_MSG)\(enteredCode)")
+                        } else {
+                            self.playersInRoom.append(self.screenTitle)
+                        }
                     })
-                    
                 }
-                
             })
             
         } else {
