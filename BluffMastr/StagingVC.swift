@@ -22,6 +22,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var isGameCreator: Bool!
     var screenTitle: String!
+    var sharedGameToken: String!
     var playersInRoom = [String]()
     
     override func viewDidLoad() {
@@ -45,6 +46,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if self.playersInRoom.count < 3 {
                 self.startBtn.enabled = false
                 self.statusLbl.text = STATUS_NEED_MORE_PLAYERS
+                self.createdGameCode.text = sharedGameToken
             } else {
                 self.startBtn.enabled = true
                 self.statusLbl.text = STATUS_START_GAME
@@ -78,6 +80,28 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBAction func joinGame(sender: UIButton!){
         if let gameCode = codeEnteredTxt.text where gameCode != "" {
             //validate code and enter this player in the game room
+            
+            let ref = FDataService.fDataService.REF_GAMES
+            
+            ref.queryOrderedByChild("sharedToken").queryEqualToValue(gameCode).observeSingleEventOfType(.Value, withBlock: { snapshot in
+                
+                if snapshot.value is NSNull {
+                    print("shared token not found.")
+                } else {
+                    var temp: String = "nil"
+                    if let gameDict = snapshot.value as? Dictionary<String, AnyObject> {
+                        temp = Array(gameDict.keys)[0]
+                    }
+                    
+                    let thisGameRef = ref.childByAppendingPath(temp + "/gameMembers")
+                    thisGameRef.updateChildValues([self.screenTitle:true], withCompletionBlock:{ error, ref in
+                        self.playersInRoom.append(self.screenTitle)
+                    })
+                    
+                }
+                
+            })
+            
         } else {
             showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
         }
