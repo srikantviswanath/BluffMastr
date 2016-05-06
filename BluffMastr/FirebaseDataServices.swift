@@ -47,17 +47,13 @@ class FDataService {
         _REF_USERS.childByAppendingPath(authData.uid).setValue(userDict)
     }
     
-    func createGame(gameMember: [String: String]) -> String {
-        
-        // https://<YOUR-FIREBASE-APP>.firebaseio.com/games/<auto-id>
-        let gameRef = _REF_GAMES.childByAutoId()
-        
+    func createGame(gameCaptain: String) -> String {
+        let gameRef = REF_GAMES.childByAutoId()
         let gameID = gameRef.key
         let sharedTokenID = gameID.substringFromIndex(gameID.endIndex.advancedBy(-6))
         
         gameRef.setValue(["sharedToken": sharedTokenID])
-        gameRef.updateChildValues((gameMember))
-        
+        gameRef.childByAppendingPath(FB_GAME_MEMBERS).updateChildValues([gameCaptain:true])
         return sharedTokenID
     }
 }

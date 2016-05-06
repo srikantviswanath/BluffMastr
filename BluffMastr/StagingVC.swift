@@ -89,8 +89,8 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     if let gameDict = snapshot.value as? Dictionary<String, AnyObject> {
                         foundGameUID = Array(gameDict.keys)[0]
                     }
-                    let thisGameRef = refGames.childByAppendingPath("\(foundGameUID)/\(FB_GAME_MEMBERS)")
-                    thisGameRef.updateChildValues([self.screenTitle:true], withCompletionBlock:{ error, ref in
+                    let thisGameMembersRef = refGames.childByAppendingPath("\(foundGameUID)/\(FB_GAME_MEMBERS)")
+                    thisGameMembersRef.updateChildValues([self.screenTitle:true], withCompletionBlock:{ error, ref in
                         if error != nil {
                             self.showErrorMsg(ERR_JOIN_GAME_TITLE, msg: "\(ERR_JOIN_GAME_MSG)\(enteredCode)")
                         } else {

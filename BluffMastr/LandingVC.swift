@@ -46,10 +46,7 @@ class LandingVC: UIViewController {
                     FDataService.fDataService.createNewUser(authData, userDict: newUser)
                 }
             }
-            
-            let gameMembers = ["gameMembers":screenName]
-            
-            sharedGameToken = FDataService.fDataService.createGame(gameMembers)
+            sharedGameToken = FDataService.fDataService.createGame(screenName)
             
             performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
         } else {
