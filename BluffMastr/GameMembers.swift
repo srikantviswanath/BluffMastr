@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class GameMembers {
     
@@ -17,11 +18,12 @@ class GameMembers {
         gameMembersRef.updateChildValues([newMember: true])
     }
     
-    func observeNewMembersAdded() {
+    func observeNewMembersAdded(completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(Games.gameUID).observeEventType(.ChildAdded, withBlock: { snapshot in
             if let screenName = snapshot.key {
                 StagingVC.playersInRoom.append(screenName)
             }
+          completed()
         })
     }
 }

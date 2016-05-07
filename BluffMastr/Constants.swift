@@ -40,6 +40,10 @@ let STATUS_WAITING_TO_START = "Waiting for Captain to start the game..."
 let STATUS_NEED_MORE_PLAYERS = "Waiting for more players to join..."
 let STATUS_START_GAME = "Begin the Bluff Marathon"
 
+/* Comments */
+
+let CMT_GAME_PREP = "Hold your breath. You could be the next BluffMastr!"
+
 /* Service Constants */
 
 let SVC_GAME_CAPTAIN = "gameCaptain"

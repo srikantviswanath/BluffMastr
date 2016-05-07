@@ -32,9 +32,10 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         switchLblsAfterViewLoad()
         
         if isGameCreator! {
-            GameMembers.gameMembers.observeNewMembersAdded()
-            playersTable.reloadData()
-            switchDataDependentLbls()
+            GameMembers.gameMembers.observeNewMembersAdded {
+                self.playersTable.reloadData()
+                self.switchDataDependentLbls()
+            }
         }
     }
     
@@ -51,6 +52,8 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    /* View changing funcs after create/join game and depending on #players */
+    
     func switchLblsAfterViewLoad(){
         barTitle.text = screenTitle
         if isGameCreator! {
@@ -63,6 +66,13 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             statusLbl.text = ""
             startBtn.hidden = true
         }
+    }
+    
+    func changeViewAfterJoin() {
+        statusLbl.text = STATUS_WAITING_TO_START
+        joinBtn.hidden = true
+        codeEnteredTxt.hidden = true
+        joinerStaticLbl.text = CMT_GAME_PREP
     }
     
     //TODO-> This code is being repeated. Solution??
@@ -78,9 +88,10 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBAction func joinGame(sender: UIButton!){
         if let enteredCode = codeEnteredTxt.text where enteredCode != "" {
             Games.games.joinGame(enteredCode, gameSlave: self.screenTitle) {
-                GameMembers.gameMembers.observeNewMembersAdded()
-                self.playersTable.reloadData()
-                self.statusLbl.text = STATUS_WAITING_TO_START
+                GameMembers.gameMembers.observeNewMembersAdded {
+                    self.playersTable.reloadData()
+                    self.changeViewAfterJoin()
+                }
             }
         } else {
             ErrorHandler.errorHandler.showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
