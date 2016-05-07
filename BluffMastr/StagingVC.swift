@@ -77,10 +77,11 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     /*validate the entered code and enter this player in the game room*/
     @IBAction func joinGame(sender: UIButton!){
         if let enteredCode = codeEnteredTxt.text where enteredCode != "" {
-            Games.games.joinGame(enteredCode, gameSlave: self.screenTitle)
-            GameMembers.gameMembers.observeNewMembersAdded()
-            self.playersTable.reloadData()
-            self.statusLbl.text = STATUS_WAITING_TO_START
+            Games.games.joinGame(enteredCode, gameSlave: self.screenTitle) {
+                GameMembers.gameMembers.observeNewMembersAdded()
+                self.playersTable.reloadData()
+                self.statusLbl.text = STATUS_WAITING_TO_START
+            }
         } else {
             ErrorHandler.errorHandler.showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
         }

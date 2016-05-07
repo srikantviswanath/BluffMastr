@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/* Custom closures*/
+
+typealias GenericCompletionBlock = () -> ()
+
 /* UI Elements constants */
 
 let SHADOW_COLOR: CGFloat = 155.0/255.0
