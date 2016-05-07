@@ -36,7 +36,7 @@ let STATUS_WAITING_TO_START = "Waiting for Captain to start the game..."
 let STATUS_NEED_MORE_PLAYERS = "Waiting for more players to join..."
 let STATUS_START_GAME = "Begin the Bluff Marathon"
 
-/* Misc */
+/* Service Constants */
 
-let GAME_ID = "gameID"
+let SERVICE_GAME_CAPTAIN = "gameCaptain"
 

@@ -22,7 +22,6 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var isGameCreator: Bool!
     var screenTitle: String!
-    var newGameInfoDict: Dictionary<String, String>!
     var playersInRoom = [String]()
         
     override func viewDidLoad() {
@@ -33,15 +32,14 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         switchLblsAfterViewLoad()
         
         if isGameCreator! {
-            if let gameUID = newGameInfoDict[GAME_ID] {
-                FDataService.fDataService.REF_GAMES.childByAppendingPath("\(gameUID)/\(FB_GAME_MEMBERS)").observeEventType(.ChildAdded, withBlock: { snapshot in
+            FDataService.fDataService.REF_GAMES.childByAppendingPath("\(Games.gameUID)/\(FB_GAME_MEMBERS)").observeEventType(.ChildAdded, withBlock: { snapshot in
                     if let screenName = snapshot.key {
                         self.playersInRoom.append(screenName)
                         self.playersTable.reloadData()
                         self.switchDataDependentLbls()
                     }
-                })
-            }
+            })
+            
         }
     }
     
@@ -50,7 +48,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if self.playersInRoom.count < 3 {
                 self.startBtn.enabled = false
                 self.statusLbl.text = STATUS_NEED_MORE_PLAYERS
-                self.createdGameCode.text = newGameInfoDict[FB_SHARED_TOKEN]
+                self.createdGameCode.text = Games.sharedToken
             } else {
                 self.startBtn.enabled = true
                 self.statusLbl.text = STATUS_START_GAME

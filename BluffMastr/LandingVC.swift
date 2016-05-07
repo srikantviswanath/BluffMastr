@@ -86,7 +86,6 @@ class LandingVC: UIViewController {
             let destVC = segue.destinationViewController as! StagingVC
             destVC.isGameCreator = isGameCreator
             destVC.screenTitle = screenNameTxt.text
-            destVC.newGameInfoDict = newGameDict
         }
     }
 
