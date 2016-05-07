@@ -13,7 +13,7 @@ class LandingVC: UIViewController {
     @IBOutlet weak var screenNameTxt: UITextField!
     
     var isGameCreator = true
-    var sharedGameToken: String!
+    var newGameDict: Dictionary<String, String>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class LandingVC: UIViewController {
                     FDataService.fDataService.createNewUser(authData, userDict: newUser)
                 }
             }
-            sharedGameToken = FDataService.fDataService.createGame(screenName)
+            newGameDict = FDataService.fDataService.createGame(screenName)
             
             performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
         } else {
@@ -86,7 +86,7 @@ class LandingVC: UIViewController {
             let destVC = segue.destinationViewController as! StagingVC
             destVC.isGameCreator = isGameCreator
             destVC.screenTitle = screenNameTxt.text
-            destVC.sharedGameToken = sharedGameToken
+            destVC.newGameInfoDict = newGameDict
         }
     }
 

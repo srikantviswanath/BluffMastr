@@ -20,6 +20,7 @@ import Firebase
 let URL_BASE = "https://bluffmastr.firebaseio.com/"
 let FB_SHARED_TOKEN = "sharedToken"
 let FB_GAME_MEMBERS = "gameMembers"
+let FB_SCREEN_NAME = "screenName"
 
 class FDataService {
     
@@ -47,14 +48,14 @@ class FDataService {
         _REF_USERS.childByAppendingPath(authData.uid).setValue(userDict)
     }
     
-    func createGame(gameCaptain: String) -> String {
+    func createGame(gameCaptain: String) -> Dictionary<String, String> {
         let gameRef = REF_GAMES.childByAutoId()
         let gameID = gameRef.key
         let sharedTokenID = gameID.substringFromIndex(gameID.endIndex.advancedBy(-6))
         
-        gameRef.setValue(["sharedToken": sharedTokenID])
+        gameRef.setValue([FB_SHARED_TOKEN: sharedTokenID])
         gameRef.childByAppendingPath(FB_GAME_MEMBERS).updateChildValues([gameCaptain:true])
-        return sharedTokenID
+        return [FB_SHARED_TOKEN: sharedTokenID, GAME_ID: gameID]
     }
 }
 
