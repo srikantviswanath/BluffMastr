@@ -22,7 +22,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var isGameCreator: Bool!
     var screenTitle: String!
-    var playersInRoom = [String]()
+    static var playersInRoom = [String]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,21 +32,15 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         switchLblsAfterViewLoad()
         
         if isGameCreator! {
-            //TODO: This peice of code should be moved to Service. But, can it be done?
-            FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(Games.gameUID).observeEventType(.ChildAdded, withBlock: { snapshot in
-                    if let screenName = snapshot.key {
-                        self.playersInRoom.append(screenName)
-                        self.playersTable.reloadData()
-                        self.switchDataDependentLbls()
-                    }
-            })
-            
+            GameMembers.gameMembers.observeNewMembersAdded()
+            playersTable.reloadData()
+            switchDataDependentLbls()
         }
     }
     
     func switchDataDependentLbls(){
         if (isGameCreator!) {
-            if self.playersInRoom.count < 3 {
+            if StagingVC.playersInRoom.count < 3 {
                 self.startBtn.enabled = false
                 self.statusLbl.text = STATUS_NEED_MORE_PLAYERS
                 self.createdGameCode.text = Games.sharedToken
@@ -66,7 +60,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         } else {
             createdGameCode.hidden = true
             creatorStaticLbl.hidden = true
-            statusLbl.text = STATUS_WAITING_TO_START
+            statusLbl.text = ""
             startBtn.hidden = true
         }
     }
@@ -84,10 +78,9 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBAction func joinGame(sender: UIButton!){
         if let enteredCode = codeEnteredTxt.text where enteredCode != "" {
             Games.games.joinGame(enteredCode, gameSlave: self.screenTitle)
-            //TODO: adding player without completion block in GameMembers
-            //Bug: Captain is not displayed in the list of players in a room.
-            self.playersInRoom.append(self.screenTitle)
+            GameMembers.gameMembers.observeNewMembersAdded()
             self.playersTable.reloadData()
+            self.statusLbl.text = STATUS_WAITING_TO_START
         } else {
             ErrorHandler.errorHandler.showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
         }
@@ -103,12 +96,12 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return playersInRoom.count
+        return StagingVC.playersInRoom.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = playersTable.dequeueReusableCellWithIdentifier(CELL_PLAYER_IN_ROOM) as? PlayerInRoomCell {
-            cell.configureCell(playersInRoom[indexPath.row])
+            cell.configureCell(StagingVC.playersInRoom[indexPath.row])
             return cell
         } else {
             return UITableViewCell()
@@ -118,9 +111,8 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBAction func startGame(sender: UIButton) {
         // Bug: Button not firing.
         // Mark a random person as BluffMaster
-        let randomNumber = Int(arc4random_uniform(UInt32(playersInRoom.count)))
-        print(playersInRoom.count)
-        Games.games.updateGame(SERVICE_GAME_BLUFFMASTER, person: self.playersInRoom[randomNumber])
+        let randomNumber = Int(arc4random_uniform(UInt32(StagingVC.playersInRoom.count)))
+        Games.games.updateGameInfo(SVC_GAME_BLUFFMASTER, person: StagingVC.playersInRoom[randomNumber])
     }
     
 }

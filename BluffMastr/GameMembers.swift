@@ -12,8 +12,16 @@ class GameMembers {
     
     static var gameMembers = GameMembers()
     
-    func joinGameMembers(newMember: [String:Bool], gameID: String = Games.gameUID) {
+    func addMemberToRoom(newMember: String!, gameID: String = Games.gameUID) {
         let gameMembersRef = FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(gameID)
-        gameMembersRef.updateChildValues(newMember)
+        gameMembersRef.updateChildValues([newMember: true])
+    }
+    
+    func observeNewMembersAdded() {
+        FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(Games.gameUID).observeEventType(.ChildAdded, withBlock: { snapshot in
+            if let screenName = snapshot.key {
+                StagingVC.playersInRoom.append(screenName)
+            }
+        })
     }
 }

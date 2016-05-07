@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Users {
     
@@ -19,13 +20,9 @@ class Users {
                 NSLog("There was an error logging in anonymously")
             } else {
                 // User successfully authenticated anonymously...
-                let newUser = [
-                    "provider": authData.provider,
-                    "screenName": screenName
-                ]
-                FDataService.fDataService.REF_USERS.childByAppendingPath(authData.uid).setValue(newUser)
+                let newUserDict = [SVC_PROVIDER: authData.provider, SVC_SCREEN_NAME: screenName]
+                FDataService.fDataService.REF_USERS.childByAppendingPath(authData.uid).setValue(newUserDict)
             }
         }
     }
-    
 }

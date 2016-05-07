@@ -18,7 +18,6 @@ import Foundation
 import Firebase
 
 let URL_BASE = "https://bluffmastr.firebaseio.com"
-let FB_SHARED_TOKEN = "sharedToken"
 let FB_GAME_MEMBERS = "gameMembers"
 let FB_SCREEN_NAME = "screenName"
 

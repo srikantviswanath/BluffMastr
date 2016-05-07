@@ -38,6 +38,10 @@ let STATUS_START_GAME = "Begin the Bluff Marathon"
 
 /* Service Constants */
 
-let SERVICE_GAME_CAPTAIN = "gameCaptain"
-let SERVICE_GAME_BLUFFMASTER = "gameMaster"
+let SVC_GAME_CAPTAIN = "gameCaptain"
+let SVC_GAME_BLUFFMASTER = "gameBluffMaster"
+let SVC_PROVIDER = "provider"
+let SVC_SCREEN_NAME = "screenName"
+let SVC_SHARED_TOKEN = "sharedToken"
+
 

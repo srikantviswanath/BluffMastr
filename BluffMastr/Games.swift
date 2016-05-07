@@ -34,31 +34,34 @@ class Games {
         let gameRef = Games.REF_GAMES_BASE.childByAutoId()
         Games.gameUID = gameRef.key
         Games.sharedToken = Games.gameUID.substringFromIndex(Games.gameUID.endIndex.advancedBy(-6))
-        gameRef.setValue([FB_SHARED_TOKEN: Games.sharedToken])
-        updateGame(SERVICE_GAME_CAPTAIN, person: gameCaptain)
+        gameRef.setValue([SVC_SHARED_TOKEN: Games.sharedToken])
+        updateGameInfo(SVC_GAME_CAPTAIN, person: gameCaptain)
+        GameMembers.gameMembers.addMemberToRoom(gameCaptain)
     }
     
-    func updateGame(attribute: String, person: String) {
+    func updateGameInfo(attribute: String, person: String) {
         let gameRef = Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID)
         
         switch attribute {
-        case SERVICE_GAME_CAPTAIN:
-            gameRef.updateChildValues([SERVICE_GAME_CAPTAIN: person])
-        case SERVICE_GAME_BLUFFMASTER:
-            gameRef.updateChildValues([SERVICE_GAME_BLUFFMASTER: person])
+        case SVC_GAME_CAPTAIN:
+            gameRef.updateChildValues([SVC_GAME_CAPTAIN: person])
+        case SVC_GAME_BLUFFMASTER:
+            gameRef.updateChildValues([SVC_GAME_BLUFFMASTER: person])
         default:
             print("Internal Error in UpdateGame")
         }
     }
     
     func joinGame(enteredCode: String, gameSlave: String) {
-        Games.REF_GAMES_BASE.queryOrderedByChild(FB_SHARED_TOKEN).queryEqualToValue(enteredCode).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        Games.REF_GAMES_BASE.queryOrderedByChild(SVC_SHARED_TOKEN).queryEqualToValue(enteredCode).observeSingleEventOfType(.Value, withBlock: { snapshot in
             if snapshot.exists() {
                 for child in snapshot.children {
-                    GameMembers.gameMembers.joinGameMembers([gameSlave: true], gameID: child.key!!)
+                    Games.gameUID = child.key!!
+                    GameMembers.gameMembers.addMemberToRoom(gameSlave)
                 }
             } else {
                 ErrorHandler.errorHandler.showErrorMsg(ERR_WRONG_CODE_TITLE, msg: ERR_WRONG_CODE_MSG)
+                print("Couldnt add member to gameRoom")
             }
         })
     }

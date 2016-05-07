@@ -30,9 +30,9 @@ class LandingVC: UIViewController {
     @IBAction func createGame(sender: UIButton!){
         if let screenName = screenNameTxt.text where screenName != "" {
             isGameCreator = true
+            StagingVC.playersInRoom = []
             Users.users.createAnonymousUser(screenName)
             Games.games.createGame(screenName)
-            GameMembers.gameMembers.joinGameMembers([screenName:true])
             performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
         } else {
             showErrorMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG )
@@ -43,6 +43,7 @@ class LandingVC: UIViewController {
     @IBAction func joinGame(sender: UIButton!){
         if let screenName = screenNameTxt.text where screenName != "" {
             isGameCreator = false
+            StagingVC.playersInRoom = []
             Users.users.createAnonymousUser(screenName)
             performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
         } else {
