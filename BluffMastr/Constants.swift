@@ -39,4 +39,5 @@ let STATUS_START_GAME = "Begin the Bluff Marathon"
 /* Service Constants */
 
 let SERVICE_GAME_CAPTAIN = "gameCaptain"
+let SERVICE_GAME_BLUFFMASTER = "gameMaster"
 

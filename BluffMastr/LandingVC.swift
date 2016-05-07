@@ -30,24 +30,9 @@ class LandingVC: UIViewController {
     @IBAction func createGame(sender: UIButton!){
         if let screenName = screenNameTxt.text where screenName != "" {
             isGameCreator = true
-            
-            //Create anonymous session for the screenname.
-            FDataService.fDataService.REF_BASE.authAnonymouslyWithCompletionBlock { error, authData in
-                if error != nil {
-                    NSLog("There was an error logging in anonymously")
-                } else {
-                    // User successfully authenticated anonymously...
-                    
-                    let newUser = [
-                        "provider": authData.provider,
-                        "screenName": screenName
-                    ]
-                    
-                    FDataService.fDataService.createNewUser(authData, userDict: newUser)
-                }
-            }
+            Users.users.createAnonymousUser(screenName)
             Games.games.createGame(screenName)
-            
+            GameMembers.gameMembers.joinGameMembers([screenName:true])
             performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
         } else {
             showErrorMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG )
@@ -58,23 +43,7 @@ class LandingVC: UIViewController {
     @IBAction func joinGame(sender: UIButton!){
         if let screenName = screenNameTxt.text where screenName != "" {
             isGameCreator = false
-            
-            //Create anonymous session for the screenname.
-            FDataService.fDataService.REF_BASE.authAnonymouslyWithCompletionBlock { error, authData in
-                if error != nil {
-                    NSLog("There was an error logging in anonymously")
-                } else {
-                    // User successfully authenticated anonymously...
-                    
-                    let newUser = [
-                        "provider": authData.provider,
-                        "screenName": screenName
-                    ]
-                    
-                    FDataService.fDataService.createNewUser(authData, userDict: newUser)
-                }
-            }
-            
+            Users.users.createAnonymousUser(screenName)
             performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
         } else {
             showErrorMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG)

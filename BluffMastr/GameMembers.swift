@@ -10,4 +10,10 @@ import Foundation
 
 class GameMembers {
     
+    static var gameMembers = GameMembers()
+    
+    func joinGameMembers(newMember: [String:Bool], gameID: String = Games.gameUID) {
+        let gameMembersRef = FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(gameID)
+        gameMembersRef.updateChildValues(newMember)
+    }
 }

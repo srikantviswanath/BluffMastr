@@ -32,7 +32,8 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         switchLblsAfterViewLoad()
         
         if isGameCreator! {
-            FDataService.fDataService.REF_GAMES.childByAppendingPath("\(Games.gameUID)/\(FB_GAME_MEMBERS)").observeEventType(.ChildAdded, withBlock: { snapshot in
+            //TODO: This peice of code should be moved to Service. But, can it be done?
+            FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(Games.gameUID).observeEventType(.ChildAdded, withBlock: { snapshot in
                     if let screenName = snapshot.key {
                         self.playersInRoom.append(screenName)
                         self.playersTable.reloadData()
@@ -44,7 +45,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func switchDataDependentLbls(){
-        if isGameCreator! {
+        if (isGameCreator!) {
             if self.playersInRoom.count < 3 {
                 self.startBtn.enabled = false
                 self.statusLbl.text = STATUS_NEED_MORE_PLAYERS
@@ -81,29 +82,14 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     /*validate the entered code and enter this player in the game room*/
     @IBAction func joinGame(sender: UIButton!){
-        var foundGameUID: String!
         if let enteredCode = codeEnteredTxt.text where enteredCode != "" {
-            let refGames = FDataService.fDataService.REF_GAMES
-            refGames.queryOrderedByChild(FB_SHARED_TOKEN).queryEqualToValue(enteredCode).observeSingleEventOfType(.Value, withBlock: { snapshot in
-                if snapshot.value is NSNull {
-                    self.showErrorMsg(ERR_WRONG_CODE_TITLE, msg: ERR_WRONG_CODE_MSG)
-                } else {
-                    if let gameDict = snapshot.value as? Dictionary<String, AnyObject> {
-                        foundGameUID = Array(gameDict.keys)[0]
-                    }
-                    let thisGameMembersRef = refGames.childByAppendingPath("\(foundGameUID)/\(FB_GAME_MEMBERS)")
-                    thisGameMembersRef.updateChildValues([self.screenTitle:true], withCompletionBlock:{ error, ref in
-                        if error != nil {
-                            self.showErrorMsg(ERR_JOIN_GAME_TITLE, msg: "\(ERR_JOIN_GAME_MSG)\(enteredCode)")
-                        } else {
-                            self.playersInRoom.append(self.screenTitle)
-                        }
-                    })
-                }
-            })
-            
+            Games.games.joinGame(enteredCode, gameSlave: self.screenTitle)
+            //TODO: adding player without completion block in GameMembers
+            //Bug: Captain is not displayed in the list of players in a room.
+            self.playersInRoom.append(self.screenTitle)
+            self.playersTable.reloadData()
         } else {
-            showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
+            ErrorHandler.errorHandler.showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
         }
     }
     
@@ -127,6 +113,14 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         } else {
             return UITableViewCell()
         }
+    }
+    
+    @IBAction func startGame(sender: UIButton) {
+        // Bug: Button not firing.
+        // Mark a random person as BluffMaster
+        let randomNumber = Int(arc4random_uniform(UInt32(playersInRoom.count)))
+        print(playersInRoom.count)
+        Games.games.updateGame(SERVICE_GAME_BLUFFMASTER, person: self.playersInRoom[randomNumber])
     }
     
 }

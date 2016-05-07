@@ -28,8 +28,8 @@ class FDataService {
     
     private var _REF_BASE = Firebase(url: "\(URL_BASE)")
     private var _REF_GAMES = Firebase(url: "\(URL_BASE)/games")
-    private var _REF_USERS = Firebase(url: "\(URL_BASE)" + "users")
-    private var _REF_GAME_MEMBERS = Firebase(url: "\(URL_BASE)")
+    private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
+    private var _REF_GAME_MEMBERS = Firebase(url: "\(URL_BASE)/gameMembers")
     
     var REF_BASE: Firebase {
         return _REF_BASE
@@ -43,10 +43,8 @@ class FDataService {
         return _REF_USERS
     }
     
-    func createNewUser(authData: FAuthData!, userDict: [String: String!]) {
-        
-        // https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
-        _REF_USERS.childByAppendingPath(authData.uid).setValue(userDict)
+    var REF_GAME_MEMBERS: Firebase {
+        return _REF_GAME_MEMBERS
     }
     
 }
