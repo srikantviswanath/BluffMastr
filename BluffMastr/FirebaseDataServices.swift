@@ -49,17 +49,6 @@ class FDataService {
         _REF_USERS.childByAppendingPath(authData.uid).setValue(userDict)
     }
     
-    func createGame(gameCaptain: String) -> Dictionary<String, String> {
-        let gameRef = REF_GAMES.childByAutoId()
-        let gameID = gameRef.key
-        let sharedTokenID = gameID.substringFromIndex(gameID.endIndex.advancedBy(-6))
-        
-        gameRef.setValue([FB_SHARED_TOKEN: sharedTokenID])
-        gameRef.childByAppendingPath(FB_GAME_MEMBERS).updateChildValues([gameCaptain:true])
-        return [FB_SHARED_TOKEN: sharedTokenID, GAME_ID: gameID]
-    }
-    
-    
 }
 
 

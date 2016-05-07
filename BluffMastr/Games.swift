@@ -10,4 +10,16 @@ import Foundation
 
 class Games {
     
+    
+    static var gameUID: String!
+    static var sharedToken: String!
+    static var games = Games()
+    
+    func createGame(gameCaptain: String){
+        let gameRef = FDataService.fDataService.REF_GAMES.childByAutoId()
+        Games.gameUID = gameRef.key
+        Games.sharedToken = Games.gameUID.substringFromIndex(Games.gameUID.endIndex.advancedBy(-6))
+        
+        gameRef.setValue([FB_SHARED_TOKEN: Games.sharedToken])
+    }
 }
