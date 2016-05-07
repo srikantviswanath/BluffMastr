@@ -14,6 +14,9 @@
 		CB7CEFCE1CD6FE3F00356DFB /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFCD1CD6FE3F00356DFB /* MaterialButton.swift */; };
 		CB7CEFD01CD700B200356DFB /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFCF1CD700B200356DFB /* MaterialTextField.swift */; };
 		CB7CEFD21CD7055000356DFB /* StagingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFD11CD7055000356DFB /* StagingVC.swift */; };
+		CB89CFAF1CDD7421000D3A7B /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89CFAE1CDD7421000D3A7B /* Games.swift */; };
+		CB89CFB11CDD7434000D3A7B /* GameMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89CFB01CDD7434000D3A7B /* GameMembers.swift */; };
+		CB89CFB31CDD7451000D3A7B /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89CFB21CDD7451000D3A7B /* Users.swift */; };
 		CB8C3A0D1CD9911D0082215D /* PlayerInRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8C3A0C1CD9911D0082215D /* PlayerInRoomCell.swift */; };
 		CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41061CD5BFD200103F2A /* AppDelegate.swift */; };
 		CBDA41091CD5BFD200103F2A /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41081CD5BFD200103F2A /* LandingVC.swift */; };
@@ -52,6 +55,9 @@
 		CB7CEFCD1CD6FE3F00356DFB /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		CB7CEFCF1CD700B200356DFB /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		CB7CEFD11CD7055000356DFB /* StagingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StagingVC.swift; sourceTree = "<group>"; };
+		CB89CFAE1CDD7421000D3A7B /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
+		CB89CFB01CDD7434000D3A7B /* GameMembers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMembers.swift; sourceTree = "<group>"; };
+		CB89CFB21CDD7451000D3A7B /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		CB8C3A0C1CD9911D0082215D /* PlayerInRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInRoomCell.swift; sourceTree = "<group>"; };
 		CBDA41031CD5BFD200103F2A /* BluffMastr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluffMastr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDA41061CD5BFD200103F2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */,
+				CB89CFAE1CDD7421000D3A7B /* Games.swift */,
+				CB89CFB01CDD7434000D3A7B /* GameMembers.swift */,
+				CB89CFB21CDD7451000D3A7B /* Users.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -399,10 +408,13 @@
 				CB7CEFC61CD6DCDA00356DFB /* FirebaseDataServices.swift in Sources */,
 				CB7CEFD01CD700B200356DFB /* MaterialTextField.swift in Sources */,
 				CBDA41091CD5BFD200103F2A /* LandingVC.swift in Sources */,
+				CB89CFAF1CDD7421000D3A7B /* Games.swift in Sources */,
 				CB7CEFC81CD6F1E000356DFB /* MaterialView.swift in Sources */,
 				CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */,
 				CB8C3A0D1CD9911D0082215D /* PlayerInRoomCell.swift in Sources */,
 				CBDA410F1CD5BFD200103F2A /* BluffMastr.xcdatamodeld in Sources */,
+				CB89CFB31CDD7451000D3A7B /* Users.swift in Sources */,
+				CB89CFB11CDD7434000D3A7B /* GameMembers.swift in Sources */,
 				CB7CEFCA1CD6F21300356DFB /* Constants.swift in Sources */,
 				CB7CEFD21CD7055000356DFB /* StagingVC.swift in Sources */,
 			);

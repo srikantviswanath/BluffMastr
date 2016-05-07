@@ -17,7 +17,7 @@
 import Foundation
 import Firebase
 
-let URL_BASE = "https://bluffmastr.firebaseio.com/"
+let URL_BASE = "https://bluffmastr.firebaseio.com"
 let FB_SHARED_TOKEN = "sharedToken"
 let FB_GAME_MEMBERS = "gameMembers"
 let FB_SCREEN_NAME = "screenName"
@@ -27,8 +27,9 @@ class FDataService {
     static let fDataService = FDataService()
     
     private var _REF_BASE = Firebase(url: "\(URL_BASE)")
-    private var _REF_GAMES = Firebase(url: "\(URL_BASE)" + "games")
+    private var _REF_GAMES = Firebase(url: "\(URL_BASE)/games")
     private var _REF_USERS = Firebase(url: "\(URL_BASE)" + "users")
+    private var _REF_GAME_MEMBERS = Firebase(url: "\(URL_BASE)")
     
     var REF_BASE: Firebase {
         return _REF_BASE
@@ -57,6 +58,8 @@ class FDataService {
         gameRef.childByAppendingPath(FB_GAME_MEMBERS).updateChildValues([gameCaptain:true])
         return [FB_SHARED_TOKEN: sharedTokenID, GAME_ID: gameID]
     }
+    
+    
 }
 
 
