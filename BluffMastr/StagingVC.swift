@@ -86,6 +86,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     /*validate the entered code and enter this player in the game room*/
     @IBAction func joinGame(sender: UIButton!){
+        self.view.endEditing(true)
         if let enteredCode = codeEnteredTxt.text where enteredCode != "" {
             Games.games.joinGame(enteredCode, gameSlave: self.screenTitle) {
                 GameMembers.gameMembers.observeNewMembersAdded {
