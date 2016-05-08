@@ -21,6 +21,8 @@ let SHADOW_COLOR: CGFloat = 155.0/255.0
 
 let SEGUE_CREATE_JOIN_GAME = "CreateOrJoinGame"
 let SEGUE_LEAVE_GAME = "LeaveGame"
+let SEGUE_START_GAME = "StartGame"
+
 let CELL_PLAYER_IN_ROOM = "PlayerInRoomCell"
 
 /* Error Messages */
@@ -33,6 +35,8 @@ let ERR_WRONG_CODE_TITLE = "Incorrect Gamecode"
 let ERR_WRONG_CODE_MSG = "Either you or your friend are smoking something fishy"
 let ERR_JOIN_GAME_TITLE = "Error Joining Game"
 let ERR_JOIN_GAME_MSG = "Please try again later. Could not join the room with code"
+let ERR_NEED_PLAYERS_TITLE = "Patience!"
+let ERR_NEED_PLAYERS_MSG = "Need 3 or more players to enjoy bluffin'"
 
 /* Statuses */
 

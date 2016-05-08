@@ -35,11 +35,11 @@ class Games {
         Games.gameUID = gameRef.key
         Games.sharedToken = Games.gameUID.substringFromIndex(Games.gameUID.endIndex.advancedBy(-6))
         gameRef.setValue([SVC_SHARED_TOKEN: Games.sharedToken])
-        updateGameInfo(SVC_GAME_CAPTAIN, person: gameCaptain)
+        updateGameInfo(SVC_GAME_CAPTAIN, person: gameCaptain, completed: {})
         GameMembers.gameMembers.addMemberToRoom(gameCaptain)
     }
     
-    func updateGameInfo(attribute: String, person: String) {
+    func updateGameInfo(attribute: String, person: String, completed: GenericCompletionBlock) {
         let gameRef = Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID)
         
         switch attribute {
@@ -50,6 +50,7 @@ class Games {
         default:
             print("Internal Error in UpdateGame")
         }
+        completed()
     }
     
     func joinGame(enteredCode: String, gameSlave: String, completed: GenericCompletionBlock) {

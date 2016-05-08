@@ -42,7 +42,6 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func switchDataDependentLbls(){
         if (isGameCreator!) {
             if StagingVC.playersInRoom.count < 3 {
-                self.startBtn.enabled = false
                 self.statusLbl.text = STATUS_NEED_MORE_PLAYERS
                 self.createdGameCode.text = Games.sharedToken
             } else {
@@ -122,10 +121,14 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @IBAction func startGame(sender: UIButton) {
-        // Bug: Button not firing.
-        // Mark a random person as BluffMaster
+        // Mark a random member as BluffMaster
+        if StagingVC.playersInRoom.count < 3 {
+            showErrorMsg(ERR_NEED_PLAYERS_TITLE, msg: ERR_NEED_PLAYERS_MSG)
+        }
         let randomNumber = Int(arc4random_uniform(UInt32(StagingVC.playersInRoom.count)))
-        Games.games.updateGameInfo(SVC_GAME_BLUFFMASTER, person: StagingVC.playersInRoom[randomNumber])
+        Games.games.updateGameInfo(SVC_GAME_BLUFFMASTER, person: StagingVC.playersInRoom[randomNumber]) {
+            self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
+        }
     }
     
 }

@@ -476,14 +476,93 @@
                         <outlet property="startBtn" destination="AiY-YF-IDt" id="bcQ-35-eq1"/>
                         <outlet property="statusLbl" destination="LUj-41-oLL" id="NCS-Uq-Rq7"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="LeaveGame" id="JUg-gF-2Gi"/>
+                        <segue destination="Q3O-fW-ESJ" kind="show" identifier="StartGame" id="Wze-wC-5DY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNm-0o-r89" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2268" y="464"/>
         </scene>
+        <!--QuestionVC-->
+        <scene sceneID="G6l-cJ-sId">
+            <objects>
+                <viewController id="Q3O-fW-ESJ" customClass="QuestionVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sgt-tV-QUv"/>
+                        <viewControllerLayoutGuide type="bottom" id="flI-6V-Her"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ugj-FP-w0x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nE-Xj-3Ta">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Round 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkg-vx-2PJ">
+                                        <rect key="frame" x="211" y="30" width="213" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="213" id="r5y-Jp-0yJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hkg-vx-2PJ" firstAttribute="centerX" secondItem="1nE-Xj-3Ta" secondAttribute="centerX" id="2dj-bY-7cg"/>
+                                    <constraint firstAttribute="height" constant="125" id="K8s-Ly-ykB"/>
+                                    <constraint firstItem="hkg-vx-2PJ" firstAttribute="top" secondItem="1nE-Xj-3Ta" secondAttribute="top" constant="30" id="cd7-Yv-jgX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gks-Yc-0p2" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
+                                <rect key="frame" x="20" y="88" width="560" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="KME-Zd-z5n"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytK-3K-RHz">
+                                <rect key="frame" x="0.0" y="555" width="600" height="45"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bluffMastr_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uTV-Gn-9JJ">
+                                        <rect key="frame" x="273" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Ndc-km-FwN"/>
+                                            <constraint firstAttribute="width" constant="45" id="exj-L6-mG3"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uTV-Gn-9JJ" firstAttribute="centerX" secondItem="ytK-3K-RHz" secondAttribute="centerX" id="E3A-Ja-rHo"/>
+                                    <constraint firstAttribute="height" constant="45" id="N3V-eb-uaF"/>
+                                    <constraint firstAttribute="bottom" secondItem="uTV-Gn-9JJ" secondAttribute="bottom" id="U2f-JR-F1m"/>
+                                    <constraint firstItem="uTV-Gn-9JJ" firstAttribute="top" secondItem="ytK-3K-RHz" secondAttribute="top" id="mSe-PR-Z1i"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1nE-Xj-3Ta" secondAttribute="trailing" id="Ahv-Sc-2y9"/>
+                            <constraint firstItem="gks-Yc-0p2" firstAttribute="top" secondItem="sgt-tV-QUv" secondAttribute="bottom" constant="67" id="Cdx-Iw-VLZ"/>
+                            <constraint firstItem="ytK-3K-RHz" firstAttribute="leading" secondItem="Ugj-FP-w0x" secondAttribute="leading" id="EXc-aw-2k2"/>
+                            <constraint firstItem="gks-Yc-0p2" firstAttribute="leading" secondItem="Ugj-FP-w0x" secondAttribute="leadingMargin" id="Ep9-gB-tky"/>
+                            <constraint firstAttribute="trailing" secondItem="ytK-3K-RHz" secondAttribute="trailing" id="RnT-yL-WGL"/>
+                            <constraint firstItem="flI-6V-Her" firstAttribute="top" secondItem="ytK-3K-RHz" secondAttribute="bottom" id="VYW-Pk-Umr"/>
+                            <constraint firstItem="1nE-Xj-3Ta" firstAttribute="top" secondItem="Ugj-FP-w0x" secondAttribute="top" id="bRY-Fo-iNx"/>
+                            <constraint firstItem="gks-Yc-0p2" firstAttribute="trailing" secondItem="Ugj-FP-w0x" secondAttribute="trailingMargin" id="fN1-2s-Fc6"/>
+                            <constraint firstItem="1nE-Xj-3Ta" firstAttribute="leading" secondItem="Ugj-FP-w0x" secondAttribute="leading" id="w0v-6Q-ZBA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15A-hw-DnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3106" y="458"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bluffMastr_icon" width="220" height="220"/>
         <image name="launcherLogo" width="212" height="120"/>
     </resources>
 </document>
