@@ -43,6 +43,10 @@ let ERR_NEED_PLAYERS_MSG = "Need 3 or more players to enjoy bluffin'"
 let STATUS_WAITING_TO_START = "Waiting for Captain to start the game..."
 let STATUS_NEED_MORE_PLAYERS = "Waiting for more players to join..."
 let STATUS_START_GAME = "Begin the Bluff Marathon"
+let STATUS_INNOCENT_TITLE = "Your heart is pure"
+let STATUS_INNOCENT_MSG = "Put on your thinking hat, need to catch the BluffMastr"
+let STATUS_YOU_ARE_BLUFFMATR = "Time to bluff!!"
+
 
 /* Comments */
 

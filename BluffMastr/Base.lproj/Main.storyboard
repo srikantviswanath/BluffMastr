@@ -525,7 +525,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytK-3K-RHz">
                                 <rect key="frame" x="0.0" y="555" width="600" height="45"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bluffMastr_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uTV-Gn-9JJ">
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bluffMastr_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uTV-Gn-9JJ">
                                         <rect key="frame" x="273" y="0.0" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Ndc-km-FwN"/>
@@ -534,12 +534,16 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="uTV-Gn-9JJ" firstAttribute="centerX" secondItem="ytK-3K-RHz" secondAttribute="centerX" id="E3A-Ja-rHo"/>
                                     <constraint firstAttribute="height" constant="45" id="N3V-eb-uaF"/>
                                     <constraint firstAttribute="bottom" secondItem="uTV-Gn-9JJ" secondAttribute="bottom" id="U2f-JR-F1m"/>
                                     <constraint firstItem="uTV-Gn-9JJ" firstAttribute="top" secondItem="ytK-3K-RHz" secondAttribute="top" id="mSe-PR-Z1i"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bbN-Gi-JT7" appends="YES" id="vfy-hn-LR8"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
@@ -557,6 +561,11 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15A-hw-DnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bbN-Gi-JT7">
+                    <connections>
+                        <action selector="cheat:" destination="Q3O-fW-ESJ" id="vuQ-cW-fji"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3106" y="458"/>
         </scene>

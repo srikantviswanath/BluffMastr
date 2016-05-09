@@ -109,8 +109,10 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             showErrorMsg(ERR_NEED_PLAYERS_TITLE, msg: ERR_NEED_PLAYERS_MSG)
         }
         let randomNumber = Int(arc4random_uniform(UInt32(StagingVC.playersInRoom.count)))
-        Games.games.updateGameInfo(SVC_GAME_BLUFFMASTER, person: StagingVC.playersInRoom[randomNumber]) {
+        let bluffMaster = StagingVC.playersInRoom[randomNumber]
+        Games.games.updateGameInfo(SVC_GAME_BLUFFMASTER, person: bluffMaster) {
             self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
+            Games.bluffMastr = bluffMaster
         }
     }
     
