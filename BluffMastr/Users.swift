@@ -12,6 +12,7 @@ import Firebase
 class Users {
     
     static var users = Users()
+    static var myScreenName: String!
     
     func createAnonymousUser(screenName: String) {
         

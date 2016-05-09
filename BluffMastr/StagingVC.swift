@@ -39,19 +39,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func switchDataDependentLbls(){
-        if (isGameCreator!) {
-            if StagingVC.playersInRoom.count < 3 {
-                self.statusLbl.text = STATUS_NEED_MORE_PLAYERS
-                self.createdGameCode.text = Games.sharedToken
-            } else {
-                self.startBtn.enabled = true
-                self.statusLbl.text = STATUS_START_GAME
-            }
-        }
-    }
-    
-    /* View changing funcs after create/join game and depending on #players */
+    /* =======View changing funcs after create/join game and depending on #players======== */
     
     func switchLblsAfterViewLoad(){
         barTitle.text = screenTitle
@@ -64,6 +52,18 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             creatorStaticLbl.hidden = true
             statusLbl.text = ""
             startBtn.hidden = true
+        }
+    }
+
+    func switchDataDependentLbls(){
+        if (isGameCreator!) {
+            if StagingVC.playersInRoom.count < 3 {
+                self.statusLbl.text = STATUS_NEED_MORE_PLAYERS
+                self.createdGameCode.text = Games.sharedToken
+            } else {
+                self.startBtn.enabled = true
+                self.statusLbl.text = STATUS_START_GAME
+            }
         }
     }
     
@@ -82,6 +82,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         presentViewController(alert, animated: true, completion: nil)
     }
 
+    /*==========================IBActions==============================*/
     
     /*validate the entered code and enter this player in the game room*/
     @IBAction func joinGame(sender: UIButton!){
@@ -92,9 +93,24 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     self.playersTable.reloadData()
                     self.changeViewAfterJoin()
                 }
+                Users.myScreenName = self.screenTitle
+                Games.games.listenToGameChanges(SVC_GAME_BLUFFMASTER) { // Game starts as soon as bluffMastr is set for the game
+                    self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
+                }
             }
         } else {
             ErrorHandler.errorHandler.showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
+        }
+    }
+    
+    @IBAction func startGame(sender: UIButton) {
+        // Mark a random member as BluffMaster
+        if StagingVC.playersInRoom.count < 3 {
+            showErrorMsg(ERR_NEED_PLAYERS_TITLE, msg: ERR_NEED_PLAYERS_MSG)
+        }
+        let randomNumber = Int(arc4random_uniform(UInt32(StagingVC.playersInRoom.count)))
+        Games.games.updateGameInfo(SVC_GAME_BLUFFMASTER, person: StagingVC.playersInRoom[randomNumber]) {
+            self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
         }
     }
     
@@ -102,7 +118,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
     }
     
-    /* UITableView delegate methods */
+    /* ==================UITableView delegate methods ============= */
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -119,16 +135,5 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
     }
-    
-    @IBAction func startGame(sender: UIButton) {
-        // Mark a random member as BluffMaster
-        if StagingVC.playersInRoom.count < 3 {
-            showErrorMsg(ERR_NEED_PLAYERS_TITLE, msg: ERR_NEED_PLAYERS_MSG)
-        }
-        let randomNumber = Int(arc4random_uniform(UInt32(StagingVC.playersInRoom.count)))
-        Games.games.updateGameInfo(SVC_GAME_BLUFFMASTER, person: StagingVC.playersInRoom[randomNumber]) {
-            self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
-        }
-    }
-    
+        
 }
