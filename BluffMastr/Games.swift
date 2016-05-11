@@ -10,10 +10,11 @@ import Foundation
 
 class Games {
     
-    
     static var gameUID: String!
     static var bluffMastr: String?
     static var sharedToken: String!
+    static var currentQuestionTitle: String!
+    static var currentQuestionId: Int!
     static var games = Games()
     static var REF_GAMES_BASE = FDataService.fDataService.REF_GAMES
     
@@ -23,11 +24,13 @@ class Games {
         Games.sharedToken = Games.gameUID.substringFromIndex(Games.gameUID.endIndex.advancedBy(-6))
         gameRef.setValue([SVC_SHARED_TOKEN: Games.sharedToken])
         updateGameInfo(SVC_GAME_CAPTAIN, person: gameCaptain, completed: {})
-        Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false])
+        Games.REF_GAMES_BASE.childByAppendingPath(
+            Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false, SVC_CURRENT_QUESTION: false]
+        )
         GameMembers.gameMembers.addMemberToRoom(gameCaptain)
     }
     
-    func updateGameInfo(attribute: String, person: String, completed: GenericCompletionBlock) {
+    func updateGameInfo(attribute: String, person: String, gameDict:Dictionary<String, String>=[:], completed: GenericCompletionBlock) {
         let gameRef = Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID)
         
         switch attribute {
@@ -35,6 +38,8 @@ class Games {
             gameRef.updateChildValues([SVC_GAME_CAPTAIN: person])
         case SVC_GAME_BLUFFMASTER:
             gameRef.updateChildValues([SVC_GAME_BLUFFMASTER: person])
+        case SVC_GAME_DICT:
+            gameRef.updateChildValues(gameDict)
         default:
             print("Internal Error in UpdateGame")
         }
@@ -60,7 +65,9 @@ class Games {
         Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID).observeEventType(.ChildChanged, withBlock: { snapshot in
             switch attribute {
             case SVC_GAME_BLUFFMASTER:
-                if let bluffMaster = snapshot.value as? String {Games.bluffMastr = bluffMaster}
+                if snapshot.key == attribute {Games.bluffMastr = snapshot.value as? String}
+            case SVC_CURRENT_QUESTION:
+                if snapshot.key == attribute {Games.currentQuestionId = Int((snapshot.value as? String)!)}
             default:
                 print("Swag! The gutles don't know what to do yet!Come back later, with a 6 pack")
             }

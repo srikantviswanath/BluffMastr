@@ -17,6 +17,6 @@ class ErrorHandler: UIViewController {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
     }
 }

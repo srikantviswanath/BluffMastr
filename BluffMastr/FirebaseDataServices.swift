@@ -29,6 +29,7 @@ class FDataService {
     private var _REF_GAMES = Firebase(url: "\(URL_BASE)/games")
     private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
     private var _REF_GAME_MEMBERS = Firebase(url: "\(URL_BASE)/gameMembers")
+    private var _REF_QUESTIONS = Firebase(url: "\(URL_BASE)/questions")
     
     var REF_BASE: Firebase {
         return _REF_BASE
@@ -44,6 +45,10 @@ class FDataService {
     
     var REF_GAME_MEMBERS: Firebase {
         return _REF_GAME_MEMBERS
+    }
+    
+    var REF_QUESTIONS: Firebase {
+        return _REF_QUESTIONS
     }
     
 }

@@ -44,8 +44,10 @@ let STATUS_WAITING_TO_START = "Waiting for Captain to start the game..."
 let STATUS_NEED_MORE_PLAYERS = "Waiting for more players to join..."
 let STATUS_START_GAME = "Begin the Bluff Marathon"
 let STATUS_INNOCENT_TITLE = "Your heart is pure"
-let STATUS_INNOCENT_MSG = "Put on your thinking hat, need to catch the BluffMastr"
-let STATUS_YOU_ARE_BLUFFMATR = "Time to bluff!!"
+let STATUS_INNOCENT_MSG = "You are not the BluffMastr. Put on your thinking hat, need to catch the BluffMastr"
+let STATUS_BLUFFMATR_TITLE = "Muhahaha"
+let STATUS_BLUFFMATR_MSG = "Time to Bluff and take your friends for a ride"
+
 
 
 /* Comments */
@@ -59,5 +61,7 @@ let SVC_GAME_BLUFFMASTER = "gameBluffMaster"
 let SVC_PROVIDER = "provider"
 let SVC_SCREEN_NAME = "screenName"
 let SVC_SHARED_TOKEN = "sharedToken"
+let SVC_GAME_DICT = "genericGameDict"
+let SVC_CURRENT_QUESTION = "currentQuestion"
 
 

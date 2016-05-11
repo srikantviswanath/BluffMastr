@@ -73,14 +73,6 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         codeEnteredTxt.hidden = true
         joinerStaticLbl.text = CMT_GAME_PREP
     }
-    
-    //TODO-> This code is being repeated. Solution??
-    func showErrorMsg(title: String!, msg: String!){
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
-    }
 
     /*==========================IBActions==============================*/
     
@@ -106,11 +98,12 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBAction func startGame(sender: UIButton) {
         // Mark a random member as BluffMaster
         if StagingVC.playersInRoom.count < 3 {
-            showErrorMsg(ERR_NEED_PLAYERS_TITLE, msg: ERR_NEED_PLAYERS_MSG)
+            ErrorHandler.errorHandler.showErrorMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG )
         }
-        let randomNumber = Int(arc4random_uniform(UInt32(StagingVC.playersInRoom.count)))
-        let bluffMaster = StagingVC.playersInRoom[randomNumber]
-        Games.games.updateGameInfo(SVC_GAME_BLUFFMASTER, person: bluffMaster) {
+        let randomPlayerNum = Int(arc4random_uniform(UInt32(StagingVC.playersInRoom.count)))
+        let randomQuestionNum = Int(arc4random_uniform(UInt32(2)))
+        let bluffMaster = StagingVC.playersInRoom[randomPlayerNum]
+        Games.games.updateGameInfo(SVC_GAME_DICT, person: "", gameDict: [SVC_GAME_BLUFFMASTER: bluffMaster, SVC_CURRENT_QUESTION: "\(randomQuestionNum)"]) {
             self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
             Games.bluffMastr = bluffMaster
         }

@@ -10,9 +10,21 @@ import UIKit
 
 class QuestionVC: UIViewController {
 
+    @IBOutlet weak var questionLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Questions.questions.listenForNextQuestion{
+            self.questionLbl.text = Games.currentQuestionTitle
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if Games.bluffMastr == Users.myScreenName {
+            showErrorMsg(STATUS_BLUFFMATR_TITLE, msg: STATUS_BLUFFMATR_MSG)
+        } else {
+            showErrorMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
+        }
     }
 
     func showErrorMsg(title: String!, msg: String!){
@@ -23,10 +35,6 @@ class QuestionVC: UIViewController {
     }
     
     @IBAction func cheat(sender: UITapGestureRecognizer) {
-        if Games.bluffMastr == Users.myScreenName {
-            showErrorMsg(STATUS_YOU_ARE_BLUFFMATR, msg: "Here are the answers")
-        } else {
-            showErrorMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
-        }
+        
     }
 }
