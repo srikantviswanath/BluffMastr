@@ -577,9 +577,13 @@
                                     <constraint firstItem="m2k-ek-xfB" firstAttribute="top" secondItem="6hF-AX-2ye" secondAttribute="topMargin" id="msC-EZ-CKT"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOK-wd-UJS" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOK-wd-UJS" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
                                 <rect key="frame" x="265" y="335" width="70" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="HeG-5O-dGe"/>
+                                    <constraint firstAttribute="height" constant="45" id="HuV-8q-Z5D"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
                                 <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Submit"/>
@@ -588,10 +592,12 @@
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1nE-Xj-3Ta" secondAttribute="trailing" id="Ahv-Sc-2y9"/>
+                            <constraint firstItem="GOK-wd-UJS" firstAttribute="top" secondItem="6hF-AX-2ye" secondAttribute="bottom" constant="15" id="CHD-2d-usq"/>
                             <constraint firstItem="gks-Yc-0p2" firstAttribute="top" secondItem="sgt-tV-QUv" secondAttribute="bottom" constant="67" id="Cdx-Iw-VLZ"/>
                             <constraint firstItem="ytK-3K-RHz" firstAttribute="leading" secondItem="Ugj-FP-w0x" secondAttribute="leading" id="EXc-aw-2k2"/>
                             <constraint firstItem="gks-Yc-0p2" firstAttribute="leading" secondItem="Ugj-FP-w0x" secondAttribute="leadingMargin" id="Ep9-gB-tky"/>
                             <constraint firstItem="6hF-AX-2ye" firstAttribute="trailing" secondItem="Ugj-FP-w0x" secondAttribute="trailingMargin" id="KTL-da-jq7"/>
+                            <constraint firstItem="GOK-wd-UJS" firstAttribute="centerX" secondItem="Ugj-FP-w0x" secondAttribute="centerX" id="Ky2-AF-NUf"/>
                             <constraint firstAttribute="trailing" secondItem="ytK-3K-RHz" secondAttribute="trailing" id="RnT-yL-WGL"/>
                             <constraint firstItem="flI-6V-Her" firstAttribute="top" secondItem="ytK-3K-RHz" secondAttribute="bottom" id="VYW-Pk-Umr"/>
                             <constraint firstItem="1nE-Xj-3Ta" firstAttribute="top" secondItem="Ugj-FP-w0x" secondAttribute="top" id="bRY-Fo-iNx"/>

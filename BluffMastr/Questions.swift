@@ -16,9 +16,9 @@ class Questions {
     
     /* Pick up the currentQuestionId from games and get the title from questions/questionId */
     func listenForNextQuestion(completed: GenericCompletionBlock) {
-        Games.games.listenToGameChanges(SVC_CURRENT_QUESTION) {
+        Games.games.fetchGameSnapshot {
             FDataService.fDataService.REF_QUESTIONS.childByAppendingPath("\(Games.currentQuestionId)").observeEventType(.Value, withBlock: { qSnapShot in
-                if let questionTitle = qSnapShot.value as? String {
+                if let questionTitle = qSnapShot.value[SVC_QUESTION_TITLE] as? String {
                     Games.currentQuestionTitle = questionTitle
                     completed()
                 }

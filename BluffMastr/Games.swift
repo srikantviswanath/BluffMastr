@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Games {
     
@@ -25,7 +26,7 @@ class Games {
         gameRef.setValue([SVC_SHARED_TOKEN: Games.sharedToken])
         updateGameInfo(SVC_GAME_CAPTAIN, person: gameCaptain, completed: {})
         Games.REF_GAMES_BASE.childByAppendingPath(
-            Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false, SVC_CURRENT_QUESTION: false]
+            Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false]
         )
         GameMembers.gameMembers.addMemberToRoom(gameCaptain)
     }
@@ -72,6 +73,25 @@ class Games {
                 print("Swag! The gutles don't know what to do yet!Come back later, with a 6 pack")
             }
             completed()
+        })
+    }
+    
+    /* This method will be useful when .Value observance is required, i.e. snapshots at different sample times*/
+    func fetchGameSnapshot(completed: GenericCompletionBlock) {
+        Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID).observeEventType(.Value, withBlock: { gameSS in
+            if let gameChildren = gameSS.children.allObjects as? [FDataSnapshot] {
+                for child in gameChildren {
+                    switch child.key {
+                    case SVC_CURRENT_QUESTION:
+                        Games.currentQuestionId = Int((child.value as? String)!)
+                    case SVC_GAME_BLUFFMASTER:
+                        Games.bluffMastr = child.value as? String
+                    default:
+                        print("Yolo! Default behavious for observing .Value snapshot comes here. Stay tuned")
+                    }
+                    completed()
+                }
+            }
         })
     }
 }

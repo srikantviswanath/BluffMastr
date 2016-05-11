@@ -63,5 +63,6 @@ let SVC_SCREEN_NAME = "screenName"
 let SVC_SHARED_TOKEN = "sharedToken"
 let SVC_GAME_DICT = "genericGameDict"
 let SVC_CURRENT_QUESTION = "currentQuestion"
+let SVC_QUESTION_TITLE = "title"
 
 
