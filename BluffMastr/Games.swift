@@ -16,6 +16,7 @@ class Games {
     static var sharedToken: String!
     static var currentQuestionTitle: String!
     static var currentQuestionId: Int!
+    static var answersDict = Dictionary<String, String>()
     static var games = Games()
     static var REF_GAMES_BASE = FDataService.fDataService.REF_GAMES
     
@@ -76,7 +77,7 @@ class Games {
         })
     }
     
-    /* This method will be useful when .Value observance is required, i.e. snapshots at different sample times*/
+    /* This method will be useful when .Value observance is required, i.e. snapshots at different sample times */
     func fetchGameSnapshot(completed: GenericCompletionBlock) {
         Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID).observeEventType(.Value, withBlock: { gameSS in
             if let gameChildren = gameSS.children.allObjects as? [FDataSnapshot] {

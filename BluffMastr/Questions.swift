@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Firebase
 
 class Questions {
     
@@ -24,5 +24,15 @@ class Questions {
                 }
             })
         }
+    }
+    
+    func fetchAnswerList(completed: GenericCompletionBlock) {
+        FDataService.fDataService.REF_ANSWERS.childByAppendingPath("\(Games.currentQuestionId)").observeEventType(.Value, withBlock: { answersSS in
+                for child in (answersSS.children.allObjects as? [FDataSnapshot])! {
+                    Games.answersDict[child.key!] = child.value as! String
+                }
+            completed()
+            }
+        )
     }
 }

@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/* Gameplay constants */
+let MIN_PLAYERS = 3
+
 /* Custom closures*/
 
 typealias GenericCompletionBlock = () -> ()

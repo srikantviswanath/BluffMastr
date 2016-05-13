@@ -17,6 +17,7 @@ class QuestionVC: UIViewController {
         super.viewDidLoad()
         Questions.questions.listenForNextQuestion{
             self.questionLbl.text = Games.currentQuestionTitle
+            Questions.questions.fetchAnswerList{print(Games.answersDict)}
         }
     }
     

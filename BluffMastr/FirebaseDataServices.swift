@@ -18,8 +18,6 @@ import Foundation
 import Firebase
 
 let URL_BASE = "https://bluffmastr.firebaseio.com"
-let FB_GAME_MEMBERS = "gameMembers"
-let FB_SCREEN_NAME = "screenName"
 
 class FDataService {
     
@@ -30,6 +28,7 @@ class FDataService {
     private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
     private var _REF_GAME_MEMBERS = Firebase(url: "\(URL_BASE)/gameMembers")
     private var _REF_QUESTIONS = Firebase(url: "\(URL_BASE)/questions")
+    private var _REF_ANSWERS = Firebase(url: "\(URL_BASE)/answers")
     
     var REF_BASE: Firebase {
         return _REF_BASE
@@ -49,6 +48,10 @@ class FDataService {
     
     var REF_QUESTIONS: Firebase {
         return _REF_QUESTIONS
+    }
+    
+    var REF_ANSWERS: Firebase {
+        return _REF_ANSWERS
     }
     
 }
