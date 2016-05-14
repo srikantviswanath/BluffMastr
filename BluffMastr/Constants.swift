@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /* Gameplay constants */
-let MIN_PLAYERS = 3
+let MIN_PLAYERS = 1
 
 /* Custom closures*/
 
@@ -26,7 +26,7 @@ let SEGUE_CREATE_JOIN_GAME = "CreateOrJoinGame"
 let SEGUE_LEAVE_GAME = "LeaveGame"
 let SEGUE_START_GAME = "StartGame"
 
-let CELL_PLAYER_IN_ROOM = "PlayerInRoomCell"
+let CUSTOM_CELL = "CustomTableViewCell"
 
 /* Error Messages */
 
@@ -56,6 +56,8 @@ let STATUS_BLUFFMATR_MSG = "Time to Bluff and take your friends for a ride"
 /* Comments */
 
 let CMT_GAME_PREP = "Hold your breath. You could be the next BluffMastr!"
+let MOST_COMMON = "(Most Common)"
+let LEAST_COMMON = "(Least Common)"
 
 /* Service Constants */
 
