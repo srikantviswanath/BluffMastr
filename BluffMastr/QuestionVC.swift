@@ -24,25 +24,18 @@ class QuestionVC: UIViewController {
     
     func alertIfPlayerIsBluffMstr() {
         if isPlayerBluffMastr() {
-            showErrorMsg(STATUS_BLUFFMATR_TITLE, msg: STATUS_BLUFFMATR_MSG)
+            ErrorHandler.errorHandler.showErrorMsg(STATUS_BLUFFMATR_TITLE, msg: STATUS_BLUFFMATR_MSG)
         } else {
-            showErrorMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
+            ErrorHandler.errorHandler.showErrorMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
         }
 
-    }
-
-    func showErrorMsg(title: String!, msg: String!){
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func cheat(sender: UITapGestureRecognizer) {
         if isPlayerBluffMastr(){
            performSegueWithIdentifier("cheatAnswer", sender: nil)
         } else {
-            showErrorMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
+            ErrorHandler.errorHandler.showErrorMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
         }
         
     }
