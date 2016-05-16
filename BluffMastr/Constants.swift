@@ -25,6 +25,7 @@ let SHADOW_COLOR: CGFloat = 155.0/255.0
 let SEGUE_CREATE_JOIN_GAME = "CreateOrJoinGame"
 let SEGUE_LEAVE_GAME = "LeaveGame"
 let SEGUE_START_GAME = "StartGame"
+let SEGUE_FETCH_SCORE = "FetchScore"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 

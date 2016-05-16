@@ -19,7 +19,6 @@ class AnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         answersTable.delegate = self
         answersTable.dataSource = self
         constructAnswersArray()
-        print(answersArray)
     }
     
     func constructAnswersArray() {
@@ -39,10 +38,10 @@ class AnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = answersTable.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
-            switch indexPath.row {
-            case 1:
+            switch answersArray[indexPath.row] {
+            case Games.answersDict["1"]!:
                 cell.configureCell(answersArray[indexPath.row], leadingLbl: MOST_COMMON)
-            case 10:
+            case Games.answersDict["10"]!:
                 cell.configureCell(answersArray[indexPath.row], leadingLbl: LEAST_COMMON)
             default:
                 cell.configureCell(answersArray[indexPath.row])

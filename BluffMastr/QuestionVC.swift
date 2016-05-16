@@ -40,7 +40,9 @@ class QuestionVC: UIViewController {
         
     }
     
-    @IBAction func closeAnswers(segue: UIStoryboardSegue) {
-        
+    @IBAction func hideAnswers(segue: UIStoryboardSegue) {} //For unwinding the modal segue AnswersVC
+    
+    @IBAction func submitPlayerAnswer(sender: UIButton!) {
+        performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)
     }
 }
