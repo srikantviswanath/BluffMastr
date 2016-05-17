@@ -21,3 +21,13 @@ func evaluateScore(answerSubmitted: String) -> String{
     }
     return "0"
 }
+
+func getScorePhrase(playerScore: Int) -> String {
+    if playerScore <= 3 {
+        return STATUS_SCORE_LESS_THAN_3
+    } else if (playerScore > 3 && playerScore < 7) {
+        return STATUS_SCORE_3_TO_7
+    } else {
+        return STATUS_SCORE_MORE_THAN_7
+    }
+}

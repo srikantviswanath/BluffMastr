@@ -18,6 +18,7 @@ class ScoreVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scoreLbl.text = "\(playerScore)"
+        self.scoreDescription.text = "\(getScorePhrase(playerScore)) You scored:"
         Scores.scores.uploadPlayerScore(playerScore)
     }
 

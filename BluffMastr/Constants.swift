@@ -58,6 +58,10 @@ let STATUS_INNOCENT_TITLE = "Your heart is pure"
 let STATUS_INNOCENT_MSG = "You are not the BluffMastr. Put on your thinking hat, need to catch the BluffMastr"
 let STATUS_BLUFFMATR_TITLE = "Muhahaha"
 let STATUS_BLUFFMATR_MSG = "Time to Bluff and take your friends for a ride"
+let STATUS_SCORE_LESS_THAN_3 = "Not Bad."
+let STATUS_SCORE_3_TO_7 = "Good Job."
+let STATUS_SCORE_MORE_THAN_7 = "Great Going."
+
 
 
 
