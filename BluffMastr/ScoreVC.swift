@@ -21,9 +21,15 @@ class ScoreVC: UIViewController {
         Scores.scores.uploadPlayerScore(playerScore)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func revealAnswers(sender: UIButton!) {
+        performSegueWithIdentifier(SEGUE_REVEAL_ANSWERS, sender: nil)
     }
-
+    
+    @IBAction func unwindFromAnswers(segue: UIStoryboardSegue){}
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destVC = segue.destinationViewController as? AnswersVC {
+            destVC.isCheating = false
+        }
+    }
 }

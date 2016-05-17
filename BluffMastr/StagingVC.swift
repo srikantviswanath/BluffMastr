@@ -98,7 +98,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBAction func startGame(sender: UIButton) {
         // Mark a random member as BluffMaster
         if StagingVC.playersInRoom.count < MIN_PLAYERS {
-            ErrorHandler.errorHandler.showErrorMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG)
+            ErrorHandler.errorHandler.showErrorMsg(ERR_NEED_PLAYERS_TITLE, msg: ERR_NEED_PLAYERS_MSG)
             return
         }
         let randomPlayerNum = Int(arc4random_uniform(UInt32(StagingVC.playersInRoom.count)))

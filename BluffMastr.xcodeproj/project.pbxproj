@@ -25,6 +25,7 @@
 		CBC6FDE21CE6D032006CB1C0 /* GameplayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC6FDE11CE6D032006CB1C0 /* GameplayUtils.swift */; };
 		CBC6FDE41CE96844006CB1C0 /* ScoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC6FDE31CE96844006CB1C0 /* ScoreVC.swift */; };
 		CBCFD3211CEAA3EF00C4AD7B /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFD3201CEAA3EF00C4AD7B /* Scores.swift */; };
+		CBCFD3231CEABCC700C4AD7B /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFD3221CEABCC700C4AD7B /* ViewUtil.swift */; };
 		CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41061CD5BFD200103F2A /* AppDelegate.swift */; };
 		CBDA41091CD5BFD200103F2A /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41081CD5BFD200103F2A /* LandingVC.swift */; };
 		CBDA410C1CD5BFD200103F2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDA410A1CD5BFD200103F2A /* Main.storyboard */; };
@@ -73,6 +74,7 @@
 		CBC6FDE11CE6D032006CB1C0 /* GameplayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayUtils.swift; sourceTree = "<group>"; };
 		CBC6FDE31CE96844006CB1C0 /* ScoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreVC.swift; sourceTree = "<group>"; };
 		CBCFD3201CEAA3EF00C4AD7B /* Scores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
+		CBCFD3221CEABCC700C4AD7B /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		CBDA41031CD5BFD200103F2A /* BluffMastr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluffMastr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDA41061CD5BFD200103F2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBDA41081CD5BFD200103F2A /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				CB7CEFC71CD6F1E000356DFB /* MaterialView.swift */,
 				CB7CEFCD1CD6FE3F00356DFB /* MaterialButton.swift */,
 				CB7CEFCF1CD700B200356DFB /* MaterialTextField.swift */,
+				CBCFD3221CEABCC700C4AD7B /* ViewUtil.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				CB89CFAF1CDD7421000D3A7B /* Games.swift in Sources */,
 				CB89CFB71CE2C173000D3A7B /* Questions.swift in Sources */,
 				CB7CEFC81CD6F1E000356DFB /* MaterialView.swift in Sources */,
+				CBCFD3231CEABCC700C4AD7B /* ViewUtil.swift in Sources */,
 				94EDAB2C1CDDC48E00A12321 /* Errors.swift in Sources */,
 				CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */,
 				CB8C3A0D1CD9911D0082215D /* CustomTableViewCell.swift in Sources */,

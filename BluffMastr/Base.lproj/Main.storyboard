@@ -42,10 +42,10 @@
                                 <rect key="frame" x="20" y="87" width="560" height="215"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-PI-dzl">
-                                        <rect key="frame" x="108" y="38" width="344" height="139"/>
+                                        <rect key="frame" x="60" y="38" width="440" height="139"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-9O-eIh" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="344" height="46"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="440" height="46"/>
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
                                                 <state key="normal" title="Create Game">
@@ -56,13 +56,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbA-yX-gMZ">
-                                                <rect key="frame" x="0.0" y="46" width="344" height="47"/>
+                                                <rect key="frame" x="0.0" y="46" width="440" height="47"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxD-Ga-qpv" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="93" width="344" height="46"/>
+                                                <rect key="frame" x="0.0" y="93" width="440" height="46"/>
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
                                                 <state key="normal" title="Join a Game">
@@ -78,11 +78,19 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottomMargin" secondItem="zWb-PI-dzl" secondAttribute="bottom" constant="30" id="35a-Wi-NNW"/>
+                                    <constraint firstItem="zWb-PI-dzl" firstAttribute="leading" secondItem="8OB-AV-xuT" secondAttribute="leading" constant="60" id="3oc-vz-Ccz"/>
                                     <constraint firstItem="zWb-PI-dzl" firstAttribute="leading" secondItem="8OB-AV-xuT" secondAttribute="leadingMargin" constant="100" id="Pqi-3H-bEV"/>
                                     <constraint firstItem="zWb-PI-dzl" firstAttribute="top" secondItem="8OB-AV-xuT" secondAttribute="topMargin" constant="30" id="RHk-Q5-lJG"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="zWb-PI-dzl" secondAttribute="trailing" constant="100" id="X0D-3p-XGE"/>
+                                    <constraint firstAttribute="trailing" secondItem="zWb-PI-dzl" secondAttribute="trailing" constant="60" id="XLm-Wj-oyR"/>
                                     <constraint firstAttribute="height" constant="215" id="YU5-Wn-acO"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Pqi-3H-bEV"/>
+                                        <exclude reference="X0D-3p-XGE"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YA5-fr-Dvv" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
                                 <rect key="frame" x="20" y="321" width="560" height="61"/>
@@ -162,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="400"/>
+            <point key="canvasLocation" x="1584" y="1054"/>
         </scene>
         <!--StagingVC-->
         <scene sceneID="w1S-Wa-fcQ">
@@ -484,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNm-0o-r89" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2268" y="464"/>
+            <point key="canvasLocation" x="2264" y="372"/>
         </scene>
         <!--QuestionVC-->
         <scene sceneID="G6l-cJ-sId">
@@ -616,7 +624,7 @@
                     <connections>
                         <outlet property="answerSubmitted" destination="m2k-ek-xfB" id="UgL-2E-h5r"/>
                         <outlet property="questionLbl" destination="mJ6-Js-txc" id="ytF-Do-2ia"/>
-                        <segue destination="29T-4Z-mq1" kind="presentation" identifier="cheatAnswer" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="Tff-aa-19l"/>
+                        <segue destination="29T-4Z-mq1" kind="presentation" identifier="cheatAnswers" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="Tff-aa-19l"/>
                         <segue destination="dmd-ku-cSH" kind="showDetail" identifier="FetchScore" id="PUe-C0-YfN"/>
                     </connections>
                 </viewController>
@@ -669,6 +677,9 @@
                                 <rect key="frame" x="271" y="562" width="63" height="30"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                 <state key="normal" title="Answers"/>
+                                <connections>
+                                    <action selector="revealAnswers:" destination="dmd-ku-cSH" eventType="touchUpInside" id="2pr-gm-mcH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -692,6 +703,7 @@
                     <connections>
                         <outlet property="scoreDescription" destination="VYI-JU-Ilu" id="scr-c6-dHY"/>
                         <outlet property="scoreLbl" destination="ziJ-SV-45K" id="WnU-x5-mTp"/>
+                        <segue destination="29T-4Z-mq1" kind="presentation" identifier="RevealAnswers" modalTransitionStyle="flipHorizontal" id="2ZN-ki-jMy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uT1-L1-FOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -734,25 +746,45 @@
                                 <rect key="frame" x="0.0" y="555" width="600" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fg0-HD-94e">
-                                        <rect key="frame" x="303" y="0.0" width="45" height="45"/>
+                                        <rect key="frame" x="24" y="0.0" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="lIg-bL-kGl"/>
                                             <constraint firstAttribute="width" constant="45" id="qRK-j7-Ox6"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="back_logo"/>
                                         <connections>
-                                            <segue destination="sqB-wM-YVd" kind="unwind" unwindAction="hideAnswers:" id="HYL-zW-Nlw"/>
+                                            <segue destination="sqB-wM-YVd" kind="unwind" unwindAction="stopCheating:" id="G4K-mx-BuQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1i-nc-HLn">
+                                        <rect key="frame" x="534" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Xxw-LL-lQX"/>
+                                            <constraint firstAttribute="width" constant="45" id="uVQ-Et-Wit"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="back_logo"/>
+                                        <connections>
+                                            <segue destination="sqB-wM-YVd" kind="unwind" unwindAction="unwindFromAnswers:" id="1zw-0n-rAB"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="M1i-nc-HLn" firstAttribute="top" secondItem="s6v-8A-Hir" secondAttribute="top" id="1gE-yw-bj4"/>
+                                    <constraint firstAttribute="bottom" secondItem="M1i-nc-HLn" secondAttribute="bottom" id="2Xb-bB-cS6"/>
+                                    <constraint firstItem="Fg0-HD-94e" firstAttribute="leading" secondItem="s6v-8A-Hir" secondAttribute="leading" constant="20" id="Ovx-17-G3f"/>
+                                    <constraint firstAttribute="trailing" secondItem="M1i-nc-HLn" secondAttribute="trailing" constant="20" id="Ueb-QB-nAw"/>
                                     <constraint firstAttribute="height" constant="45" id="V7q-64-XLZ"/>
                                     <constraint firstAttribute="bottom" secondItem="Fg0-HD-94e" secondAttribute="bottom" id="bTI-E1-zH4"/>
                                     <constraint firstItem="Fg0-HD-94e" firstAttribute="top" secondItem="s6v-8A-Hir" secondAttribute="top" id="cmg-pK-qea"/>
                                     <constraint firstItem="Fg0-HD-94e" firstAttribute="centerX" secondItem="s6v-8A-Hir" secondAttribute="centerX" id="gFJ-pv-nIo"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gFJ-pv-nIo"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9nP-Ng-Z9W" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
                                 <rect key="frame" x="20" y="88" width="560" height="459"/>
@@ -774,23 +806,14 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="burrio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T91-27-ePY">
-                                                            <rect key="frame" x="8" y="14" width="70" height="21"/>
-                                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
-                                                            <color key="textColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="QyA-B3-r0P" firstAttribute="centerX" secondItem="NX7-CN-8NC" secondAttribute="centerX" id="41Z-AU-d5w"/>
-                                                        <constraint firstItem="T91-27-ePY" firstAttribute="centerY" secondItem="NX7-CN-8NC" secondAttribute="centerY" id="JwL-6J-tVg"/>
-                                                        <constraint firstItem="T91-27-ePY" firstAttribute="leading" secondItem="NX7-CN-8NC" secondAttribute="leadingMargin" id="c1B-DX-G1L"/>
                                                         <constraint firstItem="QyA-B3-r0P" firstAttribute="centerY" secondItem="NX7-CN-8NC" secondAttribute="centerY" id="mle-gu-kZA"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="MainLbl" destination="QyA-B3-r0P" id="ISY-O9-9mf"/>
-                                                    <outlet property="leadingLbl" destination="T91-27-ePY" id="hh0-Kd-UCd"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -833,13 +856,16 @@
                     </view>
                     <connections>
                         <outlet property="answersTable" destination="a6j-XQ-qOW" id="5sU-Ki-6CE"/>
+                        <outlet property="doneCheatingBtn" destination="Fg0-HD-94e" id="NeC-Au-UWN"/>
+                        <outlet property="hideAnswersBtn" destination="M1i-nc-HLn" id="TUl-x9-r5e"/>
+                        <outlet property="screenTitle" destination="Yfe-Zq-Olc" id="blL-Ia-t40"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmi-dj-L53" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sqB-wM-YVd" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="2Vi-hB-2sc"/>
             </objects>
-            <point key="canvasLocation" x="3106" y="1248"/>
+            <point key="canvasLocation" x="3532" y="1308"/>
         </scene>
     </scenes>
     <resources>
@@ -847,4 +873,7 @@
         <image name="bluffMastr_icon" width="220" height="220"/>
         <image name="launcherLogo" width="212" height="120"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tff-aa-19l"/>
+    </inferredMetricsTieBreakers>
 </document>

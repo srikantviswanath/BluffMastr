@@ -13,6 +13,7 @@ class Users {
     
     static var users = Users()
     static var myScreenName: String!
+    static var myCurrentAnswer: String!
     
     func createAnonymousUser(screenName: String) {
         

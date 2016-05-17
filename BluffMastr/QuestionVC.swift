@@ -37,19 +37,22 @@ class QuestionVC: UIViewController {
     
     @IBAction func cheat(sender: UITapGestureRecognizer) {
         if isPlayerBluffMastr(){
-           performSegueWithIdentifier("cheatAnswer", sender: nil)
+           performSegueWithIdentifier(SEGUE_BLUFFMASTR_CHEAT, sender: nil)
         } else {
             ErrorHandler.errorHandler.showErrorMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
         }
         
     }
     
-    @IBAction func hideAnswers(segue: UIStoryboardSegue) {} //For unwinding the modal segue AnswersVC
+    @IBAction func stopCheating(segue: UIStoryboardSegue) {} //For unwinding the modal segue AnswersVC
     
     @IBAction func submitPlayerAnswer(sender: UIButton!) {
         if let answer = answerSubmitted.text where answer != "" {
             self.playerScore = Int(evaluateScore(answer))
-            if self.playerScore != ANSWER_ABSENT_FROM_LIST {performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)}
+            if self.playerScore != ANSWER_ABSENT_FROM_LIST {
+                performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)
+                Users.myCurrentAnswer = answer
+            }
             else {ErrorHandler.errorHandler.showErrorMsg(ERR_TYPO_TITLE, msg: ERR_TYPO_MSG)}
         } else {
             ErrorHandler.errorHandler.showErrorMsg(ERR_MISISNG_ANSWER_TITLE, msg: ERR_MISSING_ANSWER_MSG)
@@ -58,8 +61,11 @@ class QuestionVC: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destVC = segue.destinationViewController as? ScoreVC {
-            destVC.playerScore = self.playerScore
+        if let scoreVC = segue.destinationViewController as? ScoreVC {
+            scoreVC.playerScore = self.playerScore
+        }
+        else if let cheatVC = segue.destinationViewController as? AnswersVC {
+            cheatVC.isCheating = true
         }
     }
 }
