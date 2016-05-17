@@ -315,7 +315,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="262"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableViewCell" rowHeight="39" id="nYF-tu-Orm" customClass="CustomTableViewCell" customModule="BluffMastr" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableViewCell" rowHeight="39" id="nYF-tu-Orm" customClass="CustomTableViewCell" customModule="BluffMastr" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="560" height="39"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nYF-tu-Orm" id="zWF-K4-bwh">
@@ -654,7 +654,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Good Job. You scored:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYI-JU-Ilu">
                                         <rect key="frame" x="159" y="128" width="268" height="21"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="23"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -664,14 +664,44 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How did others fare?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAd-GV-Q4h">
+                                        <rect key="frame" x="219" y="416" width="176" height="21"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QaQ-Do-LIr" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                        <rect key="frame" x="257" y="445" width="100" height="30"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="ihB-VM-QAe"/>
+                                        </constraints>
+                                        <state key="normal" title="Leaderboard">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ziJ-SV-45K" firstAttribute="centerX" secondItem="11i-Mr-EyQ" secondAttribute="centerX" id="0w1-qx-aiZ"/>
                                     <constraint firstItem="VYI-JU-Ilu" firstAttribute="top" secondItem="11i-Mr-EyQ" secondAttribute="top" constant="128" id="22k-4o-zBR"/>
                                     <constraint firstItem="ziJ-SV-45K" firstAttribute="top" secondItem="VYI-JU-Ilu" secondAttribute="bottom" constant="62" id="6UI-Z9-t8d"/>
+                                    <constraint firstItem="QaQ-Do-LIr" firstAttribute="top" secondItem="YAd-GV-Q4h" secondAttribute="bottom" constant="10" id="97t-HJ-3Rh"/>
+                                    <constraint firstItem="QaQ-Do-LIr" firstAttribute="top" secondItem="YAd-GV-Q4h" secondAttribute="bottom" constant="10" id="CzG-6G-nEl"/>
+                                    <constraint firstAttribute="trailing" secondItem="YAd-GV-Q4h" secondAttribute="trailing" constant="60" id="Uom-yu-Pjf"/>
+                                    <constraint firstItem="YAd-GV-Q4h" firstAttribute="centerX" secondItem="11i-Mr-EyQ" secondAttribute="centerX" id="WnN-wJ-FEd"/>
                                     <constraint firstItem="VYI-JU-Ilu" firstAttribute="centerX" secondItem="11i-Mr-EyQ" secondAttribute="centerX" id="pGu-WO-35k"/>
+                                    <constraint firstItem="QaQ-Do-LIr" firstAttribute="centerX" secondItem="11i-Mr-EyQ" secondAttribute="centerX" id="qVp-0n-OoY"/>
+                                    <constraint firstAttribute="bottom" secondItem="QaQ-Do-LIr" secondAttribute="bottom" constant="60" id="vDm-M5-jOP"/>
+                                    <constraint firstItem="YAd-GV-Q4h" firstAttribute="leading" secondItem="11i-Mr-EyQ" secondAttribute="leading" constant="60" id="zXs-bx-bm9"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Uom-yu-Pjf"/>
+                                        <exclude reference="zXs-bx-bm9"/>
+                                        <exclude reference="97t-HJ-3Rh"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmZ-q0-fUD">
                                 <rect key="frame" x="271" y="562" width="63" height="30"/>
@@ -793,7 +823,7 @@
                                         <rect key="frame" x="21" y="25" width="519" height="416"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableViewCell" id="xVI-eA-O6U" customClass="CustomTableViewCell" customModule="BluffMastr" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableViewCell" id="xVI-eA-O6U" customClass="CustomTableViewCell" customModule="BluffMastr" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="519" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xVI-eA-O6U" id="NX7-CN-8NC">
@@ -874,6 +904,6 @@
         <image name="launcherLogo" width="212" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tff-aa-19l"/>
+        <segue reference="2ZN-ki-jMy"/>
     </inferredMetricsTieBreakers>
 </document>
