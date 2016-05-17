@@ -24,6 +24,7 @@
 		CBC6FDE01CE6BAE9006CB1C0 /* AnswersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC6FDDF1CE6BAE9006CB1C0 /* AnswersVC.swift */; };
 		CBC6FDE21CE6D032006CB1C0 /* GameplayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC6FDE11CE6D032006CB1C0 /* GameplayUtils.swift */; };
 		CBC6FDE41CE96844006CB1C0 /* ScoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC6FDE31CE96844006CB1C0 /* ScoreVC.swift */; };
+		CBCFD3211CEAA3EF00C4AD7B /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFD3201CEAA3EF00C4AD7B /* Scores.swift */; };
 		CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41061CD5BFD200103F2A /* AppDelegate.swift */; };
 		CBDA41091CD5BFD200103F2A /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41081CD5BFD200103F2A /* LandingVC.swift */; };
 		CBDA410C1CD5BFD200103F2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDA410A1CD5BFD200103F2A /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		CBC6FDDF1CE6BAE9006CB1C0 /* AnswersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersVC.swift; sourceTree = "<group>"; };
 		CBC6FDE11CE6D032006CB1C0 /* GameplayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayUtils.swift; sourceTree = "<group>"; };
 		CBC6FDE31CE96844006CB1C0 /* ScoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreVC.swift; sourceTree = "<group>"; };
+		CBCFD3201CEAA3EF00C4AD7B /* Scores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
 		CBDA41031CD5BFD200103F2A /* BluffMastr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluffMastr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDA41061CD5BFD200103F2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBDA41081CD5BFD200103F2A /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				CB89CFB01CDD7434000D3A7B /* GameMembers.swift */,
 				CB89CFB21CDD7451000D3A7B /* Users.swift */,
 				CB89CFB61CE2C173000D3A7B /* Questions.swift */,
+				CBCFD3201CEAA3EF00C4AD7B /* Scores.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 			files = (
 				CB7CEFCE1CD6FE3F00356DFB /* MaterialButton.swift in Sources */,
 				CB7CEFC61CD6DCDA00356DFB /* FirebaseDataServices.swift in Sources */,
+				CBCFD3211CEAA3EF00C4AD7B /* Scores.swift in Sources */,
 				CB7CEFD01CD700B200356DFB /* MaterialTextField.swift in Sources */,
 				CBDA41091CD5BFD200103F2A /* LandingVC.swift in Sources */,
 				CB89CFAF1CDD7421000D3A7B /* Games.swift in Sources */,

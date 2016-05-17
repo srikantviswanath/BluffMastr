@@ -614,6 +614,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answerSubmitted" destination="m2k-ek-xfB" id="UgL-2E-h5r"/>
                         <outlet property="questionLbl" destination="mJ6-Js-txc" id="ytF-Do-2ia"/>
                         <segue destination="29T-4Z-mq1" kind="presentation" identifier="cheatAnswer" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="Tff-aa-19l"/>
                         <segue destination="dmd-ku-cSH" kind="showDetail" identifier="FetchScore" id="PUe-C0-YfN"/>
@@ -640,108 +641,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3VQ-uR-YUc" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="20" y="165" width="560" height="236"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11i-Mr-EyQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCC-lf-fzl">
-                                        <rect key="frame" x="253" y="70" width="63" height="90"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="55" id="VRz-ZL-G2k"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Good Job. You scored:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYI-JU-Ilu">
+                                        <rect key="frame" x="159" y="128" width="268" height="21"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziJ-SV-45K">
+                                        <rect key="frame" x="159" y="211" width="268" height="74"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="80"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="VRz-ZL-G2k"/>
-                                            </mask>
-                                        </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.32549019607843138" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="235" id="faj-Kx-CGj"/>
-                                    <constraint firstItem="GCC-lf-fzl" firstAttribute="centerX" secondItem="3VQ-uR-YUc" secondAttribute="centerX" id="ksE-Y9-ofL"/>
-                                    <constraint firstItem="GCC-lf-fzl" firstAttribute="centerY" secondItem="3VQ-uR-YUc" secondAttribute="centerY" id="nT7-CK-2dq"/>
-                                    <constraint firstItem="GCC-lf-fzl" firstAttribute="top" secondItem="3VQ-uR-YUc" secondAttribute="top" constant="65" id="uCT-z6-svb"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="uCT-z6-svb"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w2w-L1-Go5">
-                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvP-pH-B8z">
-                                        <rect key="frame" x="271" y="5" width="70" height="30"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <state key="normal" title="Answers">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="CvP-pH-B8z" firstAttribute="centerX" secondItem="w2w-L1-Go5" secondAttribute="centerX" id="0bP-Wv-JSi"/>
-                                    <constraint firstAttribute="height" constant="60" id="D7Y-Ia-M8M"/>
-                                    <constraint firstAttribute="height" constant="125" id="QGo-FU-0Ma"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="dRq-tZ-WbN"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="iSM-0t-jH3"/>
-                                    <constraint firstItem="CvP-pH-B8z" firstAttribute="centerY" secondItem="w2w-L1-Go5" secondAttribute="centerY" id="mub-DG-6L0"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="QGo-FU-0Ma"/>
-                                        <exclude reference="dRq-tZ-WbN"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wd1-Qd-86P">
-                                <rect key="frame" x="0.0" y="40" width="600" height="45"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Good Job. You scored:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwD-e1-xui">
-                                        <rect key="frame" x="147" y="12" width="217" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="QF0-a9-z8a"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="a6R-Ll-iKq"/>
-                                    <constraint firstItem="gwD-e1-xui" firstAttribute="centerX" secondItem="Wd1-Qd-86P" secondAttribute="centerX" id="bcj-Vz-bup"/>
-                                    <constraint firstItem="gwD-e1-xui" firstAttribute="centerY" secondItem="Wd1-Qd-86P" secondAttribute="centerY" id="xTy-ua-oM6"/>
+                                    <constraint firstItem="ziJ-SV-45K" firstAttribute="centerX" secondItem="11i-Mr-EyQ" secondAttribute="centerX" id="0w1-qx-aiZ"/>
+                                    <constraint firstItem="VYI-JU-Ilu" firstAttribute="top" secondItem="11i-Mr-EyQ" secondAttribute="top" constant="128" id="22k-4o-zBR"/>
+                                    <constraint firstItem="ziJ-SV-45K" firstAttribute="top" secondItem="VYI-JU-Ilu" secondAttribute="bottom" constant="62" id="6UI-Z9-t8d"/>
+                                    <constraint firstItem="VYI-JU-Ilu" firstAttribute="centerX" secondItem="11i-Mr-EyQ" secondAttribute="centerX" id="pGu-WO-35k"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmZ-q0-fUD">
+                                <rect key="frame" x="271" y="562" width="63" height="30"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
+                                <state key="normal" title="Answers"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3VQ-uR-YUc" secondAttribute="bottom" constant="196" id="4Cp-zF-WFO"/>
-                            <constraint firstItem="3VQ-uR-YUc" firstAttribute="trailing" secondItem="HAl-wy-Gaw" secondAttribute="trailingMargin" id="9Yo-YS-x5a"/>
-                            <constraint firstItem="Wd1-Qd-86P" firstAttribute="leading" secondItem="HAl-wy-Gaw" secondAttribute="leading" id="DYA-Vf-7S5"/>
-                            <constraint firstItem="3VQ-uR-YUc" firstAttribute="top" secondItem="Wd1-Qd-86P" secondAttribute="bottom" constant="80" id="L3Y-If-rhP"/>
-                            <constraint firstItem="3VQ-uR-YUc" firstAttribute="leading" secondItem="HAl-wy-Gaw" secondAttribute="leadingMargin" id="fdI-fy-Hy1"/>
-                            <constraint firstItem="3VQ-uR-YUc" firstAttribute="leading" secondItem="HAl-wy-Gaw" secondAttribute="leadingMargin" id="l5N-l2-3fg"/>
-                            <constraint firstItem="zhG-eq-k9q" firstAttribute="top" secondItem="w2w-L1-Go5" secondAttribute="bottom" id="o3y-Me-hpV"/>
-                            <constraint firstItem="w2w-L1-Go5" firstAttribute="leading" secondItem="HAl-wy-Gaw" secondAttribute="leading" id="pig-rC-zo3"/>
-                            <constraint firstItem="Wd1-Qd-86P" firstAttribute="top" secondItem="yxy-0y-bnm" secondAttribute="bottom" constant="20" id="qac-Si-Rr6"/>
-                            <constraint firstAttribute="trailing" secondItem="w2w-L1-Go5" secondAttribute="trailing" id="wDI-jw-KDV"/>
-                            <constraint firstItem="3VQ-uR-YUc" firstAttribute="trailing" secondItem="HAl-wy-Gaw" secondAttribute="trailingMargin" id="wrw-zu-3yj"/>
-                            <constraint firstAttribute="trailing" secondItem="Wd1-Qd-86P" secondAttribute="trailing" id="zh7-DZ-aaM"/>
+                            <constraint firstItem="OmZ-q0-fUD" firstAttribute="centerY" secondItem="HAl-wy-Gaw" secondAttribute="centerY" id="0jb-Ms-UXC"/>
+                            <constraint firstItem="OmZ-q0-fUD" firstAttribute="centerX" secondItem="HAl-wy-Gaw" secondAttribute="centerX" id="67l-6v-CTG"/>
+                            <constraint firstItem="OmZ-q0-fUD" firstAttribute="top" secondItem="11i-Mr-EyQ" secondAttribute="bottom" constant="12" id="6gG-1S-dXl"/>
+                            <constraint firstAttribute="trailing" secondItem="11i-Mr-EyQ" secondAttribute="trailing" id="FHP-VK-kgC"/>
+                            <constraint firstItem="11i-Mr-EyQ" firstAttribute="top" secondItem="HAl-wy-Gaw" secondAttribute="top" id="HSV-3u-Gjg"/>
+                            <constraint firstItem="11i-Mr-EyQ" firstAttribute="leading" secondItem="HAl-wy-Gaw" secondAttribute="leading" id="ejL-ne-5Sl"/>
+                            <constraint firstItem="zhG-eq-k9q" firstAttribute="top" secondItem="OmZ-q0-fUD" secondAttribute="bottom" constant="8" id="l1h-CI-Dzi"/>
+                            <constraint firstItem="OmZ-q0-fUD" firstAttribute="centerX" secondItem="HAl-wy-Gaw" secondAttribute="centerX" id="zmd-ny-qpf"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="4Cp-zF-WFO"/>
-                                <exclude reference="l5N-l2-3fg"/>
-                                <exclude reference="wrw-zu-3yj"/>
+                                <exclude reference="0jb-Ms-UXC"/>
+                                <exclude reference="67l-6v-CTG"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="scoreDescription" destination="VYI-JU-Ilu" id="scr-c6-dHY"/>
+                        <outlet property="scoreLbl" destination="ziJ-SV-45K" id="WnU-x5-mTp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uT1-L1-FOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

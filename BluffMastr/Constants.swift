@@ -11,6 +11,7 @@ import UIKit
 
 /* Gameplay constants */
 let MIN_PLAYERS = 1
+let ANSWER_ABSENT_FROM_LIST = 0
 
 /* Custom closures*/
 
@@ -41,6 +42,10 @@ let ERR_JOIN_GAME_TITLE = "Error Joining Game"
 let ERR_JOIN_GAME_MSG = "Please try again later. Could not join the room with code"
 let ERR_NEED_PLAYERS_TITLE = "Patience!"
 let ERR_NEED_PLAYERS_MSG = "Need 3 or more players to enjoy bluffin'"
+let ERR_TYPO_TITLE = "Typo"
+let ERR_TYPO_MSG = "Got to pick one form the given list!"
+let ERR_MISISNG_ANSWER_TITLE = "Answer Missing"
+let ERR_MISSING_ANSWER_MSG = "Triedvery hard, but could not read your mind. Please enter your answer"
 
 /* Statuses */
 

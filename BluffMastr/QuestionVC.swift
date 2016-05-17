@@ -12,12 +12,16 @@ import Firebase
 class QuestionVC: UIViewController {
 
     @IBOutlet weak var questionLbl: UILabel!
+    @IBOutlet weak var answerSubmitted: UITextField!
+    
+    var playerScore: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Questions.questions.listenForNextQuestion{
             self.questionLbl.text = Games.currentQuestionTitle
-            Questions.questions.fetchAnswerList{print(Games.answersDict)}
+            Questions.questions.fetchAnswerList{}
+            
             self.alertIfPlayerIsBluffMstr()
         }
     }
@@ -43,6 +47,19 @@ class QuestionVC: UIViewController {
     @IBAction func hideAnswers(segue: UIStoryboardSegue) {} //For unwinding the modal segue AnswersVC
     
     @IBAction func submitPlayerAnswer(sender: UIButton!) {
-        performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)
+        if let answer = answerSubmitted.text where answer != "" {
+            self.playerScore = Int(evaluateScore(answer))
+            if self.playerScore != ANSWER_ABSENT_FROM_LIST {performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)}
+            else {ErrorHandler.errorHandler.showErrorMsg(ERR_TYPO_TITLE, msg: ERR_TYPO_MSG)}
+        } else {
+            ErrorHandler.errorHandler.showErrorMsg(ERR_MISISNG_ANSWER_TITLE, msg: ERR_MISSING_ANSWER_MSG)
+        }
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destVC = segue.destinationViewController as? ScoreVC {
+            destVC.playerScore = self.playerScore
+        }
     }
 }
