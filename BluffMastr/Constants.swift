@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /* Gameplay constants */
-let MIN_PLAYERS = 2
+let MIN_PLAYERS = 1
 let ANSWER_ABSENT_FROM_LIST = 0
 
 /* Custom closures*/
@@ -31,6 +31,7 @@ let SEGUE_REVEAL_ANSWERS = "RevealAnswers"
 let SEGUE_BLUFFMASTR_CHEAT = "cheatAnswers"
 
 let CUSTOM_CELL = "CustomTableViewCell"
+let THIS_ROUND_CELL = "ThisRoundCell"
 
 /* Error Messages */
 
@@ -45,9 +46,9 @@ let ERR_JOIN_GAME_MSG = "Please try again later. Could not join the room with co
 let ERR_NEED_PLAYERS_TITLE = "Patience!"
 let ERR_NEED_PLAYERS_MSG = "Need \(MIN_PLAYERS) or more players to enjoy bluffin'"
 let ERR_TYPO_TITLE = "Typo"
-let ERR_TYPO_MSG = "Got to pick one form the given list!"
+let ERR_TYPO_MSG = "Got to pick one from the given list!"
 let ERR_MISISNG_ANSWER_TITLE = "Answer Missing"
-let ERR_MISSING_ANSWER_MSG = "RevealAnswers hard, but could not read your mind. Please enter your answer"
+let ERR_MISSING_ANSWER_MSG = "Tried hard, but could not read your mind. Please enter your answer"
 
 /* Statuses */
 
