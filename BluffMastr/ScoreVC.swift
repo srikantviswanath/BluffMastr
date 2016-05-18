@@ -28,6 +28,10 @@ class ScoreVC: UIViewController {
     
     @IBAction func unwindFromAnswers(segue: UIStoryboardSegue){}
     
+    @IBAction func ShowLeaderboard(sender: UIButton!) {
+        performSegueWithIdentifier(SEGUE_SHOW_LEADERBOARD, sender: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destVC = segue.destinationViewController as? AnswersVC {
             destVC.isCheating = false

@@ -17,4 +17,14 @@ class Scores {
             [Users.myScreenName: score]
         )
     }
+    
+    /* This function is used to observe for each player's submission of answer to Firebase */
+    func listenForPlayersSubmissions(completed: GenericCompletionBlock) {
+        FDataService.fDataService.REF_CURRENT_ROUNDS.childByAppendingPath(Games.gameUID).observeEventType(.ChildAdded, withBlock: { playerAnswerSS in
+            if let playerScore = playerAnswerSS.value as? Int {
+                Games.playersSubmissions.append([playerAnswerSS.key: playerScore])
+                completed()
+            }
+        })
+    }
 }

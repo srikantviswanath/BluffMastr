@@ -22,7 +22,7 @@ class LandingVC: UIViewController {
     @IBAction func createGame(sender: UIButton!){
         if let screenName = screenNameTxt.text where screenName != "" {
             isGameCreator = true
-            StagingVC.playersInRoom = []
+            GameMembers.playersInGameRoom = []
             Users.users.createAnonymousUser(screenName)
             Games.games.createGame(screenName)
             Users.myScreenName = screenName
@@ -36,7 +36,7 @@ class LandingVC: UIViewController {
     @IBAction func joinGame(sender: UIButton!){
         if let screenName = screenNameTxt.text where screenName != "" {
             isGameCreator = false
-            StagingVC.playersInRoom = []
+            GameMembers.playersInGameRoom = []
             Users.users.createAnonymousUser(screenName)
             performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
         } else {

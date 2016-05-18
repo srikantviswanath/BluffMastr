@@ -22,7 +22,6 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var isGameCreator: Bool!
     var screenTitle: String!
-    static var playersInRoom = [String]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +56,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     func switchDataDependentLbls(){
         if (isGameCreator!) {
-            if StagingVC.playersInRoom.count < 3 {
+            if GameMembers.playersInGameRoom.count < 3 {
                 self.statusLbl.text = STATUS_NEED_MORE_PLAYERS
                 self.createdGameCode.text = Games.sharedToken
             } else {
@@ -97,13 +96,13 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func startGame(sender: UIButton) {
         // Mark a random member as BluffMaster
-        if StagingVC.playersInRoom.count < MIN_PLAYERS {
+        if GameMembers.playersInGameRoom.count < MIN_PLAYERS {
             ErrorHandler.errorHandler.showErrorMsg(ERR_NEED_PLAYERS_TITLE, msg: ERR_NEED_PLAYERS_MSG)
             return
         }
-        let randomPlayerNum = Int(arc4random_uniform(UInt32(StagingVC.playersInRoom.count)))
+        let randomPlayerNum = Int(arc4random_uniform(UInt32(GameMembers.playersInGameRoom.count)))
         let randomQuestionNum = Int(arc4random_uniform(UInt32(2)))
-        let bluffMaster = StagingVC.playersInRoom[randomPlayerNum]
+        let bluffMaster = GameMembers.playersInGameRoom[randomPlayerNum]
         Games.games.updateGameInfo(SVC_GAME_DICT, person: "", gameDict: [SVC_GAME_BLUFFMASTER: bluffMaster, SVC_CURRENT_QUESTION: "\(randomQuestionNum)"]) {
             self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
             Games.bluffMastr = bluffMaster
@@ -120,12 +119,12 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return StagingVC.playersInRoom.count
+        return GameMembers.playersInGameRoom.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = playersTable.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
-            cell.configureCell(StagingVC.playersInRoom[indexPath.row])
+            cell.configureCell(GameMembers.playersInGameRoom[indexPath.row])
             return cell
         } else {
             return UITableViewCell()

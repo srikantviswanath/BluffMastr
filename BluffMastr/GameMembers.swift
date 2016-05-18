@@ -12,6 +12,7 @@ import Firebase
 class GameMembers {
     
     static var gameMembers = GameMembers()
+    static var playersInGameRoom = [String]()
     
     func addMemberToRoom(newMember: String!, gameID: String = Games.gameUID) {
         let gameMembersRef = FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(gameID)
@@ -21,7 +22,7 @@ class GameMembers {
     func observeNewMembersAdded(completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(Games.gameUID).observeEventType(.ChildAdded, withBlock: { snapshot in
             if let screenName = snapshot.key {
-                StagingVC.playersInRoom.append(screenName)
+                GameMembers.playersInGameRoom.append(screenName)
             }
           completed()
         })

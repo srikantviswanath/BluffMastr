@@ -12,19 +12,25 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
 
     @IBOutlet weak var scoresCollectionView: UICollectionView!
     
-    var thisRoundScores = [Dictionary<String, Int>]()
+    var readyToshowCurrentRoundScores = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scoresCollectionView.delegate = self
         scoresCollectionView.dataSource = self
+        displayCurrentRoundScores()
         
-        thisRoundScores.append(["Kannamba": 9])
-        thisRoundScores.append(["Kanchanamaala": 1])
-        thisRoundScores.append(["Shakuntala": 3])
-        thisRoundScores.append(["Shanmukha": 6])
-        thisRoundScores.append(["kaanthamma": 4])
-        
+    }
+    
+    func displayCurrentRoundScores() {
+        Scores.scores.listenForPlayersSubmissions {
+            if Games.playersSubmissions.count == GameMembers.playersInGameRoom.count {
+                self.readyToshowCurrentRoundScores = true
+                self.scoresCollectionView.reloadData()
+            } else {
+                self.readyToshowCurrentRoundScores = false
+            }
+        }
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -32,14 +38,19 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return thisRoundScores.count
+        return Games.playersSubmissions.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if let cell = scoresCollectionView.dequeueReusableCellWithReuseIdentifier(THIS_ROUND_CELL, forIndexPath: indexPath) as? ThisRoundCell{
-            cell.configureCell(thisRoundScores[indexPath.row])
-            return cell
+        if readyToshowCurrentRoundScores {
+            if let cell = scoresCollectionView.dequeueReusableCellWithReuseIdentifier(THIS_ROUND_CELL, forIndexPath: indexPath) as? ThisRoundCell{
+                cell.configureCell(Games.playersSubmissions[indexPath.row])
+                return cell
+            } else {
+                return UICollectionViewCell()
+            }
         } else {
+            ErrorHandler.errorHandler.showErrorMsg("Waitin for other players", msg: "Burrio")
             return UICollectionViewCell()
         }
     }
