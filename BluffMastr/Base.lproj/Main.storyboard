@@ -784,7 +784,7 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pe2-nF-4UJ">
                                 <rect key="frame" x="0.0" y="71" width="600" height="32"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Waiting for everybody to submit their answers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dWh-qk-mez">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dWh-qk-mez">
                                         <rect key="frame" x="8" y="5" width="584" height="21"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -875,6 +875,7 @@
                     </view>
                     <connections>
                         <outlet property="scoresCollectionView" destination="6g2-l6-kLx" id="EcK-ud-9uh"/>
+                        <outlet property="thisRoundStatus" destination="dWh-qk-mez" id="MDV-HB-tPs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0K-7A-jYN" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -63,6 +63,8 @@ let STATUS_BLUFFMATR_MSG = "Time to Bluff and take your friends for a ride"
 let STATUS_SCORE_LESS_THAN_3 = "Not Bad."
 let STATUS_SCORE_3_TO_7 = "Good Job."
 let STATUS_SCORE_MORE_THAN_7 = "Great Going."
+let STATUS_WAITING_ALL_ANSWERS = "Waitin for everyone to answer..."
+let STATUS_LAST_ROUND_SCORES = "Scores for this round:"
 
 
 

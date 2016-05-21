@@ -11,6 +11,7 @@ import UIKit
 class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var scoresCollectionView: UICollectionView!
+    @IBOutlet weak var thisRoundStatus: UILabel!
     
     var readyToshowCurrentRoundScores = false
     
@@ -26,9 +27,11 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         Scores.scores.listenForPlayersSubmissions {
             if Games.playersSubmissions.count == GameMembers.playersInGameRoom.count {
                 self.readyToshowCurrentRoundScores = true
+                self.thisRoundStatus.text = STATUS_LAST_ROUND_SCORES
                 self.scoresCollectionView.reloadData()
             } else {
                 self.readyToshowCurrentRoundScores = false
+                self.thisRoundStatus.text = STATUS_WAITING_ALL_ANSWERS
             }
         }
     }
