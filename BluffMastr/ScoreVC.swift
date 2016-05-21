@@ -19,7 +19,9 @@ class ScoreVC: UIViewController {
         super.viewDidLoad()
         self.scoreLbl.text = "\(playerScore)"
         self.scoreDescription.text = "\(getScorePhrase(playerScore)) You scored:"
-        Scores.scores.uploadPlayerScore(playerScore)
+        Scores.scores.uploadPlayerScore(playerScore) {
+            Scores.scores.accumulatePlayerScore(self.playerScore)
+        }
     }
 
     @IBAction func revealAnswers(sender: UIButton!) {

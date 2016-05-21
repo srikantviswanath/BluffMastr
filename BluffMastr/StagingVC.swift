@@ -104,8 +104,9 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let randomQuestionNum = Int(arc4random_uniform(UInt32(2)))
         let bluffMaster = GameMembers.playersInGameRoom[randomPlayerNum]
         Games.games.updateGameInfo(SVC_GAME_DICT, person: "", gameDict: [SVC_GAME_BLUFFMASTER: bluffMaster, SVC_CURRENT_QUESTION: "\(randomQuestionNum)"]) {
-            self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
             Games.bluffMastr = bluffMaster
+            Scores.scores.resetLeaderboard()
+            self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
         }
     }
     

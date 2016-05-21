@@ -12,10 +12,28 @@ class Scores {
     
     static var scores = Scores()
     
-    func uploadPlayerScore(score: Int) {
+    func resetLeaderboard() {
+        var leaderBoardDict = Dictionary<String, Int>()
+        for player in GameMembers.playersInGameRoom {
+            leaderBoardDict[player] = 0
+        }
+        FDataService.fDataService.REF_LEADERBOARDS.childByAppendingPath(Games.gameUID).setValue(leaderBoardDict)
+    }
+    
+    func uploadPlayerScore(currentRoundScore: Int, completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_CURRENT_ROUNDS.childByAppendingPath(Games.gameUID).updateChildValues(
-            [Users.myScreenName: score]
+            [Users.myScreenName: currentRoundScore]
         )
+        completed()
+    }
+    
+    func accumulatePlayerScore(currentRoundScore: Int) {
+        let playerLeaderboardRef = FDataService.fDataService.REF_LEADERBOARDS.childByAppendingPath(Games.gameUID).childByAppendingPath(Users.myScreenName)
+        playerLeaderboardRef.observeSingleEventOfType(.Value, withBlock: {playerTotalSS in
+            if let scoreTillNow = playerTotalSS.value as? Int! {
+                playerLeaderboardRef.setValue(scoreTillNow + currentRoundScore)
+            }
+        })
     }
     
     /* This function is used to observe for each player's submission of answer to Firebase */
