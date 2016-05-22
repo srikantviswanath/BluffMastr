@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Scores {
     
@@ -43,6 +44,15 @@ class Scores {
                 Games.playersSubmissions.append([playerAnswerSS.key: playerScore])
                 completed()
             }
+        })
+    }
+    
+    func fetchLeaderboard(completed: GenericCompletionBlock) {
+        FDataService.fDataService.REF_LEADERBOARDS.childByAppendingPath(Games.gameUID).observeSingleEventOfType(.Value, withBlock: { leaderboardSS in
+            for child in (leaderboardSS.children.allObjects as? [FDataSnapshot])! {
+                Games.leaderboard.append([child.key: (child.value as? Int)!])
+            }
+            completed()
         })
     }
 }

@@ -382,8 +382,8 @@
                                     <action selector="leaveGame:" destination="nNm-V0-MeH" eventType="touchUpInside" id="nxm-b9-xX8"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46i-4z-RbT">
-                                <rect key="frame" x="0.0" y="277" width="600" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46i-4z-RbT">
+                                <rect key="frame" x="0.0" y="281" width="600" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUj-41-oLL">
                                         <rect key="frame" x="82" y="11" width="463" height="21"/>
@@ -799,11 +799,12 @@
                                     <constraint firstItem="dWh-qk-mez" firstAttribute="centerY" secondItem="Pe2-nF-4UJ" secondAttribute="centerY" id="xco-Xc-LHL"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6g2-l6-kLx">
-                                <rect key="frame" x="0.0" y="115" width="600" height="91"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6g2-l6-kLx">
+                                <rect key="frame" x="0.0" y="115" width="600" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="7CF-Cm-nSh"/>
+                                    <constraint firstAttribute="height" constant="80" id="7vO-iG-osF"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lkR-zn-H44">
                                     <size key="itemSize" width="151" height="90"/>
@@ -812,8 +813,8 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ThisRoundCell" id="805-Nb-v8r" customClass="ThisRoundCell" customModule="BluffMastr" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="151" height="90"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ThisRoundCell" id="805-Nb-v8r" customClass="Material">
+                                        <rect key="frame" x="0.0" y="-5" width="151" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="151" height="90"/>
@@ -858,23 +859,132 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7CF-Cm-nSh"/>
+                                    </mask>
+                                </variation>
                             </collectionView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZjL-WN-C5n">
+                                <rect key="frame" x="0.0" y="203" width="600" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="AlbitterSampangiApanna is leading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="E8C-V8-y3r">
+                                        <rect key="frame" x="8" y="6" width="584" height="21"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="d7U-Za-bFR"/>
+                                    <constraint firstItem="E8C-V8-y3r" firstAttribute="trailing" secondItem="ZjL-WN-C5n" secondAttribute="trailingMargin" id="dqD-Gg-26F"/>
+                                    <constraint firstItem="E8C-V8-y3r" firstAttribute="leading" secondItem="ZjL-WN-C5n" secondAttribute="leadingMargin" id="oPR-N4-J6b"/>
+                                    <constraint firstItem="E8C-V8-y3r" firstAttribute="centerY" secondItem="ZjL-WN-C5n" secondAttribute="centerY" id="twe-Jd-131"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ykg-vr-e7g" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
+                                <rect key="frame" x="20" y="243" width="560" height="304"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eHD-yn-AMw">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="304"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableViewCell" id="Pr4-VL-A83" customClass="CustomTableViewCell" customModule="BluffMastr" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pr4-VL-A83" id="orm-Aj-UKJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uQz-sZ-6g3">
+                                                            <rect key="frame" x="58" y="10" width="200" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="140" id="5an-Sw-Osl"/>
+                                                                <constraint firstAttribute="width" constant="200" id="GXc-he-v3u"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="GXc-he-v3u"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="57" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldk-qF-6nL">
+                                                            <rect key="frame" x="290" y="10" width="53" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                                            <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="uQz-sZ-6g3" firstAttribute="centerY" secondItem="orm-Aj-UKJ" secondAttribute="centerY" id="8jy-BW-set"/>
+                                                        <constraint firstItem="Ldk-qF-6nL" firstAttribute="leading" secondItem="uQz-sZ-6g3" secondAttribute="trailing" constant="20" id="ISp-qp-Z7r"/>
+                                                        <constraint firstItem="Ldk-qF-6nL" firstAttribute="centerY" secondItem="orm-Aj-UKJ" secondAttribute="centerY" id="OLw-i7-TiO"/>
+                                                        <constraint firstItem="uQz-sZ-6g3" firstAttribute="leading" secondItem="orm-Aj-UKJ" secondAttribute="leadingMargin" constant="50" id="zB4-ci-dYh"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="MainLbl" destination="uQz-sZ-6g3" id="BiN-Pa-TZB"/>
+                                                    <outlet property="scoreLbl" destination="Ldk-qF-6nL" id="3KD-ai-3xn"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eHD-yn-AMw" firstAttribute="top" secondItem="ykg-vr-e7g" secondAttribute="top" id="FjW-ov-WU5"/>
+                                    <constraint firstAttribute="trailing" secondItem="eHD-yn-AMw" secondAttribute="trailing" id="KNI-TW-7Yf"/>
+                                    <constraint firstItem="eHD-yn-AMw" firstAttribute="leading" secondItem="ykg-vr-e7g" secondAttribute="leading" id="kzl-mw-bXx"/>
+                                    <constraint firstAttribute="bottom" secondItem="eHD-yn-AMw" secondAttribute="bottom" id="qiI-cx-3Te"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRL-Pi-gPe" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                <rect key="frame" x="265" y="556" width="70" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
+                                <state key="normal" title="VOTEOUT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Pe2-nF-4UJ" firstAttribute="top" secondItem="TI9-Ra-uJv" secondAttribute="bottom" constant="8" id="6Ij-n4-z1t"/>
+                            <constraint firstItem="ykg-vr-e7g" firstAttribute="trailing" secondItem="ugq-lf-0jM" secondAttribute="trailingMargin" id="Ce6-5H-Tem"/>
                             <constraint firstItem="TI9-Ra-uJv" firstAttribute="top" secondItem="ugq-lf-0jM" secondAttribute="top" id="DPB-jw-qqt"/>
+                            <constraint firstAttribute="trailing" secondItem="ZjL-WN-C5n" secondAttribute="trailing" id="DiK-zq-1s6"/>
                             <constraint firstItem="Pe2-nF-4UJ" firstAttribute="leading" secondItem="ugq-lf-0jM" secondAttribute="leading" id="GI6-Gc-Sdr"/>
                             <constraint firstItem="6g2-l6-kLx" firstAttribute="top" secondItem="Pe2-nF-4UJ" secondAttribute="bottom" constant="15" id="GVN-aX-j4q"/>
                             <constraint firstItem="TI9-Ra-uJv" firstAttribute="leading" secondItem="ugq-lf-0jM" secondAttribute="leading" id="Hsh-WX-kLH"/>
+                            <constraint firstItem="ykg-vr-e7g" firstAttribute="leading" secondItem="ugq-lf-0jM" secondAttribute="leadingMargin" id="I3h-Pj-2II"/>
+                            <constraint firstItem="ykg-vr-e7g" firstAttribute="top" secondItem="ZjL-WN-C5n" secondAttribute="bottom" constant="10" id="Onr-eu-gdD"/>
                             <constraint firstAttribute="trailing" secondItem="Pe2-nF-4UJ" secondAttribute="trailing" id="Rfw-Mv-IEl"/>
                             <constraint firstAttribute="trailing" secondItem="TI9-Ra-uJv" secondAttribute="trailing" id="V70-WT-XUw"/>
+                            <constraint firstItem="ykg-vr-e7g" firstAttribute="top" secondItem="ZjL-WN-C5n" secondAttribute="bottom" constant="8" id="ZXR-LX-1Tl"/>
+                            <constraint firstItem="LRL-Pi-gPe" firstAttribute="top" secondItem="ykg-vr-e7g" secondAttribute="bottom" constant="12" id="abe-fy-rwA"/>
+                            <constraint firstItem="H6w-3P-F2Q" firstAttribute="top" secondItem="LRL-Pi-gPe" secondAttribute="bottom" constant="11" id="c9k-2C-Chx"/>
+                            <constraint firstItem="LRL-Pi-gPe" firstAttribute="centerX" secondItem="ugq-lf-0jM" secondAttribute="centerX" id="et3-jK-GRG"/>
+                            <constraint firstItem="ZjL-WN-C5n" firstAttribute="leading" secondItem="ugq-lf-0jM" secondAttribute="leading" id="f0e-ua-tBw"/>
+                            <constraint firstItem="LRL-Pi-gPe" firstAttribute="centerY" secondItem="ugq-lf-0jM" secondAttribute="centerY" id="kij-Np-Iuf"/>
+                            <constraint firstItem="ZjL-WN-C5n" firstAttribute="top" secondItem="6g2-l6-kLx" secondAttribute="bottom" constant="15" id="ocu-EY-xv4"/>
                             <constraint firstItem="6g2-l6-kLx" firstAttribute="leading" secondItem="ugq-lf-0jM" secondAttribute="leading" id="vsE-0n-VBx"/>
                             <constraint firstAttribute="trailing" secondItem="6g2-l6-kLx" secondAttribute="trailing" id="xrC-Ii-i6x"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZXR-LX-1Tl"/>
+                                <exclude reference="kij-Np-Iuf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="scoresCollectionView" destination="6g2-l6-kLx" id="EcK-ud-9uh"/>
+                        <outlet property="currentScoresCollectionView" destination="6g2-l6-kLx" id="7L3-GY-zRb"/>
+                        <outlet property="leaderboardTableView" destination="eHD-yn-AMw" id="HUI-NZ-8v2"/>
                         <outlet property="thisRoundStatus" destination="dWh-qk-mez" id="MDV-HB-tPs"/>
                     </connections>
                 </viewController>
@@ -959,7 +1069,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9nP-Ng-Z9W" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="20" y="88" width="560" height="459"/>
+                                <rect key="frame" x="20" y="87" width="560" height="459"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a6j-XQ-qOW">
                                         <rect key="frame" x="21" y="25" width="519" height="416"/>

@@ -11,17 +11,17 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var MainLbl: UILabel!
-    @IBOutlet weak var LeadingLbl: UILabel!
+    @IBOutlet weak var scoreLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func configureCell(mainLbl: String!, leadingLbl:String = ""){
+    func configureCell(mainLbl: String!, score:String = ""){
         MainLbl.text = mainLbl
-        if LeadingLbl != nil {
-            LeadingLbl.text = leadingLbl
+        if score != "" {
+            scoreLbl.text = score
         }
     }
 
