@@ -36,12 +36,7 @@ class QuestionVC: UIViewController {
     }
     
     @IBAction func cheat(sender: UITapGestureRecognizer) {
-        if isPlayerBluffMastr(){
-           performSegueWithIdentifier(SEGUE_BLUFFMASTR_CHEAT, sender: nil)
-        } else {
-            ErrorHandler.errorHandler.showErrorMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
-        }
-        
+        performSegueWithIdentifier(SEGUE_BLUFFMASTR_CHEAT, sender: nil)
     }
     
     @IBAction func stopCheating(segue: UIStoryboardSegue) {} //For unwinding the modal segue AnswersVC
