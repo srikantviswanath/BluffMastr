@@ -12,6 +12,7 @@ class ThisRoundCell: UICollectionViewCell {
     
     @IBOutlet weak var PlayerName: UILabel!
     @IBOutlet weak var Score: UILabel!
+    @IBOutlet weak var VoteImg : UIImageView!
     
     override func awakeFromNib() {
         layer.cornerRadius = 5.0

@@ -26,6 +26,10 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         displayCurrentRoundScores()
     }
     
+    @IBAction func voteoutBtnClicked(sender: UIButton!) {
+        performSegueWithIdentifier(SEGUE_TO_VOTEOUT, sender: nil)
+    }
+    
     func displayCurrentRoundScores() {
         Scores.scores.listenForPlayersSubmissions {
             if Games.playersSubmissions.count == GameMembers.playersInGameRoom.count {

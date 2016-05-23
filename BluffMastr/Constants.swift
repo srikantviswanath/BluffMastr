@@ -30,6 +30,7 @@ let SEGUE_FETCH_SCORE = "FetchScore"
 let SEGUE_REVEAL_ANSWERS = "RevealAnswers"
 let SEGUE_BLUFFMASTR_CHEAT = "CheatAnswers"
 let SEGUE_SHOW_LEADERBOARD = "ShowLeaderboard"
+let SEGUE_TO_VOTEOUT = "Voteout"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 let THIS_ROUND_CELL = "ThisRoundCell"
