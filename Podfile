@@ -4,7 +4,9 @@
 use_frameworks!
 
 target 'BluffMastr' do
-pod 'Firebase', '>= 2.5.1'
+pod 'Firebase'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
 end
 
 target 'BluffMastrTests' do

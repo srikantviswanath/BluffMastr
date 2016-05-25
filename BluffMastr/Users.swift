@@ -17,14 +17,16 @@ class Users {
     
     func createAnonymousUser(screenName: String) {
         
-        FDataService.fDataService.REF_BASE.authAnonymouslyWithCompletionBlock { error, authData in
-            if error != nil {
-                NSLog("There was an error logging in anonymously")
+        FIRAuth.auth()?.signInAnonymouslyWithCompletion { user, error in
+            if let error = error {
+                NSLog("There was an error logging in anonymously" + error.localizedDescription)
             } else {
                 // User successfully authenticated anonymously...
-                let newUserDict = [SVC_PROVIDER: authData.provider, SVC_SCREEN_NAME: screenName]
-                FDataService.fDataService.REF_USERS.childByAppendingPath(authData.uid).setValue(newUserDict)
+                let newUserDict = [SVC_PROVIDER: user!.providerID, SVC_SCREEN_NAME: screenName]
+                FDataService.fDataService.REF_USERS.childByAppendingPath(user!.uid).setValue(newUserDict)
             }
         }
+        
+        
     }
 }

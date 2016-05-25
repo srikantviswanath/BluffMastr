@@ -23,7 +23,7 @@ class FDataService {
     
     static let fDataService = FDataService()
     
-    private var _REF_BASE = Firebase(url: "\(URL_BASE)")
+    private var _REF_BASE = FIRDatabase.database().reference()
     private var _REF_GAMES = Firebase(url: "\(URL_BASE)/games")
     private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
     private var _REF_GAME_MEMBERS = Firebase(url: "\(URL_BASE)/gameMembers")
