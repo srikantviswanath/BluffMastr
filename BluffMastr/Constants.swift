@@ -51,6 +51,10 @@ let ERR_TYPO_TITLE = "Typo"
 let ERR_TYPO_MSG = "Got to pick one from the given list!"
 let ERR_MISISNG_ANSWER_TITLE = "Answer Missing"
 let ERR_MISSING_ANSWER_MSG = "Tried hard, but could not read your mind. Please enter your answer"
+let ERR_SELF_VOTE_TITLE = "Self Vote!"
+let ERR_SELF_VOTE_MSG = "Yera taagi unnava?"
+let ERR_VOTE_ABSENT_TITLE = "Vote Missing!"
+let ERR_VOTE_ABSENT_MSG = "Need to select a player to vote out"
 
 /* Statuses */
 

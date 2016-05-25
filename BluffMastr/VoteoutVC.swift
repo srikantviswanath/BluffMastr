@@ -20,6 +20,20 @@ class VoteoutVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         voteoutCollectionView.dataSource = self
     }
     
+    @IBAction func submitVoteBtnClicked(sender: UIButton!) {
+        if markedCellIndexPath != nil {
+            let votedAgainstDict = Games.leaderboard[(markedCellIndexPath?.row)!]
+            let votedAgainstPlayer = Array(votedAgainstDict.keys)[0]
+            if votedAgainstPlayer != Users.myScreenName {
+                Votes.votes.submitVote(votedAgainstPlayer)
+            } else {
+                ErrorHandler.errorHandler.showErrorMsg(ERR_SELF_VOTE_TITLE, msg: ERR_SELF_VOTE_MSG)
+            }
+        } else {
+            ErrorHandler.errorHandler.showErrorMsg(ERR_VOTE_ABSENT_TITLE, msg: ERR_VOTE_ABSENT_MSG)
+        }
+    }
+    
     /* UICollectionView delegate methods */
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

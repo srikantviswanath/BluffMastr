@@ -31,6 +31,7 @@ class FDataService {
     private var _REF_ANSWERS = Firebase(url: "\(URL_BASE)/answers")
     private var _REF_CURRENT_ROUNDS = Firebase(url: "\(URL_BASE)/currentRounds")
     private var _REF_LEADERBOARDS = Firebase(url: "\(URL_BASE)/leaderboards")
+    private var _REF_VOTES = Firebase(url: "\(URL_BASE)/votes")
     
     var REF_BASE: Firebase {
         return _REF_BASE
@@ -64,6 +65,9 @@ class FDataService {
         return _REF_LEADERBOARDS
     }
     
+    var REF_VOTES: Firebase {
+        return _REF_VOTES
+    }
 }
 
 
