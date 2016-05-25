@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		42952062E5996B92EA8E17EB /* Pods_BluffMastr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC544247C1CC2DF7528E117A /* Pods_BluffMastr.framework */; };
+		9446F8D91CF5F01E00F41FC0 /* Votes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446F8D81CF5F01E00F41FC0 /* Votes.swift */; };
+		9446F8DB1CF5F02D00F41FC0 /* VoteoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446F8DA1CF5F02D00F41FC0 /* VoteoutVC.swift */; };
 		94EDAB2C1CDDC48E00A12321 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EDAB2B1CDDC48E00A12321 /* Errors.swift */; };
 		CB7CEFC61CD6DCDA00356DFB /* FirebaseDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */; };
 		CB7CEFC81CD6F1E000356DFB /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC71CD6F1E000356DFB /* MaterialView.swift */; };
@@ -58,6 +60,8 @@
 /* Begin PBXFileReference section */
 		816747BE30CCC4491C0F445B /* Pods-BluffMastr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.debug.xcconfig"; sourceTree = "<group>"; };
 		84BCA14D5670AB9D9C0FCD96 /* Pods-BluffMastr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.release.xcconfig"; sourceTree = "<group>"; };
+		9446F8D81CF5F01E00F41FC0 /* Votes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Votes.swift; sourceTree = "<group>"; };
+		9446F8DA1CF5F02D00F41FC0 /* VoteoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteoutVC.swift; sourceTree = "<group>"; };
 		94EDAB2B1CDDC48E00A12321 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		AC544247C1CC2DF7528E117A /* Pods_BluffMastr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataServices.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		CB7CEFC21CD6DBA800356DFB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9446F8DA1CF5F02D00F41FC0 /* VoteoutVC.swift */,
 				CBDA41081CD5BFD200103F2A /* LandingVC.swift */,
 				CB7CEFD11CD7055000356DFB /* StagingVC.swift */,
 				CB89CFB41CDF9FFB000D3A7B /* QuestionVC.swift */,
@@ -185,6 +190,7 @@
 		CB7CEFC41CD6DBF100356DFB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9446F8D81CF5F01E00F41FC0 /* Votes.swift */,
 				CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */,
 				CB89CFAE1CDD7421000D3A7B /* Games.swift */,
 				CB89CFB01CDD7434000D3A7B /* GameMembers.swift */,
@@ -448,7 +454,9 @@
 				CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */,
 				CB8C3A0D1CD9911D0082215D /* CustomTableViewCell.swift in Sources */,
 				CBDA410F1CD5BFD200103F2A /* BluffMastr.xcdatamodeld in Sources */,
+				9446F8DB1CF5F02D00F41FC0 /* VoteoutVC.swift in Sources */,
 				CB89CFB31CDD7451000D3A7B /* Users.swift in Sources */,
+				9446F8D91CF5F01E00F41FC0 /* Votes.swift in Sources */,
 				CB89CFB11CDD7434000D3A7B /* GameMembers.swift in Sources */,
 				CBC6FDE01CE6BAE9006CB1C0 /* AnswersVC.swift in Sources */,
 				CB7CEFCA1CD6F21300356DFB /* Constants.swift in Sources */,
