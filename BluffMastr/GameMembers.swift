@@ -15,15 +15,14 @@ class GameMembers {
     static var playersInGameRoom = [String]()
     
     func addMemberToRoom(newMember: String!, gameID: String = Games.gameUID) {
-        let gameMembersRef = FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(gameID)
+        let gameMembersRef = FDataService.fDataService.REF_GAME_MEMBERS.child(gameID)
         gameMembersRef.updateChildValues([newMember: true])
     }
     
     func observeNewMembersAdded(completed: GenericCompletionBlock) {
-        FDataService.fDataService.REF_GAME_MEMBERS.childByAppendingPath(Games.gameUID).observeEventType(.ChildAdded, withBlock: { snapshot in
-            if let screenName = snapshot.key {
-                GameMembers.playersInGameRoom.append(screenName)
-            }
+        FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { snapshot in
+            let screenName = snapshot.key
+            GameMembers.playersInGameRoom.append(screenName)
           completed()
         })
     }

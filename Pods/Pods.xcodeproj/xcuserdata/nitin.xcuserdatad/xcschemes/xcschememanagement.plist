@@ -9,10 +9,30 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-BluffMastrTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-BluffMastrUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>575C3F34272A14DB34876CCB3B9CD79F</key>
+		<key>713ADF47816D25792D1F1EA0B513E59A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B72B5920B361816C2C55108561F411DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB70957137D9C41297EDBA5B0FD85361</key>
 		<dict>
 			<key>primary</key>
 			<true/>

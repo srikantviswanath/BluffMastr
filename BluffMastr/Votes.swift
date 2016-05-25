@@ -12,6 +12,6 @@ class Votes {
     static var votes = Votes()
     
     func submitVote(votedFor: String) {
-        FDataService.fDataService.REF_VOTES.childByAppendingPath(Games.gameUID).updateChildValues([Users.myScreenName: votedFor])
+        FDataService.fDataService.REF_VOTES.child(Games.gameUID).updateChildValues([Users.myScreenName: votedFor])
     }
 }

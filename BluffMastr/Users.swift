@@ -23,10 +23,8 @@ class Users {
             } else {
                 // User successfully authenticated anonymously...
                 let newUserDict = [SVC_PROVIDER: user!.providerID, SVC_SCREEN_NAME: screenName]
-                FDataService.fDataService.REF_USERS.childByAppendingPath(user!.uid).setValue(newUserDict)
+                FDataService.fDataService.REF_USERS.child(user!.uid).setValue(newUserDict)
             }
         }
-        
-        
     }
 }
