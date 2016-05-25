@@ -12,7 +12,6 @@ import Firebase
 class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var questionLbl: UILabel!
-    @IBOutlet weak var answerSubmitted: UITextField!
     @IBOutlet weak var answersTable: UITableView!
     
     var playerScore: Int!
@@ -47,20 +46,6 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func stopCheating(segue: UIStoryboardSegue) {} //For unwinding the modal segue AnswersVC
     
-    @IBAction func submitPlayerAnswer(sender: UIButton!) {
-        if let answer = answerSubmitted.text where answer != "" {
-            self.playerScore = Int(evaluateScore(answer))
-            if self.playerScore != ANSWER_ABSENT_FROM_LIST {
-                performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)
-                Users.myCurrentAnswer = answer
-            }
-            else {ErrorHandler.errorHandler.showErrorMsg(ERR_TYPO_TITLE, msg: ERR_TYPO_MSG)}
-        } else {
-            ErrorHandler.errorHandler.showErrorMsg(ERR_MISISNG_ANSWER_TITLE, msg: ERR_MISSING_ANSWER_MSG)
-        }
-        
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let scoreVC = segue.destinationViewController as? ScoreVC {
             scoreVC.playerScore = self.playerScore
@@ -92,6 +77,16 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
             return UITableViewCell()
         }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let answer = answersArray[indexPath.row]
+        self.playerScore = Int(evaluateScore(answer))
+        if self.playerScore != ANSWER_ABSENT_FROM_LIST {
+            performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)
+            Users.myCurrentAnswer = answer
+        }
+        else {ErrorHandler.errorHandler.showErrorMsg(ERR_TYPO_TITLE, msg: ERR_TYPO_MSG)}
     }
     
 }
