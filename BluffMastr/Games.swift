@@ -92,8 +92,8 @@ class Games {
                     default:
                         print("Yolo! Default behavious for observing .Value snapshot comes here. Stay tuned")
                     }
-                    completed()
                 }
+                completed()
             }
         })
     }

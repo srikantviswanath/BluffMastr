@@ -37,14 +37,8 @@ class AnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func constructAnswersArray() {
-        if isPlayerBluffMastr() {
-            for answerPos in 1...10 {
-                answersArray.append(Games.answersDict["\(answerPos)"]!)
-            }
-        } else {
-            for answerPos in randomRangeArray(Games.answersDict.count) {
-                answersArray.append(Games.answersDict["\(answerPos)"]!)
-            }
+        for answerPos in 1...10 {
+            answersArray.append(Games.answersDict["\(answerPos)"]!)
         }
     }
     

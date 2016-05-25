@@ -33,19 +33,6 @@ func getScorePhrase(playerScore: Int) -> String {
     }
 }
 
-// https://www.hackingwithswift.com/read/35/3/generating-random-numbers-with-gameplaykit-gkrandomsource
-func getRandom(upperBound: Int) -> Int {
-    let source = GKMersenneTwisterRandomSource()
-    return source.nextIntWithUpperBound(upperBound)
-}
-
-func randomRangeArray(max: Int) -> [Int] {
-    var randomArray = [Int]()
-    while randomArray.count < 10 {
-        let number = getRandom(max) + 1
-        if !randomArray.contains(number) {
-            randomArray.append(number)
-        }
-    }
-    return randomArray
+func shuffleArray(arrayOfInt: [Int]) -> [Int] {
+    return GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(arrayOfInt) as! [Int]
 }

@@ -9,19 +9,25 @@
 import UIKit
 import Firebase
 
-class QuestionVC: UIViewController {
+class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var answerSubmitted: UITextField!
+    @IBOutlet weak var answersTable: UITableView!
     
     var playerScore: Int!
+    var answersArray: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        answersTable.dataSource = self
+        answersTable.delegate = self
         Questions.questions.listenForNextQuestion{
             self.questionLbl.text = Games.currentQuestionTitle
-            Questions.questions.fetchAnswerList{}
-            
+            Questions.questions.fetchAnswerList{
+                ( isPlayerBluffMastr() ? self.constructAnswersArray([Int](1...10)) : self.constructAnswersArray(shuffleArray([Int](1...10))))
+                self.answersTable.reloadData()
+            }
             self.alertIfPlayerIsBluffMstr()
         }
     }
@@ -63,4 +69,29 @@ class QuestionVC: UIViewController {
             cheatVC.isCheating = true
         }
     }
+    
+    func constructAnswersArray(arrayOfInt: [Int]) {
+        for answerPos in arrayOfInt {
+            answersArray.append(Games.answersDict["\(answerPos)"]!)
+        }
+    }
+    
+    /* Delegates for UITableView.*/
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return answersArray.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if let cell = answersTable.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
+            cell.configureCell(answersArray[indexPath.row])
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+    
 }
