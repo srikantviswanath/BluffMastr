@@ -18,18 +18,18 @@ class Scores {
         for player in GameMembers.playersInGameRoom {
             leaderBoardDict[player] = 0
         }
-        FDataService.fDataService.REF_LEADERBOARDS.childByAppendingPath(Games.gameUID).setValue(leaderBoardDict)
+        FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).setValue(leaderBoardDict)
     }
     
     func uploadPlayerScore(currentRoundScore: Int, completed: GenericCompletionBlock) {
-        FDataService.fDataService.REF_CURRENT_ROUNDS.childByAppendingPath(Games.gameUID).updateChildValues(
+        FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).updateChildValues(
             [Users.myScreenName: currentRoundScore]
         )
         completed()
     }
     
     func accumulatePlayerScore(currentRoundScore: Int) {
-        let playerLeaderboardRef = FDataService.fDataService.REF_LEADERBOARDS.childByAppendingPath(Games.gameUID).childByAppendingPath(Users.myScreenName)
+        let playerLeaderboardRef = FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).child(Users.myScreenName)
         playerLeaderboardRef.observeSingleEventOfType(.Value, withBlock: {playerTotalSS in
             if let scoreTillNow = playerTotalSS.value as? Int! {
                 playerLeaderboardRef.setValue(scoreTillNow + currentRoundScore)
@@ -39,7 +39,7 @@ class Scores {
     
     /* This function is used to observe for each player's submission of answer to Firebase */
     func listenForPlayersSubmissions(completed: GenericCompletionBlock) {
-        FDataService.fDataService.REF_CURRENT_ROUNDS.childByAppendingPath(Games.gameUID).observeEventType(.ChildAdded, withBlock: { playerAnswerSS in
+        FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { playerAnswerSS in
             if let playerScore = playerAnswerSS.value as? Int {
                 Games.playersSubmissions.append([playerAnswerSS.key: playerScore])
                 completed()
@@ -48,8 +48,8 @@ class Scores {
     }
     
     func fetchLeaderboard(completed: GenericCompletionBlock) {
-        FDataService.fDataService.REF_LEADERBOARDS.childByAppendingPath(Games.gameUID).observeSingleEventOfType(.Value, withBlock: { leaderboardSS in
-            for child in (leaderboardSS.children.allObjects as? [FDataSnapshot])! {
+        FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).observeSingleEventOfType(.Value, withBlock: { leaderboardSS in
+            for child in (leaderboardSS.children.allObjects as? [FIRDataSnapshot])! {
                 Games.leaderboard.append([child.key: (child.value as? Int)!])
             }
             completed()

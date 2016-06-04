@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5D8E934D862D94F6D5D429C7FB9D925E"
+               BlueprintIdentifier = "EB70957137D9C41297EDBA5B0FD85361"
                BuildableName = "Pods_BluffMastr.framework"
                BlueprintName = "Pods-BluffMastr"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5D8E934D862D94F6D5D429C7FB9D925E"
+            BlueprintIdentifier = "EB70957137D9C41297EDBA5B0FD85361"
             BuildableName = "Pods_BluffMastr.framework"
             BlueprintName = "Pods-BluffMastr"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5D8E934D862D94F6D5D429C7FB9D925E"
-            BuildableName = "Pods_BluffMastr.framework"
-            BlueprintName = "Pods-BluffMastr"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

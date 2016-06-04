@@ -28,14 +28,12 @@ class Games {
         Games.sharedToken = Games.gameUID.substringFromIndex(Games.gameUID.endIndex.advancedBy(-6))
         gameRef.setValue([SVC_SHARED_TOKEN: Games.sharedToken])
         updateGameInfo(SVC_GAME_CAPTAIN, person: gameCaptain, completed: {})
-        Games.REF_GAMES_BASE.childByAppendingPath(
-            Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false]
-        )
+        Games.REF_GAMES_BASE.child(Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false])
         GameMembers.gameMembers.addMemberToRoom(gameCaptain)
     }
     
     func updateGameInfo(attribute: String, person: String, gameDict:Dictionary<String, String>=[:], completed: GenericCompletionBlock) {
-        let gameRef = Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID)
+        let gameRef = Games.REF_GAMES_BASE.child(Games.gameUID)
         
         switch attribute {
         case SVC_GAME_CAPTAIN:
@@ -66,7 +64,7 @@ class Games {
     }
     
     func listenToGameChanges(attribute: String, completed: GenericCompletionBlock) {
-        Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID).observeEventType(.ChildChanged, withBlock: { snapshot in
+        Games.REF_GAMES_BASE.child(Games.gameUID).observeEventType(.ChildChanged, withBlock: { snapshot in
             switch attribute {
             case SVC_GAME_BLUFFMASTER:
                 if snapshot.key == attribute {Games.bluffMastr = snapshot.value as? String}
@@ -81,8 +79,8 @@ class Games {
     
     /* This method will be useful when .Value observance is required, i.e. snapshots at different sample times */
     func fetchGameSnapshot(completed: GenericCompletionBlock) {
-        Games.REF_GAMES_BASE.childByAppendingPath(Games.gameUID).observeEventType(.Value, withBlock: { gameSS in
-            if let gameChildren = gameSS.children.allObjects as? [FDataSnapshot] {
+        Games.REF_GAMES_BASE.child(Games.gameUID).observeEventType(.Value, withBlock: { gameSS in
+            if let gameChildren = gameSS.children.allObjects as? [FIRDataSnapshot] {
                 for child in gameChildren {
                     switch child.key {
                     case SVC_CURRENT_QUESTION:

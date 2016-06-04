@@ -17,55 +17,55 @@
 import Foundation
 import Firebase
 
-let URL_BASE = "https://bluffmastr.firebaseio.com"
+let ref = FIRDatabase.database().reference()
 
 class FDataService {
     
     static let fDataService = FDataService()
     
-    private var _REF_BASE = Firebase(url: "\(URL_BASE)")
-    private var _REF_GAMES = Firebase(url: "\(URL_BASE)/games")
-    private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
-    private var _REF_GAME_MEMBERS = Firebase(url: "\(URL_BASE)/gameMembers")
-    private var _REF_QUESTIONS = Firebase(url: "\(URL_BASE)/questions")
-    private var _REF_ANSWERS = Firebase(url: "\(URL_BASE)/answers")
-    private var _REF_CURRENT_ROUNDS = Firebase(url: "\(URL_BASE)/currentRounds")
-    private var _REF_LEADERBOARDS = Firebase(url: "\(URL_BASE)/leaderboards")
-    private var _REF_VOTES = Firebase(url: "\(URL_BASE)/votes")
+    private var _REF_BASE = ref
+    private var _REF_GAMES = ref.child("games")
+    private var _REF_USERS = ref.child("users")
+    private var _REF_GAME_MEMBERS = ref.child("gameMembers")
+    private var _REF_QUESTIONS = ref.child("questions")
+    private var _REF_ANSWERS = ref.child("answers")
+    private var _REF_CURRENT_ROUNDS = ref.child("currentRounds")
+    private var _REF_LEADERBOARDS = ref.child("leaderboards")
+    private var _REF_VOTES = ref.child("votes")
     
-    var REF_BASE: Firebase {
+    var REF_BASE: FIRDatabaseReference {
         return _REF_BASE
     }
     
-    var REF_GAMES: Firebase {
+    var REF_GAMES: FIRDatabaseReference {
         return _REF_GAMES
     }
     
-    var REF_USERS: Firebase {
+    var REF_USERS: FIRDatabaseReference {
         return _REF_USERS
     }
     
-    var REF_GAME_MEMBERS: Firebase {
+    var REF_GAME_MEMBERS: FIRDatabaseReference {
         return _REF_GAME_MEMBERS
     }
     
-    var REF_QUESTIONS: Firebase {
+    var REF_QUESTIONS: FIRDatabaseReference {
         return _REF_QUESTIONS
     }
     
-    var REF_ANSWERS: Firebase {
+    var REF_ANSWERS: FIRDatabaseReference {
         return _REF_ANSWERS
     }
     
-    var REF_CURRENT_ROUNDS: Firebase {
+    var REF_CURRENT_ROUNDS: FIRDatabaseReference {
         return _REF_CURRENT_ROUNDS
     }
     
-    var REF_LEADERBOARDS: Firebase {
+    var REF_LEADERBOARDS: FIRDatabaseReference {
         return _REF_LEADERBOARDS
     }
     
-    var REF_VOTES: Firebase {
+    var REF_VOTES: FIRDatabaseReference {
         return _REF_VOTES
     }
 }
