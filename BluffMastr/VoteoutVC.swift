@@ -25,7 +25,9 @@ class VoteoutVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             let votedAgainstDict = Games.leaderboard[(markedCellIndexPath?.row)!]
             let votedAgainstPlayer = Array(votedAgainstDict.keys)[0]
             if votedAgainstPlayer != Users.myScreenName {
-                Votes.votes.submitVote(votedAgainstPlayer)
+                Votes.votes.submitVote(votedAgainstPlayer) {
+                    self.performSegueWithIdentifier(SEGUE_TO_VOTE_RESULT, sender: nil)
+                }
             } else {
                 ErrorHandler.errorHandler.showErrorMsg(ERR_SELF_VOTE_TITLE, msg: ERR_SELF_VOTE_MSG)
             }

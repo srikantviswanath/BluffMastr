@@ -56,7 +56,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbA-yX-gMZ">
-                                                <rect key="frame" x="0.0" y="47" width="440" height="46"/>
+                                                <rect key="frame" x="0.0" y="46" width="440" height="47"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -1166,16 +1166,17 @@
                     </view>
                     <connections>
                         <outlet property="voteoutCollectionView" destination="0sD-F3-3eZ" id="73Q-pd-TDb"/>
+                        <segue destination="Fwz-Ch-dxW" kind="showDetail" identifier="VoteResult" id="9CV-Yw-U8h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qS8-x5-pR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5385" y="372"/>
         </scene>
-        <!--Material Vie-->
+        <!--Vote ResultVC-->
         <scene sceneID="RKF-Pa-3oP">
             <objects>
-                <viewController id="Fwz-Ch-dxW" customClass="MaterialVie" sceneMemberID="viewController">
+                <viewController id="Fwz-Ch-dxW" customClass="VoteResultVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="70S-3y-hm0"/>
                         <viewControllerLayoutGuide type="bottom" id="kWT-oV-gG1"/>
@@ -1184,59 +1185,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BFI-0c-vuy" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="20" y="149" width="560" height="300"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFI-0c-vuy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Dqc-ST-xpq">
-                                        <rect key="frame" x="262" y="202" width="37" height="37"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Waiting for everyone to cast their vote..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8gq-Cq-u4U">
+                                        <rect key="frame" x="30" y="271" width="540" height="56"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="19"/>
+                                        <color key="textColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Dqc-ST-xpq">
+                                        <rect key="frame" x="282" y="339" width="37" height="37"/>
                                         <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Dqc-ST-xpq" firstAttribute="centerX" secondItem="BFI-0c-vuy" secondAttribute="centerX" id="1Ci-TA-D70"/>
+                                    <constraint firstItem="8gq-Cq-u4U" firstAttribute="centerX" secondItem="BFI-0c-vuy" secondAttribute="centerX" id="7mL-Ie-EZG"/>
                                     <constraint firstAttribute="bottom" secondItem="Dqc-ST-xpq" secondAttribute="bottom" constant="70" id="8Ds-Ut-4aZ"/>
+                                    <constraint firstItem="8gq-Cq-u4U" firstAttribute="centerY" secondItem="BFI-0c-vuy" secondAttribute="centerY" id="Ca6-zI-5FY"/>
+                                    <constraint firstAttribute="trailing" secondItem="8gq-Cq-u4U" secondAttribute="trailing" constant="10" id="Cl0-Yt-yE8"/>
+                                    <constraint firstItem="8gq-Cq-u4U" firstAttribute="leading" secondItem="BFI-0c-vuy" secondAttribute="leading" constant="10" id="Er3-UI-ZUz"/>
                                     <constraint firstAttribute="height" constant="300" id="M6v-2n-LpS"/>
+                                    <constraint firstItem="Dqc-ST-xpq" firstAttribute="top" secondItem="8gq-Cq-u4U" secondAttribute="bottom" constant="25" id="PUL-vq-4fy"/>
+                                    <constraint firstAttribute="trailing" secondItem="8gq-Cq-u4U" secondAttribute="trailing" constant="10" id="bT9-AO-buy"/>
                                     <constraint firstAttribute="height" constant="300" id="juL-QC-6j7"/>
                                     <constraint firstAttribute="width" constant="300" id="qPr-Xe-tBj"/>
                                     <constraint firstAttribute="width" constant="300" id="wyN-6g-cJu"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="M6v-2n-LpS"/>
                                         <exclude reference="juL-QC-6j7"/>
                                         <exclude reference="qPr-Xe-tBj"/>
                                         <exclude reference="wyN-6g-cJu"/>
+                                        <exclude reference="Cl0-Yt-yE8"/>
+                                        <exclude reference="8Ds-Ut-4aZ"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Waiting for everyone to cast their vote..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8gq-Cq-u4U">
-                                <rect key="frame" x="30" y="272" width="540" height="56"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="19"/>
-                                <color key="textColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8gq-Cq-u4U" firstAttribute="centerY" secondItem="bYj-P7-vCw" secondAttribute="centerY" id="2lC-Rz-yr8"/>
+                            <constraint firstItem="BFI-0c-vuy" firstAttribute="top" secondItem="bYj-P7-vCw" secondAttribute="top" id="66u-G2-rQr"/>
                             <constraint firstItem="BFI-0c-vuy" firstAttribute="leading" secondItem="bYj-P7-vCw" secondAttribute="leading" constant="20" id="A0K-3C-oNq"/>
                             <constraint firstItem="BFI-0c-vuy" firstAttribute="centerY" secondItem="bYj-P7-vCw" secondAttribute="centerY" id="I2S-mn-lmA"/>
                             <constraint firstItem="BFI-0c-vuy" firstAttribute="trailing" secondItem="bYj-P7-vCw" secondAttribute="trailingMargin" id="M6r-mb-hXS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8gq-Cq-u4U" secondAttribute="trailing" constant="10" id="PoS-yn-hlN"/>
                             <constraint firstAttribute="trailing" secondItem="BFI-0c-vuy" secondAttribute="trailing" constant="20" id="TLI-Mc-NlJ"/>
                             <constraint firstItem="BFI-0c-vuy" firstAttribute="centerX" secondItem="bYj-P7-vCw" secondAttribute="centerX" id="W8S-iX-yRN"/>
-                            <constraint firstItem="8gq-Cq-u4U" firstAttribute="leading" secondItem="bYj-P7-vCw" secondAttribute="leadingMargin" constant="10" id="cjZ-6U-4N0"/>
+                            <constraint firstItem="BFI-0c-vuy" firstAttribute="leading" secondItem="bYj-P7-vCw" secondAttribute="leading" id="X8u-5b-bnx"/>
                             <constraint firstItem="BFI-0c-vuy" firstAttribute="leading" secondItem="bYj-P7-vCw" secondAttribute="leadingMargin" id="csK-b1-pLh"/>
+                            <constraint firstItem="kWT-oV-gG1" firstAttribute="top" secondItem="BFI-0c-vuy" secondAttribute="bottom" id="gll-kN-rWf"/>
+                            <constraint firstAttribute="trailing" secondItem="BFI-0c-vuy" secondAttribute="trailing" id="ttK-MU-gc1"/>
                             <constraint firstItem="BFI-0c-vuy" firstAttribute="top" secondItem="70S-3y-hm0" secondAttribute="bottom" constant="130" id="u83-qc-7HG"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="A0K-3C-oNq"/>
+                                <exclude reference="I2S-mn-lmA"/>
+                                <exclude reference="M6r-mb-hXS"/>
                                 <exclude reference="TLI-Mc-NlJ"/>
+                                <exclude reference="W8S-iX-yRN"/>
+                                <exclude reference="csK-b1-pLh"/>
                                 <exclude reference="u83-qc-7HG"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="waitingForAllVotesSpinner" destination="Dqc-ST-xpq" id="83D-HS-XWz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xj-fx-xbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

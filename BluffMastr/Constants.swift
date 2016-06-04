@@ -31,6 +31,7 @@ let SEGUE_REVEAL_ANSWERS = "RevealAnswers"
 let SEGUE_BLUFFMASTR_CHEAT = "CheatAnswers"
 let SEGUE_SHOW_LEADERBOARD = "ShowLeaderboard"
 let SEGUE_TO_VOTEOUT = "Voteout"
+let SEGUE_TO_VOTE_RESULT = "VoteResult"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 let THIS_ROUND_CELL = "ThisRoundCell"
@@ -55,6 +56,8 @@ let ERR_SELF_VOTE_TITLE = "Self Vote!"
 let ERR_SELF_VOTE_MSG = "Yera taagi unnava?"
 let ERR_VOTE_ABSENT_TITLE = "Vote Missing!"
 let ERR_VOTE_ABSENT_MSG = "Need to select a player to vote out"
+let ERR_VOTE_FAILED_TITLE = "Vote Failed :("
+let ERR_VOTE_FAILED_MSG = "Could not cast your vote. Please check your network connection and try again"
 
 /* Statuses */
 
