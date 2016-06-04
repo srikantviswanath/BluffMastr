@@ -26,8 +26,7 @@ xcuserdata/
 *.ipa
 
 ## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
+*.playground/
 
 # Swift Package Manager
 #
