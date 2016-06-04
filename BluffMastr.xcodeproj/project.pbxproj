@@ -11,6 +11,9 @@
 		756D2FCF3EB652E3D7391F82 /* Pods_BluffMastr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37882A413A0E8AC91F604434 /* Pods_BluffMastr.framework */; };
 		9446F8D91CF5F01E00F41FC0 /* Votes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446F8D81CF5F01E00F41FC0 /* Votes.swift */; };
 		9446F8DB1CF5F02D00F41FC0 /* VoteoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446F8DA1CF5F02D00F41FC0 /* VoteoutVC.swift */; };
+		949875B91D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
+		949875BA1D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
+		949875BB1D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
 		94EDAB2C1CDDC48E00A12321 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EDAB2B1CDDC48E00A12321 /* Errors.swift */; };
 		BC8970900265258FB4D83D32 /* Pods_BluffMastrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */; };
 		CB7CEFC61CD6DCDA00356DFB /* FirebaseDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */; };
@@ -68,6 +71,7 @@
 		900961ED9134A9383EF027AE /* Pods-BluffMastrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrUITests/Pods-BluffMastrUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9446F8D81CF5F01E00F41FC0 /* Votes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Votes.swift; sourceTree = "<group>"; };
 		9446F8DA1CF5F02D00F41FC0 /* VoteoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteoutVC.swift; sourceTree = "<group>"; };
+		949875B81D025FE000BA190E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		94EDAB2B1CDDC48E00A12321 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataServices.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				CBDA41121CD5BFD200103F2A /* LaunchScreen.storyboard */,
 				CBDA41151CD5BFD200103F2A /* Info.plist */,
 				CBDA410D1CD5BFD200103F2A /* BluffMastr.xcdatamodeld */,
+				949875B81D025FE000BA190E /* GoogleService-Info.plist */,
 			);
 			path = BluffMastr;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBDA41141CD5BFD200103F2A /* LaunchScreen.storyboard in Resources */,
+				949875B91D025FE000BA190E /* GoogleService-Info.plist in Resources */,
 				CBDA41111CD5BFD200103F2A /* Assets.xcassets in Resources */,
 				CBDA410C1CD5BFD200103F2A /* Main.storyboard in Resources */,
 			);
@@ -396,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				949875BA1D025FE000BA190E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				949875BB1D025FE000BA190E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
