@@ -22,9 +22,10 @@ class VoteResultVC: UIViewController {
     }
     
     @IBAction func revote(sender: UIButton) {
-        Votes.votes.resetPlayerVote {
-            self.performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
-        }
+        Games.votesCastedForThisRound = Dictionary<String, String>()
+        Votes.votes.resetPlayerVote()
+        self.performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
+        
     }
     
     func displayVoteoutResult() {
