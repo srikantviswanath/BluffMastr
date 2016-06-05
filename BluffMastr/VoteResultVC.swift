@@ -22,7 +22,9 @@ class VoteResultVC: UIViewController {
     }
     
     @IBAction func revote(sender: UIButton) {
-        performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
+        Votes.votes.resetPlayerVote {
+            self.performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
+        }
     }
     
     func displayVoteoutResult() {
