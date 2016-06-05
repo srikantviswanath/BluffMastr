@@ -18,4 +18,13 @@ class Votes {
             }
         )
     }
+    
+    func listenForVotesCasted(completed: GenericCompletionBlock) {
+        FDataService.fDataService.REF_VOTES.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { playerVoteSS in
+            if let voteCasted = playerVoteSS.value as? String {
+                Games.votesCastedForThisRound[playerVoteSS.key] = voteCasted
+                completed()
+            }
+        })
+    }
 }

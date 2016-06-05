@@ -19,7 +19,10 @@ typealias GenericCompletionBlock = () -> ()
 
 /* UI Elements constants */
 
+let COLOR_THEME = 0xF44336
 let SHADOW_COLOR: CGFloat = 155.0/255.0
+let COLOR_ELECTED_ANSWER = 0x00BCD4
+
 
 /* Segue and TableViewCell constants */
 
@@ -73,9 +76,12 @@ let STATUS_SCORE_3_TO_7 = "Good Job."
 let STATUS_SCORE_MORE_THAN_7 = "Great Going."
 let STATUS_WAITING_ALL_ANSWERS = "Waitin for everyone to answer..."
 let STATUS_LAST_ROUND_SCORES = "Scores for this round:"
+let STATUS_VOTE_RESULT_PLACEHOLDER = "has been voted out and..."
 
 
+/* Codes */
 
+let CODE_TIE = "TIE"
 
 /* Comments */
 

@@ -18,7 +18,8 @@ class Games {
     static var currentQuestionId: Int!
     static var answersDict = Dictionary<String, String>() //To hold the actual answers for current question
     static var playersSubmissions = [Dictionary<String, Int>]() //To hold players' answer submission for the current round
-    static var leaderboard = [Dictionary<String, Int>]()
+    static var leaderboard = [Dictionary<String, Int>]() //To hold players' total scores for the game
+    static var votesCastedForThisRound = Dictionary<String, String>() //To hold the voter and his/her vote for the current round
     static var games = Games()
     static var REF_GAMES_BASE = FDataService.fDataService.REF_GAMES
     

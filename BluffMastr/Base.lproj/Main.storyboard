@@ -1253,6 +1253,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="ParentView" destination="BFI-0c-vuy" id="MKn-t5-bKS"/>
+                        <outlet property="ResultStatusLbl" destination="8gq-Cq-u4U" id="fa0-7l-heP"/>
                         <outlet property="waitingForAllVotesSpinner" destination="Dqc-ST-xpq" id="83D-HS-XWz"/>
                     </connections>
                 </viewController>
@@ -1423,6 +1425,6 @@
         <image name="launcherLogo" width="212" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tff-aa-19l"/>
+        <segue reference="2ZN-ki-jMy"/>
     </inferredMetricsTieBreakers>
 </document>

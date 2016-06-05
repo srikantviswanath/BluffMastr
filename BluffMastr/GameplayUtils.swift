@@ -36,3 +36,32 @@ func getScorePhrase(playerScore: Int) -> String {
 func shuffleArray(arrayOfInt: [Int]) -> [Int] {
     return GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(arrayOfInt) as! [Int]
 }
+
+/* Method to return a dict with the # of votes against each player*/
+func countVotes() -> Dictionary<String, Int> {
+    var voteCounter = Dictionary<String, Int>()
+    for (_, voteCasted) in Games.votesCastedForThisRound {
+        if voteCounter[voteCasted] != nil {
+            voteCounter[voteCasted]! += 1
+        } else {
+            voteCounter[voteCasted] = 1
+        }
+    }
+    return voteCounter
+}
+
+/* Method to evaluate the right person to eliminate based on current round's votes
+    - In case of a tie, return CODE_TIE, so that revoting is conducted again
+ */
+func evaluateVotes() -> String {
+    let sortedVotes = (countVotes() as NSDictionary).keysSortedByValueUsingSelector(#selector(NSNumber.compare(_:)))
+    if sortedVotes.count > 1 {
+        let topperScore = countVotes()[sortedVotes.reverse()[0] as! String]!
+        let nextHighest = countVotes()[sortedVotes.reverse()[1] as! String]!
+        if  topperScore == nextHighest {return CODE_TIE}
+        else {return sortedVotes.reverse()[0] as! String}
+            
+    } else { //Bumper unanimous majority
+        return sortedVotes.reverse()[0] as! String
+    }
+}

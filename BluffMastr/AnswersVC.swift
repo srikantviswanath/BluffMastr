@@ -60,7 +60,7 @@ class AnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 switch answersArray[indexPath.row] {
                 case Users.myCurrentAnswer!:
                     cell.configureCell(answersArray[indexPath.row])
-                    cell.backgroundColor = UIColor(netHex: 0x00BCD4)
+                    cell.backgroundColor = UIColor(netHex: COLOR_ELECTED_ANSWER)
                     cell.MainLbl.textColor = UIColor.whiteColor()
                 default:
                     cell.configureCell(answersArray[indexPath.row])
