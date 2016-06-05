@@ -35,6 +35,7 @@ let SEGUE_BLUFFMASTR_CHEAT = "CheatAnswers"
 let SEGUE_SHOW_LEADERBOARD = "ShowLeaderboard"
 let SEGUE_TO_VOTEOUT = "Voteout"
 let SEGUE_TO_VOTE_RESULT = "VoteResult"
+let SEGUE_REVOTE = "Revote"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 let THIS_ROUND_CELL = "ThisRoundCell"
@@ -77,6 +78,7 @@ let STATUS_SCORE_MORE_THAN_7 = "Great Going."
 let STATUS_WAITING_ALL_ANSWERS = "Waitin for everyone to answer..."
 let STATUS_LAST_ROUND_SCORES = "Scores for this round:"
 let STATUS_VOTE_RESULT_PLACEHOLDER = "has been voted out and..."
+let STATUS_TIE = "Snap, it's a tie. Need to revote"
 
 
 /* Codes */

@@ -1194,6 +1194,25 @@
                                         <color key="textColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wp3-WY-CcE">
+                                        <rect key="frame" x="0.0" y="559" width="600" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0t-sa-7rC">
+                                                <rect key="frame" x="263" y="5" width="78" height="30"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
+                                                <state key="normal" title="Vote Again"/>
+                                                <connections>
+                                                    <action selector="revote:" destination="Fwz-Ch-dxW" eventType="touchUpInside" id="DDk-po-CJy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="0tk-s7-1rK"/>
+                                            <constraint firstItem="Z0t-sa-7rC" firstAttribute="centerY" secondItem="Wp3-WY-CcE" secondAttribute="centerY" id="DJL-eZ-AVw"/>
+                                            <constraint firstItem="Z0t-sa-7rC" firstAttribute="centerX" secondItem="Wp3-WY-CcE" secondAttribute="centerX" id="cVk-NU-9ee"/>
+                                        </constraints>
+                                    </view>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Dqc-ST-xpq">
                                         <rect key="frame" x="282" y="339" width="37" height="37"/>
                                         <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1207,11 +1226,14 @@
                                     <constraint firstItem="8gq-Cq-u4U" firstAttribute="centerY" secondItem="BFI-0c-vuy" secondAttribute="centerY" id="Ca6-zI-5FY"/>
                                     <constraint firstAttribute="trailing" secondItem="8gq-Cq-u4U" secondAttribute="trailing" constant="10" id="Cl0-Yt-yE8"/>
                                     <constraint firstItem="8gq-Cq-u4U" firstAttribute="leading" secondItem="BFI-0c-vuy" secondAttribute="leading" constant="10" id="Er3-UI-ZUz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wp3-WY-CcE" secondAttribute="bottom" id="Iyl-aR-57o"/>
+                                    <constraint firstItem="Wp3-WY-CcE" firstAttribute="leading" secondItem="BFI-0c-vuy" secondAttribute="leading" id="JYA-1h-LXQ"/>
                                     <constraint firstAttribute="height" constant="300" id="M6v-2n-LpS"/>
                                     <constraint firstItem="Dqc-ST-xpq" firstAttribute="top" secondItem="8gq-Cq-u4U" secondAttribute="bottom" constant="25" id="PUL-vq-4fy"/>
                                     <constraint firstAttribute="trailing" secondItem="8gq-Cq-u4U" secondAttribute="trailing" constant="10" id="bT9-AO-buy"/>
                                     <constraint firstAttribute="height" constant="300" id="juL-QC-6j7"/>
                                     <constraint firstAttribute="width" constant="300" id="qPr-Xe-tBj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wp3-WY-CcE" secondAttribute="trailing" id="vKp-8x-mRs"/>
                                     <constraint firstAttribute="width" constant="300" id="wyN-6g-cJu"/>
                                 </constraints>
                                 <variation key="default">
@@ -1255,7 +1277,9 @@
                     <connections>
                         <outlet property="ParentView" destination="BFI-0c-vuy" id="MKn-t5-bKS"/>
                         <outlet property="ResultStatusLbl" destination="8gq-Cq-u4U" id="fa0-7l-heP"/>
+                        <outlet property="voteBtn" destination="Z0t-sa-7rC" id="ExZ-bk-DoY"/>
                         <outlet property="waitingForAllVotesSpinner" destination="Dqc-ST-xpq" id="83D-HS-XWz"/>
+                        <segue destination="UkQ-Xn-53t" kind="showDetail" identifier="Revote" id="cBE-Q4-G5z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xj-fx-xbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1426,5 +1450,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2ZN-ki-jMy"/>
+        <segue reference="cBE-Q4-G5z"/>
     </inferredMetricsTieBreakers>
 </document>
