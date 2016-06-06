@@ -1217,6 +1217,29 @@
                                         <rect key="frame" x="282" y="339" width="37" height="37"/>
                                         <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IT-5K-5LT">
+                                        <rect key="frame" x="8" y="179" width="584" height="42"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69u-Vg-qbg">
+                                        <rect key="frame" x="267" y="238" width="65" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="BPn-Dm-lIa"/>
+                                            <constraint firstAttribute="width" constant="65" id="WVG-FL-DLd"/>
+                                            <constraint firstAttribute="height" constant="40" id="sUy-8m-VjJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="BPn-Dm-lIa"/>
+                                                <exclude reference="sUy-8m-VjJ"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1226,13 +1249,18 @@
                                     <constraint firstItem="8gq-Cq-u4U" firstAttribute="centerY" secondItem="BFI-0c-vuy" secondAttribute="centerY" id="Ca6-zI-5FY"/>
                                     <constraint firstAttribute="trailing" secondItem="8gq-Cq-u4U" secondAttribute="trailing" constant="10" id="Cl0-Yt-yE8"/>
                                     <constraint firstItem="8gq-Cq-u4U" firstAttribute="leading" secondItem="BFI-0c-vuy" secondAttribute="leading" constant="10" id="Er3-UI-ZUz"/>
+                                    <constraint firstItem="8gq-Cq-u4U" firstAttribute="top" secondItem="69u-Vg-qbg" secondAttribute="bottom" constant="25" id="Gfj-vE-zRx"/>
                                     <constraint firstAttribute="bottom" secondItem="Wp3-WY-CcE" secondAttribute="bottom" id="Iyl-aR-57o"/>
                                     <constraint firstItem="Wp3-WY-CcE" firstAttribute="leading" secondItem="BFI-0c-vuy" secondAttribute="leading" id="JYA-1h-LXQ"/>
                                     <constraint firstAttribute="height" constant="300" id="M6v-2n-LpS"/>
                                     <constraint firstItem="Dqc-ST-xpq" firstAttribute="top" secondItem="8gq-Cq-u4U" secondAttribute="bottom" constant="25" id="PUL-vq-4fy"/>
+                                    <constraint firstItem="69u-Vg-qbg" firstAttribute="top" secondItem="8IT-5K-5LT" secondAttribute="bottom" constant="20" id="b2u-VG-Ii6"/>
                                     <constraint firstAttribute="trailing" secondItem="8gq-Cq-u4U" secondAttribute="trailing" constant="10" id="bT9-AO-buy"/>
+                                    <constraint firstAttribute="trailing" secondItem="8IT-5K-5LT" secondAttribute="trailing" constant="8" id="gGX-38-B9m"/>
                                     <constraint firstAttribute="height" constant="300" id="juL-QC-6j7"/>
+                                    <constraint firstItem="69u-Vg-qbg" firstAttribute="centerX" secondItem="BFI-0c-vuy" secondAttribute="centerX" id="kns-Di-sRX"/>
                                     <constraint firstAttribute="width" constant="300" id="qPr-Xe-tBj"/>
+                                    <constraint firstItem="8IT-5K-5LT" firstAttribute="leading" secondItem="BFI-0c-vuy" secondAttribute="leading" constant="8" id="tAx-XT-VyK"/>
                                     <constraint firstAttribute="trailing" secondItem="Wp3-WY-CcE" secondAttribute="trailing" id="vKp-8x-mRs"/>
                                     <constraint firstAttribute="width" constant="300" id="wyN-6g-cJu"/>
                                 </constraints>
@@ -1277,6 +1305,8 @@
                     <connections>
                         <outlet property="ParentView" destination="BFI-0c-vuy" id="MKn-t5-bKS"/>
                         <outlet property="ResultStatusLbl" destination="8gq-Cq-u4U" id="fa0-7l-heP"/>
+                        <outlet property="VotedoutPlayerLbl" destination="8IT-5K-5LT" id="qKq-gx-z3T"/>
+                        <outlet property="noOfVotes" destination="69u-Vg-qbg" id="qbk-pW-0vI"/>
                         <outlet property="voteBtn" destination="Z0t-sa-7rC" id="ExZ-bk-DoY"/>
                         <outlet property="waitingForAllVotesSpinner" destination="Dqc-ST-xpq" id="83D-HS-XWz"/>
                         <segue destination="UkQ-Xn-53t" kind="showDetail" identifier="Revote" id="cBE-Q4-G5z"/>

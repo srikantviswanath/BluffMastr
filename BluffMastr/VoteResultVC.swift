@@ -10,10 +10,14 @@ import UIKit
 
 class VoteResultVC: UIViewController {
 
+    @IBOutlet weak var VotedoutPlayerLbl: UILabel!
+    @IBOutlet weak var noOfVotes: UILabel!
     @IBOutlet weak var ResultStatusLbl: UILabel!
     @IBOutlet weak var waitingForAllVotesSpinner: UIActivityIndicatorView!
     @IBOutlet weak var ParentView: UIView!
     @IBOutlet weak var voteBtn: UIButton!
+    
+    var timer = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +38,9 @@ class VoteResultVC: UIViewController {
                 self.ResultStatusLbl.textColor = UIColor.whiteColor()
                 self.waitingForAllVotesSpinner.stopAnimating()
                 self.ParentView.backgroundColor = UIColor(netHex: COLOR_THEME)
-                if evaluateVotes() != CODE_TIE { //if its a tie, go for a revote
-                    self.ResultStatusLbl.text = "\(evaluateVotes()) \(STATUS_VOTE_RESULT_PLACEHOLDER)"
-                } else {
+                if evaluateVotes() != CODE_TIE { //if it is not a tie, display the voted out player's details
+                    self.displayVotedoutPlayer()
+                } else { //if its a tie, go for a revote
                     self.voteBtn.hidden = false
                     self.ResultStatusLbl.text = STATUS_TIE
                 }
@@ -45,5 +49,20 @@ class VoteResultVC: UIViewController {
             }
         }
 
+    }
+    
+    func displayVotedoutPlayer() {
+        self.VotedoutPlayerLbl.text = evaluateVotes()
+        self.noOfVotes.text = "\(countVotes()[evaluateVotes()]!) \(VOTES)"
+        self.ResultStatusLbl.text = "\(STATUS_VOTE_RESULT_PLACEHOLDER)"
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.giveVerdictForVotedoutPlayer), userInfo: nil, repeats: false)
+    }
+    
+    func giveVerdictForVotedoutPlayer() {
+        if evaluateVotes() == Games.bluffMastr {
+            ResultStatusLbl.text = STATUS_BLUFFMASTR_FOUND
+        } else {
+            ResultStatusLbl.text = STATUS_INNOCENT_PLAYER
+        }
     }
 }
