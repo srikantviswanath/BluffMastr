@@ -65,4 +65,10 @@ class VoteResultVC: UIViewController {
             ResultStatusLbl.text = STATUS_INNOCENT_PLAYER
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destVC = segue.destinationViewController as? LeaderboardVC {
+            destVC.readyToshowCurrentRoundScores = true
+        }
+    }
 }

@@ -81,12 +81,18 @@ let STATUS_VOTE_RESULT_PLACEHOLDER = "has been voted out and..."
 let STATUS_TIE = "Snap, it's a tie. Need to revote"
 let STATUS_INNOCENT_PLAYER = "is an INNOCENT player"
 let STATUS_BLUFFMASTR_FOUND = "is the BLUFFMASTR"
+let STATUS_START_VOTING = "Select a Player to Voteout"
+
 let VOTES = "Votes"
 
 
 /* Codes */
 
 let CODE_TIE = "TIE"
+
+/* BUTTON TITLES */
+
+let BTN_SUBMIT = "SUBMIT"
 
 /* Comments */
 
