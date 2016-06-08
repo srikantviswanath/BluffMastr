@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LandingVC: UIViewController {
+class LandingVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var screenNameTxt: UITextField!
     
@@ -17,6 +17,8 @@ class LandingVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        screenNameTxt.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func createGame(sender: UIButton!){
@@ -51,6 +53,12 @@ class LandingVC: UIViewController {
             destVC.isGameCreator = isGameCreator
             destVC.screenTitle = screenNameTxt.text
         }
+    }
+    
+    /* ==================UITextField delegate methods ============= */
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
 }

@@ -8,11 +8,14 @@
 
 import UIKit
 
-class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var barTitle: UILabel!
     @IBOutlet weak var joinerStaticLbl: UILabel!
-    @IBOutlet weak var codeEnteredTxt: UITextField!
+    @IBOutlet weak var codeEnteredTxtFirst: UITextField!
+    @IBOutlet weak var codeEnteredTxtSecond: UITextField!
+    @IBOutlet weak var codeEnteredTxtThird: UITextField!
+    @IBOutlet weak var codeEnteredTxtFourth: UITextField!
     @IBOutlet weak var creatorStaticLbl: UILabel!
     @IBOutlet weak var createdGameCode: UILabel!
     @IBOutlet weak var joinBtn: UIButton!
@@ -22,11 +25,19 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var isGameCreator: Bool!
     var screenTitle: String!
+    var arrayOfCodes: [String] = ["", "", "", ""]
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         playersTable.delegate = self
         playersTable.dataSource = self
+        codeEnteredTxtFirst.delegate = self
+        codeEnteredTxtSecond.delegate = self
+        codeEnteredTxtThird.delegate = self
+        codeEnteredTxtFourth.delegate = self
+        
+        codeEnteredTxtFirst.becomeFirstResponder()
         
         switchLblsAfterViewLoad()
         
@@ -44,7 +55,10 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         barTitle.text = screenTitle
         if isGameCreator! {
             joinerStaticLbl.hidden = true
-            codeEnteredTxt.hidden = true
+            codeEnteredTxtFirst.hidden = true
+            codeEnteredTxtSecond.hidden = true
+            codeEnteredTxtThird.hidden = true
+            codeEnteredTxtFourth.hidden = true
             joinBtn.hidden = true
         } else {
             createdGameCode.hidden = true
@@ -69,7 +83,10 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func changeViewAfterJoin() {
         statusLbl.text = STATUS_WAITING_TO_START
         joinBtn.hidden = true
-        codeEnteredTxt.hidden = true
+        codeEnteredTxtFirst.hidden = true
+        codeEnteredTxtSecond.hidden = true
+        codeEnteredTxtThird.hidden = true
+        codeEnteredTxtFourth.hidden = true
         joinerStaticLbl.text = CMT_GAME_PREP
     }
 
@@ -78,7 +95,8 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     /*validate the entered code and enter this player in the game room*/
     @IBAction func joinGame(sender: UIButton!){
         self.view.endEditing(true)
-        if let enteredCode = codeEnteredTxt.text where enteredCode != "" {
+        let enteredCode = arrayOfCodes.joinWithSeparator("")
+        if enteredCode.characters.count == 4 {
             Games.games.joinGame(enteredCode, gameSlave: self.screenTitle) {
                 GameMembers.gameMembers.observeNewMembersAdded {
                     self.playersTable.reloadData()
@@ -131,5 +149,66 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
     }
-        
+    
+    /* ==================UITextField delegate methods ============= */
+    // TODO: check this version: http://stackoverflow.com/a/35232074/5915969
+    // Used Version: http://stackoverflow.com/a/21715408/5915969
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let length = (textField.text?.characters.count)! + string.characters.count - range.length
+        if length == 1 {
+            switch textField {
+            case codeEnteredTxtFirst:
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtSecond, afterDelay: 0.1)
+            case codeEnteredTxtSecond:
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtThird, afterDelay: 0.1)
+            case codeEnteredTxtThird:
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtFourth, afterDelay: 0.1)
+            case codeEnteredTxtFourth:
+                self.performSelector(#selector(UIViewController.dismissKeyboard), withObject: nil, afterDelay: 0.1)
+            default: break
+            }
+        } else if textField.text?.characters.count == 1 && length == 0 {
+            switch textField {
+            case codeEnteredTxtFourth:
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtThird, afterDelay: 0.1)
+            case codeEnteredTxtThird:
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtSecond, afterDelay: 0.1)
+            case codeEnteredTxtSecond:
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtFirst, afterDelay: 0.1)
+            default: break
+            }
+        }
+        return length <= 1
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        switch textField {
+        case codeEnteredTxtFirst:
+            arrayOfCodes[0] = textField.text!
+        case codeEnteredTxtSecond:
+            arrayOfCodes[1] = textField.text!
+        case codeEnteredTxtThird:
+            arrayOfCodes[2] = textField.text!
+        case codeEnteredTxtFourth:
+            arrayOfCodes[3] = textField.text!
+        default:
+            break
+        }
+    }
+    
+    func setNextResponder(nextResponder: UITextField) {
+        nextResponder.becomeFirstResponder()
+    }
+}
+
+// https://github.com/goktugyil/EZSwiftExtensions#uiviewcontroller-extensions
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
