@@ -29,11 +29,7 @@ class Votes {
     }
     
     /* Resets the client player's vote for the current round. Used in case of a tie*/
-    func resetPlayerVote(completed: GenericCompletionBlock) {
-        FDataService.fDataService.REF_VOTES.child(Games.gameUID).updateChildValues([Users.myScreenName: false], withCompletionBlock: { err, fDB in
-            if err == nil {
-                completed()
-            }
-        })
+    func resetPlayerVote() {
+        FDataService.fDataService.REF_VOTES.child(Games.gameUID).child(Users.myScreenName).removeValue()
     }
 }

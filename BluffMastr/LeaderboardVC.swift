@@ -14,8 +14,11 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var leaderboardTableView: UITableView!
     @IBOutlet weak var thisRoundStatus: UILabel!
     @IBOutlet weak var leaderboardStatus: UILabel!
+    @IBOutlet weak var VoteoutBtn: UIButton!
     
-    var readyToshowCurrentRoundScores = false
+    var readyToshowCurrentRoundScores: Bool?
+    var markedCellIndexPath: NSIndexPath?
+    var voteoutModeEnabled = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +30,18 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     @IBAction func voteoutBtnClicked(sender: UIButton!) {
-        performSegueWithIdentifier(SEGUE_TO_VOTEOUT, sender: nil)
+        if voteoutModeEnabled {
+            validateVoteAndSubmit()
+        } else {
+            voteoutModeEnabled = true
+            leaderboardStatus.text = STATUS_START_VOTING
+            VoteoutBtn.setTitle(BTN_SUBMIT, forState: .Normal)
+        }
     }
     
     func displayCurrentRoundScores() {
         Scores.scores.listenForPlayersSubmissions {
-            if Games.playersSubmissions.count == GameMembers.playersInGameRoom.count {
+            if Games.playersSubmissions.count >= GameMembers.playersInGameRoom.count {
                 self.readyToshowCurrentRoundScores = true
                 Scores.scores.fetchLeaderboard {
                     self.leaderboardTableView.reloadData()
@@ -46,6 +55,22 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
     
+    func validateVoteAndSubmit() {
+        if markedCellIndexPath != nil {
+            let votedAgainstDict = Games.leaderboard[(markedCellIndexPath?.row)!]
+            let votedAgainstPlayer = Array(votedAgainstDict.keys)[0]
+            if votedAgainstPlayer != Users.myScreenName {
+                Votes.votes.submitVote(votedAgainstPlayer) {
+                    self.performSegueWithIdentifier(SEGUE_TO_VOTE_RESULT, sender: nil)
+                }
+            } else {
+                ErrorHandler.errorHandler.showErrorMsg(ERR_SELF_VOTE_TITLE, msg: ERR_SELF_VOTE_MSG)
+            }
+        } else {
+            ErrorHandler.errorHandler.showErrorMsg(ERR_VOTE_ABSENT_TITLE, msg: ERR_VOTE_ABSENT_MSG)
+        }
+    }
+    
     /* UICollectionView delegate methods - To display scores of this round*/
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -56,7 +81,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if readyToshowCurrentRoundScores {
+        if readyToshowCurrentRoundScores! {
             if let cell = currentScoresCollectionView.dequeueReusableCellWithReuseIdentifier(THIS_ROUND_CELL, forIndexPath: indexPath) as? ThisRoundCell{
                 cell.configureCell(Games.playersSubmissions[indexPath.row])
                 return cell
@@ -65,7 +90,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             }
         } else {
             ErrorHandler.errorHandler.showErrorMsg("Waitin for other players", msg: "Burrio")
-            return UICollectionViewCell()
+            return ThisRoundCell()
         }
     }
     
@@ -80,7 +105,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if readyToshowCurrentRoundScores {
+        if readyToshowCurrentRoundScores! {
             if let cell = leaderboardTableView.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
                 let playerName = Array(Games.leaderboard[indexPath.row].keys)[0]
                 let playerScore = Array(Games.leaderboard[indexPath.row].values)[0]
@@ -92,6 +117,24 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             
         } else {
             return UITableViewCell()
+        }
+    }
+    
+    // Can only select one cell at a time to cast vote ONLY WHEN voteoutModeEnabled is true //
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if voteoutModeEnabled {
+            if markedCellIndexPath != nil { //uncheck the previsouly selected cell
+                if let prevMarkedCell = leaderboardTableView.cellForRowAtIndexPath(markedCellIndexPath!) as? CustomTableViewCell {
+                    prevMarkedCell.VoteImg.image = UIImage()
+                    prevMarkedCell.alpha = 1.0
+                }
+            }
+            if let selectedCell = leaderboardTableView.cellForRowAtIndexPath(indexPath) as? CustomTableViewCell {
+                selectedCell.alpha = 0.8
+                selectedCell.VoteImg.image = UIImage(named: "voteout")
+                markedCellIndexPath = indexPath
+            }
         }
     }
     

@@ -79,17 +79,24 @@ let STATUS_WAITING_ALL_ANSWERS = "Waitin for everyone to answer..."
 let STATUS_LAST_ROUND_SCORES = "Scores for this round:"
 let STATUS_VOTE_RESULT_PLACEHOLDER = "has been voted out and..."
 let STATUS_TIE = "Snap, it's a tie. Need to revote"
+let STATUS_INNOCENT_PLAYER = "is an INNOCENT player"
+let STATUS_BLUFFMASTR_FOUND = "is the BLUFFMASTR"
+let STATUS_START_VOTING = "Select a Player to Voteout"
+
+let VOTES = "Votes"
 
 
 /* Codes */
 
 let CODE_TIE = "TIE"
 
+/* BUTTON TITLES */
+
+let BTN_SUBMIT = "SUBMIT"
+
 /* Comments */
 
 let CMT_GAME_PREP = "Hold your breath. You could be the next BluffMastr!"
-let MOST_COMMON = "(Most Common)"
-let LEAST_COMMON = "(Least Common)"
 
 /* Service Constants */
 

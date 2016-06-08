@@ -177,7 +177,6 @@
 		CB7CEFC21CD6DBA800356DFB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9446F8DA1CF5F02D00F41FC0 /* VoteoutVC.swift */,
 				CBDA41081CD5BFD200103F2A /* LandingVC.swift */,
 				CB7CEFD11CD7055000356DFB /* StagingVC.swift */,
 				CB89CFB41CDF9FFB000D3A7B /* QuestionVC.swift */,
@@ -566,7 +565,6 @@
 				CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */,
 				CB8C3A0D1CD9911D0082215D /* CustomTableViewCell.swift in Sources */,
 				CBDA410F1CD5BFD200103F2A /* BluffMastr.xcdatamodeld in Sources */,
-				9446F8DB1CF5F02D00F41FC0 /* VoteoutVC.swift in Sources */,
 				CB89CFB31CDD7451000D3A7B /* Users.swift in Sources */,
 				9460EB4B1D04B6D300B7202C /* Tokens.swift in Sources */,
 				9446F8D91CF5F01E00F41FC0 /* Votes.swift in Sources */,

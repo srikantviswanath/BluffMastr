@@ -12,6 +12,7 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var MainLbl: UILabel!
     @IBOutlet weak var scoreLbl: UILabel!
+    @IBOutlet weak var VoteImg : UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
