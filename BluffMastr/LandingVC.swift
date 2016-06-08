@@ -24,9 +24,10 @@ class LandingVC: UIViewController {
             isGameCreator = true
             GameMembers.playersInGameRoom = []
             Users.users.createAnonymousUser(screenName)
-            Games.games.createGame(screenName)
-            Users.myScreenName = screenName
-            performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
+            Games.games.createGame(screenName) {
+                Users.myScreenName = screenName
+                self.performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
+            }
         } else {
             ErrorHandler.errorHandler.showErrorMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG )
         }

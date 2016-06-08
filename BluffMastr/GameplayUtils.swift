@@ -33,8 +33,17 @@ func getScorePhrase(playerScore: Int) -> String {
     }
 }
 
+
 func shuffleArray(arrayOfInt: [Int]) -> [Int] {
     return GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(arrayOfInt) as! [Int]
+}
+
+func randomFourDigitString() -> String {
+    return String(GKRandomSource.sharedRandom().nextIntWithUpperBound(8999) + 1000)
+}
+
+func randomIntTypeString() -> String {
+    return String(GKRandomSource.sharedRandom().nextIntWithUpperBound(100))
 }
 
 /* Method to return a dict with the # of votes against each player*/

@@ -15,6 +15,7 @@ class Games {
     static var bluffMastr: String?
     static var sharedToken: String!
     static var currentQuestionTitle: String!
+    static var inactiveToken: String!
     static var currentQuestionId: Int!
     static var answersDict = Dictionary<String, String>() //To hold the actual answers for current question
     static var playersSubmissions = [Dictionary<String, Int>]() //To hold players' answer submission for the current round
@@ -23,14 +24,31 @@ class Games {
     static var games = Games()
     static var REF_GAMES_BASE = FDataService.fDataService.REF_GAMES
     
-    func createGame(gameCaptain: String){
+    private func checkIfTokenIsAlreadyUsed(generatedToken: String, completed: GenericCompletionBlock) {
+        Games.REF_GAMES_BASE.queryOrderedByChild(SVC_SHARED_TOKEN).queryEqualToValue(generatedToken).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if snapshot.exists() {
+                // collision occured.
+                self.checkIfTokenIsAlreadyUsed(randomFourDigitString()){
+                    completed()
+                }
+            } else {
+                Games.sharedToken = generatedToken
+                completed()
+            }
+        })
+    }
+        
+    func createGame(gameCaptain: String, completed: GenericCompletionBlock){
         let gameRef = Games.REF_GAMES_BASE.childByAutoId()
         Games.gameUID = gameRef.key
-        Games.sharedToken = Games.gameUID.substringFromIndex(Games.gameUID.endIndex.advancedBy(-6))
-        gameRef.setValue([SVC_SHARED_TOKEN: Games.sharedToken])
-        updateGameInfo(SVC_GAME_CAPTAIN, person: gameCaptain, completed: {})
-        Games.REF_GAMES_BASE.child(Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false])
-        GameMembers.gameMembers.addMemberToRoom(gameCaptain)
+        
+        checkIfTokenIsAlreadyUsed(randomFourDigitString()) {
+            gameRef.setValue([SVC_SHARED_TOKEN: Games.sharedToken])
+            self.updateGameInfo(SVC_GAME_CAPTAIN, person: gameCaptain, completed: {})
+            Games.REF_GAMES_BASE.child(Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false])
+            GameMembers.gameMembers.addMemberToRoom(gameCaptain)
+            completed()
+        }
     }
     
     func updateGameInfo(attribute: String, person: String, gameDict:Dictionary<String, String>=[:], completed: GenericCompletionBlock) {
