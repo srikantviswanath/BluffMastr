@@ -19,6 +19,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     var readyToshowCurrentRoundScores: Bool?
     var markedCellIndexPath: NSIndexPath?
     var voteoutModeEnabled = false
+    var revoteModeEnabled = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,9 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         currentScoresCollectionView.dataSource = self
         leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
-        displayCurrentRoundScores()
+        if !revoteModeEnabled {
+            displayCurrentRoundScores()
+        }
     }
     
     @IBAction func voteoutBtnClicked(sender: UIButton!) {

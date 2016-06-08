@@ -69,6 +69,7 @@ class VoteResultVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destVC = segue.destinationViewController as? LeaderboardVC {
             destVC.readyToshowCurrentRoundScores = true
+            destVC.revoteModeEnabled = true
         }
     }
 }
