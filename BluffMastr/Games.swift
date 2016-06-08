@@ -29,11 +29,11 @@ class Games {
             if snapshot.exists() {
                 // collision occured.
                 self.checkIfTokenIsAlreadyUsed(randomFourDigitString()){
-                    completed()
+                    completed() // this is parent block in createGame()
                 }
             } else {
                 Games.sharedToken = generatedToken
-                completed()
+                completed() // the above child block is called.
             }
         })
     }
