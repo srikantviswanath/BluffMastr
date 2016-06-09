@@ -87,6 +87,13 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         codeEnteredTxtFourth.hidden = true
         joinerStaticLbl.text = CMT_GAME_PREP
     }
+    
+    func resetEnteredGameCodes() {
+        codeEnteredTxtFirst.text = ""
+        codeEnteredTxtSecond.text = ""
+        codeEnteredTxtThird.text = ""
+        codeEnteredTxtFourth.text = ""
+    }
 
     /*==========================IBActions==============================*/
     
@@ -95,7 +102,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         self.view.endEditing(true)
         let enteredCode = arrayOfCodes.joinWithSeparator("")
         if enteredCode.characters.count == 4 {
-            Games.games.joinGame(enteredCode, gameSlave: self.screenTitle) {
+            Games.games.joinGame(enteredCode, gameSlave: self.screenTitle, sucessCompleted: {
                 GameMembers.gameMembers.observeNewMembersAdded {
                     self.playersTable.reloadData()
                     self.changeViewAfterJoin()
@@ -104,6 +111,9 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                 Games.games.listenToGameChanges(SVC_GAME_BLUFFMASTER) { // Game starts as soon as bluffMastr is set for the game
                     self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
                 }
+            }) { //failedCompleted closure block -> Incorrect code entered: Failed to join game
+                ErrorHandler.errorHandler.showErrorMsg(ERR_WRONG_CODE_TITLE, msg: ERR_WRONG_CODE_MSG)
+                self.resetEnteredGameCodes()
             }
         } else {
             ErrorHandler.errorHandler.showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)

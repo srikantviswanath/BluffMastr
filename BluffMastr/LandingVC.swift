@@ -24,6 +24,7 @@ class LandingVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createGame(sender: UIButton!){
+        view.endEditing(true)
         if let screenName = screenNameTxt.text where screenName != "" {
             isGameCreator = true
             GameMembers.playersInGameRoom = []

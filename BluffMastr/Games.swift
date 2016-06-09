@@ -67,17 +67,16 @@ class Games {
         completed()
     }
     
-    func joinGame(enteredCode: String, gameSlave: String, completed: GenericCompletionBlock) {
+    func joinGame(enteredCode: String, gameSlave: String, sucessCompleted: GenericCompletionBlock, failedCompleted: GenericCompletionBlock) {
         Games.REF_GAMES_BASE.queryOrderedByChild(SVC_SHARED_TOKEN).queryEqualToValue(enteredCode).observeSingleEventOfType(.Value, withBlock: { snapshot in
             if snapshot.exists() {
                 for child in snapshot.children {
                     Games.gameUID = child.key!!
                     GameMembers.gameMembers.addMemberToRoom(gameSlave)
                 }
-                completed()
+                sucessCompleted()
             } else {
-                ErrorHandler.errorHandler.showErrorMsg(ERR_WRONG_CODE_TITLE, msg: ERR_WRONG_CODE_MSG)
-                print("Couldnt add member to gameRoom")
+                failedCompleted()
             }
         })
     }
