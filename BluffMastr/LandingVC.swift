@@ -14,7 +14,9 @@ class LandingVC: UIViewController, UITextFieldDelegate {
     
     var isGameCreator = true
     var newGameDict: Dictionary<String, String>!
-
+    var gameCreationActivityIndicator = UIActivityIndicatorView()
+    var busyModalFrame = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         screenNameTxt.delegate = self
@@ -26,7 +28,9 @@ class LandingVC: UIViewController, UITextFieldDelegate {
             isGameCreator = true
             GameMembers.playersInGameRoom = []
             Users.users.createAnonymousUser(screenName)
+            busyModalFrame = showBusyModal(BUSY_CREATING_GAME)
             Games.games.createGame(screenName) {
+                self.busyModalFrame.removeFromSuperview()
                 Users.myScreenName = screenName
                 self.performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
             }

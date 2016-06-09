@@ -158,23 +158,23 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         if length == 1 {
             switch textField {
             case codeEnteredTxtFirst:
-                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtSecond, afterDelay: 0.1)
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtSecond, afterDelay: 0.0)
             case codeEnteredTxtSecond:
-                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtThird, afterDelay: 0.1)
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtThird, afterDelay: 0.0)
             case codeEnteredTxtThird:
-                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtFourth, afterDelay: 0.1)
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtFourth, afterDelay: 0.0)
             case codeEnteredTxtFourth:
-                self.performSelector(#selector(UIViewController.dismissKeyboard), withObject: nil, afterDelay: 0.1)
+                self.performSelector(#selector(UIViewController.dismissKeyboard), withObject: nil, afterDelay: 0.0)
             default: break
             }
         } else if textField.text?.characters.count == 1 && length == 0 {
             switch textField {
             case codeEnteredTxtFourth:
-                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtThird, afterDelay: 0.1)
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtThird, afterDelay: 0.0)
             case codeEnteredTxtThird:
-                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtSecond, afterDelay: 0.1)
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtSecond, afterDelay: 0.0)
             case codeEnteredTxtSecond:
-                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtFirst, afterDelay: 0.1)
+                self.performSelector(#selector(StagingVC.setNextResponder(_:)), withObject: codeEnteredTxtFirst, afterDelay: 0.0)
             default: break
             }
         }
