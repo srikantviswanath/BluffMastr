@@ -23,6 +23,8 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var playersTable: UITableView!
     
+    var stagingVC = StagingVC()
+    
     var isGameCreator: Bool!
     var screenTitle: String!
     var arrayOfCodes: [String] = ["", "", "", ""]
@@ -36,8 +38,6 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         codeEnteredTxtSecond.delegate = self
         codeEnteredTxtThird.delegate = self
         codeEnteredTxtFourth.delegate = self
-        
-        codeEnteredTxtFirst.becomeFirstResponder()
         
         switchLblsAfterViewLoad()
         
@@ -109,7 +109,19 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             }
         } else {
             ErrorHandler.errorHandler.showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
+            resetCodes()
         }
+    }
+    
+    func resetCodes() {
+        codeEnteredTxtFirst.text = ""
+        arrayOfCodes[0] = ""
+        codeEnteredTxtSecond.text = ""
+        arrayOfCodes[1] = ""
+        codeEnteredTxtThird.text = ""
+        arrayOfCodes[2] = ""
+        codeEnteredTxtFourth.text = ""
+        arrayOfCodes[3] = ""
     }
     
     @IBAction func startGame(sender: UIButton) {
