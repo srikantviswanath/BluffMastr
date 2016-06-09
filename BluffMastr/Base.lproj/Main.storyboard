@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -46,8 +44,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-PI-dzl">
                                         <rect key="frame" x="60" y="38" width="440" height="139"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-9O-eIh" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="440" height="46"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-9O-eIh" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="440" height="47"/>
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
                                                 <state key="normal" title="Create Game">
@@ -58,13 +56,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbA-yX-gMZ">
-                                                <rect key="frame" x="0.0" y="46" width="440" height="47"/>
+                                                <rect key="frame" x="0.0" y="47" width="440" height="46"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxD-Ga-qpv" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="93" width="440" height="46"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxD-Ga-qpv" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="93" width="440" height="47"/>
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
                                                 <state key="normal" title="Join a Game">
@@ -100,14 +98,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NS9-gM-MSt">
                                         <rect key="frame" x="8" y="16" width="544" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ScreenName:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RA-i2-wbe">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ScreenName:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RA-i2-wbe">
                                                 <rect key="frame" x="0.0" y="0.0" width="98" height="30"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Put on your bluffin' name" textAlignment="natural" minimumFontSize="17" disabledBackground="launcherLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-Cs-NxQ" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
-                                                <rect key="frame" x="108" y="0.0" width="436" height="30"/>
+                                                <rect key="frame" x="108" y="0.0" width="437" height="30"/>
                                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -233,18 +231,18 @@
                                 <rect key="frame" x="20" y="82" width="560" height="187"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UEB-pb-KRo">
-                                        <rect key="frame" x="8" y="33" width="544" height="147"/>
+                                        <rect key="frame" x="8" y="33" width="544" height="146"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pPq-Mf-7Wq">
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pPq-Mf-7Wq">
                                                 <rect key="frame" x="0.0" y="0.0" width="544" height="70"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the Game Code below:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppM-1j-WwX">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enter the Game Code below:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppM-1j-WwX">
                                                         <rect key="frame" x="0.0" y="0.0" width="544" height="25"/>
                                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-C8-Sji">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-C8-Sji">
                                                         <rect key="frame" x="0.0" y="40" width="544" height="30"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7c-F1-fps" userLabel="FirstTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
@@ -254,7 +252,7 @@
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWP-Yp-wY9" userLabel="SecondTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
-                                                                <rect key="frame" x="144" y="0.0" width="113" height="30"/>
+                                                                <rect key="frame" x="144" y="0.0" width="114" height="30"/>
                                                                 <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -266,7 +264,7 @@
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-NW-v0R" userLabel="FourthTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
-                                                                <rect key="frame" x="431" y="0.0" width="113" height="30"/>
+                                                                <rect key="frame" x="431" y="0.0" width="114" height="30"/>
                                                                 <color key="textColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -275,16 +273,16 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-sm-xLh">
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-sm-xLh">
                                                 <rect key="frame" x="0.0" y="70" width="544" height="77"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share the following code with other players:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-h0-osX">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Share the following code with other players:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-h0-osX">
                                                         <rect key="frame" x="0.0" y="0.0" width="544" height="22"/>
                                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6G-i9-9Lw">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6G-i9-9Lw">
                                                         <rect key="frame" x="0.0" y="37" width="544" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="0HV-Ut-Gyd"/>
@@ -343,7 +341,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="560" height="39"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nYF-tu-Orm" id="zWF-K4-bwh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="38"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="38.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCR-3O-GQb">
@@ -385,29 +383,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTH-KI-laO" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="380" y="559" width="105" height="37"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="105" id="2Fp-gJ-egp"/>
-                                    <constraint firstAttribute="height" constant="37" id="7Re-Fp-DhE"/>
-                                    <constraint firstAttribute="height" constant="30" id="RPo-sc-ghi"/>
-                                    <constraint firstAttribute="height" constant="30" id="gAp-4q-zhs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
-                                <state key="normal" title="Leave Game">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="RPo-sc-ghi"/>
-                                        <exclude reference="gAp-4q-zhs"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="leaveGame:" destination="nNm-V0-MeH" eventType="touchUpInside" id="nxm-b9-xX8"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46i-4z-RbT">
                                 <rect key="frame" x="0.0" y="281" width="600" height="35"/>
                                 <subviews>
@@ -431,63 +406,69 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AiY-YF-IDt" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="136" y="562" width="105" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="sTu-uV-DAT">
+                                <rect key="frame" x="20" y="565" width="560" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2P-1H-oCU" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="4K8-MZ-vo2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Start Game">
+                                            <color key="titleColor" red="0.99769048365702995" green="0.95413734556095453" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startGame:" destination="nNm-V0-MeH" eventType="touchUpInside" id="Pny-YB-OVF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhN-bZ-wrZ" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                        <rect key="frame" x="320" y="0.0" width="240" height="30"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0ER-Uk-Xfy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Leave Game">
+                                            <color key="titleColor" red="0.99769048370000002" green="0.95413734559999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="leaveGame:" destination="nNm-V0-MeH" eventType="touchUpInside" id="5K8-HQ-tfq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="3Hk-Yu-Xlq"/>
-                                    <constraint firstAttribute="width" constant="105" id="wmT-jz-iWl"/>
+                                    <constraint firstAttribute="height" constant="30" id="dJf-4c-oaa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
-                                <state key="normal" title="Start Game">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3Hk-Yu-Xlq"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="startGame:" destination="nNm-V0-MeH" eventType="touchUpInside" id="lNe-nf-SuQ"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="IhX-SU-4Dp" firstAttribute="top" secondItem="N4k-ne-VeC" secondAttribute="bottom" constant="43" id="03r-BN-nHV"/>
+                            <constraint firstItem="sTu-uV-DAT" firstAttribute="leading" secondItem="N4k-ne-VeC" secondAttribute="leading" id="0jT-vk-UBj"/>
                             <constraint firstItem="IhX-SU-4Dp" firstAttribute="top" secondItem="N4k-ne-VeC" secondAttribute="bottom" constant="45" id="0sY-eA-Xej"/>
-                            <constraint firstItem="KTH-KI-laO" firstAttribute="top" secondItem="N4k-ne-VeC" secondAttribute="bottom" constant="2" id="18L-Qn-6Bc"/>
+                            <constraint firstItem="sTu-uV-DAT" firstAttribute="centerX" secondItem="N4k-ne-VeC" secondAttribute="centerX" id="2Ft-gh-hor"/>
                             <constraint firstItem="N4k-ne-VeC" firstAttribute="trailing" secondItem="Wxu-XR-FKf" secondAttribute="trailingMargin" id="3Ge-WD-StX"/>
                             <constraint firstItem="YQz-oM-KLc" firstAttribute="top" secondItem="Wxu-XR-FKf" secondAttribute="top" id="3Ih-xV-BUX"/>
                             <constraint firstAttribute="trailing" secondItem="YQz-oM-KLc" secondAttribute="trailing" id="4cX-1h-Xfw"/>
-                            <constraint firstItem="KTH-KI-laO" firstAttribute="firstBaseline" secondItem="AiY-YF-IDt" secondAttribute="baseline" id="9nd-Hg-gBa"/>
+                            <constraint firstItem="sTu-uV-DAT" firstAttribute="top" secondItem="N4k-ne-VeC" secondAttribute="bottom" constant="5" id="6Ll-8f-wKq"/>
                             <constraint firstItem="xbg-7R-GYl" firstAttribute="top" secondItem="YQz-oM-KLc" secondAttribute="bottom" constant="20" id="9w7-lh-s5f"/>
                             <constraint firstItem="YQz-oM-KLc" firstAttribute="top" secondItem="Wxu-XR-FKf" secondAttribute="top" id="9yi-u3-2df"/>
-                            <constraint firstItem="AiY-YF-IDt" firstAttribute="leading" secondItem="Wxu-XR-FKf" secondAttribute="leadingMargin" constant="100" id="AKn-iL-OEV"/>
                             <constraint firstItem="YQz-oM-KLc" firstAttribute="leading" secondItem="Wxu-XR-FKf" secondAttribute="leading" id="Acp-eg-pzR"/>
                             <constraint firstItem="IhX-SU-4Dp" firstAttribute="top" secondItem="N4k-ne-VeC" secondAttribute="bottom" constant="8" id="CHK-HM-5Zu"/>
-                            <constraint firstItem="KTH-KI-laO" firstAttribute="top" secondItem="N4k-ne-VeC" secondAttribute="bottom" constant="15" id="DLh-HK-BiN"/>
                             <constraint firstItem="xbg-7R-GYl" firstAttribute="leading" secondItem="Wxu-XR-FKf" secondAttribute="leadingMargin" id="F8x-o0-owX"/>
-                            <constraint firstItem="AiY-YF-IDt" firstAttribute="leading" secondItem="Wxu-XR-FKf" secondAttribute="leadingMargin" constant="30" id="F9W-CP-8wZ"/>
                             <constraint firstAttribute="trailing" secondItem="YQz-oM-KLc" secondAttribute="trailing" id="GBg-Oo-mIc"/>
-                            <constraint firstItem="KTH-KI-laO" firstAttribute="top" secondItem="N4k-ne-VeC" secondAttribute="bottom" constant="8" id="GdC-gc-HuM"/>
-                            <constraint firstItem="AiY-YF-IDt" firstAttribute="centerX" secondItem="Wxu-XR-FKf" secondAttribute="centerX" id="HPE-Bc-gKP"/>
+                            <constraint firstItem="sTu-uV-DAT" firstAttribute="trailing" secondItem="N4k-ne-VeC" secondAttribute="trailing" id="GFK-FS-gjV"/>
                             <constraint firstItem="N4k-ne-VeC" firstAttribute="top" secondItem="46i-4z-RbT" secondAttribute="bottom" constant="8" id="Haw-si-fe4"/>
                             <constraint firstItem="xbg-7R-GYl" firstAttribute="trailing" secondItem="Wxu-XR-FKf" secondAttribute="trailingMargin" id="JBJ-G3-P11"/>
                             <constraint firstItem="N4k-ne-VeC" firstAttribute="leading" secondItem="Wxu-XR-FKf" secondAttribute="leadingMargin" id="M0J-iQ-Ifq"/>
-                            <constraint firstItem="KTH-KI-laO" firstAttribute="leading" secondItem="Wxu-XR-FKf" secondAttribute="leading" constant="258" id="Mxj-T3-CWQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KTH-KI-laO" secondAttribute="trailing" constant="100" id="NLs-Rv-lIR"/>
                             <constraint firstItem="YQz-oM-KLc" firstAttribute="leading" secondItem="Wxu-XR-FKf" secondAttribute="leading" id="QPH-8Y-Eoj"/>
-                            <constraint firstItem="KTH-KI-laO" firstAttribute="baseline" secondItem="AiY-YF-IDt" secondAttribute="firstBaseline" id="RRz-pL-3WH"/>
-                            <constraint firstItem="KTH-KI-laO" firstAttribute="centerY" secondItem="AiY-YF-IDt" secondAttribute="centerY" id="XJI-74-iU6"/>
                             <constraint firstItem="46i-4z-RbT" firstAttribute="top" secondItem="xbg-7R-GYl" secondAttribute="bottom" constant="11" id="eJs-58-DtQ"/>
-                            <constraint firstItem="AiY-YF-IDt" firstAttribute="top" secondItem="N4k-ne-VeC" secondAttribute="bottom" constant="8" id="hrb-Ig-96a"/>
                             <constraint firstItem="46i-4z-RbT" firstAttribute="top" secondItem="xbg-7R-GYl" secondAttribute="bottom" constant="15" id="irL-X9-3Tw"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="KTH-KI-laO" secondAttribute="bottom" constant="-2" id="lkw-od-uBY"/>
+                            <constraint firstItem="IhX-SU-4Dp" firstAttribute="top" secondItem="sTu-uV-DAT" secondAttribute="bottom" constant="8" id="lb4-Fg-zuk"/>
                             <constraint firstAttribute="trailing" secondItem="46i-4z-RbT" secondAttribute="trailing" id="u2s-Rq-8QY"/>
-                            <constraint firstItem="IhX-SU-4Dp" firstAttribute="top" secondItem="KTH-KI-laO" secondAttribute="bottom" constant="5" id="wOk-ha-ji6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KTH-KI-laO" secondAttribute="trailing" constant="30" id="ycF-CU-AAl"/>
                             <constraint firstItem="46i-4z-RbT" firstAttribute="leading" secondItem="Wxu-XR-FKf" secondAttribute="leading" id="zDP-iT-rrG"/>
-                            <constraint firstItem="IhX-SU-4Dp" firstAttribute="top" secondItem="AiY-YF-IDt" secondAttribute="bottom" constant="5" id="zlT-yr-GfO"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -495,16 +476,9 @@
                                 <exclude reference="4cX-1h-Xfw"/>
                                 <exclude reference="QPH-8Y-Eoj"/>
                                 <exclude reference="irL-X9-3Tw"/>
-                                <exclude reference="AKn-iL-OEV"/>
-                                <exclude reference="HPE-Bc-gKP"/>
+                                <exclude reference="2Ft-gh-hor"/>
                                 <exclude reference="0sY-eA-Xej"/>
                                 <exclude reference="CHK-HM-5Zu"/>
-                                <exclude reference="wOk-ha-ji6"/>
-                                <exclude reference="DLh-HK-BiN"/>
-                                <exclude reference="GdC-gc-HuM"/>
-                                <exclude reference="Mxj-T3-CWQ"/>
-                                <exclude reference="NLs-Rv-lIR"/>
-                                <exclude reference="lkw-od-uBY"/>
                             </mask>
                         </variation>
                     </view>
@@ -520,7 +494,7 @@
                         <outlet property="joinBtn" destination="Io0-bs-ITa" id="cYY-PL-NO9"/>
                         <outlet property="joinerStaticLbl" destination="ppM-1j-WwX" id="TcR-iw-jUE"/>
                         <outlet property="playersTable" destination="wbw-y9-aor" id="H2I-SP-6nj"/>
-                        <outlet property="startBtn" destination="AiY-YF-IDt" id="bcQ-35-eq1"/>
+                        <outlet property="startBtn" destination="r2P-1H-oCU" id="fD5-S2-pud"/>
                         <outlet property="statusLbl" destination="LUj-41-oLL" id="NCS-Uq-Rq7"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="LeaveGame" id="JUg-gF-2Gi"/>
                         <segue destination="Q3O-fW-ESJ" kind="show" identifier="StartGame" id="Wze-wC-5DY"/>
@@ -603,7 +577,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="544" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lL0-5f-qKF" id="bse-kC-BbH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="544" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="544" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-FW-WaQ">
@@ -926,7 +900,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="560" height="52"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pr4-VL-A83" id="orm-Aj-UKJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="51.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uQz-sZ-6g3">
@@ -1276,7 +1250,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="519" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xVI-eA-O6U" id="NX7-CN-8NC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="519" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="519" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyA-B3-r0P">
