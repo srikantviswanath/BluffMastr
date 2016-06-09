@@ -90,9 +90,13 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     func resetEnteredGameCodes() {
         codeEnteredTxtFirst.text = ""
+        arrayOfCodes[0] = ""
         codeEnteredTxtSecond.text = ""
+        arrayOfCodes[1] = ""
         codeEnteredTxtThird.text = ""
+        arrayOfCodes[2] = ""
         codeEnteredTxtFourth.text = ""
+        arrayOfCodes[3] = ""
     }
 
     /*==========================IBActions==============================*/
@@ -117,19 +121,8 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             }
         } else {
             ErrorHandler.errorHandler.showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
-            resetCodes()
+            resetEnteredGameCodes()
         }
-    }
-    
-    func resetCodes() {
-        codeEnteredTxtFirst.text = ""
-        arrayOfCodes[0] = ""
-        codeEnteredTxtSecond.text = ""
-        arrayOfCodes[1] = ""
-        codeEnteredTxtThird.text = ""
-        arrayOfCodes[2] = ""
-        codeEnteredTxtFourth.text = ""
-        arrayOfCodes[3] = ""
     }
     
     @IBAction func startGame(sender: UIButton) {
