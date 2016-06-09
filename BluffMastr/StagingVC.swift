@@ -23,8 +23,6 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var playersTable: UITableView!
     
-    var stagingVC = StagingVC()
-    
     var isGameCreator: Bool!
     var screenTitle: String!
     var arrayOfCodes: [String] = ["", "", "", ""]
