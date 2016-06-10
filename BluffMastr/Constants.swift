@@ -83,6 +83,7 @@ let STATUS_TIE = "Snap, it's a tie. Need to revote"
 let STATUS_INNOCENT_PLAYER = "is an INNOCENT player"
 let STATUS_BLUFFMASTR_FOUND = "is the BLUFFMASTR"
 let STATUS_START_VOTING = "Select a Player to Voteout"
+let STATUS_YOU_ARE_OUT = "Uh oh. You have been voted out"
 
 let VOTES = "Votes"
 

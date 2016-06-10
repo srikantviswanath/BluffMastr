@@ -15,7 +15,6 @@ class Games {
     static var bluffMastr: String?
     static var sharedToken: String!
     static var currentQuestionTitle: String!
-    static var inactiveToken: String!
     static var currentQuestionId: Int!
     static var answersDict = Dictionary<String, String>() //To hold the actual answers for current question
     static var playersSubmissions = [Dictionary<String, Int>]() //To hold players' answer submission for the current round

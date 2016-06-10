@@ -39,7 +39,7 @@ class VoteResultVC: UIViewController {
                 self.waitingForAllVotesSpinner.stopAnimating()
                 self.ParentView.backgroundColor = UIColor(netHex: COLOR_THEME)
                 if evaluateVotes() != CODE_TIE { //if it is not a tie, display the voted out player's details
-                    self.displayVotedoutPlayer()
+                    self.displayAndRemoveVotedoutPlayer()
                 } else { //if its a tie, go for a revote
                     self.voteBtn.hidden = false
                     self.ResultStatusLbl.text = STATUS_TIE
@@ -51,11 +51,18 @@ class VoteResultVC: UIViewController {
 
     }
     
-    func displayVotedoutPlayer() {
-        self.VotedoutPlayerLbl.text = evaluateVotes()
-        self.noOfVotes.text = "\(countVotes()[evaluateVotes()]!) \(VOTES)"
-        self.ResultStatusLbl.text = "\(STATUS_VOTE_RESULT_PLACEHOLDER)"
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.giveVerdictForVotedoutPlayer), userInfo: nil, repeats: false)
+    func displayAndRemoveVotedoutPlayer() {
+        let votedoutPlayer = evaluateVotes()
+        if votedoutPlayer == Users.myScreenName {
+            VotedoutPlayerLbl.text = STATUS_YOU_ARE_OUT
+            ResultStatusLbl.hidden = true
+            GameMembers.gameMembers.removePlayerFromRoom(Users.myScreenName)
+        } else {
+            VotedoutPlayerLbl.text = votedoutPlayer
+            noOfVotes.text = "(\(countVotes()[votedoutPlayer]!) \(VOTES))"
+            ResultStatusLbl.text = "\(STATUS_VOTE_RESULT_PLACEHOLDER)"
+            timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.giveVerdictForVotedoutPlayer), userInfo: nil, repeats: false)
+        }
     }
     
     func giveVerdictForVotedoutPlayer() {
