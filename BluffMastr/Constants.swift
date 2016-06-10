@@ -28,6 +28,11 @@ let BTN_VOTE_AGAIN = "Vote Again"
 let BTN_NEXT_ROUND = "Ready >"
 let BTN_HOME = "Home"
 
+/* Audio files*/
+let AUDIO_BLUFFMASTR_VOTEDOUT = "bluffmastr_voted_out"
+let AUDIO_INNOCENT_VOTEDOUT = "wrong_vote_out"
+let AUDIO_GAME_OVER = "game_over"
+
 
 /* Segue and TableViewCell constants */
 

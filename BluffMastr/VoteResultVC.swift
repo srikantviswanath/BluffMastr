@@ -22,9 +22,10 @@ class VoteResultVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nextBtn.hidden = true
-        displayVoteoutResult()
+        attemptToDisplayVoteResults()
     }
     
+    /* nextBtn shape shifts into BTN_VOTE_AGAIN, BTN_HOME based on the fate of the player after voteout */
     @IBAction func nextBtnClicked(sender: UIButton) {
         switch nextBtn.currentTitle! {
         case BTN_VOTE_AGAIN:
@@ -39,7 +40,7 @@ class VoteResultVC: UIViewController {
         
     }
     
-    func displayVoteoutResult() {
+    func attemptToDisplayVoteResults() {
         Votes.votes.listenForVotesCasted {
             if Games.votesCastedForThisRound.count == GameMembers.playersInGameRoom.count { //everybody has voted
                 self.nextBtn.hidden = false
@@ -62,6 +63,7 @@ class VoteResultVC: UIViewController {
     func displayAndRemoveVotedoutPlayer() {
         let votedoutPlayer = evaluateVotes()
         if votedoutPlayer == Users.myScreenName {
+            playAudio(AUDIO_GAME_OVER)
             VotedoutPlayerLbl.text = STATUS_YOU_ARE_OUT
             ResultStatusLbl.hidden = true
             nextBtn.setTitle(BTN_HOME, forState: .Normal)
@@ -77,8 +79,10 @@ class VoteResultVC: UIViewController {
     func giveVerdictForVotedoutPlayer() {
         if evaluateVotes() == Games.bluffMastr {
             ResultStatusLbl.text = STATUS_BLUFFMASTR_FOUND
+            playAudio(AUDIO_BLUFFMASTR_VOTEDOUT)
         } else {
             ResultStatusLbl.text = STATUS_INNOCENT_PLAYER
+            playAudio(AUDIO_INNOCENT_VOTEDOUT)
         }
         nextBtn.setTitle(BTN_NEXT_ROUND, forState: .Normal)
     }
