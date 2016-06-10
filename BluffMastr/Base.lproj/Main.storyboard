@@ -44,7 +44,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-PI-dzl">
                                         <rect key="frame" x="60" y="38" width="440" height="139"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-9O-eIh" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-9O-eIh" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="440" height="46"/>
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
@@ -55,13 +55,13 @@
                                                     <action selector="createGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rc4-aG-69Z"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbA-yX-gMZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbA-yX-gMZ">
                                                 <rect key="frame" x="0.0" y="46" width="440" height="47"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxD-Ga-qpv" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxD-Ga-qpv" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="93" width="440" height="46"/>
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
@@ -104,7 +104,7 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Put on your bluffin' name" textAlignment="natural" minimumFontSize="17" disabledBackground="launcherLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-Cs-NxQ" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Put on your bluffin' name" textAlignment="natural" minimumFontSize="17" disabledBackground="launcherLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-Cs-NxQ" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
                                                 <rect key="frame" x="108" y="0.0" width="436" height="30"/>
                                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,12 +165,12 @@
                     <navigationItem key="navigationItem" id="peI-Xj-f3y"/>
                     <connections>
                         <outlet property="screenNameTxt" destination="1Pe-Cs-NxQ" id="0uW-hF-kif"/>
-                        <segue destination="nNm-V0-MeH" kind="showDetail" identifier="CreateOrJoinGame" id="7ZZ-nX-YNF"/>
+                        <segue destination="nNm-V0-MeH" kind="showDetail" identifier="CreateOrJoinGame" id="lxm-Ij-IbS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="1054"/>
+            <point key="canvasLocation" x="2264" y="-656"/>
         </scene>
         <!--StagingVC-->
         <scene sceneID="w1S-Wa-fcQ">
@@ -251,7 +251,7 @@
                                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
-                                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWP-Yp-wY9" userLabel="SecondTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
+                                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWP-Yp-wY9" userLabel="SecondTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
                                                                 <rect key="frame" x="144" y="0.0" width="113" height="30"/>
                                                                 <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
@@ -263,7 +263,7 @@
                                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
-                                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-NW-v0R" userLabel="FourthTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
+                                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-NW-v0R" userLabel="FourthTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
                                                                 <rect key="frame" x="431" y="0.0" width="113" height="30"/>
                                                                 <color key="textColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
@@ -496,8 +496,8 @@
                         <outlet property="playersTable" destination="wbw-y9-aor" id="H2I-SP-6nj"/>
                         <outlet property="startBtn" destination="r2P-1H-oCU" id="fD5-S2-pud"/>
                         <outlet property="statusLbl" destination="LUj-41-oLL" id="NCS-Uq-Rq7"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="LeaveGame" id="JUg-gF-2Gi"/>
                         <segue destination="Q3O-fW-ESJ" kind="show" identifier="StartGame" id="Wze-wC-5DY"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="LeaveGame" id="CUa-t4-scr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNm-0o-r89" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1020,24 +1020,6 @@
             </objects>
             <point key="canvasLocation" x="4659" y="372"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="K4B-B7-nTO">
-            <objects>
-                <viewController id="sKS-7K-ib1" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6RD-fV-Jku"/>
-                        <viewControllerLayoutGuide type="bottom" id="MHE-NJ-KSF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7am-fj-7sv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6ee-E1-ZRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4205" y="-913"/>
-        </scene>
         <!--Vote ResultVC-->
         <scene sceneID="RKF-Pa-3oP">
             <objects>
@@ -1065,9 +1047,8 @@
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0t-sa-7rC">
                                                 <rect key="frame" x="263" y="5" width="78" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
-                                                <state key="normal" title="Vote Again"/>
                                                 <connections>
-                                                    <action selector="revote:" destination="Fwz-Ch-dxW" eventType="touchUpInside" id="DDk-po-CJy"/>
+                                                    <action selector="nextBtnClicked:" destination="Fwz-Ch-dxW" eventType="touchUpInside" id="4qw-W0-xaE"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1175,15 +1156,16 @@
                         <outlet property="ParentView" destination="BFI-0c-vuy" id="MKn-t5-bKS"/>
                         <outlet property="ResultStatusLbl" destination="8gq-Cq-u4U" id="fa0-7l-heP"/>
                         <outlet property="VotedoutPlayerLbl" destination="8IT-5K-5LT" id="qKq-gx-z3T"/>
+                        <outlet property="nextBtn" destination="Z0t-sa-7rC" id="aJe-eQ-wz9"/>
                         <outlet property="noOfVotes" destination="69u-Vg-qbg" id="qbk-pW-0vI"/>
-                        <outlet property="voteBtn" destination="Z0t-sa-7rC" id="ExZ-bk-DoY"/>
                         <outlet property="waitingForAllVotesSpinner" destination="Dqc-ST-xpq" id="83D-HS-XWz"/>
                         <segue destination="U13-uv-Ylb" kind="showDetail" identifier="Revote" id="lhi-gu-Bwe"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="VotedResultToLanding" id="vri-St-kcn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xj-fx-xbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5475" y="372"/>
+            <point key="canvasLocation" x="4621" y="-656"/>
         </scene>
         <!--AnswersVC-->
         <scene sceneID="Yk2-pi-e4g">
@@ -1340,7 +1322,7 @@
                 <exit id="sqB-wM-YVd" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="2Vi-hB-2sc"/>
             </objects>
-            <point key="canvasLocation" x="3429" y="1211"/>
+            <point key="canvasLocation" x="3449" y="1125"/>
         </scene>
     </scenes>
     <resources>
@@ -1348,7 +1330,8 @@
         <image name="launcherLogo" width="212" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2ZN-ki-jMy"/>
+        <segue reference="vri-St-kcn"/>
         <segue reference="lhi-gu-Bwe"/>
+        <segue reference="2ZN-ki-jMy"/>
     </inferredMetricsTieBreakers>
 </document>

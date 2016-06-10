@@ -15,33 +15,41 @@ class VoteResultVC: UIViewController {
     @IBOutlet weak var ResultStatusLbl: UILabel!
     @IBOutlet weak var waitingForAllVotesSpinner: UIActivityIndicatorView!
     @IBOutlet weak var ParentView: UIView!
-    @IBOutlet weak var voteBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
     
     var timer = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        voteBtn.hidden = true
+        nextBtn.hidden = true
         displayVoteoutResult()
     }
     
-    @IBAction func revote(sender: UIButton) {
-        Games.votesCastedForThisRound = Dictionary<String, String>()
-        Votes.votes.resetPlayerVote()
-        self.performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
+    @IBAction func nextBtnClicked(sender: UIButton) {
+        switch nextBtn.currentTitle! {
+        case BTN_VOTE_AGAIN:
+            Games.votesCastedForThisRound = Dictionary<String, String>()
+            Votes.votes.resetPlayerVote()
+            self.performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
+        case BTN_HOME:
+            self.performSegueWithIdentifier(SEGUE_VOTEDOUT_HOME, sender: nil)
+        default:
+            print("Hello")
+        }
         
     }
     
     func displayVoteoutResult() {
         Votes.votes.listenForVotesCasted {
             if Games.votesCastedForThisRound.count == GameMembers.playersInGameRoom.count { //everybody has voted
+                self.nextBtn.hidden = false
                 self.ResultStatusLbl.textColor = UIColor.whiteColor()
                 self.waitingForAllVotesSpinner.stopAnimating()
                 self.ParentView.backgroundColor = UIColor(netHex: COLOR_THEME)
                 if evaluateVotes() != CODE_TIE { //if it is not a tie, display the voted out player's details
                     self.displayAndRemoveVotedoutPlayer()
                 } else { //if its a tie, go for a revote
-                    self.voteBtn.hidden = false
+                    self.nextBtn.setTitle(BTN_VOTE_AGAIN, forState: .Normal)
                     self.ResultStatusLbl.text = STATUS_TIE
                 }
             } else {
@@ -56,6 +64,7 @@ class VoteResultVC: UIViewController {
         if votedoutPlayer == Users.myScreenName {
             VotedoutPlayerLbl.text = STATUS_YOU_ARE_OUT
             ResultStatusLbl.hidden = true
+            nextBtn.setTitle(BTN_HOME, forState: .Normal)
             GameMembers.gameMembers.removePlayerFromRoom(Users.myScreenName)
         } else {
             VotedoutPlayerLbl.text = votedoutPlayer
@@ -71,6 +80,7 @@ class VoteResultVC: UIViewController {
         } else {
             ResultStatusLbl.text = STATUS_INNOCENT_PLAYER
         }
+        nextBtn.setTitle(BTN_NEXT_ROUND, forState: .Normal)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

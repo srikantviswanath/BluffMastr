@@ -23,6 +23,11 @@ let COLOR_THEME = 0xF44336
 let SHADOW_COLOR: CGFloat = 155.0/255.0
 let COLOR_ELECTED_ANSWER = 0x00BCD4
 
+/* BUTTON TITLES */
+let BTN_VOTE_AGAIN = "Vote Again"
+let BTN_NEXT_ROUND = "Ready >"
+let BTN_HOME = "Home"
+
 
 /* Segue and TableViewCell constants */
 
@@ -36,6 +41,7 @@ let SEGUE_SHOW_LEADERBOARD = "ShowLeaderboard"
 let SEGUE_TO_VOTEOUT = "Voteout"
 let SEGUE_TO_VOTE_RESULT = "VoteResult"
 let SEGUE_REVOTE = "Revote"
+let SEGUE_VOTEDOUT_HOME = "VotedResultToLanding"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 let THIS_ROUND_CELL = "ThisRoundCell"

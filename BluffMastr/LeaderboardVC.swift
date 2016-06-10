@@ -92,7 +92,6 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 return UICollectionViewCell()
             }
         } else {
-            ErrorHandler.errorHandler.showErrorMsg("Waitin for other players", msg: "Burrio")
             return ThisRoundCell()
         }
     }
