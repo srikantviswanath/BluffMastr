@@ -42,14 +42,23 @@ class Scores {
         FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { playerAnswerSS in
             if let playerScore = playerAnswerSS.value as? Int {
                 Games.playersSubmissions.append([playerAnswerSS.key: playerScore])
+                if (Games.playersSubmissions.count > 1) { // sort closure must at least have two values to perform sorting.
+                    Games.playersSubmissions.sortInPlace({ (firstScoreDict, secondScoreDict) -> Bool in
+                        var tempFirstScoreValue: Int = Int()
+                        var tempSecondScoreValue: Int = Int()
+                        for eachVal in firstScoreDict.values { tempFirstScoreValue = eachVal }
+                        for eachVal in secondScoreDict.values { tempSecondScoreValue = eachVal }
+                        return tempFirstScoreValue > tempSecondScoreValue // Descending order sort.
+                    })
+                }
                 completed()
             }
         })
     }
     
     func fetchLeaderboard(completed: GenericCompletionBlock) {
-        FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).observeSingleEventOfType(.Value, withBlock: { leaderboardSS in
-            for child in (leaderboardSS.children.allObjects as? [FIRDataSnapshot])! {
+        FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).queryOrderedByValue().observeSingleEventOfType(.Value, withBlock: { leaderboardSS in
+            for child in (leaderboardSS.children.allObjects as? [FIRDataSnapshot])!.reverse() {
                 Games.leaderboard.append([child.key: (child.value as? Int)!])
             }
             completed()
