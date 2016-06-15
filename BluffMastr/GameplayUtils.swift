@@ -74,3 +74,17 @@ func evaluateVotes() -> String {
         return sortedVotes.reverse()[0] as! String
     }
 }
+
+/* Method to remove a player from local cache of GameMembers.playersInGameRoom upon the :player: voteout */
+func removePlayerFromRoomCache(player: String) {
+    GameMembers.playersInGameRoom = GameMembers.playersInGameRoom.filter { $0 != player}
+}
+
+func readyForNextRound(player: String) {
+    FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).updateChildValues([Users.myScreenName: true])
+    Games.answersDict = Dictionary<String, String>()
+    Games.playersSubmissions = [Dictionary<String, Int>]()
+    Games.leaderboard = [Dictionary<String, Int>]()
+    Games.votesCastedForThisRound = Dictionary<String, String>()
+    
+}

@@ -73,6 +73,7 @@ class VoteResultVC: UIViewController {
             noOfVotes.text = "(\(countVotes()[votedoutPlayer]!) \(VOTES))"
             ResultStatusLbl.text = "\(STATUS_VOTE_RESULT_PLACEHOLDER)"
             timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.giveVerdictForVotedoutPlayer), userInfo: nil, repeats: false)
+            removePlayerFromRoomCache(votedoutPlayer)
         }
     }
     

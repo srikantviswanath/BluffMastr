@@ -32,6 +32,7 @@ class FDataService {
     private var _REF_CURRENT_ROUNDS = ref.child("currentRounds")
     private var _REF_LEADERBOARDS = ref.child("leaderboards")
     private var _REF_VOTES = ref.child("votes")
+    private var _REF_READY_NEXT = ref.child("readyForNext")
     
     var REF_BASE: FIRDatabaseReference {
         return _REF_BASE
@@ -67,6 +68,10 @@ class FDataService {
     
     var REF_VOTES: FIRDatabaseReference {
         return _REF_VOTES
+    }
+    
+    var REF_READY_NEXT: FIRDatabaseReference {
+        return _REF_READY_NEXT
     }
 }
 

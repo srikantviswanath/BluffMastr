@@ -28,8 +28,10 @@ class GameMembers {
         FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).child(player).removeValue()
         FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).child(Users.myScreenName).removeValue()
         FDataService.fDataService.REF_USERS.child(Games.gameUID).child(Users.myScreenName).removeValue()
+        if player == Games.bluffMastr {
+            Games.bluffMastr = nil
+        }
     }
-    
     
     func observeNewMembersAdded(completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { snapshot in
