@@ -27,12 +27,13 @@ class LandingVC: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
         if let screenName = screenNameTxt.text where screenName != "" {
             isGameCreator = true
+            Games.gameCreator = screenName
+            Users.myScreenName = screenName
             GameMembers.playersInGameRoom = []
             Users.users.createAnonymousUser(screenName)
             busyModalFrame = showBusyModal(BUSY_CREATING_GAME)
             Games.games.createGame(screenName) {
                 self.busyModalFrame.removeFromSuperview()
-                Users.myScreenName = screenName
                 self.performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
             }
         } else {

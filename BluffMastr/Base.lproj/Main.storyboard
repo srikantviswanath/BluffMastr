@@ -1158,9 +1158,10 @@
                         <outlet property="VotedoutPlayerLbl" destination="8IT-5K-5LT" id="qKq-gx-z3T"/>
                         <outlet property="nextBtn" destination="Z0t-sa-7rC" id="aJe-eQ-wz9"/>
                         <outlet property="noOfVotes" destination="69u-Vg-qbg" id="qbk-pW-0vI"/>
-                        <outlet property="waitingForAllVotesSpinner" destination="Dqc-ST-xpq" id="83D-HS-XWz"/>
+                        <outlet property="waitingSpinner" destination="Dqc-ST-xpq" id="V7E-82-j9B"/>
                         <segue destination="U13-uv-Ylb" kind="showDetail" identifier="Revote" id="lhi-gu-Bwe"/>
                         <segue destination="BYZ-38-t0r" kind="showDetail" identifier="VotedResultToLanding" id="vri-St-kcn"/>
+                        <segue destination="Q3O-fW-ESJ" kind="showDetail" identifier="StartNextRound" id="GYg-7C-dJK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xj-fx-xbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1330,8 +1331,9 @@
         <image name="launcherLogo" width="212" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vri-St-kcn"/>
         <segue reference="lhi-gu-Bwe"/>
+        <segue reference="vri-St-kcn"/>
+        <segue reference="GYg-7C-dJK"/>
         <segue reference="2ZN-ki-jMy"/>
     </inferredMetricsTieBreakers>
 </document>

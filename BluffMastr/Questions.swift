@@ -13,6 +13,7 @@ class Questions {
     
     static var totalQuestionsAtFB: Int!
     static var questions = Questions()
+    static var completedQuestionIds = [Int]()
     
     /* Pick up the currentQuestionId from games and get the title from questions/questionId */
     func listenForNextQuestion(completed: GenericCompletionBlock) {

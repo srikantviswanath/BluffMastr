@@ -80,11 +80,11 @@ func removePlayerFromRoomCache(player: String) {
     GameMembers.playersInGameRoom = GameMembers.playersInGameRoom.filter { $0 != player}
 }
 
-func readyForNextRound(player: String) {
+/* Method to show readiness for next round by cleaning up last round's cached values and submitting to REF_READY_NEXT/gameUID*/
+func readyForNextRound() {
     FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).updateChildValues([Users.myScreenName: true])
     Games.answersDict = Dictionary<String, String>()
     Games.playersSubmissions = [Dictionary<String, Int>]()
     Games.leaderboard = [Dictionary<String, Int>]()
     Games.votesCastedForThisRound = Dictionary<String, String>()
-    
 }

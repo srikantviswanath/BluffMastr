@@ -13,7 +13,7 @@ class VoteResultVC: UIViewController {
     @IBOutlet weak var VotedoutPlayerLbl: UILabel!
     @IBOutlet weak var noOfVotes: UILabel!
     @IBOutlet weak var ResultStatusLbl: UILabel!
-    @IBOutlet weak var waitingForAllVotesSpinner: UIActivityIndicatorView!
+    @IBOutlet weak var waitingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var ParentView: UIView!
     @IBOutlet weak var nextBtn: UIButton!
     
@@ -34,6 +34,20 @@ class VoteResultVC: UIViewController {
             self.performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
         case BTN_HOME:
             self.performSegueWithIdentifier(SEGUE_VOTEDOUT_HOME, sender: nil)
+        case BTN_NEXT_ROUND:
+            readyForNextRound()
+            Users.users.listenForNextRoundReadiness {
+                if Games.playersReadyForNextRound.count == GameMembers.playersInGameRoom.count {
+                    self.ResultStatusLbl.text = STATUS_STARTING_NEXT_ROUND
+                    self.performSegueWithIdentifier(<#T##identifier: String##String#>, sender: nil)
+                } else {
+                    self.ResultStatusLbl.text = STATUS_WAITING_OTHERS_NXT_ROUND
+                    self.VotedoutPlayerLbl.hidden = true
+                    self.noOfVotes.hidden = true
+                    self.waitingSpinner.color = UIColor.whiteColor()
+                    self.waitingSpinner.startAnimating()
+                }
+            }
         default:
             print("Hello")
         }
@@ -45,7 +59,7 @@ class VoteResultVC: UIViewController {
             if Games.votesCastedForThisRound.count == GameMembers.playersInGameRoom.count { //everybody has voted
                 self.nextBtn.hidden = false
                 self.ResultStatusLbl.textColor = UIColor.whiteColor()
-                self.waitingForAllVotesSpinner.stopAnimating()
+                self.waitingSpinner.stopAnimating()
                 self.ParentView.backgroundColor = UIColor(netHex: COLOR_THEME)
                 if evaluateVotes() != CODE_TIE { //if it is not a tie, display the voted out player's details
                     self.displayAndRemoveVotedoutPlayer()
@@ -54,7 +68,7 @@ class VoteResultVC: UIViewController {
                     self.ResultStatusLbl.text = STATUS_TIE
                 }
             } else {
-                self.waitingForAllVotesSpinner.startAnimating()
+                self.waitingSpinner.startAnimating()
             }
         }
 

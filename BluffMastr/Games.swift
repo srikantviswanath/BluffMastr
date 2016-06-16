@@ -14,12 +14,14 @@ class Games {
     static var gameUID: String!
     static var bluffMastr: String?
     static var sharedToken: String!
+    static var gameCreator: String!
     static var currentQuestionTitle: String!
     static var currentQuestionId: Int!
     static var answersDict = Dictionary<String, String>() //To hold the actual answers for current question
     static var playersSubmissions = [Dictionary<String, Int>]() //To hold players' answer submission for the current round
     static var leaderboard = [Dictionary<String, Int>]() //To hold players' total scores for the game
     static var votesCastedForThisRound = Dictionary<String, String>() //To hold the voter and his/her vote for the current round
+    static var playersReadyForNextRound = [String]() //To hold the players who are ready to begin the next round
     static var games = Games()
     static var REF_GAMES_BASE = FDataService.fDataService.REF_GAMES
     

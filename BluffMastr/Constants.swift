@@ -47,6 +47,7 @@ let SEGUE_TO_VOTEOUT = "Voteout"
 let SEGUE_TO_VOTE_RESULT = "VoteResult"
 let SEGUE_REVOTE = "Revote"
 let SEGUE_VOTEDOUT_HOME = "VotedResultToLanding"
+let SEGUE_START_NEXT_ROUND = "StartNextRound"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 let THIS_ROUND_CELL = "ThisRoundCell"
@@ -95,6 +96,8 @@ let STATUS_INNOCENT_PLAYER = "is an INNOCENT player"
 let STATUS_BLUFFMASTR_FOUND = "is the BLUFFMASTR"
 let STATUS_START_VOTING = "Select a Player to Voteout"
 let STATUS_YOU_ARE_OUT = "Uh oh. You have been voted out"
+let STATUS_WAITING_OTHERS_NXT_ROUND = "Waiting for others..."
+let STATUS_STARTING_NEXT_ROUND = "Starting next round..."
 
 let VOTES = "Votes"
 
