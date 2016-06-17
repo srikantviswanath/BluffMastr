@@ -39,7 +39,7 @@ class VoteResultVC: UIViewController {
             Users.users.listenForNextRoundReadiness {
                 if Games.playersReadyForNextRound.count == GameMembers.playersInGameRoom.count {
                     self.ResultStatusLbl.text = STATUS_STARTING_NEXT_ROUND
-                    self.performSegueWithIdentifier(<#T##identifier: String##String#>, sender: nil)
+                    //self.performSegueWithIdentifier(<#T##identifier: String##String#>, sender: nil)
                 } else {
                     self.ResultStatusLbl.text = STATUS_WAITING_OTHERS_NXT_ROUND
                     self.VotedoutPlayerLbl.hidden = true

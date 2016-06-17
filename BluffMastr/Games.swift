@@ -15,8 +15,9 @@ class Games {
     static var bluffMastr: String?
     static var sharedToken: String!
     static var gameCreator: String!
+    static var roundNumber: Int!
     static var currentQuestionTitle: String!
-    static var currentQuestionId: Int!
+    static var currentQuestionId: Int?
     static var answersDict = Dictionary<String, String>() //To hold the actual answers for current question
     static var playersSubmissions = [Dictionary<String, Int>]() //To hold players' answer submission for the current round
     static var leaderboard = [Dictionary<String, Int>]() //To hold players' total scores for the game
@@ -88,7 +89,10 @@ class Games {
             case SVC_GAME_BLUFFMASTER:
                 if snapshot.key == attribute {Games.bluffMastr = snapshot.value as? String}
             case SVC_CURRENT_QUESTION:
-                if snapshot.key == attribute {Games.currentQuestionId = Int((snapshot.value as? String)!)}
+                if snapshot.key == attribute {
+                    Games.currentQuestionId = Int((snapshot.value as? String)!)!
+                    Questions.completedQuestionIds.append(Games.currentQuestionId!)
+                }
             default:
                 print("Swag! The gutles don't know what to do yet!Come back later, with a 6 pack")
             }
@@ -103,7 +107,7 @@ class Games {
                 for child in gameChildren {
                     switch child.key {
                     case SVC_CURRENT_QUESTION:
-                        Games.currentQuestionId = Int((child.value as? String)!)
+                        Games.currentQuestionId = Int((child.value as? String)!)!
                     case SVC_GAME_BLUFFMASTER:
                         Games.bluffMastr = child.value as? String
                     default:
@@ -113,5 +117,28 @@ class Games {
                 completed()
             }
         })
+    }
+    
+    func attemptToSetDataForNextRound() {
+        let roundRef = FDataService.fDataService.REF_GAMES.child(Games.gameUID).child(SVC_GAME_ROUND)
+        roundRef.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            let roundNumberAtServer = Int(currentData.value as! String) //This value should never be nil
+            if roundNumberAtServer == Games.roundNumber {
+                currentData.value = roundNumberAtServer! + 1
+                return FIRTransactionResult.successWithValue(currentData)
+            } else {
+                Games.roundNumber! += 1
+                return FIRTransactionResult.abort()
+            }
+        }){ error, commited, snapshot in
+            if let err = error {
+                print(err.localizedDescription)
+            } else {
+                if commited {
+                    Games.roundNumber! += 1
+                    randomizeNextRoundData()
+                }
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@ class Questions {
     /* Pick up the currentQuestionId from games and get the title from questions/questionId */
     func listenForNextQuestion(completed: GenericCompletionBlock) {
         Games.games.fetchGameSnapshot {
-            FDataService.fDataService.REF_QUESTIONS.child("\(Games.currentQuestionId)").observeSingleEventOfType(.Value, withBlock: { qSnapShot in
+            FDataService.fDataService.REF_QUESTIONS.child("\(Games.currentQuestionId!)").observeSingleEventOfType(.Value, withBlock: { qSnapShot in
                 if let questionTitle = qSnapShot.value![SVC_QUESTION_TITLE] as? String {
                     Games.currentQuestionTitle = questionTitle
                     completed()
@@ -28,7 +28,7 @@ class Questions {
     }
     
     func fetchAnswerList(completed: GenericCompletionBlock) {
-        FDataService.fDataService.REF_ANSWERS.child("\(Games.currentQuestionId)").observeSingleEventOfType(.Value, withBlock: { answersSS in
+        FDataService.fDataService.REF_ANSWERS.child("\(Games.currentQuestionId!)").observeSingleEventOfType(.Value, withBlock: { answersSS in
                 for child in (answersSS.children.allObjects as? [FIRDataSnapshot])! {
                     Games.answersDict[child.key] = child.value as? String
                 }
