@@ -35,4 +35,19 @@ class Users {
             completed()
         })
     }
+        
+    func deleteAnonymousUser() {
+        if let user = FIRAuth.auth()?.currentUser {
+            user.deleteWithCompletion({ (error) in
+                if let error = error {
+                    NSLog("There was an error deleting anonymous user " + error.localizedDescription)
+                } else {
+                    //Account successfully deteled.
+                    FDataService.fDataService.REF_USERS.child(user.uid).removeValue()
+                }
+            })
+        } else {
+            NSLog("[FIREBASE::FIRAUTH] Error fetching Current User.")
+        }
+    }
 }

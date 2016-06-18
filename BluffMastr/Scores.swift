@@ -43,13 +43,7 @@ class Scores {
             if let playerScore = playerAnswerSS.value as? Int {
                 Games.playersSubmissions.append([playerAnswerSS.key: playerScore])
                 if (Games.playersSubmissions.count > 1) { // sort closure must at least have two values to perform sorting.
-                    Games.playersSubmissions.sortInPlace({ (firstScoreDict, secondScoreDict) -> Bool in
-                        var tempFirstScoreValue: Int = Int()
-                        var tempSecondScoreValue: Int = Int()
-                        for eachVal in firstScoreDict.values { tempFirstScoreValue = eachVal }
-                        for eachVal in secondScoreDict.values { tempSecondScoreValue = eachVal }
-                        return tempFirstScoreValue > tempSecondScoreValue // Descending order sort.
-                    })
+                    Games.playersSubmissions.sortInPlace({ Array($0.values)[0] > Array($1.values)[0] }) // Descending order sort.
                 }
                 completed()
             }

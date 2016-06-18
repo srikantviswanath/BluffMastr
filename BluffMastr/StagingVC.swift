@@ -23,6 +23,8 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var playersTable: UITableView!
     
+    static var stagingVC = StagingVC()
+    
     var isGameCreator: Bool!
     var screenTitle: String!
     var arrayOfCodes: [String] = ["", "", "", ""]
@@ -40,7 +42,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         switchLblsAfterViewLoad()
         
         if isGameCreator! {
-            GameMembers.gameMembers.observeNewMembersAdded {
+            GameMembers.gameMembers.observeMemberAddedOrRemoved {
                 self.playersTable.reloadData()
                 self.switchDataDependentLbls()
             }
@@ -107,9 +109,12 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         let enteredCode = arrayOfCodes.joinWithSeparator("")
         if enteredCode.characters.count == 4 {
             Games.games.joinGame(enteredCode, gameSlave: self.screenTitle, sucessCompleted: {
-                GameMembers.gameMembers.observeNewMembersAdded {
+                GameMembers.gameMembers.observeMemberAddedOrRemoved {
                     self.playersTable.reloadData()
                     self.changeViewAfterJoin()
+                }
+                GameMembers.gameMembers.gameRoomIsRemoved {
+                    self.leaveGame(nil)
                 }
                 Users.myScreenName = self.screenTitle
                 Games.games.listenToGameChanges(SVC_GAME_BLUFFMASTER) { // Game starts as soon as bluffMastr is set for the game
@@ -137,7 +142,19 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
     }
     
+    func teardown() {
+        Users.users.deleteAnonymousUser()
+        if (isGameCreator!) {
+            Games.games.deleteGame()
+            GameMembers.gameMembers.deleteRoom()
+        } else if joinBtn.hidden { // if this button is hidden, then the user already joined the game.
+            GameMembers.gameMembers.removePlayerFromRoom(self.screenTitle)
+        }
+        GameMembers.gameMembers.removeGameMemberListeners()
+    }
+    
     @IBAction func leaveGame(sender: UIButton!){
+        self.teardown()
         performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
     }
     

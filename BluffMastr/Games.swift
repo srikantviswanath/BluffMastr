@@ -141,4 +141,8 @@ class Games {
             }
         }
     }
+
+    func deleteGame() {
+        FDataService.fDataService.REF_GAMES.child(Games.gameUID).removeValue()
+    }
 }

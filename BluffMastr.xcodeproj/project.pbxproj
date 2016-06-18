@@ -375,7 +375,7 @@
 				TargetAttributes = {
 					CBDA41021CD5BFD200103F2A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 59CB6UT3ZF;
+						DevelopmentTeam = 8U8JC9Z7EQ;
 					};
 					CBDA41191CD5BFD200103F2A = {
 						CreatedOnToolsVersion = 7.3;
@@ -739,10 +739,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastrr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastrrr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -752,10 +754,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastrr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastrrr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
