@@ -519,7 +519,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nE-Xj-3Ta">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Round 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkg-vx-2PJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkg-vx-2PJ">
                                         <rect key="frame" x="211" y="30" width="213" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="213" id="r5y-Jp-0yJ"/>
@@ -630,6 +630,7 @@
                     <connections>
                         <outlet property="answersTable" destination="ON5-MZ-qbS" id="tkp-P8-0Al"/>
                         <outlet property="questionLbl" destination="mJ6-Js-txc" id="ytF-Do-2ia"/>
+                        <outlet property="roundLbl" destination="hkg-vx-2PJ" id="8wm-Q6-Xly"/>
                         <segue destination="29T-4Z-mq1" kind="presentation" identifier="CheatAnswers" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="Tff-aa-19l"/>
                         <segue destination="dmd-ku-cSH" kind="showDetail" identifier="FetchScore" id="PUe-C0-YfN"/>
                     </connections>
@@ -1331,9 +1332,9 @@
         <image name="launcherLogo" width="212" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="GYg-7C-dJK"/>
         <segue reference="lhi-gu-Bwe"/>
         <segue reference="vri-St-kcn"/>
-        <segue reference="GYg-7C-dJK"/>
-        <segue reference="2ZN-ki-jMy"/>
+        <segue reference="Tff-aa-19l"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,7 +15,7 @@ class Games {
     static var bluffMastr: String?
     static var sharedToken: String!
     static var gameCreator: String!
-    static var roundNumber: Int!
+    static var roundNumber: String!
     static var currentQuestionTitle: String!
     static var currentQuestionId: Int?
     static var answersDict = Dictionary<String, String>() //To hold the actual answers for current question
@@ -102,7 +102,7 @@ class Games {
     
     /* This method will be useful when .Value observance is required, i.e. snapshots at different sample times */
     func fetchGameSnapshot(completed: GenericCompletionBlock) {
-        Games.REF_GAMES_BASE.child(Games.gameUID).observeEventType(.Value, withBlock: { gameSS in
+        Games.REF_GAMES_BASE.child(Games.gameUID).observeSingleEventOfType(.Value, withBlock: { gameSS in
             if let gameChildren = gameSS.children.allObjects as? [FIRDataSnapshot] {
                 for child in gameChildren {
                     switch child.key {
@@ -110,6 +110,8 @@ class Games {
                         Games.currentQuestionId = Int((child.value as? String)!)!
                     case SVC_GAME_BLUFFMASTER:
                         Games.bluffMastr = child.value as? String
+                    case SVC_GAME_ROUND:
+                        Games.roundNumber = child.value as? String
                     default:
                         print("Yolo! Default behavious for observing .Value snapshot comes here. Stay tuned")
                     }
@@ -123,11 +125,10 @@ class Games {
         let roundRef = FDataService.fDataService.REF_GAMES.child(Games.gameUID).child(SVC_GAME_ROUND)
         roundRef.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
             let roundNumberAtServer = Int(currentData.value as! String) //This value should never be nil
-            if roundNumberAtServer == Games.roundNumber {
-                currentData.value = roundNumberAtServer! + 1
+            if roundNumberAtServer == Int(Games.roundNumber) {
+                currentData.value = "\(roundNumberAtServer! + 1)"
                 return FIRTransactionResult.successWithValue(currentData)
             } else {
-                Games.roundNumber! += 1
                 return FIRTransactionResult.abort()
             }
         }){ error, commited, snapshot in
@@ -135,8 +136,7 @@ class Games {
                 print(err.localizedDescription)
             } else {
                 if commited {
-                    Games.roundNumber! += 1
-                    randomizeNextRoundData()
+                    Games.REF_GAMES_BASE.child(Games.gameUID).updateChildValues(randomizeNextRoundData())
                 }
             }
         }

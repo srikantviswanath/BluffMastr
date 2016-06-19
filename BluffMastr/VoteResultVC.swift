@@ -25,7 +25,7 @@ class VoteResultVC: UIViewController {
         attemptToDisplayVoteResults()
     }
     
-    /* nextBtn shape shifts into BTN_VOTE_AGAIN, BTN_HOME based on the fate of the player after voteout */
+    /* nextBtn shape shifts into BTN_VOTE_AGAIN, BTN_HOME or BTN_NEXT_ROUND based on the fate of the player after voteout */
     @IBAction func nextBtnClicked(sender: UIButton) {
         switch nextBtn.currentTitle! {
         case BTN_VOTE_AGAIN:
