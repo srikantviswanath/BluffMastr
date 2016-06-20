@@ -15,6 +15,7 @@
 		949875BB1D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
 		94EDAB2C1CDDC48E00A12321 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EDAB2B1CDDC48E00A12321 /* Errors.swift */; };
 		BC8970900265258FB4D83D32 /* Pods_BluffMastrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */; };
+		CB78671F1D18B2FD00E0CDB0 /* ServicesUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */; };
 		CB7CEFC61CD6DCDA00356DFB /* FirebaseDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */; };
 		CB7CEFC81CD6F1E000356DFB /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC71CD6F1E000356DFB /* MaterialView.swift */; };
 		CB7CEFCA1CD6F21300356DFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC91CD6F21300356DFB /* Constants.swift */; };
@@ -78,6 +79,7 @@
 		94EDAB2B1CDDC48E00A12321 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7867181D1653B200E0CDB0 /* BluffMastr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluffMastr-Bridging-Header.h"; sourceTree = "<group>"; };
+		CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesUtil.swift; sourceTree = "<group>"; };
 		CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataServices.swift; sourceTree = "<group>"; };
 		CB7CEFC71CD6F1E000356DFB /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		CB7CEFC91CD6F21300356DFB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				CBC6FDE11CE6D032006CB1C0 /* GameplayUtils.swift */,
 				CBCFD3221CEABCC700C4AD7B /* ViewUtil.swift */,
 				CBB98B1D1D0A66AD00089FE8 /* AudioUtil.swift */,
+				CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				CBB98B1E1D0A66AD00089FE8 /* AudioUtil.swift in Sources */,
 				9446F8D91CF5F01E00F41FC0 /* Votes.swift in Sources */,
 				CB89CFB11CDD7434000D3A7B /* GameMembers.swift in Sources */,
+				CB78671F1D18B2FD00E0CDB0 /* ServicesUtil.swift in Sources */,
 				CBC6FDE01CE6BAE9006CB1C0 /* AnswersVC.swift in Sources */,
 				CB7CEFCA1CD6F21300356DFB /* Constants.swift in Sources */,
 				CBC6FDE21CE6D032006CB1C0 /* GameplayUtils.swift in Sources */,

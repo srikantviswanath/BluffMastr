@@ -28,13 +28,6 @@ class Users {
         }
     }
     
-    func listenForNextRoundReadiness(completed: GenericCompletionBlock) {
-        FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { readyPlayerSS in
-            let playerName = readyPlayerSS.key
-            Games.playersReadyForNextRound.append(playerName)
-            completed()
-        })
-    }
         
     func deleteAnonymousUser() {
         if let user = FIRAuth.auth()?.currentUser {

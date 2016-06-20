@@ -86,19 +86,6 @@ func removePlayerFromRoomCache(player: String) {
     }
 }
 
-/* Method to show readiness for next round by cleaning up last round's cached values and submitting to REF_READY_NEXT/gameUID
-    - Also runs a transaction block so that the first person ready for next round will set the next question and 
-        BluffMastr if voted out in previous round
- */
-func readyForNextRound() {
-    FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).updateChildValues([Users.myScreenName: true])
-    Games.answersDict = Dictionary<String, String>()
-    Games.playersSubmissions = [Dictionary<String, Int>]()
-    Games.leaderboard = [Dictionary<String, Int>]()
-    Games.votesCastedForThisRound = Dictionary<String, String>()
-    Games.games.attemptToSetDataForNextRound()
-}
-
 /* Method to randomize next question's Id and BluffMaster when applicable for the next round
   :returns: a dictionary that should be updated in Firebase at /Games
  */

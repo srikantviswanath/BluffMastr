@@ -36,6 +36,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         if voteoutModeEnabled {
             validateVoteAndSubmit()
         } else {
+            resetReadiness()
             voteoutModeEnabled = true
             leaderboardStatus.text = STATUS_START_VOTING
             VoteoutBtn.setTitle(BTN_SUBMIT, forState: .Normal)
