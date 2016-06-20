@@ -108,6 +108,7 @@ class Games {
                     switch child.key {
                     case SVC_CURRENT_QUESTION:
                         Games.currentQuestionId = Int((child.value as? String)!)!
+                        Questions.completedQuestionIds.append(Games.currentQuestionId!)
                     case SVC_GAME_BLUFFMASTER:
                         Games.bluffMastr = child.value as? String
                     case SVC_GAME_ROUND:
@@ -124,9 +125,12 @@ class Games {
     func attemptToSetDataForNextRound() {
         let roundRef = FDataService.fDataService.REF_GAMES.child(Games.gameUID).child(SVC_GAME_ROUND)
         roundRef.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
-            let roundNumberAtServer = Int(currentData.value as! String) //This value should never be nil
-            if roundNumberAtServer == Int(Games.roundNumber) {
-                currentData.value = "\(roundNumberAtServer! + 1)"
+            var roundNumberAtServer = currentData.value as? String //This value should never be nil
+            if roundNumberAtServer == nil {
+                roundNumberAtServer = "\(0)"
+            }
+            if Int(roundNumberAtServer!) == Int(Games.roundNumber) {
+                currentData.value = "\(Int(roundNumberAtServer!)! + 1 )"
                 return FIRTransactionResult.successWithValue(currentData)
             } else {
                 return FIRTransactionResult.abort()

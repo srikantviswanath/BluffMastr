@@ -87,12 +87,12 @@ class VoteResultVC: UIViewController {
             noOfVotes.text = "(\(countVotes()[votedoutPlayer]!) \(VOTES))"
             ResultStatusLbl.text = "\(STATUS_VOTE_RESULT_PLACEHOLDER)"
             timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.giveVerdictForVotedoutPlayer), userInfo: nil, repeats: false)
-            removePlayerFromRoomCache(votedoutPlayer)
         }
     }
     
     func giveVerdictForVotedoutPlayer() {
-        if evaluateVotes() == Games.bluffMastr {
+        let votedoutPlayer = evaluateVotes()
+        if votedoutPlayer == Games.bluffMastr {
             ResultStatusLbl.text = STATUS_BLUFFMASTR_FOUND
             playAudio(AUDIO_BLUFFMASTR_VOTEDOUT)
         } else {
@@ -100,6 +100,7 @@ class VoteResultVC: UIViewController {
             playAudio(AUDIO_INNOCENT_VOTEDOUT)
         }
         nextBtn.setTitle(BTN_NEXT_ROUND, forState: .Normal)
+        removePlayerFromRoomCache(votedoutPlayer)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

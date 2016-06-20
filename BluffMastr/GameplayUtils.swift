@@ -75,9 +75,15 @@ func evaluateVotes() -> String {
     }
 }
 
-/* Method to remove a player from local cache of GameMembers.playersInGameRoom upon the :player: voteout */
+/* Method to remove a player from local cache of GameMembers.playersInGameRoom upon the :player: voteout 
+    - If Games.BluffMastr has been voted out in the previous round, reset local copy to nil
+*/
+
 func removePlayerFromRoomCache(player: String) {
     GameMembers.playersInGameRoom = GameMembers.playersInGameRoom.filter { $0 != player}
+    if player == Games.bluffMastr {
+        Games.bluffMastr = nil
+    }
 }
 
 /* Method to show readiness for next round by cleaning up last round's cached values and submitting to REF_READY_NEXT/gameUID
@@ -109,7 +115,7 @@ func randomizeNextRoundData()  -> Dictionary<String, String>{
         nextRoundDict[SVC_CURRENT_QUESTION] = "\(nextQuestionId)"
         nextRoundDict[SVC_GAME_ROUND] = "\(1)"
     } else { //Previous BluffMastr survives and about to start another round
-        while !Questions.completedQuestionIds.contains(nextQuestionId) {
+        while Questions.completedQuestionIds.contains(nextQuestionId) {
             nextQuestionId = Int(arc4random_uniform(UInt32(2)))
         }
         nextRoundDict[SVC_CURRENT_QUESTION] = "\(nextQuestionId)"
