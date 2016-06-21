@@ -45,7 +45,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     func displayCurrentRoundScores() {
         Scores.scores.listenForPlayersSubmissions {
-            if Games.playersSubmissions.count >= GameMembers.playersInGameRoom.count {
+            if Games.playersSubmissions.count == GameMembers.playersInGameRoom.count {
                 self.readyToshowCurrentRoundScores = true
                 Scores.scores.fetchLeaderboard {
                     self.leaderboardTableView.reloadData()

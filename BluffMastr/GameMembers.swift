@@ -23,15 +23,19 @@ class GameMembers {
         FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).removeValue()
     }
     
-    /* Remove the :player: from REFs whose scope is not limited to each round
+    /* Remove the :player: from the following REFs
         - REF_GAME_MEMBERS
         - REF_LEADERBOARD
         - REF_USERS
+        - REF_CURRENT_ROUNDS
+        - REF_VOTES
      */
     func removePlayerFromRoom(player: String!, gameID: String = Games.gameUID) {
         FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).child(player).removeValue()
         FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).child(player).removeValue()
         FDataService.fDataService.REF_USERS.child(Games.gameUID).child(player).removeValue()
+        FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).child(player).removeValue()
+        FDataService.fDataService.REF_VOTES.child(Games.gameUID).child(player).removeValue()
         if player == Games.bluffMastr {
             Games.bluffMastr = nil
         }

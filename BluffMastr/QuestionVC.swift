@@ -23,7 +23,7 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         answersTable.dataSource = self
         answersTable.delegate = self
         Questions.questions.listenForNextQuestion{
-            self.roundLbl.text = Games.roundNumber
+            self.roundLbl.text = "Round: \(Games.roundNumber)"
             self.questionLbl.text = Games.currentQuestionTitle
             Questions.questions.fetchAnswerList{
                 ( isPlayerBluffMastr() ? self.constructAnswersArray([Int](1...10)) : self.constructAnswersArray(shuffleArray([Int](1...10))))
