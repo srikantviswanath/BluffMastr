@@ -81,9 +81,6 @@ func evaluateVotes() -> String {
 
 func removePlayerFromRoomCache(player: String) {
     GameMembers.playersInGameRoom = GameMembers.playersInGameRoom.filter { $0 != player}
-    if player == Games.bluffMastr {
-        Games.bluffMastr = nil
-    }
 }
 
 /* Method to randomize next question's Id and BluffMaster when applicable for the next round

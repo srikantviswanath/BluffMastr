@@ -101,6 +101,9 @@ class VoteResultVC: UIViewController {
         }
         nextBtn.setTitle(BTN_NEXT_ROUND, forState: .Normal)
         removePlayerFromRoomCache(votedoutPlayer)
+        if votedoutPlayer == Games.bluffMastr {
+            Games.bluffMastr = nil
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -36,9 +36,6 @@ class GameMembers {
         FDataService.fDataService.REF_USERS.child(Games.gameUID).child(player).removeValue()
         FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).child(player).removeValue()
         FDataService.fDataService.REF_VOTES.child(Games.gameUID).child(player).removeValue()
-        if player == Games.bluffMastr {
-            Games.bluffMastr = nil
-        }
     }
     
     /**************** GAME ROOM MEMBER LISTENER ****************/
