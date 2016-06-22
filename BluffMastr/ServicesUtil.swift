@@ -17,6 +17,10 @@ func listenForNextRoundReadiness(completed: GenericCompletionBlock) {
     })
 }
 
+func stopListeningForPlayersReadiness() {
+    FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).removeAllObservers()
+}
+
 func resetReadiness() {
     FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).child(Users.myScreenName).removeValue()
 }

@@ -38,6 +38,7 @@ class VoteResultVC: UIViewController {
             readyForNextRound()
             listenForNextRoundReadiness {
                 if Games.playersReadyForNextRound.count == GameMembers.playersInGameRoom.count {
+                    stopListeningForPlayersReadiness()
                     self.ResultStatusLbl.text = STATUS_STARTING_NEXT_ROUND
                     self.performSegueWithIdentifier(SEGUE_START_NEXT_ROUND, sender: nil)
                 } else {
@@ -57,6 +58,7 @@ class VoteResultVC: UIViewController {
     func attemptToDisplayVoteResults() {
         Votes.votes.listenForVotesCasted {
             if Games.votesCastedForThisRound.count == GameMembers.playersInGameRoom.count { //everybody has voted
+                Votes.votes.stopListeningForPlayersVotes()
                 self.nextBtn.hidden = false
                 self.ResultStatusLbl.textColor = UIColor.whiteColor()
                 self.waitingSpinner.stopAnimating()
