@@ -50,6 +50,11 @@ class Scores {
         })
     }
     
+    /* Usually call this method at the terminal state of a node's lifecycle in a ViewController */
+    func stopListeningForPlayerScores() {
+        FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).removeAllObservers()
+    }
+    
     func fetchLeaderboard(completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).queryOrderedByValue().observeSingleEventOfType(.Value, withBlock: { leaderboardSS in
             for child in (leaderboardSS.children.allObjects as? [FIRDataSnapshot])!.reverse() {
