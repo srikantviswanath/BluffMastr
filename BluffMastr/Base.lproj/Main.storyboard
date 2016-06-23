@@ -84,6 +84,7 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="zWb-PI-dzl" secondAttribute="trailing" constant="100" id="X0D-3p-XGE"/>
                                     <constraint firstAttribute="trailing" secondItem="zWb-PI-dzl" secondAttribute="trailing" constant="60" id="XLm-Wj-oyR"/>
                                     <constraint firstAttribute="height" constant="215" id="YU5-Wn-acO"/>
+                                    <constraint firstItem="zWb-PI-dzl" firstAttribute="centerX" secondItem="8OB-AV-xuT" secondAttribute="centerX" id="vCT-4O-Cva"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -116,7 +117,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="NS9-gM-MSt" firstAttribute="centerX" secondItem="YA5-fr-Dvv" secondAttribute="centerX" id="CiM-ki-2hI"/>
+                                    <constraint firstItem="NS9-gM-MSt" firstAttribute="centerX" secondItem="YA5-fr-Dvv" secondAttribute="centerX" constant="-100" id="CiM-ki-2hI"/>
                                     <constraint firstItem="NS9-gM-MSt" firstAttribute="centerY" secondItem="YA5-fr-Dvv" secondAttribute="centerY" id="Fui-cy-Qk6"/>
                                     <constraint firstItem="NS9-gM-MSt" firstAttribute="leading" secondItem="YA5-fr-Dvv" secondAttribute="leadingMargin" constant="100" id="GXB-Te-Mkl"/>
                                     <constraint firstAttribute="height" constant="55" id="LL8-S6-NdE"/>
@@ -164,6 +165,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="peI-Xj-f3y"/>
                     <connections>
+                        <outlet property="CreateJoinLeadingConstr" destination="3oc-vz-Ccz" id="HPr-FH-oUA"/>
+                        <outlet property="CreateJoinTrailingConstr" destination="XLm-Wj-oyR" id="mjv-6h-nGL"/>
                         <outlet property="screenNameTxt" destination="1Pe-Cs-NxQ" id="0uW-hF-kif"/>
                         <segue destination="nNm-V0-MeH" kind="showDetail" identifier="CreateOrJoinGame" id="lxm-Ij-IbS"/>
                     </connections>
@@ -1334,7 +1337,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="GYg-7C-dJK"/>
         <segue reference="lhi-gu-Bwe"/>
-        <segue reference="vri-St-kcn"/>
         <segue reference="Tff-aa-19l"/>
+        <segue reference="CUa-t4-scr"/>
     </inferredMetricsTieBreakers>
 </document>

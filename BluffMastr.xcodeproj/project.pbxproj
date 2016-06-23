@@ -48,6 +48,7 @@
 		CBDA41141CD5BFD200103F2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDA41121CD5BFD200103F2A /* LaunchScreen.storyboard */; };
 		CBDA411F1CD5BFD200103F2A /* BluffMastrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA411E1CD5BFD200103F2A /* BluffMastrTests.swift */; };
 		CBDA412A1CD5BFD200103F2A /* BluffMastrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41291CD5BFD200103F2A /* BluffMastrUITests.swift */; };
+		CBF846041D1B606100F457E7 /* AnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF846031D1B606100F457E7 /* AnimationEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		CBDA41251CD5BFD200103F2A /* BluffMastrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluffMastrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDA41291CD5BFD200103F2A /* BluffMastrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluffMastrUITests.swift; sourceTree = "<group>"; };
 		CBDA412B1CD5BFD200103F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBF846031D1B606100F457E7 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
 		D1BE2D87F109437C3C971985 /* Pods-BluffMastrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrUITests/Pods-BluffMastrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E07CB4828D6FA88DFEA518F3 /* Pods-BluffMastr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +178,7 @@
 				CB7CEFCD1CD6FE3F00356DFB /* MaterialButton.swift */,
 				CB7CEFCF1CD700B200356DFB /* MaterialTextField.swift */,
 				CBCFD3261CEBE79D00C4AD7B /* ThisRoundCell.swift */,
+				CBF846031D1B606100F457E7 /* AnimationEngine.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				94EDAB2C1CDDC48E00A12321 /* Errors.swift in Sources */,
 				CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */,
 				CB8C3A0D1CD9911D0082215D /* CustomTableViewCell.swift in Sources */,
+				CBF846041D1B606100F457E7 /* AnimationEngine.swift in Sources */,
 				CBDA410F1CD5BFD200103F2A /* BluffMastr.xcdatamodeld in Sources */,
 				CB89CFB31CDD7451000D3A7B /* Users.swift in Sources */,
 				CBB98B1E1D0A66AD00089FE8 /* AudioUtil.swift in Sources */,

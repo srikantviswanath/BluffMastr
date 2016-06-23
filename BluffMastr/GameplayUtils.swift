@@ -88,7 +88,7 @@ func removePlayerFromRoomCache(player: String) {
  */
 func randomizeNextRoundData()  -> Dictionary<String, String>{
     var nextRoundDict = Dictionary<String, String>()
-    var nextQuestionId = Int(arc4random_uniform(UInt32(2)))
+    var nextQuestionId = Int(arc4random_uniform(UInt32(TOTAL_QUESTIONS_AT_FIREBASE)))
     if Games.bluffMastr == nil { //Before first round or in a subsequent round when previous BluffMastr has been voted out
         let randomPlayerNum = Int(arc4random_uniform(UInt32(GameMembers.playersInGameRoom.count)))
         let bluffmastr = GameMembers.playersInGameRoom[randomPlayerNum]
@@ -100,7 +100,7 @@ func randomizeNextRoundData()  -> Dictionary<String, String>{
         nextRoundDict[SVC_GAME_ROUND] = "\(1)"
     } else { //Previous BluffMastr survives and about to start another round
         while Questions.completedQuestionIds.contains(nextQuestionId) {
-            nextQuestionId = Int(arc4random_uniform(UInt32(2)))
+            nextQuestionId = Int(arc4random_uniform(UInt32(TOTAL_QUESTIONS_AT_FIREBASE)))
         }
         nextRoundDict[SVC_CURRENT_QUESTION] = "\(nextQuestionId)"
     }
