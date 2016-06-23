@@ -29,6 +29,7 @@ class ScoreVC: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        //playAudio(AUDIO_SHOW_SCORE)
         scoreAnimEngine.animateOnScreen(20)
     }
 

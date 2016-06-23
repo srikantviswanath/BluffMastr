@@ -33,6 +33,7 @@ let BTN_HOME = "Home"
 let AUDIO_BLUFFMASTR_VOTEDOUT = "bluffmastr_voted_out"
 let AUDIO_INNOCENT_VOTEDOUT = "wrong_vote_out"
 let AUDIO_GAME_OVER = "game_over"
+let AUDIO_SHOW_SCORE = "score_swoosh"
 
 
 /* Segue and TableViewCell constants */

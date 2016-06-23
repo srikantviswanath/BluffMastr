@@ -49,6 +49,7 @@
 		CBDA411F1CD5BFD200103F2A /* BluffMastrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA411E1CD5BFD200103F2A /* BluffMastrTests.swift */; };
 		CBDA412A1CD5BFD200103F2A /* BluffMastrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDA41291CD5BFD200103F2A /* BluffMastrUITests.swift */; };
 		CBF846041D1B606100F457E7 /* AnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF846031D1B606100F457E7 /* AnimationEngine.swift */; };
+		CBF846061D1B947200F457E7 /* score_swoosh.wav in Resources */ = {isa = PBXBuildFile; fileRef = CBF846051D1B947200F457E7 /* score_swoosh.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		CBDA41291CD5BFD200103F2A /* BluffMastrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluffMastrUITests.swift; sourceTree = "<group>"; };
 		CBDA412B1CD5BFD200103F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF846031D1B606100F457E7 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
+		CBF846051D1B947200F457E7 /* score_swoosh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = score_swoosh.wav; sourceTree = "<group>"; };
 		D1BE2D87F109437C3C971985 /* Pods-BluffMastrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrUITests/Pods-BluffMastrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E07CB4828D6FA88DFEA518F3 /* Pods-BluffMastr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				CBB98B201D0A6C0B00089FE8 /* game_over.wav */,
+				CBF846051D1B947200F457E7 /* score_swoosh.wav */,
 				CBB98B241D0A6C1E00089FE8 /* bluffmastr_voted_out.wav */,
 				CBB98B221D0A6C1500089FE8 /* wrong_vote_out.wav */,
 			);
@@ -423,6 +426,7 @@
 			files = (
 				CBDA41141CD5BFD200103F2A /* LaunchScreen.storyboard in Resources */,
 				CBB98B231D0A6C1500089FE8 /* wrong_vote_out.wav in Resources */,
+				CBF846061D1B947200F457E7 /* score_swoosh.wav in Resources */,
 				949875B91D025FE000BA190E /* GoogleService-Info.plist in Resources */,
 				CBDA41111CD5BFD200103F2A /* Assets.xcassets in Resources */,
 				CBB98B211D0A6C0B00089FE8 /* game_over.wav in Resources */,
