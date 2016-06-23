@@ -12,9 +12,13 @@ import pop
 class LandingVC: UIViewController, UITextFieldDelegate {
 
     
+    var createJoinAnimEngine: AnimationEngine!
+    var screenNameAnimEngine: AnimationEngine!
     @IBOutlet weak var CreateJoinTrailingConstr: NSLayoutConstraint!
     @IBOutlet weak var CreateJoinLeadingConstr: NSLayoutConstraint!
-    @IBOutlet weak var createJoinLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var ScreenNameLeadingConstr: NSLayoutConstraint!
+    @IBOutlet weak var ScreenNmeTrailingConstr: NSLayoutConstraint!
+    
     @IBOutlet weak var screenNameTxt: UITextField!
     
     var isGameCreator = true
@@ -24,16 +28,15 @@ class LandingVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createJoinAnimEngine = AnimationEngine(leadingConstraint: CreateJoinLeadingConstr, trailingConstraint: CreateJoinTrailingConstr)
+        screenNameAnimEngine = AnimationEngine(leadingConstraint: ScreenNameLeadingConstr, trailingConstraint: ScreenNmeTrailingConstr)
         screenNameTxt.delegate = self
         self.hideKeyboardWhenTappedAround()
     }
     
     override func viewDidAppear(animated: Bool) {
-        UIView.animateWithDuration(3.0) {
-            self.CreateJoinLeadingConstr.constant = 10
-            self.CreateJoinTrailingConstr.constant = 110
-            self.view.layoutIfNeeded()
-        }
+        createJoinAnimEngine.animateOnScreen(17)
+        screenNameAnimEngine.animateOnScreen(25)
     }
     
     

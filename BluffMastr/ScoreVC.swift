@@ -10,6 +10,9 @@ import UIKit
 
 class ScoreVC: UIViewController {
 
+    var scoreAnimEngine: AnimationEngine!
+    
+    @IBOutlet weak var ScoreLblCenterXConstr: NSLayoutConstraint!
     @IBOutlet weak var scoreLbl: UILabel!
     @IBOutlet weak var scoreDescription: UILabel!
     
@@ -17,11 +20,16 @@ class ScoreVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scoreAnimEngine = AnimationEngine(constraints: [ScoreLblCenterXConstr])
         self.scoreLbl.text = "\(playerScore)"
         self.scoreDescription.text = "\(getScorePhrase(playerScore)) You scored:"
         Scores.scores.uploadPlayerScore(playerScore) {
             Scores.scores.accumulatePlayerScore(self.playerScore)
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        scoreAnimEngine.animateOnScreen(20)
     }
 
     @IBAction func revealAnswers(sender: UIButton!) {

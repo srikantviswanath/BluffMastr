@@ -167,6 +167,8 @@
                     <connections>
                         <outlet property="CreateJoinLeadingConstr" destination="3oc-vz-Ccz" id="HPr-FH-oUA"/>
                         <outlet property="CreateJoinTrailingConstr" destination="XLm-Wj-oyR" id="mjv-6h-nGL"/>
+                        <outlet property="ScreenNameLeadingConstr" destination="f6o-c1-10i" id="yOA-Sh-6sE"/>
+                        <outlet property="ScreenNmeTrailingConstr" destination="f3a-NZ-SQz" id="5Lc-sk-SGM"/>
                         <outlet property="screenNameTxt" destination="1Pe-Cs-NxQ" id="0uW-hF-kif"/>
                         <segue destination="nNm-V0-MeH" kind="showDetail" identifier="CreateOrJoinGame" id="lxm-Ij-IbS"/>
                     </connections>
@@ -744,6 +746,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="ScoreLblCenterXConstr" destination="0w1-qx-aiZ" id="gRb-er-J0c"/>
                         <outlet property="scoreDescription" destination="VYI-JU-Ilu" id="scr-c6-dHY"/>
                         <outlet property="scoreLbl" destination="ziJ-SV-45K" id="WnU-x5-mTp"/>
                         <segue destination="29T-4Z-mq1" kind="presentation" identifier="RevealAnswers" modalTransitionStyle="flipHorizontal" id="2ZN-ki-jMy"/>

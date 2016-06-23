@@ -48,22 +48,13 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func stopCheating(segue: UIStoryboardSegue) {} //For unwinding the modal segue AnswersVC
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let scoreVC = segue.destinationViewController as? ScoreVC {
-            scoreVC.playerScore = self.playerScore
-        }
-        else if let cheatVC = segue.destinationViewController as? AnswersVC {
-            cheatVC.isCheating = true
-        }
-    }
-    
     func constructAnswersArray(arrayOfInt: [Int]) {
         for answerPos in arrayOfInt {
             answersArray.append(Games.answersDict["\(answerPos)"]!)
         }
     }
     
-    /* Delegates for UITableView.*/
+    /********* Delegates for UITableView **********/
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answersArray.count
     }
@@ -90,5 +81,15 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         else {ErrorHandler.errorHandler.showErrorMsg(ERR_TYPO_TITLE, msg: ERR_TYPO_MSG)}
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let scoreVC = segue.destinationViewController as? ScoreVC {
+            scoreVC.playerScore = self.playerScore
+        }
+        else if let cheatVC = segue.destinationViewController as? AnswersVC {
+            cheatVC.isCheating = true
+        }
+    }
+
     
 }
