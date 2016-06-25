@@ -37,7 +37,7 @@ class Scores {
         })
     }
     
-    /* This function is used to observe for each player's submission of answer to Firebase */
+    ///This function is used to observe for each player's submission of answer to Firebase
     func listenForPlayersSubmissions(completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { playerAnswerSS in
             if let playerScore = playerAnswerSS.value as? Int {
@@ -50,7 +50,7 @@ class Scores {
         })
     }
     
-    /* Usually call this method at the terminal state of a node's lifecycle in a ViewController */
+    ///Usually call this method at the terminal state of a node's lifecycle in a ViewController
     func stopListeningForPlayerScores() {
         FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).removeAllObservers()
     }

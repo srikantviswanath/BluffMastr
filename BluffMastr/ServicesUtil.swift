@@ -25,7 +25,7 @@ func resetReadiness() {
     FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).child(Users.myScreenName).removeValue()
 }
 
-/* Method to show readiness for next round by cleaning up last round's cached values, values at server and submitting to REF_READY_NEXT/gameUID
+/** Method to show readiness for next round by cleaning up last round's cached values, values at server and submitting to REF_READY_NEXT/gameUID
  - Also runs a transaction block so that the first person ready for next round will set the next question and
  BluffMastr if voted out in previous round
  */

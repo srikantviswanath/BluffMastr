@@ -18,11 +18,16 @@ class Games {
     static var roundNumber: String!
     static var currentQuestionTitle: String!
     static var currentQuestionId: Int?
-    static var answersDict = Dictionary<String, String>() //To hold the actual answers for current question
-    static var playersSubmissions = [Dictionary<String, Int>]() //To hold players' answer submission for the current round
-    static var leaderboard = [Dictionary<String, Int>]() //To hold players' total scores for the game
-    static var votesCastedForThisRound = Dictionary<String, String>() //To hold the voter and his/her vote for the current round
-    static var playersReadyForNextRound = [String]() //To hold the players who are ready to begin the next round
+    ///To hold the actual answers for current question
+    static var answersDict = Dictionary<String, String>()
+    ///To hold players' answer submission for the current round
+    static var playersSubmissions = [Dictionary<String, Int>]()
+    ///To hold players' total scores for the game
+    static var leaderboard = [Dictionary<String, Int>]()
+    ///To hold the voter and his/her vote for the current round
+    static var votesCastedForThisRound = Dictionary<String, String>()
+    ///To hold the players who are ready to begin the next round
+    static var playersReadyForNextRound = [String]()
     static var games = Games()
     static var REF_GAMES_BASE = FDataService.fDataService.REF_GAMES
     
@@ -100,7 +105,7 @@ class Games {
         })
     }
     
-    /* This method will be useful when .Value observance is required, i.e. snapshots at different sample times */
+    ///This method will be useful when .Value observance is required, i.e. snapshots at different sample times
     func fetchGameSnapshot(completed: GenericCompletionBlock) {
         Games.REF_GAMES_BASE.child(Games.gameUID).observeSingleEventOfType(.Value, withBlock: { gameSS in
             if let gameChildren = gameSS.children.allObjects as? [FIRDataSnapshot] {

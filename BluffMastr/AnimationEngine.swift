@@ -28,7 +28,7 @@ class AnimationEngine {
     var originalConstants = [CGFloat]()
     var constraints = [NSLayoutConstraint]()
     
-    /* Initializer for elements that are bound by a leading and a trailing constraint */
+    ///Initializer for elements that are bound by a leading and a trailing constraint
     init(leadingConstraint: NSLayoutConstraint, trailingConstraint: NSLayoutConstraint) {
         let origLeadingConst = leadingConstraint.constant
         let origTrailingConst = trailingConstraint.constant
@@ -43,6 +43,7 @@ class AnimationEngine {
         self.constraints.append(trailingConstraint)
     }
     
+    ///Initializer for elements with a horizontal center contraint
     init(constraints: [NSLayoutConstraint]) {
         for con in constraints {
             originalConstants.append(con.constant)
@@ -51,8 +52,8 @@ class AnimationEngine {
         self.constraints = constraints
     }
     
-    func animateOnScreen(friction:Int = 0) {
-        let timedDelay = dispatch_time(DISPATCH_TIME_NOW, Int64(ANIM_DELAY * Double(NSEC_PER_SEC)))
+    func animateOnScreen(friction:Int = 0, delay:Double? = nil) {
+        let timedDelay = dispatch_time(DISPATCH_TIME_NOW, Int64((delay == nil ? ANIM_DELAY:delay!) * Double(NSEC_PER_SEC)))
         dispatch_after(timedDelay, dispatch_get_main_queue()) {
             for constIdx in 0...self.constraints.count-1 {
                 let moveAnim = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)

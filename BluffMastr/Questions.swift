@@ -15,7 +15,7 @@ class Questions {
     static var questions = Questions()
     static var completedQuestionIds = [Int]()
     
-    /* Pick up the currentQuestionId from games and get the title from questions/questionId */
+    ///Pick up the currentQuestionId from games and get the title from questions/questionId
     func listenForNextQuestion(completed: GenericCompletionBlock) {
         Games.games.fetchGameSnapshot {
             FDataService.fDataService.REF_QUESTIONS.child("\(Games.currentQuestionId!)").observeSingleEventOfType(.Value, withBlock: { qSnapShot in
@@ -37,5 +37,4 @@ class Questions {
         )
     }
     
-    //func submitAnswer()
 }

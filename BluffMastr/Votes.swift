@@ -28,12 +28,12 @@ class Votes {
         })
     }
     
-    /* Function to mimic the functionality of observeSingeEventType within a view controller */
+    /// Function to mimic the functionality of observeSingeEventType within a view controller
     func stopListeningForPlayersVotes() {
         FDataService.fDataService.REF_VOTES.child(Games.gameUID).removeAllObservers()
     }
     
-    /* Resets the client player's vote for the current round. Used in case of a tie*/
+    ///Resets the client player's vote for the current round. Used in case of a tie
     func resetPlayerVote() {
         FDataService.fDataService.REF_VOTES.child(Games.gameUID).child(Users.myScreenName).removeValue()
     }

@@ -13,7 +13,7 @@ func isPlayerBluffMastr() -> Bool{
     return Games.bluffMastr == Users.myScreenName
 }
 
-/* Evaluate the answer submitted by player. If answer not present(Typo?), return 0 */
+///Evaluate the answer submitted by player. If answer not present(Typo?), return 0
 func evaluateScore(answerSubmitted: String) -> String{
     for (score, value) in Games.answersDict {
         if value == answerSubmitted {
@@ -46,7 +46,7 @@ func randomIntTypeString() -> String {
     return String(GKRandomSource.sharedRandom().nextIntWithUpperBound(100))
 }
 
-/* Method to return a dict with the # of votes against each player*/
+///Method to return a dict with the # of votes against each player
 func countVotes() -> Dictionary<String, Int> {
     var voteCounter = Dictionary<String, Int>()
     for (_, voteCasted) in Games.votesCastedForThisRound {
@@ -59,7 +59,7 @@ func countVotes() -> Dictionary<String, Int> {
     return voteCounter
 }
 
-/* Method to evaluate the right person to eliminate based on current round's votes
+/** Method to evaluate the right person to eliminate based on current round's votes
     - In case of a tie, return CODE_TIE, so that revoting is conducted again
  */
 func evaluateVotes() -> String {
@@ -75,7 +75,7 @@ func evaluateVotes() -> String {
     }
 }
 
-/* Method to remove a player from local cache of GameMembers.playersInGameRoom upon the :player: voteout 
+/** Method to remove a player from local cache of GameMembers.playersInGameRoom upon the :player: voteout
     - If Games.BluffMastr has been voted out in the previous round, reset local copy to nil
 */
 
@@ -83,7 +83,7 @@ func removePlayerFromRoomCache(player: String) {
     GameMembers.playersInGameRoom = GameMembers.playersInGameRoom.filter { $0 != player}
 }
 
-/* Method to randomize next question's Id and BluffMaster when applicable for the next round
+/** Method to randomize next question's Id and BluffMaster when applicable for the next round
   :returns: a dictionary that should be updated in Firebase at /Games
  */
 func randomizeNextRoundData()  -> Dictionary<String, String>{
