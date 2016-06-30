@@ -108,7 +108,7 @@ let VOTES = "Votes"
 /* Help Titles and Messages */
 
 let HELP_QUESTIONVC_TITLE = "Collect Points.."
-let HELP_QUESTIONVC_BODY = " ◦ Every Question has 10 answers\n ◦ Most common answer has the least points and the least common answer has the most points\n ◦ The BluffMastr has the answers sorted in the increasing order of points ◦ Innocent players have their answers shuffled\n\n\n ✩ Remember - There is a voteout after every round\n ✩ Goal: Score as many points as you can whilst staying alive"
+let HELP_QUESTIONVC_BODY = " ◦ Every Question has 10 answers\n ◦ Most common answer has the least points and the least common answer has the most points\n ◦ The BluffMastr has the answers sorted in the increasing order of points \n◦ Innocent players have their answers shuffled\n\n\n ✩ Remember - There is a voteout after every round\n ✩ Goal: Score as many points as you can whilst staying alive"
 
 /* Codes */
 

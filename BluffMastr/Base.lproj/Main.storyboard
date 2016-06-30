@@ -563,10 +563,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytK-3K-RHz">
                                 <rect key="frame" x="0.0" y="555" width="600" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUv-Vg-8iZ">
-                                        <rect key="frame" x="284" y="7" width="32" height="30"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
-                                        <state key="normal" title="Help">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUv-Vg-8iZ">
+                                        <rect key="frame" x="295" y="8" width="30" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="08e-NM-eXe"/>
+                                            <constraint firstAttribute="width" constant="30" id="Nu0-UT-lmD"/>
+                                        </constraints>
+                                        <state key="normal" image="help_info">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -578,9 +581,17 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="EUv-Vg-8iZ" firstAttribute="centerY" secondItem="ytK-3K-RHz" secondAttribute="centerY" id="Cz5-0o-cAe"/>
+                                    <constraint firstAttribute="bottom" secondItem="EUv-Vg-8iZ" secondAttribute="bottom" id="I61-sn-E7Z"/>
+                                    <constraint firstItem="EUv-Vg-8iZ" firstAttribute="centerY" secondItem="ytK-3K-RHz" secondAttribute="centerY" id="McZ-tb-nhf"/>
                                     <constraint firstAttribute="height" constant="45" id="N3V-eb-uaF"/>
                                     <constraint firstItem="EUv-Vg-8iZ" firstAttribute="centerX" secondItem="ytK-3K-RHz" secondAttribute="centerX" id="st8-ca-Ui5"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Cz5-0o-cAe"/>
+                                        <exclude reference="I61-sn-E7Z"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24y-18-1yZ" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
                                 <rect key="frame" x="20" y="196" width="560" height="351"/>
@@ -679,7 +690,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-ai-Q3a">
                                 <rect key="frame" x="281" y="558" width="39" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                <state key="normal" title="X">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -715,6 +726,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="dismissBtn" destination="Aqe-ai-Q3a" id="at0-EP-fLn"/>
                         <outlet property="rulesLbl" destination="dru-ll-EUz" id="2VJ-Na-Lh6"/>
                         <outlet property="titleLbl" destination="qF0-jQ-1G8" id="q6l-hA-bKW"/>
                     </connections>
@@ -1410,6 +1422,7 @@
     </scenes>
     <resources>
         <image name="back_logo" width="200" height="170"/>
+        <image name="help_info" width="200" height="200"/>
         <image name="launcherLogo" width="212" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>

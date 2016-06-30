@@ -12,6 +12,7 @@ class HelpForQuestionVC: UIViewController {
     
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var rulesLbl: UILabel!
+    @IBOutlet weak var dismissBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class HelpForQuestionVC: UIViewController {
     override func viewDidAppear(animated: Bool) {
         titleLbl.text = HELP_QUESTIONVC_TITLE
         rulesLbl.text = HELP_QUESTIONVC_BODY
+        dismissBtn.setTitle("X", forState: .Normal)
     }
 
 }
