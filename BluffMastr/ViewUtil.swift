@@ -47,4 +47,3 @@ func showBusyModal(busyText: String) -> UIView {
     
     return busyModalFrame
 }
-

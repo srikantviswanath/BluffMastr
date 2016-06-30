@@ -33,6 +33,12 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    @IBAction func helpBtnClicked(sender: UIButton) {
+        performSegueWithIdentifier(SEGUE_HELP_FOR_QUESTIONVC, sender: nil)
+    }
+    
+    @IBAction func dismissHelp(segue: UIStoryboardSegue) {} //for unwinding the help modal
+    
     func alertIfPlayerIsBluffMstr() {
         if isPlayerBluffMastr() {
             ErrorHandler.errorHandler.showErrorMsg(STATUS_BLUFFMATR_TITLE, msg: STATUS_BLUFFMATR_MSG)
@@ -41,12 +47,6 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
 
     }
-    
-    @IBAction func cheat(sender: UITapGestureRecognizer) {
-        performSegueWithIdentifier(SEGUE_BLUFFMASTR_CHEAT, sender: nil)
-    }
-    
-    @IBAction func stopCheating(segue: UIStoryboardSegue) {} //For unwinding the modal segue AnswersVC
     
     func constructAnswersArray(arrayOfInt: [Int]) {
         for answerPos in arrayOfInt {
@@ -86,10 +86,6 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let scoreVC = segue.destinationViewController as? ScoreVC {
             scoreVC.playerScore = self.playerScore
         }
-        else if let cheatVC = segue.destinationViewController as? AnswersVC {
-            cheatVC.isCheating = true
-        }
     }
-
     
 }

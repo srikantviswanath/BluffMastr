@@ -23,6 +23,7 @@ typealias GenericCompletionBlock = () -> ()
 let COLOR_THEME = 0xF44336
 let SHADOW_COLOR: CGFloat = 155.0/255.0
 let COLOR_ELECTED_ANSWER = 0x00BCD4
+let COLOR_HELP_MODAL_BG = 0xFF1744
 
 /* BUTTON TITLES */
 let BTN_VOTE_AGAIN = "Vote Again"
@@ -41,6 +42,7 @@ let AUDIO_SHOW_SCORE = "score_swoosh"
 let SEGUE_CREATE_JOIN_GAME = "CreateOrJoinGame"
 let SEGUE_LEAVE_GAME = "LeaveGame"
 let SEGUE_START_GAME = "StartGame"
+let SEGUE_HELP_FOR_QUESTIONVC = "helpForQuestionVC"
 let SEGUE_FETCH_SCORE = "FetchScore"
 let SEGUE_REVEAL_ANSWERS = "RevealAnswers"
 let SEGUE_BLUFFMASTR_CHEAT = "CheatAnswers"
@@ -103,6 +105,10 @@ let STATUS_STARTING_NEXT_ROUND = "Starting next round..."
 
 let VOTES = "Votes"
 
+/* Help Titles and Messages */
+
+let HELP_QUESTIONVC_TITLE = "Collect Points.."
+let HELP_QUESTIONVC_BODY = " ◦ Every Question has 10 answers\n ◦ Most common answer has the least points and the least common answer has the most points\n ◦ The BluffMastr has the answers sorted in the increasing order of points ◦ Innocent players have their answers shuffled\n\n\n ✩ Remember - There is a voteout after every round\n ✩ Goal: Score as many points as you can whilst staying alive"
 
 /* Codes */
 
