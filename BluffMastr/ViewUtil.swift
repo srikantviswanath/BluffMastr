@@ -25,6 +25,35 @@ extension UIColor {
     }
 }
 
+class AlertHandler: UIViewController {
+    
+    static var alert = AlertHandler()
+    
+    func showErrorMsg(title: String!, msg: String!){
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        UIApplication.topViewController()!.presentViewController(alert, animated: true, completion: nil)
+    }
+}
+
+extension UIApplication {
+    class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(presented)
+        }
+        return base
+    }
+}
+
 func showBusyModal(busyText: String) -> UIView {
     let parentVCView = UIApplication.topViewController()?.view
     let busyModalFrame = UIView(frame: CGRect(x: parentVCView!.frame.midX - 90, y: parentVCView!.frame.midY - 25 , width: 200, height: 100))
