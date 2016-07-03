@@ -29,6 +29,23 @@ class AlertHandler: UIViewController {
     
     static var alert = AlertHandler()
     
+    func showAlertMsg(title: String, msg: String, actionBtnTitle: String = "OK") {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let alertVC = storyboard.instantiateViewControllerWithIdentifier("alertVC") as! AlertVC
+        alertVC.view.backgroundColor = UIColor.lightGrayColor()
+        alertVC.view.alpha = 0.3
+        alertVC.AlertTitle!.text = title
+        alertVC.AlertMsg!.text = msg
+        alertVC.ActionBtn!.setTitle(actionBtnTitle, forState: .Normal)
+        alertVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        alertVC.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        alertVC.view.opaque = false
+        let presentingViewController = UIApplication.topViewController()!
+        presentingViewController.providesPresentationContextTransitionStyle = true;
+        presentingViewController.definesPresentationContext = true;
+        presentingViewController.presentViewController(alertVC, animated: true, completion: nil)
+    }
+    
     func showErrorMsg(title: String!, msg: String!){
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)

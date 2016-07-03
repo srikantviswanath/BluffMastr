@@ -54,7 +54,7 @@ class LandingVC: UIViewController, UITextFieldDelegate {
                 self.performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
             }
         } else {
-            AlertHandler.alert.showErrorMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG )
+            AlertHandler.alert.showAlertMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG)
         }
         
     }

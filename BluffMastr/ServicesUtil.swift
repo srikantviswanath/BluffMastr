@@ -23,6 +23,7 @@ func stopListeningForPlayersReadiness() {
 
 func resetReadiness() {
     FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).child(Users.myScreenName).removeValue()
+    Games.playersReadyForNextRound = [String]()
 }
 
 /** Method to show readiness for next round by cleaning up last round's cached values, values at server and submitting to REF_READY_NEXT/gameUID
