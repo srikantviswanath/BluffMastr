@@ -121,11 +121,11 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                     self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
                 }
             }) { //failedCompleted closure block -> Incorrect code entered: Failed to join game
-                AlertHandler.alert.showErrorMsg(ERR_WRONG_CODE_TITLE, msg: ERR_WRONG_CODE_MSG)
+                AlertHandler.alert.showAlertMsg(ERR_WRONG_CODE_TITLE, msg: ERR_WRONG_CODE_MSG)
                 self.resetEnteredGameCodes()
             }
         } else {
-            AlertHandler.alert.showErrorMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
+            AlertHandler.alert.showAlertMsg(ERR_GAMECODE_MISSING_TITLE, msg: ERR_GAMECODE_MISSING_MSG)
             resetEnteredGameCodes()
         }
     }
@@ -133,7 +133,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     @IBAction func startGame(sender: UIButton) {
         // Mark a random member as BluffMaster
         if GameMembers.playersInGameRoom.count < MIN_PLAYERS {
-            AlertHandler.alert.showErrorMsg(ERR_NEED_PLAYERS_TITLE, msg: ERR_NEED_PLAYERS_MSG)
+            AlertHandler.alert.showAlertMsg(ERR_NEED_PLAYERS_TITLE, msg: ERR_NEED_PLAYERS_MSG)
             return
         }
         Games.games.updateGameInfo(SVC_GAME_DICT, person: "", gameDict: randomizeNextRoundData()) {

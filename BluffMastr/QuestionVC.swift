@@ -41,9 +41,9 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func alertIfPlayerIsBluffMstr() {
         if isPlayerBluffMastr() {
-            AlertHandler.alert.showErrorMsg(STATUS_BLUFFMATR_TITLE, msg: STATUS_BLUFFMATR_MSG)
+            AlertHandler.alert.showAlertMsg(STATUS_BLUFFMATR_TITLE, msg: STATUS_BLUFFMATR_MSG)
         } else {
-            AlertHandler.alert.showErrorMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
+            AlertHandler.alert.showAlertMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
         }
 
     }
@@ -79,7 +79,7 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)
             Users.myCurrentAnswer = answer
         }
-        else {AlertHandler.alert.showErrorMsg(ERR_TYPO_TITLE, msg: ERR_TYPO_MSG)}
+        else {AlertHandler.alert.showAlertMsg(ERR_TYPO_TITLE, msg: ERR_TYPO_MSG)}
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

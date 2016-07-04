@@ -13,6 +13,7 @@ class AlertVC: UIViewController {
     @IBOutlet weak var AlertTitle: UILabel!
     @IBOutlet weak var AlertMsg: UILabel!
     @IBOutlet weak var ActionBtn: UIButton!
+    @IBOutlet weak var ContainerView : UIView!
     
     @IBAction func ActionBtnPressed(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)

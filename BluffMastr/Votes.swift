@@ -13,7 +13,7 @@ class Votes {
     
     func submitVote(votedFor: String, completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_VOTES.child(Games.gameUID).updateChildValues([Users.myScreenName: votedFor], withCompletionBlock: { err, fDB in
-            if err != nil {AlertHandler.alert.showErrorMsg(ERR_VOTE_ABSENT_TITLE, msg: ERR_VOTE_ABSENT_MSG)}
+            if err != nil {AlertHandler.alert.showAlertMsg(ERR_VOTE_ABSENT_TITLE, msg: ERR_VOTE_ABSENT_MSG)}
             else {completed()}
             }
         )

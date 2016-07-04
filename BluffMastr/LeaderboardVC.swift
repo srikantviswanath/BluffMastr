@@ -69,10 +69,10 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                     self.performSegueWithIdentifier(SEGUE_TO_VOTE_RESULT, sender: nil)
                 }
             } else {
-                AlertHandler.alert.showErrorMsg(ERR_SELF_VOTE_TITLE, msg: ERR_SELF_VOTE_MSG)
+                AlertHandler.alert.showAlertMsg(ERR_SELF_VOTE_TITLE, msg: ERR_SELF_VOTE_MSG)
             }
         } else {
-            AlertHandler.alert.showErrorMsg(ERR_VOTE_ABSENT_TITLE, msg: ERR_VOTE_ABSENT_MSG)
+            AlertHandler.alert.showAlertMsg(ERR_VOTE_ABSENT_TITLE, msg: ERR_VOTE_ABSENT_MSG)
         }
     }
     
