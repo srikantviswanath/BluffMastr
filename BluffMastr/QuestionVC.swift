@@ -75,13 +75,10 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let answer = answersArray[indexPath.row]
         self.playerScore = Int(evaluateScore(answer))
-        if self.playerScore != ANSWER_ABSENT_FROM_LIST {
-            performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)
-            Users.myCurrentAnswer = answer
-        }
-        else {AlertHandler.alert.showAlertMsg(ERR_TYPO_TITLE, msg: ERR_TYPO_MSG)}
+        performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)
+        Users.myCurrentAnswer = answer
     }
-    
+        
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let scoreVC = segue.destinationViewController as? ScoreVC {
             scoreVC.playerScore = self.playerScore

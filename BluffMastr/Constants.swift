@@ -11,8 +11,7 @@ import UIKit
 
 /* Gameplay constants */
 let MIN_PLAYERS = 1
-let ANSWER_ABSENT_FROM_LIST = 0
-let TOTAL_QUESTIONS_AT_FIREBASE = 4
+let TOTAL_QUESTIONS_AT_FIREBASE = 7
 
 /* Custom closures*/
 

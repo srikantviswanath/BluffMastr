@@ -1012,21 +1012,22 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-xD-txr">
-                                                            <rect key="frame" x="517" y="8" width="35" height="35"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="35" id="GzK-G8-P1R"/>
-                                                                <constraint firstAttribute="height" constant="35" id="caN-i1-Y26"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldk-qF-6nL">
                                                             <rect key="frame" x="228" y="10" width="31" height="32"/>
                                                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                                             <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-xD-txr">
+                                                            <rect key="frame" x="8" y="7" width="35" height="35"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="35" id="GzK-G8-P1R"/>
+                                                                <constraint firstAttribute="height" constant="35" id="caN-i1-Y26"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="B0f-xD-txr" firstAttribute="leading" secondItem="orm-Aj-UKJ" secondAttribute="leadingMargin" id="5li-9S-UhN"/>
                                                         <constraint firstItem="B0f-xD-txr" firstAttribute="trailing" secondItem="orm-Aj-UKJ" secondAttribute="trailingMargin" id="6Jc-ka-qp4"/>
                                                         <constraint firstItem="uQz-sZ-6g3" firstAttribute="centerY" secondItem="orm-Aj-UKJ" secondAttribute="centerY" id="8jy-BW-set"/>
                                                         <constraint firstItem="Ldk-qF-6nL" firstAttribute="leading" secondItem="uQz-sZ-6g3" secondAttribute="trailing" constant="20" id="ISp-qp-Z7r"/>
@@ -1037,6 +1038,7 @@
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
+                                                            <exclude reference="6Jc-ka-qp4"/>
                                                             <exclude reference="ISp-qp-Z7r"/>
                                                         </mask>
                                                     </variation>
@@ -1059,7 +1061,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRL-Pi-gPe" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="266" y="555" width="68" height="34"/>
+                                <rect key="frame" x="20" y="555" width="560" height="34"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
                                 <state key="normal" title="VOTEOUT">
@@ -1087,9 +1089,11 @@
                             <constraint firstItem="ykg-vr-e7g" firstAttribute="top" secondItem="ZjL-WN-C5n" secondAttribute="bottom" constant="8" id="ZXR-LX-1Tl"/>
                             <constraint firstItem="LRL-Pi-gPe" firstAttribute="top" secondItem="ykg-vr-e7g" secondAttribute="bottom" constant="12" id="abe-fy-rwA"/>
                             <constraint firstItem="H6w-3P-F2Q" firstAttribute="top" secondItem="LRL-Pi-gPe" secondAttribute="bottom" constant="11" id="c9k-2C-Chx"/>
+                            <constraint firstItem="LRL-Pi-gPe" firstAttribute="leading" secondItem="ugq-lf-0jM" secondAttribute="leadingMargin" id="eJs-nh-nKm"/>
                             <constraint firstItem="LRL-Pi-gPe" firstAttribute="centerX" secondItem="ugq-lf-0jM" secondAttribute="centerX" id="et3-jK-GRG"/>
                             <constraint firstItem="ZjL-WN-C5n" firstAttribute="leading" secondItem="ugq-lf-0jM" secondAttribute="leading" id="f0e-ua-tBw"/>
                             <constraint firstItem="LRL-Pi-gPe" firstAttribute="centerY" secondItem="ugq-lf-0jM" secondAttribute="centerY" id="kij-Np-Iuf"/>
+                            <constraint firstItem="LRL-Pi-gPe" firstAttribute="trailing" secondItem="ugq-lf-0jM" secondAttribute="trailingMargin" id="lpX-Dy-LPp"/>
                             <constraint firstItem="ZjL-WN-C5n" firstAttribute="top" secondItem="6g2-l6-kLx" secondAttribute="bottom" constant="15" id="ocu-EY-xv4"/>
                             <constraint firstItem="6g2-l6-kLx" firstAttribute="leading" secondItem="ugq-lf-0jM" secondAttribute="leading" id="vsE-0n-VBx"/>
                             <constraint firstAttribute="trailing" secondItem="6g2-l6-kLx" secondAttribute="trailing" id="xrC-Ii-i6x"/>
@@ -1551,24 +1555,6 @@
             </objects>
             <point key="canvasLocation" x="3786" y="1914"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="h3T-bs-YmN">
-            <objects>
-                <viewController id="baa-KK-tFq" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VRp-Xk-1C9"/>
-                        <viewControllerLayoutGuide type="bottom" id="Dns-xZ-eit"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QlR-Rh-Mza">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aHa-38-IHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3786" y="2612"/>
-        </scene>
     </scenes>
     <resources>
         <image name="alert_icon" width="200" height="200"/>
@@ -1577,8 +1563,8 @@
         <image name="launcherLogo" width="212" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="NOo-Fx-xTx"/>
         <segue reference="GYg-7C-dJK"/>
-        <segue reference="lhi-gu-Bwe"/>
         <segue reference="vri-St-kcn"/>
     </inferredMetricsTieBreakers>
 </document>
