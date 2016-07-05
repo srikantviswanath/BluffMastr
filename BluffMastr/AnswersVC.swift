@@ -11,11 +11,6 @@ import UIKit
 class AnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var answersTable: UITableView!
-    @IBOutlet weak var screenTitle: UILabel!
-    @IBOutlet weak var doneCheatingBtn: UIButton!
-    @IBOutlet weak var hideAnswersBtn: UIButton!
-    
-    var isCheating: Bool!
     
     var answersArray = [String]()
     
@@ -24,16 +19,6 @@ class AnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         answersTable.delegate = self
         answersTable.dataSource = self
         constructAnswersArray()
-        showBackBtns()
-    }
-    
-    func showBackBtns() {
-        if isCheating! {
-            hideAnswersBtn.hidden = true
-        } else {
-            doneCheatingBtn.hidden = true
-            screenTitle.hidden = true
-        }
     }
     
     func constructAnswersArray() {

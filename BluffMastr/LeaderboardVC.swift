@@ -43,6 +43,11 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
     
+    @IBAction func answersBtnClicked(sender: UIButton) {
+        performSegueWithIdentifier(SEGUE_REVEAL_ANSWERS, sender: nil)
+    }
+    @IBAction func unwindFromAnswers(segue: UIStoryboardSegue) {}
+    
     func displayCurrentRoundScores() {
         Scores.scores.listenForPlayersSubmissions {
             if Games.playersSubmissions.count == GameMembers.playersInGameRoom.count {
@@ -138,9 +143,10 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 selectedCell.alpha = 0.8
                 selectedCell.VoteImg.image = UIImage(named: "voteout")
                 markedCellIndexPath = indexPath
+                let bgColorView = UIView()
+                bgColorView.backgroundColor = UIColor.clearColor()
+                selectedCell.selectedBackgroundView = bgColorView
             }
         }
     }
-    
-    
 }

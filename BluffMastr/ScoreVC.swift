@@ -33,19 +33,7 @@ class ScoreVC: UIViewController {
         scoreAnimEngine.animateOnScreen(20, delay: 0.4)
     }
 
-    @IBAction func revealAnswers(sender: UIButton!) {
-        performSegueWithIdentifier(SEGUE_REVEAL_ANSWERS, sender: nil)
-    }
-    
-    @IBAction func unwindFromAnswers(segue: UIStoryboardSegue){}
-    
     @IBAction func ShowLeaderboard(sender: UIButton!) {
         performSegueWithIdentifier(SEGUE_SHOW_LEADERBOARD, sender: nil)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destVC = segue.destinationViewController as? AnswersVC {
-            destVC.isCheating = false
-        }
     }
 }
