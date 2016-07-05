@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /* Gameplay constants */
-let MIN_PLAYERS = 1
+let MIN_PLAYERS = 3
 let TOTAL_QUESTIONS_AT_FIREBASE = 7
 
 /* Custom closures*/

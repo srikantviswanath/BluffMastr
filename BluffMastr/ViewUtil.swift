@@ -34,14 +34,18 @@ class AlertHandler: UIViewController {
         let alertVC = storyboard.instantiateViewControllerWithIdentifier("alertVC") as! AlertVC
         alertVC.view.backgroundColor = UIColor.clearColor()
         alertVC.ContainerView.backgroundColor = UIColor.lightGrayColor()
-        alertVC.ContainerView.alpha = 0.98
+        alertVC.AlertBox.alpha = 1.0
+        alertVC.ContainerView.alpha = 0.95
         alertVC.AlertTitle!.text = title
         alertVC.AlertMsg!.text = msg
         alertVC.ActionBtn!.setTitle(actionBtnTitle, forState: .Normal)
         alertVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         alertVC.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
         alertVC.view.opaque = false
-        UIApplication.topViewController()!.presentViewController(alertVC, animated: true, completion: nil)
+        UIApplication.topViewController()!.presentViewController(alertVC, animated: true) {
+            alertVC.AlertBox.opaque = true
+            alertVC.AlertBox.alpha = 1.0
+        }
     }
 }
 
