@@ -35,18 +35,19 @@ class VoteResultVC: UIViewController {
         case BTN_HOME:
             self.performSegueWithIdentifier(SEGUE_VOTEDOUT_HOME, sender: nil)
         case BTN_NEXT_ROUND:
-            readyForNextRound()
-            listenForNextRoundReadiness {
-                if Games.playersReadyForNextRound.count == GameMembers.playersInGameRoom.count {
-                    stopListeningForPlayersReadiness()
-                    self.ResultStatusLbl.text = STATUS_STARTING_NEXT_ROUND
-                    self.performSegueWithIdentifier(SEGUE_START_NEXT_ROUND, sender: nil)
-                } else {
-                    self.ResultStatusLbl.text = STATUS_WAITING_OTHERS_NXT_ROUND
-                    self.VotedoutPlayerLbl.hidden = true
-                    self.noOfVotes.hidden = true
-                    self.waitingSpinner.color = UIColor.whiteColor()
-                    self.waitingSpinner.startAnimating()
+            readyForNextRound(){
+                listenForNextRoundReadiness {
+                    if Games.playersReadyForNextRound.count == GameMembers.playersInGameRoom.count {
+                        stopListeningForPlayersReadiness()
+                        self.ResultStatusLbl.text = STATUS_STARTING_NEXT_ROUND
+                        self.performSegueWithIdentifier(SEGUE_START_NEXT_ROUND, sender: nil)
+                    } else {
+                        self.ResultStatusLbl.text = STATUS_WAITING_OTHERS_NXT_ROUND
+                        self.VotedoutPlayerLbl.hidden = true
+                        self.noOfVotes.hidden = true
+                        self.waitingSpinner.color = UIColor.whiteColor()
+                        self.waitingSpinner.startAnimating()
+                    }
                 }
             }
         default:

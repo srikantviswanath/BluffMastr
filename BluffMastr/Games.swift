@@ -127,7 +127,10 @@ class Games {
         })
     }
     
-    func attemptToSetDataForNextRound() {
+    /**
+     Method to attempt to increment the round number at server. Firebase transaction block is run to take care of concurrency
+    */
+    func attemptToSetDataForNextRound(completed: GenericCompletionBlock) {
         let roundRef = FDataService.fDataService.REF_GAMES.child(Games.gameUID).child(SVC_GAME_ROUND)
         roundRef.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
             var roundNumberAtServer = currentData.value as? String //This value should never be nil
@@ -145,7 +148,24 @@ class Games {
                 print(err.localizedDescription)
             } else {
                 if commited {
-                    Games.REF_GAMES_BASE.child(Games.gameUID).updateChildValues(randomizeNextRoundData())
+                    Games.REF_GAMES_BASE.child(Games.gameUID).updateChildValues(randomizeNextRoundData(), withCompletionBlock: {_,_ in 
+                        completed()
+                    })
+                } else {
+                    if let _ = snapshot?.value as? NSNull{ //Firebase error. roundNumberAtServer came back as nil in the above block
+                        roundRef.observeSingleEventOfType(.Value, withBlock: { roundSS in
+                            if let roundNumberAtServer = roundSS.value as? String { //Check if other clients were able to successfully update server
+                                if Int(roundNumberAtServer) != Int(Games.roundNumber) {
+                                    completed()
+                                } else {
+                                    AlertHandler.alert.showAlertMsg("Snap :(", msg: "It's not you It's us. Could not update server. Try again")
+                                }
+                            }
+                        })
+                        
+                    } else { //One of the other clients already updated server successfully
+                        completed()
+                    }
                 }
             }
         }

@@ -30,7 +30,7 @@ func resetReadiness() {
  - Also runs a transaction block so that the first person ready for next round will set the next question and
  BluffMastr if voted out in previous round
  */
-func readyForNextRound() {
+func readyForNextRound(completed: GenericCompletionBlock) {
     FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).updateChildValues([Users.myScreenName: true])
     Games.answersDict = Dictionary<String, String>()
     Games.playersSubmissions = [Dictionary<String, Int>]()
@@ -38,5 +38,5 @@ func readyForNextRound() {
     Games.votesCastedForThisRound = Dictionary<String, String>()
     FDataService.fDataService.REF_VOTES.child(Games.gameUID).child(Users.myScreenName).removeValue()
     FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).child(Users.myScreenName).removeValue()
-    Games.games.attemptToSetDataForNextRound()
+    Games.games.attemptToSetDataForNextRound(){completed()}
 }
