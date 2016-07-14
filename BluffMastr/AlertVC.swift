@@ -16,8 +16,11 @@ class AlertVC: UIViewController {
     @IBOutlet weak var ContainerView : UIView!
     @IBOutlet weak var AlertBox: UIView!
     
+    var parentBlurView: UIVisualEffectView!
+    
     @IBAction func ActionBtnPressed(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        parentBlurView.removeFromSuperview()
     }
 
     override func viewDidLoad() {

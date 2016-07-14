@@ -99,13 +99,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NS9-gM-MSt">
                                         <rect key="frame" x="8" y="13" width="544" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ScreenName:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RA-i2-wbe">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ScreenName:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RA-i2-wbe">
                                                 <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Put on your bluffin' name" textAlignment="natural" minimumFontSize="17" disabledBackground="launcherLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-Cs-NxQ" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Put on your bluffin' name" textAlignment="natural" minimumFontSize="17" disabledBackground="launcherLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1Pe-Cs-NxQ" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
                                                 <rect key="frame" x="99" y="0.0" width="445" height="30"/>
                                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1427,7 +1427,7 @@
                         <viewControllerLayoutGuide type="top" id="cFa-c8-UV5"/>
                         <viewControllerLayoutGuide type="bottom" id="dXr-sK-7DD"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" id="ZvJ-DJ-XZx">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="ZvJ-DJ-XZx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1525,7 +1525,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="rvE-6D-OpU" firstAttribute="centerX" secondItem="pRd-MJ-Ahs" secondAttribute="centerX" id="Kva-YH-RRE"/>
                                     <constraint firstItem="rvE-6D-OpU" firstAttribute="centerY" secondItem="pRd-MJ-Ahs" secondAttribute="centerY" id="Oy3-7a-sPy"/>

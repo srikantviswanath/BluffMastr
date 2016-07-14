@@ -30,22 +30,25 @@ class AlertHandler: UIViewController {
     static var alert = AlertHandler()
     
     func showAlertMsg(title: String, msg: String, actionBtnTitle: String = "OK") {
+        let parentVC = UIApplication.topViewController()!
+        
+        let blurEffect = UIBlurEffect(style: .Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = parentVC.view.bounds
+        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let alertVC = storyboard.instantiateViewControllerWithIdentifier("alertVC") as! AlertVC
         alertVC.view.backgroundColor = UIColor.clearColor()
-        alertVC.ContainerView.backgroundColor = UIColor.lightGrayColor()
-        alertVC.AlertBox.alpha = 1.0
-        alertVC.ContainerView.alpha = 0.95
         alertVC.AlertTitle!.text = title
         alertVC.AlertMsg!.text = msg
         alertVC.ActionBtn!.setTitle(actionBtnTitle, forState: .Normal)
+        alertVC.parentBlurView = blurEffectView
         alertVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         alertVC.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        alertVC.view.opaque = false
-        UIApplication.topViewController()!.presentViewController(alertVC, animated: true) {
-            alertVC.AlertBox.opaque = true
-            alertVC.AlertBox.alpha = 1.0
-        }
+        
+        parentVC.view.addSubview(blurEffectView)
+        parentVC.presentViewController(alertVC, animated: true, completion: nil)
     }
 }
 
