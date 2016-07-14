@@ -1505,7 +1505,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kW0-2W-seN" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="150" y="175" width="300" height="250"/>
+                                <rect key="frame" x="150" y="60" width="300" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your screen name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-QF-izr">
                                         <rect key="frame" x="8" y="94" width="284" height="21"/>
@@ -1606,12 +1606,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kW0-2W-seN" firstAttribute="top" secondItem="mzS-Qa-2BO" secondAttribute="bottom" constant="40" id="1oE-fV-zLg"/>
                             <constraint firstItem="kW0-2W-seN" firstAttribute="centerX" secondItem="bga-Ot-Pj7" secondAttribute="centerX" id="5vS-lc-bJj"/>
                             <constraint firstItem="kW0-2W-seN" firstAttribute="centerY" secondItem="bga-Ot-Pj7" secondAttribute="centerY" id="GDY-v7-mJb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kW0-2W-seN" secondAttribute="trailing" constant="100" id="Xkw-Qx-GL6"/>
                             <constraint firstItem="kW0-2W-seN" firstAttribute="top" secondItem="mzS-Qa-2BO" secondAttribute="bottom" constant="100" id="ZG5-7q-Kr2"/>
                             <constraint firstItem="kW0-2W-seN" firstAttribute="centerY" secondItem="bga-Ot-Pj7" secondAttribute="centerY" id="aVQ-t5-62h"/>
                             <constraint firstItem="kW0-2W-seN" firstAttribute="centerX" secondItem="bga-Ot-Pj7" secondAttribute="centerX" id="b7G-BR-UzJ"/>
+                            <constraint firstItem="kW0-2W-seN" firstAttribute="top" secondItem="mzS-Qa-2BO" secondAttribute="bottom" constant="30" id="epE-Oy-iBd"/>
                             <constraint firstItem="aa5-Bg-bcN" firstAttribute="top" secondItem="kW0-2W-seN" secondAttribute="bottom" constant="100" id="hMf-Uj-aIV"/>
                             <constraint firstItem="kW0-2W-seN" firstAttribute="leading" secondItem="bga-Ot-Pj7" secondAttribute="leadingMargin" constant="100" id="irq-Na-A7q"/>
                         </constraints>
@@ -1621,6 +1623,8 @@
                                 <exclude reference="GDY-v7-mJb"/>
                                 <exclude reference="Xkw-Qx-GL6"/>
                                 <exclude reference="ZG5-7q-Kr2"/>
+                                <exclude reference="aVQ-t5-62h"/>
+                                <exclude reference="epE-Oy-iBd"/>
                                 <exclude reference="irq-Na-A7q"/>
                                 <exclude reference="hMf-Uj-aIV"/>
                             </mask>
