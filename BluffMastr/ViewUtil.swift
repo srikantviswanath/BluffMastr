@@ -50,6 +50,25 @@ class AlertHandler: UIViewController {
         parentVC.view.addSubview(blurEffectView)
         parentVC.presentViewController(alertVC, animated: true, completion: nil)
     }
+    
+    func showWelcomeModal() {
+        let parentVC = UIApplication.topViewController()!
+        let blurEffect = UIBlurEffect(style: .Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = UIScreen.mainScreen().bounds
+        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let welcomeVC = storyboard.instantiateViewControllerWithIdentifier("welcomeVC") as! WelcomeVC
+        
+        welcomeVC.view.backgroundColor = UIColor.clearColor()
+        welcomeVC.parentBlurView = blurEffectView
+        welcomeVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        welcomeVC.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        parentVC.view.addSubview(blurEffectView)
+        parentVC.presentViewController(welcomeVC, animated: true, completion: nil)
+
+    }
 }
 
 extension UIApplication {

@@ -9,17 +9,18 @@
 import UIKit
 import pop
 
-class LandingVC: UIViewController, UITextFieldDelegate {
+class LandingVC: UIViewController {
 
     
     var createJoinAnimEngine: AnimationEngine!
     var screenNameAnimEngine: AnimationEngine!
     @IBOutlet weak var CreateJoinTrailingConstr: NSLayoutConstraint!
     @IBOutlet weak var CreateJoinLeadingConstr: NSLayoutConstraint!
-    @IBOutlet weak var ScreenNameLeadingConstr: NSLayoutConstraint!
-    @IBOutlet weak var ScreenNmeTrailingConstr: NSLayoutConstraint!
     
-    @IBOutlet weak var screenNameTxt: UITextField!
+    @IBOutlet weak var createGameBtn: UIButton!
+    @IBOutlet weak var joinGameBtn: UIButton!
+    
+    var timer = NSTimer()
     
     var isGameCreator = true
     var newGameDict: Dictionary<String, String>!
@@ -29,52 +30,47 @@ class LandingVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         createJoinAnimEngine = AnimationEngine(leadingConstraint: CreateJoinLeadingConstr, trailingConstraint: CreateJoinTrailingConstr)
-        screenNameAnimEngine = AnimationEngine(leadingConstraint: ScreenNameLeadingConstr, trailingConstraint: ScreenNmeTrailingConstr)
-        screenNameTxt.delegate = self
         self.hideKeyboardWhenTappedAround()
     }
     
     override func viewDidAppear(animated: Bool) {
-        createJoinAnimEngine.animateOnScreen(17)
-        screenNameAnimEngine.animateOnScreen(25)
+        createGameBtn.enabled = false
+        joinGameBtn.enabled = false
+        createJoinAnimEngine.animateOnScreen(17) {
+            let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
+            dispatch_after(time, dispatch_get_main_queue()) {
+                AlertHandler.alert.showWelcomeModal()
+                self.createGameBtn.enabled = true
+                self.joinGameBtn.enabled = true
+            }
+        }
     }
     
     
     @IBAction func createGame(sender: UIButton!){
         view.endEditing(true)
-        if let screenName = screenNameTxt.text where screenName != "" {
-            isGameCreator = true
-            Games.gameCreator = screenName
-            Users.myScreenName = screenName
-            GameMembers.playersInGameRoom = []
-            Users.users.createAnonymousUser(screenName)
-            busyModalFrame = showBusyModal(BUSY_CREATING_GAME)
-            Games.games.createGame(screenName) {
-                self.busyModalFrame.removeFromSuperview()
-                self.performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
-            }
-        } else {
-            AlertHandler.alert.showAlertMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG)
+        isGameCreator = true
+        Games.gameCreator = Users.myScreenName
+        GameMembers.playersInGameRoom = []
+        Users.users.createAnonymousUser(Users.myScreenName)
+        busyModalFrame = showBusyModal(BUSY_CREATING_GAME)
+        Games.games.createGame(Users.myScreenName) {
+            self.busyModalFrame.removeFromSuperview()
+            self.performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
         }
-        
     }
     
     @IBAction func joinGame(sender: UIButton!){
-        if let screenName = screenNameTxt.text where screenName != "" {
-            isGameCreator = false
-            GameMembers.playersInGameRoom = []
-            Users.users.createAnonymousUser(screenName)
-            performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
-        } else {
-            AlertHandler.alert.showAlertMsg(ERR_SCREENNAME_MISSING_TITLE, msg: ERR_SCREENNAME_MISSIN_MSG )
-        }
+        isGameCreator = false
+        GameMembers.playersInGameRoom = []
+        Users.users.createAnonymousUser(Users.myScreenName)
+        performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SEGUE_CREATE_JOIN_GAME {
             let destVC = segue.destinationViewController as! StagingVC
             destVC.isGameCreator = isGameCreator
-            destVC.screenTitle = screenNameTxt.text
         }
     }
     

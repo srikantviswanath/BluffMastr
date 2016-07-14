@@ -14,6 +14,7 @@
 		949875BA1D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
 		949875BB1D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
 		BC8970900265258FB4D83D32 /* Pods_BluffMastrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */; };
+		CB0372501D371CCB00E3550D /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03724F1D371CCB00E3550D /* WelcomeVC.swift */; };
 		CB78671F1D18B2FD00E0CDB0 /* ServicesUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */; };
 		CB7CEFC61CD6DCDA00356DFB /* FirebaseDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */; };
 		CB7CEFC81CD6F1E000356DFB /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC71CD6F1E000356DFB /* MaterialView.swift */; };
@@ -80,6 +81,7 @@
 		9446F8D81CF5F01E00F41FC0 /* Votes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Votes.swift; sourceTree = "<group>"; };
 		949875B81D025FE000BA190E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB03724F1D371CCB00E3550D /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		CB7867181D1653B200E0CDB0 /* BluffMastr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluffMastr-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesUtil.swift; sourceTree = "<group>"; };
 		CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataServices.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				CBCFD3281CEBE82F00C4AD7B /* LeaderboardVC.swift */,
 				CBD8801F1CF55B17005C2C10 /* VoteResultVC.swift */,
 				CBD4B6951D24DB0700E7A674 /* AlertVC.swift */,
+				CB03724F1D371CCB00E3550D /* WelcomeVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				CBB98B1E1D0A66AD00089FE8 /* AudioUtil.swift in Sources */,
 				9446F8D91CF5F01E00F41FC0 /* Votes.swift in Sources */,
 				CB89CFB11CDD7434000D3A7B /* GameMembers.swift in Sources */,
+				CB0372501D371CCB00E3550D /* WelcomeVC.swift in Sources */,
 				CB78671F1D18B2FD00E0CDB0 /* ServicesUtil.swift in Sources */,
 				CBC6FDE01CE6BAE9006CB1C0 /* AnswersVC.swift in Sources */,
 				CB7CEFCA1CD6F21300356DFB /* Constants.swift in Sources */,

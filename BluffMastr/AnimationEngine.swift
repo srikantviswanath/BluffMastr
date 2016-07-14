@@ -52,7 +52,7 @@ class AnimationEngine {
         self.constraints = constraints
     }
     
-    func animateOnScreen(friction:Int = 0, delay:Double? = nil) {
+    func animateOnScreen(friction:Int = 0, delay:Double? = nil, completed: GenericCompletionBlock) {
         let timedDelay = dispatch_time(DISPATCH_TIME_NOW, Int64((delay == nil ? ANIM_DELAY:delay!) * Double(NSEC_PER_SEC)))
         dispatch_after(timedDelay, dispatch_get_main_queue()) {
             for constIdx in 0...self.constraints.count-1 {
@@ -64,5 +64,6 @@ class AnimationEngine {
                 self.constraints[constIdx].pop_addAnimation(moveAnim, forKey: "intialSpin")
             }
         }
+        completed()
     }
 }

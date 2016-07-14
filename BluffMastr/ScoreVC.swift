@@ -30,7 +30,7 @@ class ScoreVC: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         playAudio(AUDIO_SHOW_SCORE)
-        scoreAnimEngine.animateOnScreen(20, delay: 0.4)
+        scoreAnimEngine.animateOnScreen(20, delay: 0.4, completed: {})
     }
 
     @IBAction func ShowLeaderboard(sender: UIButton!) {

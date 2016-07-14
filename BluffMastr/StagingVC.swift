@@ -26,7 +26,6 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     static var stagingVC = StagingVC()
     
     var isGameCreator: Bool!
-    var screenTitle: String!
     var arrayOfCodes: [String] = ["", "", "", ""]
         
     override func viewDidLoad() {
@@ -52,7 +51,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     /* =======View changing funcs after create/join game and depending on #players======== */
     
     func switchLblsAfterViewLoad(){
-        barTitle.text = screenTitle
+        barTitle.text = Users.myScreenName
         if isGameCreator! {
             joinerStaticLbl.hidden = true
             codeEnteredTxtFirst.hidden = true
@@ -108,7 +107,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         self.view.endEditing(true)
         let enteredCode = arrayOfCodes.joinWithSeparator("")
         if enteredCode.characters.count == 4 {
-            Games.games.joinGame(enteredCode, gameSlave: self.screenTitle, sucessCompleted: {
+            Games.games.joinGame(enteredCode, gameSlave: Users.myScreenName, sucessCompleted: {
                 GameMembers.gameMembers.observeMemberAddedOrRemoved {
                     self.playersTable.reloadData()
                     self.changeViewAfterJoin()
@@ -116,7 +115,6 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                 GameMembers.gameMembers.gameRoomIsRemoved {
                     self.leaveGame(nil)
                 }
-                Users.myScreenName = self.screenTitle
                 Games.games.listenToGameChanges(SVC_GAME_BLUFFMASTER) { // Game starts as soon as bluffMastr is set for the game
                     self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
                 }
@@ -148,7 +146,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             Games.games.deleteGame()
             GameMembers.gameMembers.deleteRoom()
         } else if joinBtn.hidden { // if this button is hidden, then the user already joined the game.
-            GameMembers.gameMembers.removePlayerFromRoom(self.screenTitle)
+            GameMembers.gameMembers.removePlayerFromRoom(Users.myScreenName)
         }
         GameMembers.gameMembers.removeGameMemberListeners()
     }

@@ -57,7 +57,7 @@ let THIS_ROUND_CELL = "ThisRoundCell"
 
 /* Error Messages */
 
-let ERR_SCREENNAME_MISSING_TITLE = "ScreenName Missing"
+let ERR_SCREENNAME_MISSING_TITLE = "Screen Name Missing"
 let ERR_SCREENNAME_MISSIN_MSG = "You need to put on your bluffing name"
 let ERR_GAMECODE_MISSING_TITLE = "Game Code Missing"
 let ERR_GAMECODE_MISSING_MSG = "Bully the game leader until they give you the code"
