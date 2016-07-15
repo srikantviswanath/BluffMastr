@@ -33,6 +33,10 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    @IBAction func homeBtnClicked(sender: AnyObject) {
+        performSegueWithIdentifier(SEGUE_HOME_GAME, sender: nil)
+    }
+    
     @IBAction func helpBtnClicked(sender: UIButton) {
         performSegueWithIdentifier(SEGUE_HELP_FOR_QUESTIONVC, sender: nil)
     }

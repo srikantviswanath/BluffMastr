@@ -52,7 +52,7 @@ class Games {
         checkIfTokenIsAlreadyUsed(randomFourDigitString()) {
             gameRef.setValue([SVC_SHARED_TOKEN: Games.sharedToken])
             self.updateGameInfo(SVC_GAME_CAPTAIN, person: gameCaptain, completed: {})
-            Games.REF_GAMES_BASE.child(Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false])
+            Games.REF_GAMES_BASE.child(Games.gameUID).updateChildValues([SVC_GAME_BLUFFMASTER: false, SVC_VOTEOUT_MODE_ENABLED: false, SVC_REVOTE_MODE_ENABLED: false])
             GameMembers.gameMembers.addMemberToRoom(gameCaptain)
             completed()
         }
@@ -169,6 +169,28 @@ class Games {
                 }
             }
         }
+    }
+    
+    func getVoteoutMode(completed: (Bool) -> Void) {
+        Games.REF_GAMES_BASE.child(Games.gameUID).child(SVC_VOTEOUT_MODE_ENABLED).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            let voteoutMode = snapshot.value as! Bool
+            completed(voteoutMode)
+        })
+    }
+    
+    func setVoteoutMode(mode: Bool) {
+        Games.REF_GAMES_BASE.child(Games.gameUID).child(SVC_VOTEOUT_MODE_ENABLED).setValue(mode)
+    }
+    
+    func getRevoteMode(completed: (Bool) -> Void) {
+        Games.REF_GAMES_BASE.child(Games.gameUID).child(SVC_REVOTE_MODE_ENABLED).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            let revoteMode = snapshot.value as! Bool
+            completed(revoteMode)
+        })
+    }
+    
+    func setRevoteMode(mode: Bool) {
+        Games.REF_GAMES_BASE.child(Games.gameUID).child(SVC_REVOTE_MODE_ENABLED).setValue(mode)
     }
 
     func deleteGame() {

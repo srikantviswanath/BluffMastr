@@ -113,6 +113,8 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                     self.changeViewAfterJoin()
                 }
                 GameMembers.gameMembers.gameRoomIsRemoved {
+                    // TODO: Show Alert that the GameCreator left before starting the game. In this case, all players have to 
+                    // leave the game room.
                     self.leaveGame(nil)
                 }
                 Games.games.listenToGameChanges(SVC_GAME_BLUFFMASTER) { // Game starts as soon as bluffMastr is set for the game
@@ -140,7 +142,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
     }
     
-    func teardown() {
+    func teardownBeforeStartingGame() {
         Users.users.deleteAnonymousUser()
         if (isGameCreator!) {
             Games.games.deleteGame()
@@ -153,7 +155,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     @IBAction func leaveGame(sender: UIButton!){
-        self.teardown()
+        self.teardownBeforeStartingGame()
         performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
     }
     

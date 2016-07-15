@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /* Gameplay constants */
-let MIN_PLAYERS = 3
+let MIN_PLAYERS = 1
 let TOTAL_QUESTIONS_AT_FIREBASE = 7
 
 /* Custom closures*/
@@ -41,6 +41,7 @@ let AUDIO_SHOW_SCORE = "score_swoosh"
 let SEGUE_CREATE_JOIN_GAME = "CreateOrJoinGame"
 let SEGUE_LEAVE_GAME = "LeaveGame"
 let SEGUE_START_GAME = "StartGame"
+let SEGUE_HOME_GAME = "HomeGame"
 let SEGUE_HELP_FOR_QUESTIONVC = "helpForQuestionVC"
 let SEGUE_FETCH_SCORE = "FetchScore"
 let SEGUE_REVEAL_ANSWERS = "RevealAnswers"
@@ -128,5 +129,7 @@ let SVC_GAME_DICT = "genericGameDict"
 let SVC_CURRENT_QUESTION = "currentQuestion"
 let SVC_QUESTION_TITLE = "title"
 let SVC_GAME_ROUND = "round"
+let SVC_VOTEOUT_MODE_ENABLED = "voteoutModeEnabled"
+let SVC_REVOTE_MODE_ENABLED = "revoteModeEnabled"
 
 
