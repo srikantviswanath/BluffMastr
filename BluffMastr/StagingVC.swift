@@ -145,10 +145,11 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         if (isGameCreator!) {
             Games.games.deleteGame()
             GameMembers.gameMembers.deleteRoom()
+            GameMembers.gameMembers.removeGameMemberListeners()
         } else if joinBtn.hidden { // if this button is hidden, then the user already joined the game.
             GameMembers.gameMembers.removePlayerFromRoom(Users.myScreenName)
+            GameMembers.gameMembers.removeGameMemberListeners()
         }
-        GameMembers.gameMembers.removeGameMemberListeners()
     }
     
     @IBAction func leaveGame(sender: UIButton!){
