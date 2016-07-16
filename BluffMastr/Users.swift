@@ -14,6 +14,9 @@ class Users {
     static var users = Users()
     static var myScreenName: String!
     static var myCurrentAnswer: String!
+    static var mycurrentVote: String!
+    ///Array to keep track of voting history for the current player
+    static var myVotingHistory = [String]()
     
     func createAnonymousUser(screenName: String) {
         

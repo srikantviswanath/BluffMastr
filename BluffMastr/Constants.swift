@@ -28,6 +28,8 @@ let COLOR_HELP_MODAL_BG = 0xFF1744
 let BTN_VOTE_AGAIN = "Vote Again"
 let BTN_NEXT_ROUND = "Ready >"
 let BTN_HOME = "Home"
+let BTN_DECLARE_WINNER = "Declare Winner >"
+let BTN_SUBMIT = "SUBMIT"
 
 /* Audio files*/
 let AUDIO_BLUFFMASTR_VOTEDOUT = "bluffmastr_voted_out"
@@ -109,10 +111,6 @@ let HELP_QUESTIONVC_BODY = " ◦ Every Question has 10 answers\n ◦ Most common
 /* Codes */
 
 let CODE_TIE = "TIE"
-
-/* BUTTON TITLES */
-
-let BTN_SUBMIT = "SUBMIT"
 
 /* Comments */
 

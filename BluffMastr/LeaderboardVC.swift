@@ -80,6 +80,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             let votedAgainstPlayer = Array(votedAgainstDict.keys)[0]
             //if votedAgainstPlayer != Users.myScreenName {
                 Votes.votes.submitVote(votedAgainstPlayer) {
+                    Users.mycurrentVote = votedAgainstPlayer
                     self.performSegueWithIdentifier(SEGUE_TO_VOTE_RESULT, sender: nil)
                 }
             /*} else {

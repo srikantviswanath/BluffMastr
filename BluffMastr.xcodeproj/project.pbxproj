@@ -16,6 +16,7 @@
 		BC8970900265258FB4D83D32 /* Pods_BluffMastrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */; };
 		CB0372501D371CCB00E3550D /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03724F1D371CCB00E3550D /* WelcomeVC.swift */; };
 		CB78671F1D18B2FD00E0CDB0 /* ServicesUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */; };
+		CB7B0BEC1D3868B400F44727 /* VerdictVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B0BEB1D3868B400F44727 /* VerdictVC.swift */; };
 		CB7CEFC61CD6DCDA00356DFB /* FirebaseDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */; };
 		CB7CEFC81CD6F1E000356DFB /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC71CD6F1E000356DFB /* MaterialView.swift */; };
 		CB7CEFCA1CD6F21300356DFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC91CD6F21300356DFB /* Constants.swift */; };
@@ -84,6 +85,7 @@
 		CB03724F1D371CCB00E3550D /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		CB7867181D1653B200E0CDB0 /* BluffMastr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluffMastr-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesUtil.swift; sourceTree = "<group>"; };
+		CB7B0BEB1D3868B400F44727 /* VerdictVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerdictVC.swift; sourceTree = "<group>"; };
 		CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataServices.swift; sourceTree = "<group>"; };
 		CB7CEFC71CD6F1E000356DFB /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		CB7CEFC91CD6F21300356DFB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				CBD8801F1CF55B17005C2C10 /* VoteResultVC.swift */,
 				CBD4B6951D24DB0700E7A674 /* AlertVC.swift */,
 				CB03724F1D371CCB00E3550D /* WelcomeVC.swift */,
+				CB7B0BEB1D3868B400F44727 /* VerdictVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				9446F8D91CF5F01E00F41FC0 /* Votes.swift in Sources */,
 				CB89CFB11CDD7434000D3A7B /* GameMembers.swift in Sources */,
 				CB0372501D371CCB00E3550D /* WelcomeVC.swift in Sources */,
+				CB7B0BEC1D3868B400F44727 /* VerdictVC.swift in Sources */,
 				CB78671F1D18B2FD00E0CDB0 /* ServicesUtil.swift in Sources */,
 				CBC6FDE01CE6BAE9006CB1C0 /* AnswersVC.swift in Sources */,
 				CB7CEFCA1CD6F21300356DFB /* Constants.swift in Sources */,

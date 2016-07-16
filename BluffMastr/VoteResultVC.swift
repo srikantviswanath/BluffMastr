@@ -64,7 +64,8 @@ class VoteResultVC: UIViewController {
                 self.ResultStatusLbl.textColor = UIColor.whiteColor()
                 self.waitingSpinner.stopAnimating()
                 self.ParentView.backgroundColor = UIColor(netHex: COLOR_THEME)
-                if evaluateVotes() != CODE_TIE { //if it is not a tie, display the voted out player's details
+                if evaluateVotes() != CODE_TIE { //if it is not a tie, display the voted out player's details and record the myPlayer's vote in his voting history
+                    Users.myVotingHistory.append(Users.mycurrentVote)
                     self.displayAndRemoveVotedoutPlayer()
                 } else { //if its a tie, go for a revote
                     self.nextBtn.setTitle(BTN_VOTE_AGAIN, forState: .Normal)
@@ -102,8 +103,12 @@ class VoteResultVC: UIViewController {
             ResultStatusLbl.text = STATUS_INNOCENT_PLAYER
             playAudio(AUDIO_INNOCENT_VOTEDOUT)
         }
-        nextBtn.setTitle(BTN_NEXT_ROUND, forState: .Normal)
         removePlayerFromRoomCache(votedoutPlayer)
+        if GameMembers.playersInGameRoom.count == 2 {
+            nextBtn.setTitle(BTN_DECLARE_WINNER, forState: .Normal)
+        } else {
+            nextBtn.setTitle(BTN_NEXT_ROUND, forState: .Normal)
+        }
         if votedoutPlayer == Games.bluffMastr {
             Games.bluffMastr = nil
         }

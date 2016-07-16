@@ -1226,6 +1226,92 @@
             </objects>
             <point key="canvasLocation" x="5565" y="372"/>
         </scene>
+        <!--VerdictVC-->
+        <scene sceneID="6DO-Un-LxG">
+            <objects>
+                <viewController id="Y24-xV-wIv" customClass="VerdictVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="00i-8l-qdG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kps-UA-F7p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="atI-iR-oh2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uM8-ci-x41">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hc7-7J-F2X">
+                                        <rect key="frame" x="300" y="8" width="0.0" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="1Nm-xy-wBf"/>
+                                            <constraint firstAttribute="width" id="XHM-YC-Xsh"/>
+                                            <constraint firstAttribute="height" id="ct6-oi-Izu"/>
+                                            <constraint firstAttribute="height" constant="60" id="v5u-lE-jXh"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1Nm-xy-wBf"/>
+                                                <exclude reference="v5u-lE-jXh"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You Win!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TA-DS-aOo">
+                                        <rect key="frame" x="243" y="76" width="115" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="115" id="nzZ-lz-1U6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="2TA-DS-aOo" firstAttribute="centerX" secondItem="uM8-ci-x41" secondAttribute="centerX" id="YjO-se-pBZ"/>
+                                    <constraint firstItem="2TA-DS-aOo" firstAttribute="top" secondItem="hc7-7J-F2X" secondAttribute="bottom" constant="8" id="f8M-xm-AmR"/>
+                                    <constraint firstItem="hc7-7J-F2X" firstAttribute="top" secondItem="uM8-ci-x41" secondAttribute="top" constant="8" id="lDe-uH-0AB"/>
+                                    <constraint firstAttribute="height" constant="140" id="ojT-Ni-6rH"/>
+                                    <constraint firstItem="hc7-7J-F2X" firstAttribute="centerX" secondItem="uM8-ci-x41" secondAttribute="centerX" id="sMp-1Z-v9E"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKq-ye-VB3">
+                                <rect key="frame" x="270" y="567" width="60" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="9Ie-ra-B4d"/>
+                                    <constraint firstAttribute="height" constant="25" id="jYJ-ln-9qe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="uM8-ci-x41" secondAttribute="trailing" constant="-20" id="5p3-0c-XwY"/>
+                            <constraint firstItem="KKq-ye-VB3" firstAttribute="centerX" secondItem="atI-iR-oh2" secondAttribute="centerX" id="64p-Ln-eie"/>
+                            <constraint firstItem="uM8-ci-x41" firstAttribute="leading" secondItem="atI-iR-oh2" secondAttribute="leadingMargin" constant="-20" id="6ez-RR-GwT"/>
+                            <constraint firstItem="KKq-ye-VB3" firstAttribute="top" secondItem="uM8-ci-x41" secondAttribute="bottom" constant="20" id="Cc5-Zh-saH"/>
+                            <constraint firstItem="Kps-UA-F7p" firstAttribute="top" secondItem="KKq-ye-VB3" secondAttribute="bottom" constant="8" id="Q6j-Rb-lgt"/>
+                            <constraint firstItem="uM8-ci-x41" firstAttribute="top" secondItem="atI-iR-oh2" secondAttribute="topMargin" id="cAX-xr-gkg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Cc5-Zh-saH"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="ScoreCounter" destination="KKq-ye-VB3" id="PNb-54-6cv"/>
+                        <outlet property="VerdictImg" destination="hc7-7J-F2X" id="9R9-Sg-g0T"/>
+                        <outlet property="VerdictLbl" destination="2TA-DS-aOo" id="aDz-l8-pLk"/>
+                        <outlet property="VerdictView" destination="uM8-ci-x41" id="T6u-gG-4HA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ovb-2Q-fMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5565" y="1136"/>
+        </scene>
         <!--AnswersVC-->
         <scene sceneID="Yk2-pi-e4g">
             <objects>
