@@ -28,7 +28,7 @@ let COLOR_HELP_MODAL_BG = 0xFF1744
 let BTN_VOTE_AGAIN = "Vote Again"
 let BTN_NEXT_ROUND = "Ready >"
 let BTN_HOME = "Home"
-let BTN_DECLARE_WINNER = "Declare Winner >"
+let BTN_DECLARE_VERDICT = "Verdict >"
 let BTN_SUBMIT = "SUBMIT"
 
 /* Audio files*/
@@ -54,6 +54,7 @@ let SEGUE_TO_VOTE_RESULT = "VoteResult"
 let SEGUE_REVOTE = "Revote"
 let SEGUE_VOTEDOUT_HOME = "VotedResultToLanding"
 let SEGUE_START_NEXT_ROUND = "StartNextRound"
+let SEGUE_DECLARE_VERDICT = "DeclareVerdict"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 let THIS_ROUND_CELL = "ThisRoundCell"

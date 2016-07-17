@@ -50,6 +50,8 @@ class VoteResultVC: UIViewController {
                     }
                 }
             }
+        case BTN_DECLARE_VERDICT:
+            self.performSegueWithIdentifier(SEGUE_DECLARE_VERDICT, sender: nil)
         default:
             print("Hello")
         }
@@ -105,7 +107,7 @@ class VoteResultVC: UIViewController {
         }
         removePlayerFromRoomCache(votedoutPlayer)
         if GameMembers.playersInGameRoom.count == 2 {
-            nextBtn.setTitle(BTN_DECLARE_WINNER, forState: .Normal)
+            nextBtn.setTitle(BTN_DECLARE_VERDICT, forState: .Normal)
         } else {
             nextBtn.setTitle(BTN_NEXT_ROUND, forState: .Normal)
         }

@@ -404,7 +404,7 @@
 				TargetAttributes = {
 					CBDA41021CD5BFD200103F2A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 8U8JC9Z7EQ;
+						DevelopmentTeam = 59CB6UT3ZF;
 					};
 					CBDA41191CD5BFD200103F2A = {
 						CreatedOnToolsVersion = 7.3;
@@ -749,7 +749,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastrr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
@@ -880,7 +880,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastrr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
@@ -898,7 +898,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghutle.BluffMastrr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";

@@ -23,6 +23,16 @@ func evaluateScore(answerSubmitted: String) -> String{
     return "0"
 }
 
+///Fetch a player's score from the leaderboard
+func fetchPlayerScoreFromLeaderboard(player: String) -> Int {
+    for voterDict in Games.leaderboard {
+        if Array(voterDict.keys)[0] == player {
+            return Array(voterDict.values)[0]
+        }
+    }
+    return 999
+}
+
 func getScorePhrase(playerScore: Int) -> String {
     if playerScore <= 3 {
         return STATUS_SCORE_LESS_THAN_3
