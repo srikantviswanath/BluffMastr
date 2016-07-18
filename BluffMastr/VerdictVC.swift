@@ -16,15 +16,12 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var VerdictImg: UIImageView!
     @IBOutlet weak var VerdictView: UIView!
     @IBOutlet weak var BonusPenaltyTable: UITableView!
-    
-    var dummyBonusArray = [10, 10, 10, 10, 10]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         BonusPenaltyTable.delegate = self
         BonusPenaltyTable.dataSource = self
-        ScoreCounter.text = "43"
-        //ScoreCounter.text = "\(fetchPlayerScoreFromLeaderboard(Users.myScreenName))"
+        ScoreCounter.text = "\(fetchPlayerScoreFromLeaderboard(Users.myScreenName))"
     }
     
     func bounceScore(uiElement: AnyObject) {
@@ -40,7 +37,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyBonusArray.count
+        return Users.myBonusHistory.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -55,9 +52,9 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         UIView.animateWithDuration(2, delay: delayBetweenRowInserts, options: .TransitionCurlUp, animations: {
             cell.alpha = 1.0
             }, completion: { (true) in
-                self.ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + self.dummyBonusArray[indexPath.row])"
+                self.ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + Users.myBonusHistory[indexPath.row])"
                 self.bounceScore(self.ScoreCounter)
-                if indexPath.row == self.dummyBonusArray.count - 1 {
+                if indexPath.row == Users.myBonusHistory.count - 1 {
                     UIView.animateWithDuration(1, animations: {
                         self.VerdictImg.image = UIImage(named: "runner_up_dislike")
                         self.VerdictImg.frame = CGRectMake(UIScreen.mainScreen().bounds.width/2-20, 60, 50, 50)
@@ -71,7 +68,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = BonusPenaltyTable.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
-        cell.configureCell("\(dummyBonusArray[indexPath.row])")
+        cell.configureCell("\(Users.myBonusHistory[indexPath.row])")
         return cell
             
         } else {

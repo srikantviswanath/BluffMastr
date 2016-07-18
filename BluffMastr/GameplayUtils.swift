@@ -117,3 +117,17 @@ func randomizeNextRoundData()  -> Dictionary<String, String>{
     
     return nextRoundDict
 }
+
+///Method to evaluate bonus or penalty based on Users.myBonusHistory
+func evaluateBonusOrPenaltyPerRound() -> Int {
+    if Users.myScreenName == Games.bluffMastr {
+      return BONUS_BLUFFMASTR_SRVIVAL
+    }
+    if Users.mycurrentVote == Games.bluffMastr {
+        return BONUS_VOTED_AGAINST_BLUFFMASTR
+    } else {
+        return PENALTY_VOTED_AGAINST_INNOCENT_PLAYER
+    }
+    
+}
+ 

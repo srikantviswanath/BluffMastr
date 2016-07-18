@@ -67,7 +67,7 @@ class VoteResultVC: UIViewController {
                 self.waitingSpinner.stopAnimating()
                 self.ParentView.backgroundColor = UIColor(netHex: COLOR_THEME)
                 if evaluateVotes() != CODE_TIE { //if it is not a tie, display the voted out player's details and record the myPlayer's vote in his voting history
-                    Users.myVotingHistory.append(Users.mycurrentVote)
+                    Users.myBonusHistory.append(evaluateBonusOrPenaltyPerRound())
                     self.displayAndRemoveVotedoutPlayer()
                 } else { //if its a tie, go for a revote
                     self.nextBtn.setTitle(BTN_VOTE_AGAIN, forState: .Normal)

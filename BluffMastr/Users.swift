@@ -15,8 +15,8 @@ class Users {
     static var myScreenName: String!
     static var myCurrentAnswer: String!
     static var mycurrentVote: String!
-    ///Array to keep track of voting history for the current player
-    static var myVotingHistory = [String]()
+    ///An array to accumulate bonuses and panalities per round
+    static var myBonusHistory = [Int]()
     
     func createAnonymousUser(screenName: String) {
         
