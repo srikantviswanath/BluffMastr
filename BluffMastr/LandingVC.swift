@@ -23,7 +23,6 @@ class LandingVC: UIViewController {
     var timer = NSTimer()
     
     var isGameCreator = true
-    var newGameDict: Dictionary<String, String>!
     var gameCreationActivityIndicator = UIActivityIndicatorView()
     var busyModalFrame = UIView()
     

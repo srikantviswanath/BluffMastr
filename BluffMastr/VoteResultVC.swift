@@ -117,9 +117,13 @@ class VoteResultVC: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destVC = segue.destinationViewController as? LeaderboardVC {
+        if (segue.identifier == SEGUE_REVOTE) {
+            let destVC = segue.destinationViewController as! LeaderboardVC
             destVC.readyToshowCurrentRoundScores = true
             destVC.revoteModeEnabled = true
+        } else if (segue.identifier == SEGUE_VOTEDOUT_HOME) {
+            Games.leaderboard = [Dictionary<String, Int>]()
+            Games.playersSubmissions = [Dictionary<String, Int>]()
         }
     }
 }
