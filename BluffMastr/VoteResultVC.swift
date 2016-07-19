@@ -122,8 +122,7 @@ class VoteResultVC: UIViewController {
             destVC.readyToshowCurrentRoundScores = true
             destVC.revoteModeEnabled = true
         } else if (segue.identifier == SEGUE_VOTEDOUT_HOME) {
-            Games.leaderboard = [Dictionary<String, Int>]()
-            Games.playersSubmissions = [Dictionary<String, Int>]()
+            resetStaticVariablesForNewGame()
         }
     }
 }

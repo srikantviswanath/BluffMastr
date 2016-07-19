@@ -84,8 +84,11 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
         
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let scoreVC = segue.destinationViewController as? ScoreVC {
-            scoreVC.playerScore = self.playerScore
+        if (segue.identifier == SEGUE_FETCH_SCORE) {
+            let destVC = segue.destinationViewController as! ScoreVC
+            destVC.playerScore = self.playerScore
+        } else if (segue.identifier == SEGUE_HOME_GAME) {
+            resetStaticVariablesForNewGame()
         }
     }
     

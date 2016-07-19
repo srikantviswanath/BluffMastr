@@ -130,4 +130,11 @@ func evaluateBonusOrPenaltyPerRound() -> Int {
     }
     
 }
+
+func resetStaticVariablesForNewGame() {
+    Games.leaderboard = [Dictionary<String, Int>]()
+    Games.playersSubmissions = [Dictionary<String, Int>]()
+    Games.bluffMastr = nil
+    Games.currentQuestionId = nil
+}
  
