@@ -131,7 +131,3 @@ let SVC_GAME_DICT = "genericGameDict"
 let SVC_CURRENT_QUESTION = "currentQuestion"
 let SVC_QUESTION_TITLE = "title"
 let SVC_GAME_ROUND = "round"
-let SVC_VOTEOUT_MODE_ENABLED = "voteoutModeEnabled"
-let SVC_REVOTE_MODE_ENABLED = "revoteModeEnabled"
-
-

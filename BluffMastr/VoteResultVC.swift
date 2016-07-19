@@ -120,7 +120,6 @@ class VoteResultVC: UIViewController {
         if let destVC = segue.destinationViewController as? LeaderboardVC {
             destVC.readyToshowCurrentRoundScores = true
             destVC.revoteModeEnabled = true
-            Games.games.setRevoteMode(true)
         }
     }
 }
