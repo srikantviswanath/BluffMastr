@@ -131,6 +131,14 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.alpha = 0
+        let delayBetweenRowInserts = 1 + Double(indexPath.row) * 1.0; //calculate delay
+        UIView.animateWithDuration(1, delay: delayBetweenRowInserts, options: .TransitionCurlUp, animations: {
+            cell.alpha = 1.0
+            }, completion: nil)
+    }
+    
     // Can only select one cell at a time to cast vote ONLY WHEN voteoutModeEnabled is true //
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
