@@ -11,10 +11,14 @@ import UIKit
 
 /* Gameplay constants */
 let MIN_PLAYERS = 1
-let TOTAL_QUESTIONS_AT_FIREBASE = 7
-let BONUS_BLUFFMASTR_SRVIVAL = 15
+let TOTAL_QUESTIONS_AT_FIREBASE = 11
+let BONUS_BLUFFMASTR_SURVIVAL = 15
 let BONUS_VOTED_AGAINST_BLUFFMASTR = 10
 let PENALTY_VOTED_AGAINST_INNOCENT_PLAYER = -5
+let BONUS_PENALTY_REASON = [
+    BONUS_BLUFFMASTR_SURVIVAL: "BluffMastr survival bonus", BONUS_VOTED_AGAINST_BLUFFMASTR: "Bonus for catching BluffMastr",
+    PENALTY_VOTED_AGAINST_INNOCENT_PLAYER: "Penalty for not catching BluffMastr"
+]
 
 /* Custom closures*/
 
@@ -39,7 +43,8 @@ let AUDIO_BLUFFMASTR_VOTEDOUT = "bluffmastr_voted_out"
 let AUDIO_INNOCENT_VOTEDOUT = "wrong_vote_out"
 let AUDIO_GAME_OVER = "game_over"
 let AUDIO_SHOW_SCORE = "score_swoosh"
-
+let AUDIO_BONUS = "bonus"
+let AUDIO_PENALTY = "penalty"
 
 /* Segue and TableViewCell constants */
 
@@ -104,6 +109,7 @@ let STATUS_START_VOTING = "Select a Player to Voteout"
 let STATUS_YOU_ARE_OUT = "Uh oh. You have been voted out"
 let STATUS_WAITING_OTHERS_NXT_ROUND = "Waiting for others..."
 let STATUS_STARTING_NEXT_ROUND = "Starting next round..."
+let STATUS_COMPUTING_BONUS = "Computing Bonuses and Penalties per round ..."
 
 let VOTES = "Votes"
 

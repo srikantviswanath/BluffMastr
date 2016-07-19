@@ -45,32 +45,48 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        self.VerdictLbl.text = "You Lose"
-        self.VerdictLbl.hidden = true
-        cell.alpha = 0
-        let delayBetweenRowInserts = 2 + Double(indexPath.row) * 2.0; //calculate delay
-        UIView.animateWithDuration(2, delay: delayBetweenRowInserts, options: .TransitionCurlUp, animations: {
-            cell.alpha = 1.0
-            }, completion: { (true) in
-                self.ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + Users.myBonusHistory[indexPath.row])"
-                self.bounceScore(self.ScoreCounter)
-                if indexPath.row == Users.myBonusHistory.count - 1 {
-                    UIView.animateWithDuration(1, animations: {
-                        self.VerdictImg.image = UIImage(named: "runner_up_dislike")
-                        self.VerdictImg.frame = CGRectMake(UIScreen.mainScreen().bounds.width/2-20, 60, 50, 50)
-                    }){ (true) in
-                        self.VerdictView.backgroundColor = UIColor(netHex: 0xF44336)
-                        self.VerdictLbl.hidden = false
-                    }
+        if let customCell = cell as? CustomTableViewCell {
+            self.VerdictLbl.text = "You Win"
+            self.VerdictLbl.hidden = true
+            cell.alpha = 0
+            let delayBetweenRowInserts = 2 + Double(indexPath.row) * 2.0; //calculate delay
+            UIView.animateWithDuration(2, delay: delayBetweenRowInserts, options: .TransitionCurlUp, animations: {
+                let bonus = Int(customCell.MainLbl.text!)
+                if bonus == BONUS_BLUFFMASTR_SURVIVAL || bonus == BONUS_VOTED_AGAINST_BLUFFMASTR {
+                    customCell.MainLbl.textColor = UIColor(netHex: 0x00796B)
+                    playAudio(AUDIO_BONUS)
+                } else {
+                    customCell.MainLbl.textColor = UIColor.redColor()
+                    playAudio(AUDIO_PENALTY)
                 }
-        })
+                cell.alpha = 1.0
+                }, completion: { (true) in
+                    self.ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + Users.myBonusHistory[indexPath.row])"
+                    self.bounceScore(self.ScoreCounter)
+                    if indexPath.row == Users.myBonusHistory.count - 1 {
+                        UIView.animateWithDuration(1, animations: {
+                            self.VerdictImg.image = UIImage(named: "winner_cup")
+                            self.VerdictImg.frame = CGRectMake(UIScreen.mainScreen().bounds.width/2-20, 60, 50, 50)
+                        }){ (true) in
+                            self.VerdictView.backgroundColor = UIColor(netHex: 0x00BFA5)
+                            self.VerdictLbl.hidden = false
+                        }
+                    }
+            })
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = BonusPenaltyTable.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
-        cell.configureCell("\(Users.myBonusHistory[indexPath.row])")
-        return cell
-            
+            let bonus = Users.myBonusHistory[indexPath.row]
+            let bonusReason = BONUS_PENALTY_REASON[bonus]
+            cell.configureCell("\(bonus)", score: bonusReason!)
+            if bonus == BONUS_VOTED_AGAINST_BLUFFMASTR || bonus == BONUS_BLUFFMASTR_SURVIVAL{
+                
+            } else {
+                
+            }
+            return cell
         } else {
             return UITableViewCell()
         }
