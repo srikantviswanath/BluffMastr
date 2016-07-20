@@ -12,6 +12,8 @@ import Firebase
 class Scores {
     
     static var scores = Scores()
+    static var myLeaderboardRef = FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).child(Users.myScreenName)
+    static var myFinalScoreRef = FDataService.fDataService.REF_FINAL_SCORES.child(Games.gameUID).child(Users.myScreenName)
     
     func resetLeaderboard() {
         var leaderBoardDict = Dictionary<String, Int>()
@@ -29,10 +31,9 @@ class Scores {
     }
     
     func accumulatePlayerScore(currentRoundScore: Int) {
-        let playerLeaderboardRef = FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).child(Users.myScreenName)
-        playerLeaderboardRef.observeSingleEventOfType(.Value, withBlock: {playerTotalSS in
+        Scores.myLeaderboardRef.observeSingleEventOfType(.Value, withBlock: {playerTotalSS in
             if let scoreTillNow = playerTotalSS.value as? Int! {
-                playerLeaderboardRef.setValue(scoreTillNow + currentRoundScore)
+                Scores.myLeaderboardRef.setValue(scoreTillNow + currentRoundScore)
             }
         })
     }
@@ -61,6 +62,15 @@ class Scores {
                 Games.leaderboard.append([child.key: (child.value as? Int)!])
             }
             completed()
+        })
+    }
+    
+    func fetchFinalScoreOfOpponent(completed: GenericCompletionBlock) {
+        FDataService.fDataService.REF_FINAL_SCORES.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { playerFinalScoreSS in
+            if Users.myScreenName != playerFinalScoreSS.key {
+                Users.myOpponentFinalScore = playerFinalScoreSS.value as? Int
+                completed()
+            }
         })
     }
 }

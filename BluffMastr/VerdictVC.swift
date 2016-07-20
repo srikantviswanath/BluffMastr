@@ -16,6 +16,8 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var VerdictImg: UIImageView!
     @IBOutlet weak var VerdictView: UIView!
     @IBOutlet weak var BonusPenaltyTable: UITableView!
+    
+    var busyModalFrame = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +34,24 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         uiElement.layer.pop_addAnimation(scaleAnim, forKey: "layerScaleSpringAnimation")
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
+    func finalVerdictAnimation() {
+        let didIlose = Users.myOpponentFinalScore > Int(self.ScoreCounter.text!)
+        UIView.animateWithDuration(1, animations: {
+            self.VerdictImg.image = UIImage(named: didIlose ? "runner_up_dislike" : "winner_cup")
+            self.VerdictImg.frame = CGRectMake(UIScreen.mainScreen().bounds.width/2-20, 60, 50, 50)
+        }){ (true) in
+            self.VerdictView.backgroundColor = UIColor(netHex: didIlose ?  COLOR_THEME : 0x00BFA5)
+            self.VerdictLbl.text = didIlose ? "You Lose!" : "You Win!"
+            self.VerdictLbl.hidden = false
+        }
+    }
+    
+    func fetchOpponentScoreAndCompare() {
+        busyModalFrame = showBusyModal(BUSY_DECIDING_WINNER)
+        Scores.scores.fetchFinalScoreOfOpponent() {
+            self.busyModalFrame.removeFromSuperview()
+            self.finalVerdictAnimation()
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +64,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if let customCell = cell as? CustomTableViewCell {
-            self.VerdictLbl.text = "You Win"
+            self.VerdictLbl.text = "You win!"
             self.VerdictLbl.hidden = true
             cell.alpha = 0
             let delayBetweenRowInserts = 2 + Double(indexPath.row) * 2.0; //calculate delay
@@ -54,23 +72,18 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let bonus = Int(customCell.MainLbl.text!)
                 if bonus == BONUS_BLUFFMASTR_SURVIVAL || bonus == BONUS_VOTED_AGAINST_BLUFFMASTR {
                     customCell.MainLbl.textColor = UIColor(netHex: 0x00796B)
-                    playAudio(AUDIO_BONUS)
+                    //playAudio(AUDIO_BONUS)
                 } else {
                     customCell.MainLbl.textColor = UIColor.redColor()
-                    playAudio(AUDIO_PENALTY)
+                    //playAudio(AUDIO_PENALTY)
                 }
                 cell.alpha = 1.0
                 }, completion: { (true) in
                     self.ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + Users.myBonusHistory[indexPath.row])"
                     self.bounceScore(self.ScoreCounter)
                     if indexPath.row == Users.myBonusHistory.count - 1 {
-                        UIView.animateWithDuration(1, animations: {
-                            self.VerdictImg.image = UIImage(named: "winner_cup")
-                            self.VerdictImg.frame = CGRectMake(UIScreen.mainScreen().bounds.width/2-20, 60, 50, 50)
-                        }){ (true) in
-                            self.VerdictView.backgroundColor = UIColor(netHex: 0x00BFA5)
-                            self.VerdictLbl.hidden = false
-                        }
+                        Scores.myFinalScoreRef.setValue(Int(self.ScoreCounter.text!))
+                        self.fetchOpponentScoreAndCompare()
                     }
             })
         }

@@ -17,6 +17,8 @@ class Users {
     static var mycurrentVote: String!
     ///An array to accumulate bonuses and panalities per round
     static var myBonusHistory = [Int]()
+    ///To store the opponent's final score after computing Bonus and penalties in the last round
+    static var  myOpponentFinalScore: Int!
     
     func createAnonymousUser(screenName: String) {
         

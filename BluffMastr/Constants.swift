@@ -89,6 +89,7 @@ let ERR_VOTE_FAILED_MSG = "Could not cast your vote. Please check your network c
 /* Statuses */
 
 let BUSY_CREATING_GAME = "Creating Game..."
+let BUSY_DECIDING_WINNER = "Deciding Winner..."
 let STATUS_WAITING_TO_START = "Waiting for Captain to start the game..."
 let STATUS_NEED_MORE_PLAYERS = "Waiting for more players to join..."
 let STATUS_START_GAME = "Begin the Bluff Marathon"
