@@ -20,6 +20,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var bonusTimer: NSTimer?
     var bonusTableDataSource = [Int]()
     var animatingRowIndex = 0
+    var doneAnimationBonuses = false
     
     var busyModalFrame = UIView()
 
@@ -48,6 +49,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             bonusTimer?.invalidate()
             animatingRowIndex = 0
             bonusTimer = nil
+            doneAnimationBonuses = true
         }
     }
     
@@ -91,16 +93,18 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let cell = BonusPenaltyTable.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
             let bonus = bonusTableDataSource[indexPath.row]
             let bonusReason = BONUS_PENALTY_REASON[bonus]
-            if bonus == BONUS_BLUFFMASTR_SURVIVAL || bonus == BONUS_VOTED_AGAINST_BLUFFMASTR {
-                cell.MainLbl.textColor = UIColor(netHex: 0x00796B)
-                playAudio(AUDIO_BONUS)
-            } else {
-                cell.MainLbl.textColor = UIColor(netHex: COLOR_THEME)
-                playAudio(AUDIO_PENALTY)
+            if !doneAnimationBonuses {
+                if bonus == BONUS_BLUFFMASTR_SURVIVAL || bonus == BONUS_VOTED_AGAINST_BLUFFMASTR {
+                    cell.MainLbl.textColor = UIColor(netHex: 0x00796B)
+                    playAudio(AUDIO_BONUS)
+                } else {
+                    cell.MainLbl.textColor = UIColor(netHex: COLOR_THEME)
+                    playAudio(AUDIO_PENALTY)
+                }
+                cell.configureCell("\(bonus)", score: bonusReason!)
+                ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + bonus)"
+                bounceScore(ScoreCounter)
             }
-            cell.configureCell("\(bonus)", score: bonusReason!)
-            ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + bonus)"
-            bounceScore(ScoreCounter)
             return cell
         } else {
             return UITableViewCell()
