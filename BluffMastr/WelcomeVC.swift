@@ -18,11 +18,15 @@ class WelcomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        self.dismissKeyboard()
     }
     
     @IBAction func submitScreenName(sender: UIButton) {
         if let screenName = screenNameTxtField.text where screenName != "" {
             Users.myScreenName = screenName
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            userDefaults.setObject(screenName, forKey: "screenname")
+            userDefaults.synchronize()
             self.dismissViewControllerAnimated(true, completion: nil)
             parentBlurView.removeFromSuperview()
         } else {

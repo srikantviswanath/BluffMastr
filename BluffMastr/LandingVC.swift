@@ -19,6 +19,8 @@ class LandingVC: UIViewController {
     
     @IBOutlet weak var createGameBtn: UIButton!
     @IBOutlet weak var joinGameBtn: UIButton!
+    @IBOutlet weak var playingASLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
     
     var timer = NSTimer()
     
@@ -38,7 +40,13 @@ class LandingVC: UIViewController {
         createJoinAnimEngine.animateOnScreen(17) {
             let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
             dispatch_after(time, dispatch_get_main_queue()) {
-                AlertHandler.alert.showWelcomeModal()
+                if let screenNameFromDefaults = NSUserDefaults.standardUserDefaults().objectForKey("screenname") as? String {
+                    self.screenNameLabel.text = screenNameFromDefaults
+                    Users.myScreenName = screenNameFromDefaults
+                } else {
+                    AlertHandler.alert.showWelcomeModal()
+                    self.screenNameLabel.text = Users.myScreenName
+                }
                 self.createGameBtn.enabled = true
                 self.joinGameBtn.enabled = true
             }
@@ -64,6 +72,11 @@ class LandingVC: UIViewController {
         GameMembers.playersInGameRoom = []
         Users.users.createAnonymousUser(Users.myScreenName)
         performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
+    }
+    
+    @IBAction func changeName(sender: UIButton) {
+        AlertHandler.alert.showWelcomeModal()
+        self.screenNameLabel.text = Users.myScreenName
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
