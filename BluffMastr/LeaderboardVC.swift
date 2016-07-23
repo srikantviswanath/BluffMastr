@@ -20,6 +20,9 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     var markedCellIndexPath: NSIndexPath?
     var voteoutModeEnabled: Bool = false
     var revoteModeEnabled: Bool = false
+    var animatingLeaderboard = [Dictionary<String, Int>]()
+    var leaderBoardTimer: NSTimer?
+    var animatingRowIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,16 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         if !revoteModeEnabled {
             displayCurrentRoundScores()
+        }
+    }
+    
+    func startAnimatingLeaderboard() {
+        animatingLeaderboard.insert(Games.leaderboard[animatingRowIndex], atIndex: 0)
+        animatingRowIndex += 1
+        leaderboardTableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Right)
+        if animatingLeaderboard.count == Games.leaderboard.count {
+            leaderBoardTimer?.invalidate()
+            animatingRowIndex = 0
         }
     }
     
@@ -55,7 +68,8 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 Scores.scores.stopListeningForPlayerScores()
                 self.readyToshowCurrentRoundScores = true
                 Scores.scores.fetchLeaderboard {
-                    self.leaderboardTableView.reloadData()
+                    Games.leaderboard = Games.leaderboard.reverse()
+                    self.leaderBoardTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "startAnimatingLeaderboard", userInfo: nil, repeats: true)
                 }
                 self.thisRoundStatus.text = STATUS_LAST_ROUND_SCORES
                 self.currentScoresCollectionView.reloadData()
@@ -112,14 +126,14 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Games.leaderboard.count
+        return animatingLeaderboard.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if readyToshowCurrentRoundScores! {
             if let cell = leaderboardTableView.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
-                let playerName = Array(Games.leaderboard[indexPath.row].keys)[0]
-                let playerScore = Array(Games.leaderboard[indexPath.row].values)[0]
+                let playerName = Array(animatingLeaderboard[indexPath.row].keys)[0]
+                let playerScore = Array(animatingLeaderboard[indexPath.row].values)[0]
                 cell.configureCell(playerName, score: "\(playerScore)")
                 return cell
             } else {
@@ -130,15 +144,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             return UITableViewCell()
         }
     }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        cell.alpha = 0
-        let delayBetweenRowInserts = 0.5 + Double(indexPath.row) * 1.0; //calculate delay
-        UIView.animateWithDuration(1, delay: delayBetweenRowInserts, options: .TransitionCurlUp, animations: {
-            cell.alpha = 1.0
-            }, completion: nil)
-    }
-    
+        
     // Can only select one cell at a time to cast vote ONLY WHEN voteoutModeEnabled is true //
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

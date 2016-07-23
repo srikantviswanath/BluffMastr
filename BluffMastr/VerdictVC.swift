@@ -17,13 +17,38 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var VerdictView: UIView!
     @IBOutlet weak var BonusPenaltyTable: UITableView!
     
+    var bonusTimer: NSTimer?
+    var bonusTableDataSource = [Int]()
+    var animatingRowIndex = 0
+    
     var busyModalFrame = UIView()
 
     override func viewDidLoad() {
+        VerdictLbl.text = "You Win!"
+        VerdictLbl.hidden = true
         super.viewDidLoad()
         BonusPenaltyTable.delegate = self
         BonusPenaltyTable.dataSource = self
         ScoreCounter.text = "\(fetchPlayerScoreFromLeaderboard(Users.myScreenName))"
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        bonusTimer = NSTimer.scheduledTimerWithTimeInterval(1.75, target: self, selector: "animateBonusRow", userInfo: nil, repeats: true)
+    }
+    
+    func animateBonusRow() {
+        bonusTableDataSource.insert(Users.myBonusHistory[animatingRowIndex], atIndex: 0)
+        animatingRowIndex += 1
+        self.BonusPenaltyTable.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Fade)
+        if bonusTableDataSource.count == Users.myBonusHistory.count {
+            Scores.myFinalScoreRef.setValue(Int(self.ScoreCounter.text!))
+            fetchOpponentScoreAndCompare()
+            bonusTimer?.invalidate()
+            animatingRowIndex = 0
+            bonusTimer = nil
+        }
     }
     
     func bounceScore(uiElement: AnyObject) {
@@ -55,50 +80,27 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Users.myBonusHistory.count
+        return bonusTableDataSource.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if let customCell = cell as? CustomTableViewCell {
-            self.VerdictLbl.text = "You win!"
-            self.VerdictLbl.hidden = true
-            cell.alpha = 0
-            let delayBetweenRowInserts = 2 + Double(indexPath.row) * 2.0; //calculate delay
-            UIView.animateWithDuration(2, delay: delayBetweenRowInserts, options: .TransitionCurlUp, animations: {
-                let bonus = Int(customCell.MainLbl.text!)
-                if bonus == BONUS_BLUFFMASTR_SURVIVAL || bonus == BONUS_VOTED_AGAINST_BLUFFMASTR {
-                    customCell.MainLbl.textColor = UIColor(netHex: 0x00796B)
-                    //playAudio(AUDIO_BONUS)
-                } else {
-                    customCell.MainLbl.textColor = UIColor.redColor()
-                    //playAudio(AUDIO_PENALTY)
-                }
-                cell.alpha = 1.0
-                }, completion: { (true) in
-                    self.ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + Users.myBonusHistory[indexPath.row])"
-                    self.bounceScore(self.ScoreCounter)
-                    if indexPath.row == Users.myBonusHistory.count - 1 {
-                        Scores.myFinalScoreRef.setValue(Int(self.ScoreCounter.text!))
-                        self.fetchOpponentScoreAndCompare()
-                    }
-            })
-        }
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = BonusPenaltyTable.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
-            let bonus = Users.myBonusHistory[indexPath.row]
+            let bonus = bonusTableDataSource[indexPath.row]
             let bonusReason = BONUS_PENALTY_REASON[bonus]
-            cell.configureCell("\(bonus)", score: bonusReason!)
-            if bonus == BONUS_VOTED_AGAINST_BLUFFMASTR || bonus == BONUS_BLUFFMASTR_SURVIVAL{
-                
+            if bonus == BONUS_BLUFFMASTR_SURVIVAL || bonus == BONUS_VOTED_AGAINST_BLUFFMASTR {
+                cell.MainLbl.textColor = UIColor(netHex: 0x00796B)
+                playAudio(AUDIO_BONUS)
             } else {
-                
+                cell.MainLbl.textColor = UIColor(netHex: COLOR_THEME)
+                playAudio(AUDIO_PENALTY)
             }
+            cell.configureCell("\(bonus)", score: bonusReason!)
+            ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + bonus)"
+            bounceScore(ScoreCounter)
             return cell
         } else {
             return UITableViewCell()
