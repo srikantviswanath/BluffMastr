@@ -31,6 +31,8 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
         
+        VoteoutBtn.hidden = true
+        
         if !revoteModeEnabled {
             displayCurrentRoundScores()
         }
@@ -43,18 +45,16 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         if animatingLeaderboard.count == Games.leaderboard.count {
             leaderBoardTimer?.invalidate()
             animatingRowIndex = 0
+            resetReadiness()
+            AlertHandler.alert.showAlertMsg(ALERT_BEGIN_VOTING_TITLE, msg: ALERT_BEGIN_VOTING_MSG)
+            leaderboardStatus.text = STATUS_START_VOTING
+            VoteoutBtn.hidden = false
+            voteoutModeEnabled = true
         }
     }
     
     @IBAction func voteoutBtnClicked(sender: UIButton!) {
-        if voteoutModeEnabled {
-            validateVoteAndSubmit()
-        } else {
-            resetReadiness()
-            voteoutModeEnabled = true
-            leaderboardStatus.text = STATUS_START_VOTING
-            VoteoutBtn.setTitle(BTN_SUBMIT, forState: .Normal)
-        }
+        validateVoteAndSubmit()
     }
     
     @IBAction func answersBtnClicked(sender: UIButton) {
@@ -82,7 +82,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     func validateVoteAndSubmit() {
         if markedCellIndexPath != nil {
-            let votedAgainstDict = Games.leaderboard[(markedCellIndexPath?.row)!]
+            let votedAgainstDict = Games.leaderboard.reverse()[(markedCellIndexPath?.row)!]
             let votedAgainstPlayer = Array(votedAgainstDict.keys)[0]
             //if votedAgainstPlayer != Users.myScreenName {
                 Votes.votes.submitVote(votedAgainstPlayer) {
@@ -151,7 +151,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         if voteoutModeEnabled {
             if markedCellIndexPath != nil { //uncheck the previsouly selected cell
                 if let prevMarkedCell = leaderboardTableView.cellForRowAtIndexPath(markedCellIndexPath!) as? CustomTableViewCell {
-                    prevMarkedCell.VoteImg.image = UIImage()
+                    prevMarkedCell.VoteImg.image = UIImage(named: "empty_vote")
                     prevMarkedCell.alpha = 1.0
                 }
             }
