@@ -30,6 +30,7 @@ class LandingVC: UIViewController, WelcomeVCDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Questions.questions.fetchMaxNumberOfQuestions {}
         createJoinAnimEngine = AnimationEngine(leadingConstraint: CreateJoinLeadingConstr, trailingConstraint: CreateJoinTrailingConstr)
         self.hideKeyboardWhenTappedAround()
     }

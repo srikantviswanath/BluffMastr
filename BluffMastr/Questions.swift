@@ -11,7 +11,6 @@ import Firebase
 
 class Questions {
     
-    static var totalQuestionsAtFB: Int!
     static var questions = Questions()
     static var completedQuestionIds = [Int]()
     
@@ -37,4 +36,10 @@ class Questions {
         )
     }
     
+    func fetchMaxNumberOfQuestions(completed: GenericCompletionBlock) {
+        FDataService.fDataService.REF_BASE.child("NumberOfQuestions").observeSingleEventOfType(.Value, withBlock: { maxQuestionsSS in
+            TOTAL_QUESTIONS_AT_FIREBASE = maxQuestionsSS.value as! Int
+            completed()
+        })
+    }
 }
