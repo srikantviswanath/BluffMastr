@@ -9,7 +9,7 @@
 import UIKit
 import pop
 
-class LandingVC: UIViewController {
+class LandingVC: UIViewController, WelcomeVCDelegate {
 
     
     var createJoinAnimEngine: AnimationEngine!
@@ -44,8 +44,7 @@ class LandingVC: UIViewController {
                     self.screenNameLabel.text = screenNameFromDefaults
                     Users.myScreenName = screenNameFromDefaults
                 } else {
-                    AlertHandler.alert.showWelcomeModal()
-                    self.screenNameLabel.text = Users.myScreenName
+                    AlertHandler.alert.showWelcomeModal(self)
                 }
                 self.createGameBtn.enabled = true
                 self.joinGameBtn.enabled = true
@@ -75,8 +74,7 @@ class LandingVC: UIViewController {
     }
     
     @IBAction func changeName(sender: UIButton) {
-        AlertHandler.alert.showWelcomeModal()
-        self.screenNameLabel.text = Users.myScreenName
+        AlertHandler.alert.showWelcomeModal(self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -91,6 +89,10 @@ class LandingVC: UIViewController {
         textField.resignFirstResponder()
         return true
     }
-
+    
+    /* ==================WelcomeVC delegate method ============= */
+    func updateLabelInParentVC(data: String) {
+        self.screenNameLabel.text = data
+    }
 }
 

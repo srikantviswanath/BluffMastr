@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol WelcomeVCDelegate {
+    func updateLabelInParentVC(data: String)
+}
+
 class WelcomeVC: UIViewController {
     
     @IBOutlet weak var screenNameTxtField: UITextField!
     @IBOutlet weak var instructionLbl: UILabel!
     
+    var delegate: WelcomeVCDelegate?
     var parentBlurView: UIVisualEffectView!
 
     override func viewDidLoad() {
@@ -27,6 +32,7 @@ class WelcomeVC: UIViewController {
             let userDefaults = NSUserDefaults.standardUserDefaults()
             userDefaults.setObject(screenName, forKey: "screenname")
             userDefaults.synchronize()
+            delegate?.updateLabelInParentVC(screenName)
             self.dismissViewControllerAnimated(true, completion: nil)
             parentBlurView.removeFromSuperview()
         } else {

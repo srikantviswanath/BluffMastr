@@ -51,7 +51,7 @@ class AlertHandler: UIViewController {
         parentVC.presentViewController(alertVC, animated: true, completion: nil)
     }
     
-    func showWelcomeModal() {
+    func showWelcomeModal(landingVCSelf: LandingVC) {
         let parentVC = UIApplication.topViewController()!
         let blurEffect = UIBlurEffect(style: .Dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -65,6 +65,7 @@ class AlertHandler: UIViewController {
         welcomeVC.parentBlurView = blurEffectView
         welcomeVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         welcomeVC.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        welcomeVC.delegate = landingVCSelf
         parentVC.view.addSubview(blurEffectView)
         parentVC.presentViewController(welcomeVC, animated: true, completion: nil)
 
