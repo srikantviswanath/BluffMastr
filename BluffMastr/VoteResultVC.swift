@@ -121,6 +121,7 @@ class VoteResultVC: UIViewController {
             let destVC = segue.destinationViewController as! LeaderboardVC
             destVC.readyToshowCurrentRoundScores = true
             destVC.revoteModeEnabled = true
+            destVC.animatingLeaderboard = Games.leaderboard
         } else if (segue.identifier == SEGUE_VOTEDOUT_HOME) {
             resetStaticVariablesForNewGame()
         }

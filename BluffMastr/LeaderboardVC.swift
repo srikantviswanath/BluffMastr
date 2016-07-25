@@ -35,6 +35,11 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         if !revoteModeEnabled {
             displayCurrentRoundScores()
+        } else {
+            VoteoutBtn.hidden = false
+            voteoutModeEnabled = true
+            self.thisRoundStatus.text = STATUS_LAST_ROUND_SCORES
+            leaderboardStatus.text = STATUS_START_VOTING
         }
     }
     
@@ -69,7 +74,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 self.readyToshowCurrentRoundScores = true
                 Scores.scores.fetchLeaderboard {
                     Games.leaderboard = Games.leaderboard.reverse()
-                    self.leaderBoardTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "startAnimatingLeaderboard", userInfo: nil, repeats: true)
+                    self.leaderBoardTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(LeaderboardVC.startAnimatingLeaderboard), userInfo: nil, repeats: true)
                 }
                 self.thisRoundStatus.text = STATUS_LAST_ROUND_SCORES
                 self.currentScoresCollectionView.reloadData()
