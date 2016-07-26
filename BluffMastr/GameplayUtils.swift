@@ -137,4 +137,10 @@ func resetStaticVariablesForNewGame() {
     Games.bluffMastr = nil
     Games.currentQuestionId = nil
 }
+
+func teardownAfterStartingGame() {
+    Users.users.deleteAnonymousUser()
+    GameMembers.gameMembers.removePlayerFromRoom(Users.myScreenName)
+    GameMembers.gameMembers.removeGameMemberListeners()
+}
  

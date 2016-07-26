@@ -88,6 +88,7 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let destVC = segue.destinationViewController as! ScoreVC
             destVC.playerScore = self.playerScore
         } else if (segue.identifier == SEGUE_HOME_GAME) {
+            teardownAfterStartingGame()
             resetStaticVariablesForNewGame()
         }
     }

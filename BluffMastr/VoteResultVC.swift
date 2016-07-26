@@ -87,7 +87,7 @@ class VoteResultVC: UIViewController {
             VotedoutPlayerLbl.text = STATUS_YOU_ARE_OUT
             ResultStatusLbl.hidden = true
             nextBtn.setTitle(BTN_HOME, forState: .Normal)
-            GameMembers.gameMembers.removePlayerFromRoom(Users.myScreenName)
+            teardownAfterStartingGame()
         } else {
             VotedoutPlayerLbl.text = votedoutPlayer
             noOfVotes.text = "(\(countVotes()[votedoutPlayer]!) \(VOTES))"
