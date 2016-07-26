@@ -106,6 +106,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Bluffathon v1"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
