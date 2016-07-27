@@ -93,6 +93,9 @@ let ALERT_BEGIN_VOTING_MSG = "Penalty for voting against an innocent player. Dis
 
 let BUSY_CREATING_GAME = "Creating Game..."
 let BUSY_DECIDING_WINNER = "Deciding Winner..."
+
+let STATUS_ENTER_SCREENNAME = "Don a Screen Name"
+let STATUS_CHANGE_SCREENNAME = "Change your Screen Name"
 let STATUS_WAITING_TO_START = "Waiting for Captain to start the game..."
 let STATUS_NEED_MORE_PLAYERS = "Waiting for more players to join..."
 let STATUS_START_GAME = "Begin the Bluff Marathon"

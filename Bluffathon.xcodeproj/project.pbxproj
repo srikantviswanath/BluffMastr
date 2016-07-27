@@ -422,7 +422,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CBDA40FE1CD5BFD100103F2A /* Build configuration list for PBXProject "BluffMastr" */;
+			buildConfigurationList = CBDA40FE1CD5BFD100103F2A /* Build configuration list for PBXProject "Bluffathon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -753,13 +753,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Srikant Viswanath (8WUCP656VM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Srikant Viswanath (8WUCP656VM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c04a84bc-5c9d-43b9-bab1-ff9d03cc99b6";
+				PROVISIONING_PROFILE = "bbe12539-b7fb-40f3-83f5-a5b41de17c9e";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
 			};
 			name = Distribution;
@@ -890,7 +890,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c04a84bc-5c9d-43b9-bab1-ff9d03cc99b6";
+				PROVISIONING_PROFILE = "bbe12539-b7fb-40f3-83f5-a5b41de17c9e";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -902,13 +902,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Srikant Viswanath (8WUCP656VM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Srikant Viswanath (8WUCP656VM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c04a84bc-5c9d-43b9-bab1-ff9d03cc99b6";
+				PROVISIONING_PROFILE = "bbe12539-b7fb-40f3-83f5-a5b41de17c9e";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
 			};
 			name = Release;
@@ -966,7 +966,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CBDA40FE1CD5BFD100103F2A /* Build configuration list for PBXProject "BluffMastr" */ = {
+		CBDA40FE1CD5BFD100103F2A /* Build configuration list for PBXProject "Bluffathon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBDA412C1CD5BFD200103F2A /* Debug */,

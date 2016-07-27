@@ -13,14 +13,14 @@ class LandingVC: UIViewController, WelcomeVCDelegate {
 
     
     var createJoinAnimEngine: AnimationEngine!
-    var screenNameAnimEngine: AnimationEngine!
+    var userProfileAnimEngine: AnimationEngine!
     @IBOutlet weak var CreateJoinTrailingConstr: NSLayoutConstraint!
     @IBOutlet weak var CreateJoinLeadingConstr: NSLayoutConstraint!
     
     @IBOutlet weak var createGameBtn: UIButton!
     @IBOutlet weak var joinGameBtn: UIButton!
-    @IBOutlet weak var playingASLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var ProfileView: MaterialView!
     
     var timer = NSTimer()
     
@@ -30,6 +30,7 @@ class LandingVC: UIViewController, WelcomeVCDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ProfileView.alpha = 0
         Questions.questions.fetchMaxNumberOfQuestions {}
         createJoinAnimEngine = AnimationEngine(leadingConstraint: CreateJoinLeadingConstr, trailingConstraint: CreateJoinTrailingConstr)
         self.hideKeyboardWhenTappedAround()
@@ -47,8 +48,11 @@ class LandingVC: UIViewController, WelcomeVCDelegate {
                 } else {
                     AlertHandler.alert.showWelcomeModal(self)
                 }
-                self.createGameBtn.enabled = true
-                self.joinGameBtn.enabled = true
+                UIView.animateWithDuration(0.2, animations: {self.ProfileView.alpha = 1}, completion: {
+                    (true) in
+                    self.createGameBtn.enabled = true
+                    self.joinGameBtn.enabled = true
+                })
             }
         }
     }
@@ -77,6 +81,11 @@ class LandingVC: UIViewController, WelcomeVCDelegate {
     @IBAction func changeName(sender: UIButton) {
         AlertHandler.alert.showWelcomeModal(self)
     }
+    
+    @IBAction func changeScreenName(sender: AnyObject) {
+        AlertHandler.alert.showWelcomeModal(self)
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SEGUE_CREATE_JOIN_GAME {

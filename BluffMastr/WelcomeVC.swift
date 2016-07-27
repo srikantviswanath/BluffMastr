@@ -22,6 +22,11 @@ class WelcomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let _ = NSUserDefaults.standardUserDefaults().objectForKey("screenname") as? String {
+            instructionLbl.text = STATUS_CHANGE_SCREENNAME
+        } else {
+            instructionLbl.text = STATUS_ENTER_SCREENNAME
+        }
         self.hideKeyboardWhenTappedAround()
         self.dismissKeyboard()
     }
