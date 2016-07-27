@@ -166,8 +166,6 @@
                         <outlet property="ProfileView" destination="GAn-ss-Ikx" id="Bkw-J5-BrJ"/>
                         <outlet property="createGameBtn" destination="1Kc-9O-eIh" id="45f-Kf-YI7"/>
                         <outlet property="joinGameBtn" destination="yxD-Ga-qpv" id="qNm-sd-jrD"/>
-                        <outlet property="profileViewLeadingConstr" destination="Olw-6d-wOo" id="RKO-gH-fos"/>
-                        <outlet property="profileViewTrailingConstr" destination="mgG-7U-P6G" id="ja0-Xz-gHG"/>
                         <outlet property="screenNameLabel" destination="wFa-1D-92n" id="dfy-Si-SqC"/>
                         <segue destination="nNm-V0-MeH" kind="showDetail" identifier="CreateOrJoinGame" id="lxm-Ij-IbS"/>
                     </connections>
