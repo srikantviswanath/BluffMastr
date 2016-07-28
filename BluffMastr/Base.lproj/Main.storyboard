@@ -1,11 +1,197 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sYI-oT-caG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--ModeA Onboarding PageVC-->
+        <scene sceneID="xjH-Fo-Ikk">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="sYI-oT-caG" customClass="ModeAOnboardingPageVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NVM-ga-tHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2346" y="-2141"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SXN-RK-hsi">
+            <objects>
+                <viewController storyboardIdentifier="OverviewOnboarding" id="Tiv-AC-LCK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d6l-oM-Kfb"/>
+                        <viewControllerLayoutGuide type="bottom" id="zgz-pH-Tep"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fbc-y0-TIl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluffathon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUX-R0-hMe">
+                                <rect key="frame" x="218" y="20" width="165" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CzC-fN-ZiB"/>
+                                    <constraint firstAttribute="width" constant="165" id="ZbK-dj-uCa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your new game night companion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaS-WH-FQU">
+                                <rect key="frame" x="174" y="58" width="252" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0uB-w6-JGJ"/>
+                                    <constraint firstAttribute="width" constant="252" id="LiA-l2-h7k"/>
+                                    <constraint firstAttribute="height" constant="21" id="LrB-we-65f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0uB-w6-JGJ"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overviewHelp" translatesAutoresizingMaskIntoConstraints="NO" id="Vrq-hf-rfH">
+                                <rect key="frame" x="270" y="178" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="CaM-Nf-z2f"/>
+                                    <constraint firstAttribute="width" constant="60" id="EuC-ae-jJ3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A random player is marked  BluffMastr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dOB-cP-uoY">
+                                <rect key="frame" x="30" y="246" width="540" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="9p6-bm-Qz0"/>
+                                    <constraint firstAttribute="width" constant="330" id="pAd-vK-Mje"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9p6-bm-Qz0"/>
+                                        <exclude reference="pAd-vK-Mje"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Essence of the game is to spot the BluffMastr and eliminate them, unless you are the one" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="k20-xC-4A4">
+                                <rect key="frame" x="30" y="284" width="540" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nUX-R0-hMe" firstAttribute="top" secondItem="d6l-oM-Kfb" secondAttribute="bottom" id="4PX-1M-8gm"/>
+                            <constraint firstItem="dOB-cP-uoY" firstAttribute="leading" secondItem="fbc-y0-TIl" secondAttribute="leadingMargin" constant="10" id="DdV-Jq-JhO"/>
+                            <constraint firstItem="Vrq-hf-rfH" firstAttribute="centerX" secondItem="fbc-y0-TIl" secondAttribute="centerX" id="Fuq-16-Zp8"/>
+                            <constraint firstItem="dOB-cP-uoY" firstAttribute="top" secondItem="Vrq-hf-rfH" secondAttribute="bottom" constant="8" id="KGz-JJ-o9E"/>
+                            <constraint firstItem="nUX-R0-hMe" firstAttribute="centerX" secondItem="fbc-y0-TIl" secondAttribute="centerX" id="Se5-MB-4m9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k20-xC-4A4" secondAttribute="trailing" constant="10" id="X8A-3o-U0t"/>
+                            <constraint firstItem="dOB-cP-uoY" firstAttribute="centerX" secondItem="fbc-y0-TIl" secondAttribute="centerX" id="bRw-2e-NAU"/>
+                            <constraint firstItem="MaS-WH-FQU" firstAttribute="top" secondItem="nUX-R0-hMe" secondAttribute="bottom" constant="8" id="f6g-sI-2qe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dOB-cP-uoY" secondAttribute="trailing" constant="10" id="mgV-kl-uT9"/>
+                            <constraint firstItem="k20-xC-4A4" firstAttribute="top" secondItem="dOB-cP-uoY" secondAttribute="bottom" constant="8" id="s0z-ox-Xod"/>
+                            <constraint firstItem="k20-xC-4A4" firstAttribute="leading" secondItem="fbc-y0-TIl" secondAttribute="leadingMargin" constant="10" id="tB6-MW-4Le"/>
+                            <constraint firstItem="Vrq-hf-rfH" firstAttribute="top" secondItem="MaS-WH-FQU" secondAttribute="bottom" constant="99" id="xbd-N4-vCX"/>
+                            <constraint firstItem="MaS-WH-FQU" firstAttribute="centerX" secondItem="fbc-y0-TIl" secondAttribute="centerX" id="xmq-S3-83F"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wCF-QL-ISv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="-1336"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h29-GI-KaI">
+            <objects>
+                <viewController storyboardIdentifier="QuestionVCOnboarding" id="37t-Y9-Vqi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ctf-3r-FhT"/>
+                        <viewControllerLayoutGuide type="bottom" id="dsk-v6-Rl1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z99-9q-6HF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin by answering a Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="zWe-L4-7HO">
+                                <rect key="frame" x="40" y="135" width="520" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Every question has 10 answers, each answer with an unknown score. Only the BluffMastr can see the key" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="f28-VC-d3T">
+                                <rect key="frame" x="40" y="173" width="520" height="188"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Try to score more!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtF-BC-a9a">
+                                <rect key="frame" x="40" y="402" width="520" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7c-V7-TtT" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionHelp" translatesAutoresizingMaskIntoConstraints="NO" id="h9k-Hs-XJE">
+                                        <rect key="frame" x="270" y="33" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="bem-ya-DdI"/>
+                                            <constraint firstAttribute="height" constant="60" id="vDV-qd-ilG"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="i4y-fX-9xR"/>
+                                    <constraint firstItem="h9k-Hs-XJE" firstAttribute="centerX" secondItem="U7c-V7-TtT" secondAttribute="centerX" id="sW0-w0-Qq3"/>
+                                    <constraint firstItem="h9k-Hs-XJE" firstAttribute="centerY" secondItem="U7c-V7-TtT" secondAttribute="centerY" id="shy-mz-rQa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wtF-BC-a9a" firstAttribute="leading" secondItem="Z99-9q-6HF" secondAttribute="leadingMargin" constant="20" id="4fC-0n-NcD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f28-VC-d3T" secondAttribute="trailing" constant="20" id="6Zb-Xp-gdQ"/>
+                            <constraint firstItem="zWe-L4-7HO" firstAttribute="top" secondItem="U7c-V7-TtT" secondAttribute="bottom" constant="10" id="CBf-JC-jLc"/>
+                            <constraint firstAttribute="trailing" secondItem="U7c-V7-TtT" secondAttribute="trailing" id="DkL-fF-wvB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zWe-L4-7HO" secondAttribute="trailing" constant="20" id="RVH-Ow-CG7"/>
+                            <constraint firstItem="U7c-V7-TtT" firstAttribute="leading" secondItem="Z99-9q-6HF" secondAttribute="leading" id="Vpi-62-90K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wtF-BC-a9a" secondAttribute="trailing" constant="20" id="heI-47-sYO"/>
+                            <constraint firstItem="zWe-L4-7HO" firstAttribute="leading" secondItem="Z99-9q-6HF" secondAttribute="leadingMargin" constant="20" id="l0L-br-tB4"/>
+                            <constraint firstItem="wtF-BC-a9a" firstAttribute="top" secondItem="f28-VC-d3T" secondAttribute="bottom" constant="40" id="l4W-Dt-nc6"/>
+                            <constraint firstItem="f28-VC-d3T" firstAttribute="top" secondItem="zWe-L4-7HO" secondAttribute="bottom" constant="8" id="nJi-UP-J50"/>
+                            <constraint firstItem="U7c-V7-TtT" firstAttribute="top" secondItem="Z99-9q-6HF" secondAttribute="top" id="nSP-gx-aZU"/>
+                            <constraint firstItem="f28-VC-d3T" firstAttribute="leading" secondItem="Z99-9q-6HF" secondAttribute="leadingMargin" constant="20" id="vmT-Qz-HjA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scU-nj-BQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2466" y="-1336"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AX0-gL-34W">
+            <objects>
+                <viewController storyboardIdentifier="OvervieHelpVC" id="pA8-Fa-BkY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nTb-we-2ny"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Ca-vw-dga"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9hS-Tn-KYu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.28235294119999998" green="0.6705882353" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7HQ-EZ-AIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3261" y="-1337"/>
+        </scene>
         <!--LandingVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -701,7 +887,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF0-jQ-1G8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF0-jQ-1G8">
                                 <rect key="frame" x="20" y="0.0" width="560" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="mcO-Rl-aa8"/>
@@ -710,7 +896,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-ai-Q3a">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-ai-Q3a">
                                 <rect key="frame" x="285" y="75" width="30" height="517"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <state key="normal">
@@ -720,7 +906,7 @@
                                     <segue destination="1Xw-s5-2jJ" kind="unwind" unwindAction="dismissHelp:" id="vR8-Yi-IZy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dru-ll-EUz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dru-ll-EUz">
                                 <rect key="frame" x="20" y="55" width="560" height="0.0"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1972,7 +2158,9 @@
         <image name="close_icon" width="200" height="200"/>
         <image name="empty_vote" width="199" height="199"/>
         <image name="help_info" width="200" height="200"/>
+        <image name="overviewHelp" width="203" height="245"/>
         <image name="profile" width="202" height="202"/>
+        <image name="questionHelp" width="203" height="203"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Wze-wC-5DY"/>
