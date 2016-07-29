@@ -15,6 +15,8 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var thisRoundStatus: UILabel!
     @IBOutlet weak var leaderboardStatus: UILabel!
     @IBOutlet weak var VoteoutBtn: UIButton!
+    @IBOutlet weak var VCTitle: UILabel!
+    
     
     var readyToshowCurrentRoundScores: Bool?
     var markedCellIndexPath: NSIndexPath?
@@ -40,6 +42,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             voteoutModeEnabled = true
             self.thisRoundStatus.text = STATUS_LAST_ROUND_SCORES
             leaderboardStatus.text = STATUS_START_VOTING
+            VCTitle.text = "\(Array(animatingLeaderboard.first!.keys)[0]) is leading"
         }
     }
     
@@ -55,6 +58,8 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             leaderboardStatus.text = STATUS_START_VOTING
             VoteoutBtn.hidden = false
             voteoutModeEnabled = true
+            let leadingScorer = Array(animatingLeaderboard.last!.keys)[0]
+            VCTitle.text = "\(leadingScorer) is leading"
         }
     }
     
