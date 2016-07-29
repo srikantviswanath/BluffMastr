@@ -13,7 +13,10 @@ class ModeAOnboardingPageVC: UIPageViewController, UIPageViewControllerDataSourc
     lazy var orderedVCs: [UIViewController] = {
         return [self.newOnboardingVC("OverviewOnboarding"),
                 self.newOnboardingVC("QuestionVCOnboarding"),
-                self.newOnboardingVC("OvervieHelpVC")]
+                self.newOnboardingVC("discussOnboarding"),
+                self.newOnboardingVC("voteoutOnboarding"),
+                self.newOnboardingVC("conclusionOnboarding")
+        ]
     }()
     
     override func viewDidLoad() {
