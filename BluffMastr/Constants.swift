@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /* Gameplay constants */
-let MIN_PLAYERS = 1
+let MIN_PLAYERS = 3
 var TOTAL_QUESTIONS_AT_FIREBASE = 0 /*this is no longer a constant. total questions will be modified in the firbase and should be updated in the App*/
 let BONUS_BLUFFMASTR_SURVIVAL = 15
 let BONUS_VOTED_AGAINST_BLUFFMASTR = 10
@@ -63,6 +63,7 @@ let SEGUE_REVOTE = "Revote"
 let SEGUE_VOTEDOUT_HOME = "VotedResultToLanding"
 let SEGUE_START_NEXT_ROUND = "StartNextRound"
 let SEGUE_DECLARE_VERDICT = "DeclareVerdict"
+let SEGUE_NEW_GAME_FROM_VERDICTVC = "StartNewGame"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 let THIS_ROUND_CELL = "ThisRoundCell"

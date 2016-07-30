@@ -16,6 +16,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var VerdictImg: UIImageView!
     @IBOutlet weak var VerdictView: UIView!
     @IBOutlet weak var BonusPenaltyTable: UITableView!
+    @IBOutlet weak var StartNewGameBtn: UIButton!
     
     var bonusTimer: NSTimer?
     var bonusTableDataSource = [Int]()
@@ -31,12 +32,19 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         BonusPenaltyTable.delegate = self
         BonusPenaltyTable.dataSource = self
         ScoreCounter.text = "\(fetchPlayerScoreFromLeaderboard(Users.myScreenName))"
+        StartNewGameBtn.hidden = true
         
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         bonusTimer = NSTimer.scheduledTimerWithTimeInterval(1.75, target: self, selector: "animateBonusRow", userInfo: nil, repeats: true)
+    }
+    
+    @IBAction func startNewGameBtnClicked(sender: UIButton) {
+        performSegueWithIdentifier(SEGUE_NEW_GAME_FROM_VERDICTVC, sender: nil)
+        teardownAfterStartingGame()
+        resetStaticVariablesForNewGame()
     }
     
     func animateBonusRow() {
@@ -62,6 +70,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func finalVerdictAnimation() {
+        StartNewGameBtn.hidden = false
         let didIlose = Users.myOpponentFinalScore > Int(self.ScoreCounter.text!)
         UIView.animateWithDuration(1, animations: {
             self.VerdictImg.image = UIImage(named: didIlose ? "runner_up_dislike" : "winner_cup")

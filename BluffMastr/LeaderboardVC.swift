@@ -94,14 +94,14 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         if markedCellIndexPath != nil {
             let votedAgainstDict = Games.leaderboard.reverse()[(markedCellIndexPath?.row)!]
             let votedAgainstPlayer = Array(votedAgainstDict.keys)[0]
-            //if votedAgainstPlayer != Users.myScreenName {
+            if votedAgainstPlayer != Users.myScreenName {
                 Votes.votes.submitVote(votedAgainstPlayer) {
                     Users.mycurrentVote = votedAgainstPlayer
                     self.performSegueWithIdentifier(SEGUE_TO_VOTE_RESULT, sender: nil)
                 }
-            /*} else {
+            } else {
                 AlertHandler.alert.showAlertMsg(ERR_SELF_VOTE_TITLE, msg: ERR_SELF_VOTE_MSG)
-            }*/
+            }
         } else {
             AlertHandler.alert.showAlertMsg(ERR_VOTE_ABSENT_TITLE, msg: ERR_VOTE_ABSENT_MSG)
         }

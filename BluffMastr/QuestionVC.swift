@@ -33,7 +33,9 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @IBAction func homeBtnClicked(sender: AnyObject) {
+    @IBAction func exitGameBtnClicked(sender: AnyObject) {
+        teardownAfterStartingGame()
+        resetStaticVariablesForNewGame()
         performSegueWithIdentifier(SEGUE_HOME_GAME, sender: nil)
     }
     
@@ -87,9 +89,6 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if (segue.identifier == SEGUE_FETCH_SCORE) {
             let destVC = segue.destinationViewController as! ScoreVC
             destVC.playerScore = self.playerScore
-        } else if (segue.identifier == SEGUE_HOME_GAME) {
-            teardownAfterStartingGame()
-            resetStaticVariablesForNewGame()
         }
     }
     
