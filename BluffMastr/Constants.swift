@@ -19,6 +19,8 @@ let BONUS_PENALTY_REASON = [
     BONUS_BLUFFMASTR_SURVIVAL: "BluffMastr survival bonus", BONUS_VOTED_AGAINST_BLUFFMASTR: "Bonus for catching BluffMastr",
     PENALTY_VOTED_AGAINST_INNOCENT_PLAYER: "Penalty for not catching BluffMastr"
 ]
+let IS_TUTORIAL_SHOWN = "isTutorialShown"
+let SCREEN_NAME = "screenname"
 
 /* Custom closures*/
 

@@ -19,6 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         FIRApp.configure()
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if NSUserDefaults.standardUserDefaults().boolForKey(IS_TUTORIAL_SHOWN) {
+            let viewController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("landingVC")
+            self.window?.rootViewController = viewController
+        } else {
+            let viewController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("ModeAOnboardingPageVC")
+            self.window?.rootViewController = viewController
+        }
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

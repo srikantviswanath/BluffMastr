@@ -22,7 +22,7 @@ class WelcomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let _ = NSUserDefaults.standardUserDefaults().objectForKey("screenname") as? String {
+        if let _ = NSUserDefaults.standardUserDefaults().objectForKey(SCREEN_NAME) as? String {
             instructionLbl.text = STATUS_CHANGE_SCREENNAME
         } else {
             instructionLbl.text = STATUS_ENTER_SCREENNAME
@@ -35,7 +35,7 @@ class WelcomeVC: UIViewController {
         if let screenName = screenNameTxtField.text where screenName != "" {
             Users.myScreenName = screenName
             let userDefaults = NSUserDefaults.standardUserDefaults()
-            userDefaults.setObject(screenName, forKey: "screenname")
+            userDefaults.setObject(screenName, forKey: SCREEN_NAME)
             userDefaults.synchronize()
             delegate?.updateLabelInParentVC(screenName)
             self.dismissViewControllerAnimated(true, completion: nil)

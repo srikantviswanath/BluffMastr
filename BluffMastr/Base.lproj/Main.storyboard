@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sYI-oT-caG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sYI-oT-caG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--ModeA Onboarding PageVC-->
         <scene sceneID="xjH-Fo-Ikk">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="sYI-oT-caG" customClass="ModeAOnboardingPageVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="ModeAOnboardingPageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="sYI-oT-caG" customClass="ModeAOnboardingPageVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVM-ga-tHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2346" y="-2141"/>
@@ -342,10 +342,10 @@
             </objects>
             <point key="canvasLocation" x="3963" y="-1334"/>
         </scene>
-        <!--View Controller-->
+        <!--ConclusionVC-->
         <scene sceneID="E0O-3R-RYu">
             <objects>
-                <viewController storyboardIdentifier="conclusionOnboarding" id="gEj-uh-oTA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="conclusionOnboarding" id="gEj-uh-oTA" customClass="ConclusionVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kDn-nN-Blg"/>
                         <viewControllerLayoutGuide type="bottom" id="4bB-0Z-U8g"/>
@@ -401,6 +401,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="letsGoOutlet:" destination="gEj-uh-oTA" eventType="touchUpInside" id="5VH-oc-XvC"/>
                                     <segue destination="BYZ-38-t0r" kind="showDetail" identifier="DoneWithOnboarding" id="eEa-q7-mOQ"/>
                                 </connections>
                             </button>
@@ -472,7 +473,7 @@
                                         <rect key="frame" x="60" y="38" width="440" height="139"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-9O-eIh" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="440" height="46"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="440" height="47"/>
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <state key="normal" title="Create Game">
@@ -483,13 +484,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbA-yX-gMZ">
-                                                <rect key="frame" x="0.0" y="46" width="440" height="47"/>
+                                                <rect key="frame" x="0.0" y="47" width="440" height="46"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxD-Ga-qpv" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="93" width="440" height="46"/>
+                                                <rect key="frame" x="0.0" y="93" width="440" height="47"/>
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <state key="normal" title="Join a Game">
@@ -667,16 +668,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UEB-pb-KRo">
                                         <rect key="frame" x="8" y="22" width="544" height="139"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pPq-Mf-7Wq">
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pPq-Mf-7Wq">
                                                 <rect key="frame" x="0.0" y="0.0" width="544" height="66"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the Game Code below:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppM-1j-WwX">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enter the Game Code below:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppM-1j-WwX">
                                                         <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-C8-Sji">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-C8-Sji">
                                                         <rect key="frame" x="0.0" y="36" width="544" height="30"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7c-F1-fps" userLabel="FirstTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
@@ -686,7 +687,7 @@
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWP-Yp-wY9" userLabel="SecondTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
-                                                                <rect key="frame" x="144" y="0.0" width="113" height="30"/>
+                                                                <rect key="frame" x="144" y="0.0" width="114" height="30"/>
                                                                 <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -698,7 +699,7 @@
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-NW-v0R" userLabel="FourthTokenField" customClass="MaterialTextField" customModule="BluffMastr" customModuleProvider="target">
-                                                                <rect key="frame" x="431" y="0.0" width="113" height="30"/>
+                                                                <rect key="frame" x="431" y="0.0" width="114" height="30"/>
                                                                 <color key="textColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -707,7 +708,7 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-sm-xLh">
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-sm-xLh">
                                                 <rect key="frame" x="0.0" y="66" width="544" height="73"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share the following code with others:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-h0-osX">
@@ -1073,7 +1074,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="544" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lL0-5f-qKF" id="bse-kC-BbH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="544" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="544" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-FW-WaQ">
@@ -1148,7 +1149,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF0-jQ-1G8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF0-jQ-1G8">
                                 <rect key="frame" x="20" y="0.0" width="560" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="mcO-Rl-aa8"/>
@@ -1157,7 +1158,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-ai-Q3a">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-ai-Q3a">
                                 <rect key="frame" x="285" y="75" width="30" height="517"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <state key="normal">
@@ -1167,7 +1168,7 @@
                                     <segue destination="1Xw-s5-2jJ" kind="unwind" unwindAction="dismissHelp:" id="vR8-Yi-IZy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dru-ll-EUz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dru-ll-EUz">
                                 <rect key="frame" x="20" y="55" width="560" height="0.0"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1967,14 +1968,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q79-qP-TGX">
                                         <rect key="frame" x="193" y="8" width="175" height="21"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Final Score: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="GuO-jp-CBh">
-                                                <rect key="frame" x="0.0" y="0.0" width="136" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Final Score: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="GuO-jp-CBh">
+                                                <rect key="frame" x="1" y="0.0" width="136" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcL-Qq-AOS">
-                                                <rect key="frame" x="151" y="0.0" width="24" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="34" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcL-Qq-AOS">
+                                                <rect key="frame" x="152" y="0.0" width="24" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -2094,7 +2095,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="520" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xVI-eA-O6U" id="NX7-CN-8NC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="520" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="520" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyA-B3-r0P">
