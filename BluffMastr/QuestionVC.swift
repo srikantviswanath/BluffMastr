@@ -34,9 +34,11 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func exitGameBtnClicked(sender: AnyObject) {
-        teardownAfterStartingGame()
-        resetStaticVariablesForNewGame()
-        performSegueWithIdentifier(SEGUE_HOME_GAME, sender: nil)
+        AlertHandler.alert.showActionSheet(ALERT_LEAVE_GAME_TITLE, destructiveTitle: "Yes", cancelTitle: "No") {
+            teardownAfterStartingGame()
+            resetStaticVariablesForNewGame()
+            self.performSegueWithIdentifier(SEGUE_HOME_GAME, sender: nil)
+        }
     }
     
     @IBAction func helpBtnClicked(sender: UIButton) {

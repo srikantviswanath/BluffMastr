@@ -87,8 +87,11 @@ let ERR_VOTE_ABSENT_MSG = "Need to select a player to vote out"
 let ERR_VOTE_FAILED_TITLE = "Vote Failed :("
 let ERR_VOTE_FAILED_MSG = "Could not cast your vote. Please check your network connection and try again"
 
-let ALERT_BEGIN_VOTING_TITLE = "Vote with Caution"
-let ALERT_BEGIN_VOTING_MSG = "Penalty for voting against an innocent player. Discuss before casting vote"
+let ALERT_BEGIN_VOTING_TITLE = "Discuss and Vote"
+let ALERT_BEGIN_VOTING_MSG = "There's Penalty for voting against an innocent player. Discuss before casting vote"
+let ALERT_LEAVE_GAME_TITLE = "Are You Sure? :("
+let ALERT_START_NEW_GAME = "Start a New Game?"
+
 
 /* Statuses */
 

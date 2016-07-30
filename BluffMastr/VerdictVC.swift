@@ -42,9 +42,11 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func startNewGameBtnClicked(sender: UIButton) {
-        performSegueWithIdentifier(SEGUE_NEW_GAME_FROM_VERDICTVC, sender: nil)
-        teardownAfterStartingGame()
-        resetStaticVariablesForNewGame()
+        AlertHandler.alert.showActionSheet(ALERT_START_NEW_GAME, destructiveTitle: "Absolutely", cancelTitle: "Not Yet") {
+            self.performSegueWithIdentifier(SEGUE_NEW_GAME_FROM_VERDICTVC, sender: nil)
+            teardownAfterStartingGame()
+            resetStaticVariablesForNewGame()
+        }
     }
     
     func animateBonusRow() {

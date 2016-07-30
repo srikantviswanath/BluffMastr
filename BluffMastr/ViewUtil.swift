@@ -51,6 +51,21 @@ class AlertHandler: UIViewController {
         parentVC.presentViewController(alertVC, animated: true, completion: nil)
     }
     
+    func showActionSheet(sheetTitle: String, destructiveTitle: String,  cancelTitle: String, destructiveHandler: ()->()) {
+        let actionSheet = UIAlertController(title: sheetTitle, message: nil, preferredStyle: .ActionSheet)
+        let destructiveAction = UIAlertAction(title: destructiveTitle, style: .Destructive, handler: {
+            (alert: UIAlertAction!) -> Void in
+                destructiveHandler()
+        })
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+
+        })
+        actionSheet.addAction(destructiveAction)
+        actionSheet.addAction(cancelAction)
+        UIApplication.topViewController()!.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
     func showWelcomeModal(landingVCSelf: LandingVC) {
         let parentVC = UIApplication.topViewController()!
         let blurEffect = UIBlurEffect(style: .Dark)
@@ -70,6 +85,7 @@ class AlertHandler: UIViewController {
         parentVC.presentViewController(welcomeVC, animated: true, completion: nil)
 
     }
+    
 }
 
 extension UIApplication {

@@ -155,8 +155,10 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     @IBAction func leaveGame(sender: UIButton!){
-        self.teardownBeforeStartingGame()
-        performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
+        AlertHandler.alert.showActionSheet(ALERT_LEAVE_GAME_TITLE, destructiveTitle: "Yes", cancelTitle: "No") {
+            self.teardownBeforeStartingGame()
+            self.performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
+        }
     }
     
     /* ==================UITableView delegate methods ============= */
