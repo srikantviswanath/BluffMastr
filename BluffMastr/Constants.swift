@@ -92,6 +92,7 @@ let ERR_VOTE_FAILED_MSG = "Could not cast your vote. Please check your network c
 let ALERT_BEGIN_VOTING_TITLE = "Discuss and Vote"
 let ALERT_BEGIN_VOTING_MSG = "There's Penalty for voting against an innocent player. Discuss before casting vote"
 let ALERT_LEAVE_GAME_TITLE = "Are You Sure? :("
+let ALERT_LEAVE_GAME_TITLE2 = "Leave Game? :("
 let ALERT_START_NEW_GAME = "Start a New Game?"
 
 
