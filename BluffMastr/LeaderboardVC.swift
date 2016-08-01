@@ -23,6 +23,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     var voteoutModeEnabled: Bool = false
     var revoteModeEnabled: Bool = false
     var animatingLeaderboard = [Dictionary<String, Int>]()
+    var revSortedleaderboard = [Dictionary<String, Int>]()
     var leaderBoardTimer: NSTimer?
     var animatingRowIndex = 0
     
@@ -47,7 +48,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     func startAnimatingLeaderboard() {
-        animatingLeaderboard.insert(Games.leaderboard[animatingRowIndex], atIndex: 0)
+        animatingLeaderboard.insert(revSortedleaderboard[animatingRowIndex], atIndex: 0)
         animatingRowIndex += 1
         leaderboardTableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: .Right)
         if animatingLeaderboard.count == Games.leaderboard.count {
@@ -58,7 +59,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             leaderboardStatus.text = STATUS_START_VOTING
             VoteoutBtn.hidden = false
             voteoutModeEnabled = true
-            let leadingScorer = Array(animatingLeaderboard.last!.keys)[0]
+            let leadingScorer = Array(Games.leaderboard.first!.keys)[0]
             VCTitle.text = "\(leadingScorer) is leading"
         }
     }
@@ -78,7 +79,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 Scores.scores.stopListeningForPlayerScores()
                 self.readyToshowCurrentRoundScores = true
                 Scores.scores.fetchLeaderboard {
-                    Games.leaderboard = Games.leaderboard.reverse()
+                    self.revSortedleaderboard = Games.leaderboard.reverse()
                     self.leaderBoardTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(LeaderboardVC.startAnimatingLeaderboard), userInfo: nil, repeats: true)
                 }
                 self.thisRoundStatus.text = STATUS_LAST_ROUND_SCORES
@@ -92,7 +93,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     func validateVoteAndSubmit() {
         if markedCellIndexPath != nil {
-            let votedAgainstDict = Games.leaderboard.reverse()[(markedCellIndexPath?.row)!]
+            let votedAgainstDict = Games.leaderboard[(markedCellIndexPath?.row)!]
             let votedAgainstPlayer = Array(votedAgainstDict.keys)[0]
             if votedAgainstPlayer != Users.myScreenName {
                 Votes.votes.submitVote(votedAgainstPlayer) {
