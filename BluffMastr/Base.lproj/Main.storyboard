@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sYI-oT-caG">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sYI-oT-caG">
->>>>>>> origin/master
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -477,11 +473,7 @@
                                         <rect key="frame" x="60" y="38" width="440" height="139"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-9O-eIh" customClass="MaterialButton" customModule="Bluffathon" customModuleProvider="target">
-<<<<<<< HEAD
-                                                <rect key="frame" x="0.0" y="0.0" width="440" height="47"/>
-=======
                                                 <rect key="frame" x="0.0" y="0.0" width="440" height="46"/>
->>>>>>> origin/master
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <state key="normal" title="Create Game">
@@ -492,21 +484,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbA-yX-gMZ">
-<<<<<<< HEAD
-                                                <rect key="frame" x="0.0" y="47" width="440" height="46"/>
-=======
                                                 <rect key="frame" x="0.0" y="46" width="440" height="47"/>
->>>>>>> origin/master
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxD-Ga-qpv" customClass="MaterialButton" customModule="Bluffathon" customModuleProvider="target">
-<<<<<<< HEAD
-                                                <rect key="frame" x="0.0" y="93" width="440" height="47"/>
-=======
                                                 <rect key="frame" x="0.0" y="93" width="440" height="46"/>
->>>>>>> origin/master
                                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <state key="normal" title="Join a Game">
@@ -703,11 +687,7 @@
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWP-Yp-wY9" userLabel="SecondTokenField" customClass="MaterialTextField" customModule="Bluffathon" customModuleProvider="target">
-<<<<<<< HEAD
-                                                                <rect key="frame" x="144" y="0.0" width="114" height="30"/>
-=======
                                                                 <rect key="frame" x="144" y="0.0" width="113" height="30"/>
->>>>>>> origin/master
                                                                 <color key="textColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -719,11 +699,7 @@
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-NW-v0R" userLabel="FourthTokenField" customClass="MaterialTextField" customModule="Bluffathon" customModuleProvider="target">
-<<<<<<< HEAD
-                                                                <rect key="frame" x="431" y="0.0" width="114" height="30"/>
-=======
                                                                 <rect key="frame" x="431" y="0.0" width="113" height="30"/>
->>>>>>> origin/master
                                                                 <color key="textColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -1992,24 +1968,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q79-qP-TGX">
                                         <rect key="frame" x="193" y="8" width="175" height="21"/>
                                         <subviews>
-<<<<<<< HEAD
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Final Score: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="GuO-jp-CBh">
-                                                <rect key="frame" x="1" y="0.0" width="136" height="21"/>
-=======
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Final Score: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="GuO-jp-CBh">
                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="21"/>
->>>>>>> origin/master
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-<<<<<<< HEAD
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="34" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcL-Qq-AOS">
-                                                <rect key="frame" x="152" y="0.0" width="24" height="21"/>
-=======
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcL-Qq-AOS">
                                                 <rect key="frame" x="151" y="0.0" width="24" height="21"/>
->>>>>>> origin/master
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
