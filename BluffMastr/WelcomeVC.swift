@@ -45,4 +45,14 @@ class WelcomeVC: UIViewController {
             instructionLbl.textColor = UIColor.redColor()
         }
     }
+    
+    @IBAction func closeButtonOutlet(sender: UIButton) {
+        if let _ = NSUserDefaults.standardUserDefaults().objectForKey(SCREEN_NAME) as? String {
+            self.dismissViewControllerAnimated(true, completion: nil)
+            parentBlurView.removeFromSuperview()
+        } else {
+            instructionLbl.text = ERR_SCREENNAME_MISSING_TITLE
+            instructionLbl.textColor = UIColor.redColor()
+        }
+    }
 }
