@@ -13,6 +13,7 @@ class GameMembers {
     
     static var gameMembers = GameMembers()
     static var playersInGameRoom = [String]()
+    static var votedoutPlayers = [String]()
     
     func addMemberToRoom(newMember: String!, gameID: String = Games.gameUID) {
         let gameMembersRef = FDataService.fDataService.REF_GAME_MEMBERS.child(gameID)
@@ -32,7 +33,7 @@ class GameMembers {
      */
     func removePlayerFromRoom(player: String!, gameID: String = Games.gameUID) {
         FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).child(player).removeValue()
-        FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).child(player).removeValue()
+        //FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).child(player).removeValue()
         FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).child(player).removeValue()
         FDataService.fDataService.REF_VOTES.child(Games.gameUID).child(player).removeValue()
     }

@@ -66,9 +66,12 @@ class VoteResultVC: UIViewController {
                 self.ResultStatusLbl.textColor = UIColor.whiteColor()
                 self.waitingSpinner.stopAnimating()
                 self.ParentView.backgroundColor = UIColor(netHex: COLOR_THEME)
-                if evaluateVotes() != CODE_TIE { //if it is not a tie, display the voted out player's details and record the myPlayer's vote in his voting history
+                
+                let votedoutPlayer = evaluateVotes()
+                if votedoutPlayer != CODE_TIE { //if it is not a tie, display the voted out player's details and record the myPlayer's vote in his voting history
                     Users.myBonusHistory.append(evaluateBonusOrPenaltyPerRound())
-                    self.displayAndRemoveVotedoutPlayer()
+                    self.displayAndRemoveVotedoutPlayer(votedoutPlayer)
+                    GameMembers.votedoutPlayers.append(votedoutPlayer)
                 } else { //if its a tie, go for a revote
                     self.nextBtn.setTitle(BTN_VOTE_AGAIN, forState: .Normal)
                     self.ResultStatusLbl.text = STATUS_TIE
@@ -80,8 +83,7 @@ class VoteResultVC: UIViewController {
 
     }
     
-    func displayAndRemoveVotedoutPlayer() {
-        let votedoutPlayer = evaluateVotes()
+    func displayAndRemoveVotedoutPlayer(votedoutPlayer: String) {
         if votedoutPlayer == Users.myScreenName {
             playAudio(AUDIO_GAME_OVER)
             VotedoutPlayerLbl.text = STATUS_YOU_ARE_OUT
