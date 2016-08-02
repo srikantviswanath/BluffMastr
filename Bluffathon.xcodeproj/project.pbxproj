@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0233DC72563C954433603EFE /* Pods_BluffMastrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F43BFFE6EF7A0979274332E /* Pods_BluffMastrUITests.framework */; };
-		756D2FCF3EB652E3D7391F82 /* Pods_BluffMastr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37882A413A0E8AC91F604434 /* Pods_BluffMastr.framework */; };
+		3D7024ABAB7330F1BA7A5F5D /* Pods_BluffMastr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DF4A028899D42DFEBF1369 /* Pods_BluffMastr.framework */; };
+		8B2F4C65358243D8E78087AC /* Pods_BluffMastrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14492564958FCD7704EB8856 /* Pods_BluffMastrUITests.framework */; };
+		92A1BC11A11001B56E21F54F /* Pods_BluffMastrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459992FD7483544990DDF961 /* Pods_BluffMastrTests.framework */; };
 		9446F8D91CF5F01E00F41FC0 /* Votes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446F8D81CF5F01E00F41FC0 /* Votes.swift */; };
 		949875B91D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
 		949875BA1D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
 		949875BB1D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
 		94FED3F21D4C2CFC00DFE2BA /* ConclusionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FED3F11D4C2CFC00DFE2BA /* ConclusionVC.swift */; };
-		BC8970900265258FB4D83D32 /* Pods_BluffMastrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */; };
 		CB0372501D371CCB00E3550D /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03724F1D371CCB00E3550D /* WelcomeVC.swift */; };
 		CB78671F1D18B2FD00E0CDB0 /* ServicesUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */; };
 		CB7B0BEC1D3868B400F44727 /* VerdictVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B0BEB1D3868B400F44727 /* VerdictVC.swift */; };
@@ -77,16 +77,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		058D074EA13CDF2F70ADA458 /* Pods-BluffMastrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests.debug.xcconfig"; sourceTree = "<group>"; };
-		159F3E10CB2C0D6304C10B04 /* Pods-BluffMastrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests.release.xcconfig"; sourceTree = "<group>"; };
-		37882A413A0E8AC91F604434 /* Pods_BluffMastr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53F8C31FAEE215C18ADD7B78 /* Pods-BluffMastr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.debug.xcconfig"; sourceTree = "<group>"; };
-		8F43BFFE6EF7A0979274332E /* Pods_BluffMastrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		900961ED9134A9383EF027AE /* Pods-BluffMastrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrUITests/Pods-BluffMastrUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0B9F9C9CAB3974A547C3E764 /* Pods-BluffMastrTests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrTests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests.distribution.xcconfig"; sourceTree = "<group>"; };
+		0E83DD0A04B4686A5925D1E6 /* Pods-BluffMastr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.debug.xcconfig"; sourceTree = "<group>"; };
+		14492564958FCD7704EB8856 /* Pods_BluffMastrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E1FDB6391A6853AA5868A7C /* Pods-BluffMastrUITests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrUITests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrUITests/Pods-BluffMastrUITests.distribution.xcconfig"; sourceTree = "<group>"; };
+		4512356BBB25570761C24F52 /* Pods-BluffMastrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests.release.xcconfig"; sourceTree = "<group>"; };
+		459992FD7483544990DDF961 /* Pods_BluffMastrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D32F1F004E9AE649AF4463F /* Pods-BluffMastrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrUITests/Pods-BluffMastrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9446F8D81CF5F01E00F41FC0 /* Votes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Votes.swift; sourceTree = "<group>"; };
 		949875B81D025FE000BA190E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		94FED3F11D4C2CFC00DFE2BA /* ConclusionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConclusionVC.swift; sourceTree = "<group>"; };
-		AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A922B0AA2F6A3E1FB70B08EB /* Pods-BluffMastrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B4E59A2CC6F793440006CC11 /* Pods-BluffMastrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrUITests/Pods-BluffMastrUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B9DF4A028899D42DFEBF1369 /* Pods_BluffMastr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluffMastr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB03724F1D371CCB00E3550D /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		CB7867181D1653B200E0CDB0 /* BluffMastr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluffMastr-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesUtil.swift; sourceTree = "<group>"; };
@@ -136,8 +139,8 @@
 		CBDA412B1CD5BFD200103F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF846031D1B606100F457E7 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
 		CBF846051D1B947200F457E7 /* score_swoosh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = score_swoosh.wav; sourceTree = "<group>"; };
-		D1BE2D87F109437C3C971985 /* Pods-BluffMastrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrUITests/Pods-BluffMastrUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E07CB4828D6FA88DFEA518F3 /* Pods-BluffMastr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.release.xcconfig"; sourceTree = "<group>"; };
+		D4DEC114591F4CEE03FCDB91 /* Pods-BluffMastr.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.distribution.xcconfig"; sourceTree = "<group>"; };
+		F56884EED90B4C5E8CF986F5 /* Pods-BluffMastr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				756D2FCF3EB652E3D7391F82 /* Pods_BluffMastr.framework in Frameworks */,
+				3D7024ABAB7330F1BA7A5F5D /* Pods_BluffMastr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC8970900265258FB4D83D32 /* Pods_BluffMastrTests.framework in Frameworks */,
+				92A1BC11A11001B56E21F54F /* Pods_BluffMastrTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,21 +164,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0233DC72563C954433603EFE /* Pods_BluffMastrUITests.framework in Frameworks */,
+				8B2F4C65358243D8E78087AC /* Pods_BluffMastrUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		230E2CA533B9B639CA05A90C /* Frameworks */ = {
+		1FC8CEB5040EF801DB61B6BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				37882A413A0E8AC91F604434 /* Pods_BluffMastr.framework */,
-				AD991CBB79C84B667E5AE531 /* Pods_BluffMastrTests.framework */,
-				8F43BFFE6EF7A0979274332E /* Pods_BluffMastrUITests.framework */,
+				0E83DD0A04B4686A5925D1E6 /* Pods-BluffMastr.debug.xcconfig */,
+				F56884EED90B4C5E8CF986F5 /* Pods-BluffMastr.release.xcconfig */,
+				D4DEC114591F4CEE03FCDB91 /* Pods-BluffMastr.distribution.xcconfig */,
+				A922B0AA2F6A3E1FB70B08EB /* Pods-BluffMastrTests.debug.xcconfig */,
+				4512356BBB25570761C24F52 /* Pods-BluffMastrTests.release.xcconfig */,
+				0B9F9C9CAB3974A547C3E764 /* Pods-BluffMastrTests.distribution.xcconfig */,
+				8D32F1F004E9AE649AF4463F /* Pods-BluffMastrUITests.debug.xcconfig */,
+				B4E59A2CC6F793440006CC11 /* Pods-BluffMastrUITests.release.xcconfig */,
+				1E1FDB6391A6853AA5868A7C /* Pods-BluffMastrUITests.distribution.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CB7CEFC01CD6DB8F00356DFB /* Model */ = {
@@ -273,8 +282,8 @@
 				CBDA411D1CD5BFD200103F2A /* BluffMastrTests */,
 				CBDA41281CD5BFD200103F2A /* BluffMastrUITests */,
 				CBDA41041CD5BFD200103F2A /* Products */,
-				FA6719FB41B895EFD0807BCC /* Pods */,
-				230E2CA533B9B639CA05A90C /* Frameworks */,
+				1FC8CEB5040EF801DB61B6BA /* Pods */,
+				D3B5B75B8A33B7AA093742BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -326,17 +335,14 @@
 			path = BluffMastrUITests;
 			sourceTree = "<group>";
 		};
-		FA6719FB41B895EFD0807BCC /* Pods */ = {
+		D3B5B75B8A33B7AA093742BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				53F8C31FAEE215C18ADD7B78 /* Pods-BluffMastr.debug.xcconfig */,
-				E07CB4828D6FA88DFEA518F3 /* Pods-BluffMastr.release.xcconfig */,
-				058D074EA13CDF2F70ADA458 /* Pods-BluffMastrTests.debug.xcconfig */,
-				159F3E10CB2C0D6304C10B04 /* Pods-BluffMastrTests.release.xcconfig */,
-				D1BE2D87F109437C3C971985 /* Pods-BluffMastrUITests.debug.xcconfig */,
-				900961ED9134A9383EF027AE /* Pods-BluffMastrUITests.release.xcconfig */,
+				B9DF4A028899D42DFEBF1369 /* Pods_BluffMastr.framework */,
+				459992FD7483544990DDF961 /* Pods_BluffMastrTests.framework */,
+				14492564958FCD7704EB8856 /* Pods_BluffMastrUITests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,13 +352,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBDA412E1CD5BFD200103F2A /* Build configuration list for PBXNativeTarget "BluffMastr" */;
 			buildPhases = (
-				9FB155AB425684FFE687C487 /* 📦 Check Pods Manifest.lock */,
+				484053F70CBDA0C6F35370CA /* 📦 Check Pods Manifest.lock */,
 				CBDA40FF1CD5BFD200103F2A /* Sources */,
 				CBDA41001CD5BFD200103F2A /* Frameworks */,
 				CBDA41011CD5BFD200103F2A /* Resources */,
-				C2B9408AB9B0B641B9BFE778 /* 📦 Embed Pods Frameworks */,
-				975A5EC63F978D3ADE0053B4 /* 📦 Copy Pods Resources */,
-				BBEFE8D0306A3731B71F19F4 /* Embed Pods Frameworks */,
+				EE4E0A9B7C06819A41A96F12 /* 📦 Embed Pods Frameworks */,
+				5ED131ACFB19A41CA54BF030 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -367,12 +372,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBDA41311CD5BFD200103F2A /* Build configuration list for PBXNativeTarget "BluffMastrTests" */;
 			buildPhases = (
-				3901F19C217E074BEC168B2A /* 📦 Check Pods Manifest.lock */,
+				6D0AFF8BE0E741811D885DAE /* 📦 Check Pods Manifest.lock */,
 				CBDA41161CD5BFD200103F2A /* Sources */,
 				CBDA41171CD5BFD200103F2A /* Frameworks */,
 				CBDA41181CD5BFD200103F2A /* Resources */,
-				0B7C908CD2F1F8FDC9C28CF4 /* 📦 Embed Pods Frameworks */,
-				8A84CB56EAA9A37F3CDAE549 /* 📦 Copy Pods Resources */,
+				B8E5682A91625B8E181995E3 /* 📦 Embed Pods Frameworks */,
+				8BBA0174D74E98FC3218937F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -388,11 +393,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBDA41341CD5BFD200103F2A /* Build configuration list for PBXNativeTarget "BluffMastrUITests" */;
 			buildPhases = (
-				8B2F2B980097E7896237815F /* 📦 Check Pods Manifest.lock */,
+				178A33BE6E43426627BB6DE2 /* 📦 Check Pods Manifest.lock */,
 				CBDA41211CD5BFD200103F2A /* Sources */,
 				CBDA41221CD5BFD200103F2A /* Frameworks */,
 				CBDA41231CD5BFD200103F2A /* Resources */,
-				44FFA8AE41B02CF8CFB42DE0 /* 📦 Copy Pods Resources */,
+				4D18C13DB0A2D1994A26CBA1 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -485,22 +490,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B7C908CD2F1F8FDC9C28CF4 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3901F19C217E074BEC168B2A /* 📦 Check Pods Manifest.lock */ = {
+		178A33BE6E43426627BB6DE2 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -515,7 +505,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		44FFA8AE41B02CF8CFB42DE0 /* 📦 Copy Pods Resources */ = {
+		484053F70CBDA0C6F35370CA /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4D18C13DB0A2D1994A26CBA1 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -530,37 +535,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluffMastrUITests/Pods-BluffMastrUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A84CB56EAA9A37F3CDAE549 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8B2F2B980097E7896237815F /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		975A5EC63F978D3ADE0053B4 /* 📦 Copy Pods Resources */ = {
+		5ED131ACFB19A41CA54BF030 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -575,7 +550,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9FB155AB425684FFE687C487 /* 📦 Check Pods Manifest.lock */ = {
+		6D0AFF8BE0E741811D885DAE /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -590,22 +565,37 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BBEFE8D0306A3731B71F19F4 /* Embed Pods Frameworks */ = {
+		8BBA0174D74E98FC3218937F /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C2B9408AB9B0B641B9BFE778 /* 📦 Embed Pods Frameworks */ = {
+		B8E5682A91625B8E181995E3 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE4E0A9B7C06819A41A96F12 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -757,7 +747,7 @@
 		};
 		CBD4B6981D29BFFA00E7A674 /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E07CB4828D6FA88DFEA518F3 /* Pods-BluffMastr.release.xcconfig */;
+			baseConfigurationReference = D4DEC114591F4CEE03FCDB91 /* Pods-BluffMastr.distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -774,7 +764,7 @@
 		};
 		CBD4B6991D29BFFA00E7A674 /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 159F3E10CB2C0D6304C10B04 /* Pods-BluffMastrTests.release.xcconfig */;
+			baseConfigurationReference = 0B9F9C9CAB3974A547C3E764 /* Pods-BluffMastrTests.distribution.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BluffMastrTests/Info.plist;
@@ -787,7 +777,7 @@
 		};
 		CBD4B69A1D29BFFA00E7A674 /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 900961ED9134A9383EF027AE /* Pods-BluffMastrUITests.release.xcconfig */;
+			baseConfigurationReference = 1E1FDB6391A6853AA5868A7C /* Pods-BluffMastrUITests.distribution.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BluffMastrUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -888,7 +878,7 @@
 		};
 		CBDA412F1CD5BFD200103F2A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53F8C31FAEE215C18ADD7B78 /* Pods-BluffMastr.debug.xcconfig */;
+			baseConfigurationReference = 0E83DD0A04B4686A5925D1E6 /* Pods-BluffMastr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -906,7 +896,7 @@
 		};
 		CBDA41301CD5BFD200103F2A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E07CB4828D6FA88DFEA518F3 /* Pods-BluffMastr.release.xcconfig */;
+			baseConfigurationReference = F56884EED90B4C5E8CF986F5 /* Pods-BluffMastr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -923,7 +913,7 @@
 		};
 		CBDA41321CD5BFD200103F2A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 058D074EA13CDF2F70ADA458 /* Pods-BluffMastrTests.debug.xcconfig */;
+			baseConfigurationReference = A922B0AA2F6A3E1FB70B08EB /* Pods-BluffMastrTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BluffMastrTests/Info.plist;
@@ -936,7 +926,7 @@
 		};
 		CBDA41331CD5BFD200103F2A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 159F3E10CB2C0D6304C10B04 /* Pods-BluffMastrTests.release.xcconfig */;
+			baseConfigurationReference = 4512356BBB25570761C24F52 /* Pods-BluffMastrTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BluffMastrTests/Info.plist;
@@ -949,7 +939,7 @@
 		};
 		CBDA41351CD5BFD200103F2A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1BE2D87F109437C3C971985 /* Pods-BluffMastrUITests.debug.xcconfig */;
+			baseConfigurationReference = 8D32F1F004E9AE649AF4463F /* Pods-BluffMastrUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BluffMastrUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -961,7 +951,7 @@
 		};
 		CBDA41361CD5BFD200103F2A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 900961ED9134A9383EF027AE /* Pods-BluffMastrUITests.release.xcconfig */;
+			baseConfigurationReference = B4E59A2CC6F793440006CC11 /* Pods-BluffMastrUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BluffMastrUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
