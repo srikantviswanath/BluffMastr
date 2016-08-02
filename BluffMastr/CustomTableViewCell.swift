@@ -24,6 +24,11 @@ class CustomTableViewCell: UITableViewCell {
         if score != "" {
             scoreLbl.text = score
         }
+        if GameMembers.votedoutPlayers.contains(mainLbl) {
+            VoteImg.image = UIImage(named: "votedout_cemetery")
+            MainLbl.textColor = UIColor.lightGrayColor()
+            scoreLbl.textColor = UIColor.lightGrayColor()
+        }
     }
 
 }
