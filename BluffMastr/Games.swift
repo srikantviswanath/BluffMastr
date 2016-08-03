@@ -105,6 +105,10 @@ class Games {
         })
     }
     
+    func removeObserverForListenToGameChanges() {
+        Games.REF_GAMES_BASE.child(Games.gameUID).removeAllObservers()
+    }
+    
     ///This method will be useful when .Value observance is required, i.e. snapshots at different sample times
     func fetchGameSnapshot(completed: GenericCompletionBlock) {
         Games.REF_GAMES_BASE.child(Games.gameUID).observeSingleEventOfType(.Value, withBlock: { gameSS in

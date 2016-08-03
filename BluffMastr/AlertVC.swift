@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AlertVCDelegate {
+    func didPressOK(sender: UIButton)
+}
+
 class AlertVC: UIViewController {
     
     @IBOutlet weak var AlertTitle: UILabel!
@@ -17,14 +21,25 @@ class AlertVC: UIViewController {
     @IBOutlet weak var AlertBox: UIView!
     
     var parentBlurView: UIVisualEffectView!
+    var delegate: AlertVCDelegate?
+    var senderGlobal: UIButton! // To pass the button via delegate to StagingVC
     
     @IBAction func ActionBtnPressed(sender: UIButton) {
+        senderGlobal = sender
         self.dismissViewControllerAnimated(true, completion: nil)
         parentBlurView.removeFromSuperview()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // Delegate should only be called after the user pressed the OK button
+        // and the View is dismissed.
+        delegate?.didPressOK(senderGlobal)
     }
     
 }

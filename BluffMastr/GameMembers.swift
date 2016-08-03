@@ -73,4 +73,8 @@ class GameMembers {
             }
         })
     }
+    
+    func removeObserverForGameRoom() {
+        FDataService.fDataService.REF_GAME_MEMBERS.removeAllObservers()
+    }
 }

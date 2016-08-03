@@ -29,7 +29,7 @@ class AlertHandler: UIViewController {
     
     static var alert = AlertHandler()
     
-    func showAlertMsg(title: String, msg: String, actionBtnTitle: String = "OK") {
+    func showAlertMsg(title: String, msg: String, actionBtnTitle: String = "OK") -> AlertVC {
         let parentVC = UIApplication.topViewController()!
         
         let blurEffect = UIBlurEffect(style: .Dark)
@@ -49,8 +49,9 @@ class AlertHandler: UIViewController {
         
         parentVC.view.addSubview(blurEffectView)
         parentVC.presentViewController(alertVC, animated: true, completion: nil)
+        return alertVC // To set the delegate wheverever necessary.
     }
-    
+        
     func showActionSheet(sheetTitle: String, destructiveTitle: String,  cancelTitle: String, destructiveHandler: ()->()) {
         let actionSheet = UIAlertController(title: sheetTitle, message: nil, preferredStyle: .ActionSheet)
         let destructiveAction = UIAlertAction(title: destructiveTitle, style: .Destructive, handler: {

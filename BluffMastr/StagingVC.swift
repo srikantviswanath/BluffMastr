@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, AlertVCDelegate {
     
     @IBOutlet weak var barTitle: UILabel!
     @IBOutlet weak var joinerStaticLbl: UILabel!
@@ -23,24 +23,24 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var playersTable: UITableView!
     
-    static var stagingVC = StagingVC()
-    
-    var isGameCreator: Bool!
+    var isGameCreator: Bool = Bool()
     var arrayOfCodes: [String] = ["", "", "", ""]
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
         playersTable.delegate = self
         playersTable.dataSource = self
         codeEnteredTxtFirst.delegate = self
         codeEnteredTxtSecond.delegate = self
         codeEnteredTxtThird.delegate = self
         codeEnteredTxtFourth.delegate = self
-        
         switchLblsAfterViewLoad()
-        
-        if isGameCreator! {
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.hideKeyboardWhenTappedAround()
+        if isGameCreator {
             GameMembers.gameMembers.observeMemberAddedOrRemoved {
                 self.playersTable.reloadData()
                 self.switchDataDependentLbls()
@@ -48,11 +48,18 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        GameMembers.gameMembers.removeGameMemberListeners()
+        Games.games.removeObserverForListenToGameChanges()
+        GameMembers.gameMembers.removeObserverForGameRoom()
+    }
+    
     /* =======View changing funcs after create/join game and depending on #players======== */
     
     func switchLblsAfterViewLoad(){
         barTitle.text = Users.myScreenName
-        if isGameCreator! {
+        if isGameCreator {
             joinerStaticLbl.hidden = true
             codeEnteredTxtFirst.hidden = true
             codeEnteredTxtSecond.hidden = true
@@ -68,7 +75,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
 
     func switchDataDependentLbls(){
-        if (isGameCreator!) {
+        if (isGameCreator) {
             if GameMembers.playersInGameRoom.count < 3 {
                 self.statusLbl.text = STATUS_NEED_MORE_PLAYERS
                 self.createdGameCode.text = Games.sharedToken
@@ -113,9 +120,9 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                     self.changeViewAfterJoin()
                 }
                 GameMembers.gameMembers.gameRoomIsRemoved {
-                    // TODO: Show Alert that the GameCreator left before starting the game. In this case, all players have to 
-                    // leave the game room.
-                    self.leaveGame(nil)
+                    //self.leaveGame(nil) this is now taken care by the delegate.
+                    let alertVC = AlertHandler.alert.showAlertMsg("Host Exited", msg: "Host has left the game, now quiting...")
+                    alertVC.delegate = self
                 }
                 Games.games.listenToGameChanges(SVC_GAME_BLUFFMASTER) { // Game starts as soon as bluffMastr is set for the game
                     self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
@@ -142,22 +149,25 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
     }
     
-    func teardownBeforeStartingGame() {
+    func exitGame() {
         Users.users.deleteAnonymousUser()
-        if (isGameCreator!) {
+        if (isGameCreator) {
             Games.games.deleteGame()
             GameMembers.gameMembers.deleteRoom()
-            GameMembers.gameMembers.removeGameMemberListeners()
         } else if joinBtn.hidden { // if this button is hidden, then the user already joined the game.
             GameMembers.gameMembers.removePlayerFromRoom(Users.myScreenName)
-            GameMembers.gameMembers.removeGameMemberListeners()
         }
     }
     
     @IBAction func leaveGame(sender: UIButton!){
-        AlertHandler.alert.showActionSheet(ALERT_LEAVE_GAME_TITLE, destructiveTitle: "Yes", cancelTitle: "No") {
-            self.teardownBeforeStartingGame()
+        if (sender.currentTitle! == "OK") {
+            self.exitGame()
             self.performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
+        } else {
+            AlertHandler.alert.showActionSheet(ALERT_LEAVE_GAME_TITLE, destructiveTitle: "Yes", cancelTitle: "No") {
+                self.exitGame()
+                self.performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
+            }
         }
     }
     
@@ -228,16 +238,11 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     func setNextResponder(nextResponder: UITextField) {
         nextResponder.becomeFirstResponder()
     }
-}
-
-// https://github.com/goktugyil/EZSwiftExtensions#uiviewcontroller-extensions
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
     
-    func dismissKeyboard() {
-        view.endEditing(true)
+    // The delegate function is called after the user presses the "OK" button from the AlertVC. 
+    // Since Alert is a VC, StagingVC should have a way to know when user clicked on the button in AlertVC.
+    // This is achieved via Protocols.
+    func didPressOK(sender: UIButton) {
+        self.leaveGame(sender)
     }
 }
