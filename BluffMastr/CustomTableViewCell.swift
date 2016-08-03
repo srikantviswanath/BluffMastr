@@ -28,6 +28,7 @@ class CustomTableViewCell: UITableViewCell {
             VoteImg.image = UIImage(named: "votedout_cemetery")
             MainLbl.textColor = UIColor.lightGrayColor()
             scoreLbl.textColor = UIColor.lightGrayColor()
+            self.userInteractionEnabled = false
         }
     }
 

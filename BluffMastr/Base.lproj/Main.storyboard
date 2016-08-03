@@ -668,16 +668,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UEB-pb-KRo">
                                         <rect key="frame" x="8" y="22" width="544" height="139"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pPq-Mf-7Wq">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pPq-Mf-7Wq">
                                                 <rect key="frame" x="0.0" y="0.0" width="544" height="66"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enter the Game Code below:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppM-1j-WwX">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the Game Code below:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppM-1j-WwX">
                                                         <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-C8-Sji">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-C8-Sji">
                                                         <rect key="frame" x="0.0" y="36" width="544" height="30"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7c-F1-fps" userLabel="FirstTokenField" customClass="MaterialTextField" customModule="Bluffathon" customModuleProvider="target">
@@ -708,7 +708,7 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-sm-xLh">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-sm-xLh">
                                                 <rect key="frame" x="0.0" y="66" width="544" height="73"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share the following code with others:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-h0-osX">
@@ -1074,7 +1074,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="544" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lL0-5f-qKF" id="bse-kC-BbH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="544" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="544" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-FW-WaQ">
@@ -1755,6 +1755,62 @@
             </objects>
             <point key="canvasLocation" x="5565" y="372"/>
         </scene>
+        <!--GraveyardVC-->
+        <scene sceneID="BqM-AN-Xe8">
+            <objects>
+                <viewController id="6ck-SG-VSr" customClass="GraveyardVC" customModule="Bluffathon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c6M-FO-leZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="4fe-5A-z3P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nBO-yh-TNG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graveyard_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6em-Xc-11s">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hang Tight for Bonuses. You could still Win!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="mm7-vP-Mbc">
+                                <rect key="frame" x="20" y="20" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bB4-5n-oZ2">
+                                <rect key="frame" x="20" y="71" width="560" height="479"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="54" id="e0l-8y-hDC">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e0l-8y-hDC" id="fan-nU-RuU">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6em-Xc-11s" firstAttribute="top" secondItem="nBO-yh-TNG" secondAttribute="top" id="3mU-Ob-9ao"/>
+                            <constraint firstItem="bB4-5n-oZ2" firstAttribute="trailing" secondItem="nBO-yh-TNG" secondAttribute="trailingMargin" id="6Vt-vx-dUK"/>
+                            <constraint firstItem="4fe-5A-z3P" firstAttribute="top" secondItem="6em-Xc-11s" secondAttribute="bottom" id="9eT-B1-ClE"/>
+                            <constraint firstAttribute="trailing" secondItem="mm7-vP-Mbc" secondAttribute="trailing" constant="20" id="FZ5-n2-1tQ"/>
+                            <constraint firstItem="bB4-5n-oZ2" firstAttribute="leading" secondItem="nBO-yh-TNG" secondAttribute="leadingMargin" id="GVX-rR-GgL"/>
+                            <constraint firstItem="mm7-vP-Mbc" firstAttribute="top" secondItem="c6M-FO-leZ" secondAttribute="bottom" id="L6U-Gi-CV7"/>
+                            <constraint firstItem="bB4-5n-oZ2" firstAttribute="top" secondItem="mm7-vP-Mbc" secondAttribute="bottom" constant="30" id="bOB-nD-MlN"/>
+                            <constraint firstItem="6em-Xc-11s" firstAttribute="leading" secondItem="nBO-yh-TNG" secondAttribute="leading" id="f8Z-4A-SMA"/>
+                            <constraint firstItem="4fe-5A-z3P" firstAttribute="top" secondItem="bB4-5n-oZ2" secondAttribute="bottom" constant="50" id="kwT-rT-8TG"/>
+                            <constraint firstItem="mm7-vP-Mbc" firstAttribute="leading" secondItem="nBO-yh-TNG" secondAttribute="leading" constant="20" id="n8c-va-03R"/>
+                            <constraint firstAttribute="trailing" secondItem="6em-Xc-11s" secondAttribute="trailing" id="q50-Ca-az2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SxU-bR-fT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6348" y="372"/>
+        </scene>
         <!--VerdictVC-->
         <scene sceneID="6DO-Un-LxG">
             <objects>
@@ -2095,7 +2151,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="520" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xVI-eA-O6U" id="NX7-CN-8NC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="520" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="520" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyA-B3-r0P">
@@ -2494,6 +2550,7 @@
         <image name="conclusion_help" width="216" height="215"/>
         <image name="discuss" width="203" height="203"/>
         <image name="empty_vote" width="207" height="206"/>
+        <image name="graveyard_bg" width="640" height="427"/>
         <image name="help_info" width="200" height="200"/>
         <image name="leave_game" width="242" height="207"/>
         <image name="overviewHelp" width="203" height="245"/>

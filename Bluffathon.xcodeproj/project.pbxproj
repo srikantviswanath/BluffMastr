@@ -31,6 +31,7 @@
 		CB89CFB51CDF9FFC000D3A7B /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89CFB41CDF9FFB000D3A7B /* QuestionVC.swift */; };
 		CB89CFB71CE2C173000D3A7B /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89CFB61CE2C173000D3A7B /* Questions.swift */; };
 		CB8C3A0D1CD9911D0082215D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8C3A0C1CD9911D0082215D /* CustomTableViewCell.swift */; };
+		CB98B7481D516E6F00FF7076 /* GraveyardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98B7471D516E6F00FF7076 /* GraveyardVC.swift */; };
 		CBAD61FD1D3DE32B004D9D1A /* penalty.wav in Resources */ = {isa = PBXBuildFile; fileRef = CBAD61FC1D3DE32B004D9D1A /* penalty.wav */; };
 		CBAD61FF1D3DE4A8004D9D1A /* bonus.wav in Resources */ = {isa = PBXBuildFile; fileRef = CBAD61FE1D3DE4A8004D9D1A /* bonus.wav */; };
 		CBB98B1E1D0A66AD00089FE8 /* AudioUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB98B1D1D0A66AD00089FE8 /* AudioUtil.swift */; };
@@ -107,6 +108,7 @@
 		CB89CFB41CDF9FFB000D3A7B /* QuestionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
 		CB89CFB61CE2C173000D3A7B /* Questions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		CB8C3A0C1CD9911D0082215D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		CB98B7471D516E6F00FF7076 /* GraveyardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraveyardVC.swift; sourceTree = "<group>"; };
 		CBAD61FC1D3DE32B004D9D1A /* penalty.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = penalty.wav; sourceTree = "<group>"; };
 		CBAD61FE1D3DE4A8004D9D1A /* bonus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bonus.wav; sourceTree = "<group>"; };
 		CBB98B1D1D0A66AD00089FE8 /* AudioUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioUtil.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		CB7CEFC21CD6DBA800356DFB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CB98B7461D516D6500FF7076 /* ModalVCs */,
 				CBD4B6941D24AA6C00E7A674 /* HelpVCs */,
 				CBDA41081CD5BFD200103F2A /* LandingVC.swift */,
 				CB7CEFD11CD7055000356DFB /* StagingVC.swift */,
@@ -219,9 +222,8 @@
 				CBC6FDE31CE96844006CB1C0 /* ScoreVC.swift */,
 				CBCFD3281CEBE82F00C4AD7B /* LeaderboardVC.swift */,
 				CBD8801F1CF55B17005C2C10 /* VoteResultVC.swift */,
-				CBD4B6951D24DB0700E7A674 /* AlertVC.swift */,
-				CB03724F1D371CCB00E3550D /* WelcomeVC.swift */,
 				CB7B0BEB1D3868B400F44727 /* VerdictVC.swift */,
+				CB98B7471D516E6F00FF7076 /* GraveyardVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -250,6 +252,15 @@
 				CBCFD3201CEAA3EF00C4AD7B /* Scores.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		CB98B7461D516D6500FF7076 /* ModalVCs */ = {
+			isa = PBXGroup;
+			children = (
+				CBD4B6951D24DB0700E7A674 /* AlertVC.swift */,
+				CB03724F1D371CCB00E3550D /* WelcomeVC.swift */,
+			);
+			name = ModalVCs;
 			sourceTree = "<group>";
 		};
 		CBB98B1F1D0A6BF700089FE8 /* Resources */ = {
@@ -648,6 +659,7 @@
 				CBDA41071CD5BFD200103F2A /* AppDelegate.swift in Sources */,
 				CB8C3A0D1CD9911D0082215D /* CustomTableViewCell.swift in Sources */,
 				CBF846041D1B606100F457E7 /* AnimationEngine.swift in Sources */,
+				CB98B7481D516E6F00FF7076 /* GraveyardVC.swift in Sources */,
 				CBDA410F1CD5BFD200103F2A /* BluffMastr.xcdatamodeld in Sources */,
 				CB89CFB31CDD7451000D3A7B /* Users.swift in Sources */,
 				CBB98B1E1D0A66AD00089FE8 /* AudioUtil.swift in Sources */,
