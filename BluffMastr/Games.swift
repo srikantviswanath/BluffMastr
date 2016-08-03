@@ -28,6 +28,7 @@ class Games {
     static var votesCastedForThisRound = Dictionary<String, String>()
     ///To hold the players who are ready to begin the next round
     static var playersReadyForNextRound = [String]()
+    static var listenGameFBHandle: UInt?
     static var games = Games()
     static var REF_GAMES_BASE = FDataService.fDataService.REF_GAMES
     
@@ -88,8 +89,12 @@ class Games {
         })
     }
     
+    func invalidateTokenUponGameStart(sharedToken: String) {
+        Games.REF_GAMES_BASE.child(Games.gameUID).child("sharedToken").removeValue()
+    }
+    
     func listenToGameChanges(attribute: String, completed: GenericCompletionBlock) {
-        Games.REF_GAMES_BASE.child(Games.gameUID).observeEventType(.ChildChanged, withBlock: { snapshot in
+        Games.listenGameFBHandle = Games.REF_GAMES_BASE.child(Games.gameUID).observeEventType(.ChildChanged, withBlock: { snapshot in
             switch attribute {
             case SVC_GAME_BLUFFMASTER:
                 if snapshot.key == attribute {Games.bluffMastr = snapshot.value as? String}
@@ -106,7 +111,9 @@ class Games {
     }
     
     func removeObserverForListenToGameChanges() {
-        Games.REF_GAMES_BASE.child(Games.gameUID).removeAllObservers()
+        if let handle = Games.listenGameFBHandle {
+            Games.REF_GAMES_BASE.child(Games.gameUID).removeObserverWithHandle(handle)
+        }
     }
     
     ///This method will be useful when .Value observance is required, i.e. snapshots at different sample times

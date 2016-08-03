@@ -25,7 +25,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     var isGameCreator: Bool = Bool()
     var arrayOfCodes: [String] = ["", "", "", ""]
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         playersTable.delegate = self
@@ -145,6 +145,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
         Games.games.updateGameInfo(SVC_GAME_DICT, person: "", gameDict: randomizeNextRoundData()) {
             Scores.scores.resetLeaderboard()
+            Games.games.invalidateTokenUponGameStart(Games.sharedToken) // [EXPERIMENTAL]:
             self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
         }
     }
