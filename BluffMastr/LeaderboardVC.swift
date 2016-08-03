@@ -17,7 +17,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var VoteoutBtn: UIButton!
     @IBOutlet weak var VCTitle: UILabel!
     
-    
+    var prevMarkedCell: CustomTableViewCell = CustomTableViewCell()
     var readyToshowCurrentRoundScores: Bool?
     var markedCellIndexPath: NSIndexPath?
     var voteoutModeEnabled: Bool = false
@@ -161,15 +161,14 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if voteoutModeEnabled {
             if markedCellIndexPath != nil { //uncheck the previsouly selected cell
-                if let prevMarkedCell = leaderboardTableView.cellForRowAtIndexPath(markedCellIndexPath!) as? CustomTableViewCell {
-                    prevMarkedCell.VoteImg.image = UIImage(named: "empty_vote")
-                    prevMarkedCell.alpha = 1.0
-                }
+                prevMarkedCell.VoteImg.image = UIImage(named: "empty_vote")
+                prevMarkedCell.alpha = 1.0
             }
             if let selectedCell = leaderboardTableView.cellForRowAtIndexPath(indexPath) as? CustomTableViewCell {
                 selectedCell.alpha = 0.8
                 selectedCell.VoteImg.image = UIImage(named: "voteout")
                 markedCellIndexPath = indexPath
+                prevMarkedCell = selectedCell
                 let bgColorView = UIView()
                 bgColorView.backgroundColor = UIColor.clearColor()
                 selectedCell.selectedBackgroundView = bgColorView
