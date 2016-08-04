@@ -56,8 +56,18 @@ class Scores {
         FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).removeAllObservers()
     }
     
-    func fetchLeaderboard(completed: GenericCompletionBlock) {
+    func fetchLeaderboardOnce(completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).queryOrderedByValue().observeSingleEventOfType(.Value, withBlock: { leaderboardSS in
+            for child in (leaderboardSS.children.allObjects as? [FIRDataSnapshot])!.reverse() {
+                Games.leaderboard.append([child.key: (child.value as? Int)!])
+            }
+            completed()
+        })
+    }
+    
+    func listenToLeaderboardChanges(completed: GenericCompletionBlock) {
+        FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).queryOrderedByValue().observeEventType(.Value, withBlock: { leaderboardSS in
+            Games.leaderboard = [Dictionary<String, Int>]()
             for child in (leaderboardSS.children.allObjects as? [FIRDataSnapshot])!.reverse() {
                 Games.leaderboard.append([child.key: (child.value as? Int)!])
             }

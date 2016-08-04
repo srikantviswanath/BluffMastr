@@ -33,7 +33,9 @@ class FDataService {
     private var _REF_LEADERBOARDS = ref.child("leaderboards")
     private var _REF_VOTES = ref.child("votes")
     private var _REF_READY_NEXT = ref.child("readyForNext")
+    private var _REF_GHOST_PLAYERS = ref.child("ghostPlayers")
     private var _REF_FINAL_SCORES = ref.child("finalScores")
+    
     
     var REF_BASE: FIRDatabaseReference {
         return _REF_BASE
@@ -73,6 +75,10 @@ class FDataService {
     
     var REF_READY_NEXT: FIRDatabaseReference {
         return _REF_READY_NEXT
+    }
+    
+    var REF_GHOST_PLAYERS: FIRDatabaseReference {
+        return _REF_GHOST_PLAYERS
     }
     
     var REF_FINAL_SCORES: FIRDatabaseReference {

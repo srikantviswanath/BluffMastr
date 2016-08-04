@@ -32,8 +32,8 @@ class VoteResultVC: UIViewController {
             Games.votesCastedForThisRound = Dictionary<String, String>()
             Votes.votes.resetPlayerVote()
             self.performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
-        case BTN_HOME:
-            self.performSegueWithIdentifier(SEGUE_VOTEDOUT_HOME, sender: nil)
+        case BTN_GRAVEYARD:
+            self.performSegueWithIdentifier(SEGUE_GO_TO_GRAVEYARD, sender: nil)
         case BTN_NEXT_ROUND:
             readyForNextRound(){
                 listenForNextRoundReadiness {
@@ -72,6 +72,7 @@ class VoteResultVC: UIViewController {
                     Users.myBonusHistory.append(evaluateBonusOrPenaltyPerRound())
                     self.displayAndRemoveVotedoutPlayer(votedoutPlayer)
                     GameMembers.votedoutPlayers.append(votedoutPlayer)
+                    FDataService.fDataService.REF_GHOST_PLAYERS.child(Games.gameUID).updateChildValues([votedoutPlayer: true])
                 } else { //if its a tie, go for a revote
                     self.nextBtn.setTitle(BTN_VOTE_AGAIN, forState: .Normal)
                     self.ResultStatusLbl.text = STATUS_TIE
@@ -88,7 +89,7 @@ class VoteResultVC: UIViewController {
             playAudio(AUDIO_GAME_OVER)
             VotedoutPlayerLbl.text = STATUS_YOU_ARE_OUT
             ResultStatusLbl.hidden = true
-            nextBtn.setTitle(BTN_HOME, forState: .Normal)
+            nextBtn.setTitle(BTN_GRAVEYARD, forState: .Normal)
             teardownAfterStartingGame()
         } else {
             VotedoutPlayerLbl.text = votedoutPlayer
@@ -119,12 +120,15 @@ class VoteResultVC: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == SEGUE_REVOTE) {
+        switch segue.identifier! {
+        case SEGUE_REVOTE:
             let destVC = segue.destinationViewController as! LeaderboardVC
             destVC.readyToshowCurrentRoundScores = true
             destVC.revoteModeEnabled = true
             destVC.animatingLeaderboard = Games.leaderboard
-        } else if (segue.identifier == SEGUE_VOTEDOUT_HOME) {
+        case SEGUE_GO_TO_GRAVEYARD:
+            GameMembers.votedoutPlayers = [String]()
+        default:
             resetStaticVariablesForNewGame()
         }
     }

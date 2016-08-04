@@ -435,6 +435,7 @@
 				TargetAttributes = {
 					CBDA41021CD5BFD200103F2A = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 8WUCP656VM;
 					};
 					CBDA41191CD5BFD200103F2A = {
 						CreatedOnToolsVersion = 7.3;
@@ -773,7 +774,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bbe12539-b7fb-40f3-83f5-a5b41de17c9e";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -906,7 +907,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bbe12539-b7fb-40f3-83f5-a5b41de17c9e";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -926,7 +927,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bbe12539-b7fb-40f3-83f5-a5b41de17c9e";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "";
 			};

@@ -64,6 +64,12 @@ class GameMembers {
         FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).removeAllObservers()
     }
     
+    func observeGhostPlayersAdded() {
+        FDataService.fDataService.REF_GHOST_PLAYERS.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { ghostPlayerSS in
+            GameMembers.votedoutPlayers.append(ghostPlayerSS.key)
+        })
+    }
+    
     /**************** END GAME ROOM MEMBER LISTENER ****************/
     
     func gameRoomIsRemoved(completed: GenericCompletionBlock) {

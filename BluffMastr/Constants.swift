@@ -39,6 +39,7 @@ let BTN_NEXT_ROUND = "Ready >"
 let BTN_HOME = "Home"
 let BTN_DECLARE_VERDICT = "Verdict >"
 let BTN_SUBMIT = "SUBMIT"
+let BTN_GRAVEYARD = "Graveyard >"
 
 /* Audio files*/
 let AUDIO_BLUFFMASTR_VOTEDOUT = "bluffmastr_voted_out"
@@ -66,6 +67,7 @@ let SEGUE_VOTEDOUT_HOME = "VotedResultToLanding"
 let SEGUE_START_NEXT_ROUND = "StartNextRound"
 let SEGUE_DECLARE_VERDICT = "DeclareVerdict"
 let SEGUE_NEW_GAME_FROM_VERDICTVC = "StartNewGame"
+let SEGUE_GO_TO_GRAVEYARD = "GoToGraveyard"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 let THIS_ROUND_CELL = "ThisRoundCell"

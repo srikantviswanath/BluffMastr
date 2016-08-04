@@ -78,7 +78,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             if Games.playersSubmissions.count == GameMembers.playersInGameRoom.count {
                 Scores.scores.stopListeningForPlayerScores()
                 self.readyToshowCurrentRoundScores = true
-                Scores.scores.fetchLeaderboard {
+                Scores.scores.fetchLeaderboardOnce {
                     self.revSortedleaderboard = Games.leaderboard.reverse()
                     self.leaderBoardTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(LeaderboardVC.startAnimatingLeaderboard), userInfo: nil, repeats: true)
                 }
