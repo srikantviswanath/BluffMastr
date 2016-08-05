@@ -50,9 +50,9 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        GameMembers.gameMembers.removeGameMemberListeners()
-        Games.games.removeObserverForListenToGameChanges()
-        GameMembers.gameMembers.removeObserverForGameRoom()
+        //GameMembers.gameMembers.removeGameMemberListeners()
+        //Games.games.removeObserverForListenToGameChanges()
+        //GameMembers.gameMembers.removeObserverForGameRoom()
     }
     
     /* =======View changing funcs after create/join game and depending on #players======== */
@@ -107,7 +107,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         arrayOfCodes[3] = ""
     }
 
-    /*==========================IBActions==============================*/
+    //MARK:- IBActions
     
     /*validate the entered code and enter this player in the game room*/
     @IBAction func joinGame(sender: UIButton!){
@@ -172,7 +172,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
     }
     
-    /* ==================UITableView delegate methods ============= */
+    //MARK:- UITableView delegate methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

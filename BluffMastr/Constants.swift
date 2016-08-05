@@ -101,6 +101,7 @@ let ALERT_START_NEW_GAME = "Start a New Game?"
 /* Statuses */
 
 let BUSY_CREATING_GAME = "Creating Game..."
+let BUSY_SAVING_SCORE = "Saving Score..."
 let BUSY_DECIDING_WINNER = "Deciding Winner..."
 
 let STATUS_ENTER_SCREENNAME = "Don a Screen Name"

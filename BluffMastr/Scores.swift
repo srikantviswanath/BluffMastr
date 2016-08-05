@@ -30,10 +30,12 @@ class Scores {
         completed()
     }
     
-    func accumulatePlayerScore(currentRoundScore: Int) {
+    func accumulatePlayerScore(currentRoundScore: Int, completed: GenericCompletionBlock) {
         Scores.myLeaderboardRef.observeSingleEventOfType(.Value, withBlock: {playerTotalSS in
             if let scoreTillNow = playerTotalSS.value as? Int! {
-                Scores.myLeaderboardRef.setValue(scoreTillNow + currentRoundScore)
+                Scores.myLeaderboardRef.setValue(scoreTillNow + currentRoundScore, withCompletionBlock: {_,_ in
+                    completed()
+                })
             }
         })
     }

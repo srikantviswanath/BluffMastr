@@ -17,14 +17,20 @@ class ScoreVC: UIViewController {
     @IBOutlet weak var scoreDescription: UILabel!
     
     var playerScore: Int!
+    var updateLeaderboard = false
+    var busyModalFrame = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scoreAnimEngine = AnimationEngine(constraints: [ScoreLblCenterXConstr])
         self.scoreLbl.text = "\(playerScore)"
         self.scoreDescription.text = "\(getScorePhrase(playerScore)) You scored:"
+        busyModalFrame = showBusyModal(BUSY_SAVING_SCORE)
         Scores.scores.uploadPlayerScore(playerScore) {
-            Scores.scores.accumulatePlayerScore(self.playerScore)
+            Scores.scores.accumulatePlayerScore(self.playerScore) {
+                self.updateLeaderboard = true
+                self.busyModalFrame.removeFromSuperview()
+            }
         }
     }
     
@@ -34,6 +40,10 @@ class ScoreVC: UIViewController {
     }
 
     @IBAction func ShowLeaderboard(sender: UIButton!) {
-        performSegueWithIdentifier(SEGUE_SHOW_LEADERBOARD, sender: nil)
+        if updateLeaderboard {
+            performSegueWithIdentifier(SEGUE_SHOW_LEADERBOARD, sender: nil)
+        } else {
+            AlertHandler.alert.showAlertMsg("Saving..", msg: "Trying to save to server")
+        }
     }
 }

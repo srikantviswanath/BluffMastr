@@ -18,8 +18,11 @@ class GraveyardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
         GraveyardLeaderboard.delegate = self
         GraveyardLeaderboard.dataSource = self
-        GameMembers.gameMembers.observeGhostPlayersAdded()
+        GameMembers.gameMembers.observeGhostPlayersAdded {
+            playAudio("spooky_gong")
+        }
         Scores.scores.listenToLeaderboardChanges {
+            playAudio("spooky_breath")
             self.GraveyardLeaderboard.reloadData()
         }
     }
