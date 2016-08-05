@@ -11,8 +11,8 @@ import AVFoundation
 
 var audioPlayer: AVAudioPlayer!
 
-func playAudio(audioFile: String) {
-    let path = NSBundle.mainBundle().pathForResource(audioFile, ofType: "wav")
+func playAudio(audioFile: String, fileType: String="wav") {
+    let path = NSBundle.mainBundle().pathForResource(audioFile, ofType: fileType)
     do {
         audioPlayer = try AVAudioPlayer(contentsOfURL: NSURL(string: path!)!)
         audioPlayer.prepareToPlay()

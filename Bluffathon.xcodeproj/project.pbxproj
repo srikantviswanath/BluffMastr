@@ -34,6 +34,7 @@
 		CB98B7481D516E6F00FF7076 /* GraveyardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98B7471D516E6F00FF7076 /* GraveyardVC.swift */; };
 		CBAD61FD1D3DE32B004D9D1A /* penalty.wav in Resources */ = {isa = PBXBuildFile; fileRef = CBAD61FC1D3DE32B004D9D1A /* penalty.wav */; };
 		CBAD61FF1D3DE4A8004D9D1A /* bonus.wav in Resources */ = {isa = PBXBuildFile; fileRef = CBAD61FE1D3DE4A8004D9D1A /* bonus.wav */; };
+		CBB70EC51D5450E6002342DC /* female_scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CBB70EC41D5450E6002342DC /* female_scream.mp3 */; };
 		CBB98B1E1D0A66AD00089FE8 /* AudioUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB98B1D1D0A66AD00089FE8 /* AudioUtil.swift */; };
 		CBB98B211D0A6C0B00089FE8 /* game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = CBB98B201D0A6C0B00089FE8 /* game_over.wav */; };
 		CBB98B231D0A6C1500089FE8 /* wrong_vote_out.wav in Resources */ = {isa = PBXBuildFile; fileRef = CBB98B221D0A6C1500089FE8 /* wrong_vote_out.wav */; };
@@ -113,6 +114,7 @@
 		CB98B7471D516E6F00FF7076 /* GraveyardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraveyardVC.swift; sourceTree = "<group>"; };
 		CBAD61FC1D3DE32B004D9D1A /* penalty.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = penalty.wav; sourceTree = "<group>"; };
 		CBAD61FE1D3DE4A8004D9D1A /* bonus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bonus.wav; sourceTree = "<group>"; };
+		CBB70EC41D5450E6002342DC /* female_scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = female_scream.mp3; sourceTree = "<group>"; };
 		CBB98B1D1D0A66AD00089FE8 /* AudioUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioUtil.swift; sourceTree = "<group>"; };
 		CBB98B201D0A6C0B00089FE8 /* game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = game_over.wav; sourceTree = "<group>"; };
 		CBB98B221D0A6C1500089FE8 /* wrong_vote_out.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong_vote_out.wav; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				CBF846051D1B947200F457E7 /* score_swoosh.wav */,
 				CBAD61FE1D3DE4A8004D9D1A /* bonus.wav */,
 				CBD5ED501D52FA7400B2257E /* spooky_breath.wav */,
+				CBB70EC41D5450E6002342DC /* female_scream.mp3 */,
 				CBAD61FC1D3DE32B004D9D1A /* penalty.wav */,
 				CBB98B241D0A6C1E00089FE8 /* bluffmastr_voted_out.wav */,
 				CBB98B221D0A6C1500089FE8 /* wrong_vote_out.wav */,
@@ -486,6 +489,7 @@
 				CBDA410C1CD5BFD200103F2A /* Main.storyboard in Resources */,
 				CBD5ED511D52FA7400B2257E /* spooky_breath.wav in Resources */,
 				CBB98B251D0A6C1E00089FE8 /* bluffmastr_voted_out.wav in Resources */,
+				CBB70EC51D5450E6002342DC /* female_scream.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

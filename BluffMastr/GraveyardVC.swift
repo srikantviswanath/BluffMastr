@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class GraveyardVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -19,11 +20,17 @@ class GraveyardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         GraveyardLeaderboard.delegate = self
         GraveyardLeaderboard.dataSource = self
         GameMembers.gameMembers.observeGhostPlayersAdded {
-            playAudio("spooky_gong")
+            dispatch_async(dispatch_get_main_queue(), {
+                playAudio("female_scream", fileType: "mp3")
+                self.GraveyardLeaderboard.reloadData()
+            })
         }
+        
         Scores.scores.listenToLeaderboardChanges {
-            playAudio("spooky_breath")
-            self.GraveyardLeaderboard.reloadData()
+            dispatch_async(dispatch_get_main_queue(), { 
+                playAudio("spooky_breath")
+                self.GraveyardLeaderboard.reloadData()
+            })
         }
     }
     
@@ -35,10 +42,7 @@ class GraveyardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         if let cell = GraveyardLeaderboard.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
             let playerName = Array(Games.leaderboard[indexPath.row].keys)[0]
             let playerScore = Array(Games.leaderboard[indexPath.row].values)[0]
-            cell.configureCell(playerName, score: "\(playerScore)")
-            if GameMembers.votedoutPlayers.contains(playerName){
-                cell.VoteImg.image = UIImage(named: "ghost")
-            }
+            cell.configureGraveyardCell(playerName, score: "\(playerScore)")
             return cell
         } else {
             return CustomTableViewCell()

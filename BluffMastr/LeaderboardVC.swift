@@ -145,7 +145,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             if let cell = leaderboardTableView.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
                 let playerName = Array(animatingLeaderboard[indexPath.row].keys)[0]
                 let playerScore = Array(animatingLeaderboard[indexPath.row].values)[0]
-                cell.configureCell(playerName, score: "\(playerScore)")
+                cell.configureLeaderboardCell(playerName, score: "\(playerScore)")
                 return cell
             } else {
                 return UITableViewCell()

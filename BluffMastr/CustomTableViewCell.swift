@@ -24,11 +24,22 @@ class CustomTableViewCell: UITableViewCell {
         if score != "" {
             scoreLbl.text = score
         }
-        if GameMembers.votedoutPlayers.contains(mainLbl) {
+    }
+    
+    func configureLeaderboardCell(playerName: String, score: String) {
+        configureCell(playerName, score: score)
+        if GameMembers.votedoutPlayers.contains(playerName) {
             VoteImg.image = UIImage(named: "votedout_cemetery")
             MainLbl.textColor = UIColor.lightGrayColor()
             scoreLbl.textColor = UIColor.lightGrayColor()
             self.userInteractionEnabled = false
+        }
+    }
+    
+    func configureGraveyardCell(playerName: String, score: String) {
+        configureCell(playerName, score: score)
+        if GameMembers.votedoutPlayers.contains(playerName){
+            VoteImg.image = UIImage(named: "ghost")
         }
     }
 
