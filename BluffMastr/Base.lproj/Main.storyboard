@@ -1782,7 +1782,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alive" translatesAutoresizingMaskIntoConstraints="NO" id="3Um-SF-UJl">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Um-SF-UJl">
                                                     <rect key="frame" x="8" y="10" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="8u6-Xc-Hh3"/>
@@ -2641,7 +2641,6 @@
     </scenes>
     <resources>
         <image name="alert_icon" width="200" height="200"/>
-        <image name="alive" width="203" height="185"/>
         <image name="answers_logo" width="200" height="199"/>
         <image name="close_icon" width="200" height="200"/>
         <image name="close_icon_black" width="512" height="512"/>

@@ -40,6 +40,8 @@ class CustomTableViewCell: UITableViewCell {
         configureCell(playerName, score: score)
         if GameMembers.votedoutPlayers.contains(playerName){
             VoteImg.image = UIImage(named: "ghost")
+        } else {
+            VoteImg.image = UIImage(named: "alive")
         }
     }
 
