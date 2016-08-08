@@ -24,6 +24,9 @@ class GraveyardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 playAudio("female_scream", fileType: "mp3")
                 self.GraveyardLeaderboard.reloadData()
             })
+            if (GameMembers.originalPlayersAtGameStart.count - GameMembers.votedoutPlayers.count <= 2) {
+                self.performSegueWithIdentifier(SEGUE_VERDICT_FOR_GHOST, sender: nil)
+            }
         }
         
         Scores.scores.listenToLeaderboardChanges {

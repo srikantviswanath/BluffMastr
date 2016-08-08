@@ -12,6 +12,7 @@ import Firebase
 class GameMembers {
     
     static var gameMembers = GameMembers()
+    static var originalPlayersAtGameStart = [String]()
     static var playersInGameRoom = [String]()
     static var votedoutPlayers = [String]()
     
@@ -42,14 +43,18 @@ class GameMembers {
     func observeNewMembersAdded(completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { snapshot in
             let screenName = snapshot.key
+            GameMembers.originalPlayersAtGameStart.append(screenName)
             GameMembers.playersInGameRoom.append(screenName)
           completed()
         })
     }
     
+    //TODO: Before game bigins, originalPplayersAtGame start should be reduced upon players leaving, however it should not be reduced upon voteouts
+    
     func observeMembersRemoved(completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).observeEventType(.ChildRemoved, withBlock: { snapshot in
             let screenName = snapshot.key
+            //GameMembers.originalPlayersAtGameStart = GameMembers.originalPlayersAtGameStart.filter { $0 != screenName}
             removePlayerFromRoomCache(screenName)
             completed()
         })

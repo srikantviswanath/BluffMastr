@@ -68,6 +68,7 @@ let SEGUE_START_NEXT_ROUND = "StartNextRound"
 let SEGUE_DECLARE_VERDICT = "DeclareVerdict"
 let SEGUE_NEW_GAME_FROM_VERDICTVC = "StartNewGame"
 let SEGUE_GO_TO_GRAVEYARD = "GoToGraveyard"
+let SEGUE_VERDICT_FOR_GHOST = "GiveVerdictForGhost"
 
 let CUSTOM_CELL = "CustomTableViewCell"
 let THIS_ROUND_CELL = "ThisRoundCell"

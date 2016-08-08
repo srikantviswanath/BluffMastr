@@ -1902,6 +1902,7 @@
                     </view>
                     <connections>
                         <outlet property="GraveyardLeaderboard" destination="bB4-5n-oZ2" id="pbO-Su-L1k"/>
+                        <segue destination="Y24-xV-wIv" kind="showDetail" identifier="GiveVerdictForGhost" id="2xY-4O-QaO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxU-bR-fT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2657,8 +2658,9 @@
         <image name="voteout_help" width="216" height="186"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vri-St-kcn"/>
+        <segue reference="2xY-4O-QaO"/>
         <segue reference="lhi-gu-Bwe"/>
+        <segue reference="vri-St-kcn"/>
         <segue reference="Wze-wC-5DY"/>
     </inferredMetricsTieBreakers>
 </document>

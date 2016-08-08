@@ -45,6 +45,7 @@ class VoteResultVC: UIViewController {
                         self.ResultStatusLbl.text = STATUS_WAITING_OTHERS_NXT_ROUND
                         self.VotedoutPlayerLbl.hidden = true
                         self.noOfVotes.hidden = true
+                        self.nextBtn.hidden = true
                         self.waitingSpinner.color = UIColor.whiteColor()
                         self.waitingSpinner.startAnimating()
                     }
