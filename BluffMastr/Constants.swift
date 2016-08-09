@@ -16,7 +16,7 @@ let BONUS_BLUFFMASTR_SURVIVAL = 5
 let BONUS_VOTED_AGAINST_BLUFFMASTR = 3
 let PENALTY_VOTED_AGAINST_INNOCENT_PLAYER = -5
 let BONUS_PENALTY_REASON = [
-    BONUS_BLUFFMASTR_SURVIVAL: "BluffMastr survival bonus", BONUS_VOTED_AGAINST_BLUFFMASTR: "Bonus for catching BluffMastr",
+    BONUS_BLUFFMASTR_SURVIVAL: "BluffMastr bonus", BONUS_VOTED_AGAINST_BLUFFMASTR: "Bonus for catching BluffMastr",
     PENALTY_VOTED_AGAINST_INNOCENT_PLAYER: "Penalty for not catching BluffMastr"
 ]
 let IS_TUTORIAL_SHOWN = "isTutorialShown"
@@ -93,7 +93,7 @@ let ERR_VOTE_FAILED_TITLE = "Vote Failed :("
 let ERR_VOTE_FAILED_MSG = "Could not cast your vote. Please check your network connection and try again"
 
 let ALERT_BEGIN_VOTING_TITLE = "Discuss and Vote"
-let ALERT_BEGIN_VOTING_MSG = "There's Penalty for voting against an innocent player. Discuss before casting vote"
+let ALERT_BEGIN_VOTING_MSG = "There's Penalty for voting against an innocent player"
 let ALERT_LEAVE_GAME_TITLE = "Are You Sure? :("
 let ALERT_LEAVE_GAME_TITLE2 = "Leave Game? :("
 let ALERT_START_NEW_GAME = "Start a New Game?"
@@ -110,8 +110,8 @@ let STATUS_CHANGE_SCREENNAME = "Change your Screen Name"
 let STATUS_WAITING_TO_START = "Waiting for Captain to start the game..."
 let STATUS_NEED_MORE_PLAYERS = "Waiting for more players to join..."
 let STATUS_START_GAME = "Begin the Bluff Marathon"
-let STATUS_INNOCENT_TITLE = "Your heart is pure"
-let STATUS_INNOCENT_MSG = "You are not the BluffMastr. But you are needed to catch the BluffMastr"
+let STATUS_INNOCENT_TITLE = "You're Innocent"
+let STATUS_INNOCENT_MSG = "You are needed to catch the BluffMastr"
 let STATUS_BLUFFMATR_TITLE = "You're the Bluffmastr"
 let STATUS_BLUFFMATR_MSG = "Answers are sorted according to score, low to high. Tread cautiously"
 let STATUS_SCORE_LESS_THAN_3 = "Not Bad."
