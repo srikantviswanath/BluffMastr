@@ -24,6 +24,8 @@ class Games {
     static var playersSubmissions = [Dictionary<String, Int>]()
     ///To hold players' total scores for the game
     static var leaderboard = [Dictionary<String, Int>]()
+    //To hold players' final scores after computing bonus/penalty
+    static var finalScores = [Dictionary<String,Int>]()
     ///To hold the voter and his/her vote for the current round
     static var votesCastedForThisRound = Dictionary<String, String>()
     ///To hold the players who are ready to begin the next round

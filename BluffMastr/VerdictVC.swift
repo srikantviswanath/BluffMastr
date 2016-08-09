@@ -72,23 +72,28 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func finalVerdictAnimation() {
-        StartNewGameBtn.hidden = false
-        let didIlose = Users.myOpponentFinalScore > Int(self.ScoreCounter.text!)
+        let gameWinner = Array(Games.finalScores[0].keys)[0]
+        let didIWin = gameWinner == Users.myScreenName
         UIView.animateWithDuration(1, animations: {
-            self.VerdictImg.image = UIImage(named: didIlose ? "runner_up_dislike" : "winner_cup")
+            self.VerdictImg.image = UIImage(named: didIWin ? "winner_cup" : "runner_up_dislike")
             self.VerdictImg.frame = CGRectMake(UIScreen.mainScreen().bounds.width/2-20, 60, 50, 50)
         }){ (true) in
-            self.VerdictView.backgroundColor = UIColor(netHex: didIlose ?  COLOR_THEME : 0x00BFA5)
-            self.VerdictLbl.text = didIlose ? "You Lose!" : "You Win!"
+            self.VerdictView.backgroundColor = UIColor(netHex: didIWin ?  0x00BFA5 : COLOR_THEME)
+            self.VerdictLbl.text = didIWin ? "You Win!" : "\(gameWinner) wins!"
             self.VerdictLbl.hidden = false
+            self.StartNewGameBtn.hidden = false
         }
     }
     
     func fetchOpponentScoreAndCompare() {
         busyModalFrame = showBusyModal(BUSY_DECIDING_WINNER)
-        Scores.scores.fetchFinalScoreOfOpponent() {
-            self.busyModalFrame.removeFromSuperview()
-            self.finalVerdictAnimation()
+        Scores.scores.listenForFinalScores() {
+            if Games.finalScores.count == Games.leaderboard.count {
+                Scores.scores.stopListeningForFinalScores()
+                self.busyModalFrame.removeFromSuperview()
+                self.finalVerdictAnimation()
+            }
+            
         }
     }
     

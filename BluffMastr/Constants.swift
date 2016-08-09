@@ -12,8 +12,8 @@ import UIKit
 /* Gameplay constants */
 let MIN_PLAYERS = 1
 var TOTAL_QUESTIONS_AT_FIREBASE = 0 /*this is no longer a constant. total questions will be modified in the firbase and should be updated in the App*/
-let BONUS_BLUFFMASTR_SURVIVAL = 15
-let BONUS_VOTED_AGAINST_BLUFFMASTR = 10
+let BONUS_BLUFFMASTR_SURVIVAL = 5
+let BONUS_VOTED_AGAINST_BLUFFMASTR = 3
 let PENALTY_VOTED_AGAINST_INNOCENT_PLAYER = -5
 let BONUS_PENALTY_REASON = [
     BONUS_BLUFFMASTR_SURVIVAL: "BluffMastr survival bonus", BONUS_VOTED_AGAINST_BLUFFMASTR: "Bonus for catching BluffMastr",

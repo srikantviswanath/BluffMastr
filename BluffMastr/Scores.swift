@@ -53,10 +53,28 @@ class Scores {
         })
     }
     
+    ///This function is used to observe for each player's submission of their final score to Firebase
+    func listenForFinalScores(completed: GenericCompletionBlock) {
+        FDataService.fDataService.REF_FINAL_SCORES.child(Games.gameUID).observeEventType(.ChildAdded, withBlock: { playerFinalScoreSS in
+            if let playerFinalScore = playerFinalScoreSS.value as? Int {
+                Games.finalScores.append([playerFinalScoreSS.key: playerFinalScore])
+                if (Games.finalScores.count > 1) { // sort closure must at least have two values to perform sorting.
+                    Games.finalScores.sortInPlace({ Array($0.values)[0] > Array($1.values)[0] }) // Descending order sort.
+                }
+                completed()
+            }
+        })
+    }
+    
     ///Usually call this method at the terminal state of a node's lifecycle in a ViewController
     func stopListeningForPlayerScores() {
         FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).removeAllObservers()
     }
+    
+    func stopListeningForFinalScores() {
+        FDataService.fDataService.REF_FINAL_SCORES.child(Games.gameUID).removeAllObservers()
+    }
+    
     
     func fetchLeaderboardOnce(completed: GenericCompletionBlock) {
         FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).queryOrderedByValue().observeSingleEventOfType(.Value, withBlock: { leaderboardSS in

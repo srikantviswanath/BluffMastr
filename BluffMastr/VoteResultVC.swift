@@ -130,7 +130,7 @@ class VoteResultVC: UIViewController {
         case SEGUE_GO_TO_GRAVEYARD:
             GameMembers.votedoutPlayers = [String]()
         default:
-            resetStaticVariablesForNewGame()
+            print("How do the ghutles handle this?")
         }
     }
 }

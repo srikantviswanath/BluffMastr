@@ -1951,8 +1951,8 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TA-DS-aOo">
-                                        <rect key="frame" x="243" y="25" width="115" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="2TA-DS-aOo">
+                                        <rect key="frame" x="243" y="25" width="115" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="115" id="nzZ-lz-1U6"/>
                                         </constraints>
@@ -2658,9 +2658,9 @@
         <image name="voteout_help" width="216" height="186"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="c5z-kU-es2"/>
         <segue reference="2xY-4O-QaO"/>
         <segue reference="lhi-gu-Bwe"/>
-        <segue reference="vri-St-kcn"/>
         <segue reference="Wze-wC-5DY"/>
     </inferredMetricsTieBreakers>
 </document>
