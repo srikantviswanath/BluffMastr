@@ -2222,21 +2222,56 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Answers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfe-Zq-Olc">
-                                        <rect key="frame" x="194" y="30" width="213" height="38"/>
+                                        <rect key="frame" x="60" y="45" width="118" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="213" id="dM4-Yn-vnN"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="dM4-Yn-vnN"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ski-k2-HvV">
+                                        <rect key="frame" x="478" y="48" width="62" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="213" id="pyp-fy-gVe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="pyp-fy-gVe"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Yfe-Zq-Olc" firstAttribute="top" secondItem="WjI-1L-gnS" secondAttribute="top" constant="30" id="3JL-CU-D5u"/>
+                                    <constraint firstItem="Yfe-Zq-Olc" firstAttribute="leading" secondItem="WjI-1L-gnS" secondAttribute="leading" constant="40" id="5H8-0l-tRb"/>
                                     <constraint firstAttribute="height" constant="125" id="RlX-oU-q7N"/>
+                                    <constraint firstItem="Yfe-Zq-Olc" firstAttribute="leading" secondItem="WjI-1L-gnS" secondAttribute="leading" constant="60" id="aKK-d0-dcS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ski-k2-HvV" secondAttribute="trailing" constant="60" id="ct9-8e-pYi"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ski-k2-HvV" secondAttribute="trailing" constant="40" id="eJO-pc-0EP"/>
+                                    <constraint firstItem="Yfe-Zq-Olc" firstAttribute="leading" secondItem="WjI-1L-gnS" secondAttribute="leading" constant="20" id="edY-CF-7Y8"/>
                                     <constraint firstItem="Yfe-Zq-Olc" firstAttribute="centerX" secondItem="WjI-1L-gnS" secondAttribute="centerX" id="oaj-Cj-VdF"/>
+                                    <constraint firstItem="Yfe-Zq-Olc" firstAttribute="centerY" secondItem="WjI-1L-gnS" secondAttribute="centerY" id="s8q-fr-yoE"/>
+                                    <constraint firstItem="Ski-k2-HvV" firstAttribute="centerY" secondItem="WjI-1L-gnS" secondAttribute="centerY" id="xsO-Qt-fEI"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3JL-CU-D5u"/>
+                                        <exclude reference="5H8-0l-tRb"/>
+                                        <exclude reference="edY-CF-7Y8"/>
+                                        <exclude reference="oaj-Cj-VdF"/>
+                                        <exclude reference="eJO-pc-0EP"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6v-8A-Hir">
                                 <rect key="frame" x="0.0" y="555" width="600" height="45"/>
@@ -2275,20 +2310,35 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="520" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyA-B3-r0P">
-                                                            <rect key="frame" x="239" y="9" width="43" height="25"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyA-B3-r0P">
+                                                            <rect key="frame" x="20" y="11" width="43" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rot-TM-eHw">
+                                                            <rect key="frame" x="461" y="13" width="39" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="QyA-B3-r0P" firstAttribute="centerX" secondItem="NX7-CN-8NC" secondAttribute="centerX" id="41Z-AU-d5w"/>
+                                                        <constraint firstAttribute="trailing" secondItem="rot-TM-eHw" secondAttribute="trailing" constant="20" id="SLT-Js-jBL"/>
+                                                        <constraint firstItem="QyA-B3-r0P" firstAttribute="leading" secondItem="NX7-CN-8NC" secondAttribute="leading" constant="20" id="XBF-uM-eDv"/>
+                                                        <constraint firstItem="rot-TM-eHw" firstAttribute="centerY" secondItem="NX7-CN-8NC" secondAttribute="centerY" id="dxJ-LE-Q4X"/>
                                                         <constraint firstItem="QyA-B3-r0P" firstAttribute="centerY" secondItem="NX7-CN-8NC" secondAttribute="centerY" id="mle-gu-kZA"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="41Z-AU-d5w"/>
+                                                        </mask>
+                                                    </variation>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="MainLbl" destination="QyA-B3-r0P" id="ISY-O9-9mf"/>
+                                                    <outlet property="scoreLbl" destination="rot-TM-eHw" id="hM2-U5-LRa"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

@@ -25,6 +25,7 @@ class AnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         for answerPos in 1...10 {
             answersArray.append(Games.answersDict["\(answerPos)"]!)
         }
+        answersArray = answersArray.reverse()
     }
     
     /* UITableView delegate methods */
@@ -44,11 +45,12 @@ class AnswersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             } else {
                 switch answersArray[indexPath.row] {
                 case Users.myCurrentAnswer!:
-                    cell.configureCell(answersArray[indexPath.row])
+                    cell.configureCell(answersArray[indexPath.row], score: "\(10 - indexPath.row)")
                     cell.backgroundColor = UIColor(netHex: COLOR_ELECTED_ANSWER)
                     cell.MainLbl.textColor = UIColor.whiteColor()
+                    cell.scoreLbl.textColor = UIColor.whiteColor()
                 default:
-                    cell.configureCell(answersArray[indexPath.row])
+                    cell.configureCell(answersArray[indexPath.row], score: "\(10 - indexPath.row)")
                 }
                 return cell
             }
