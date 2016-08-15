@@ -129,6 +129,8 @@ let STATUS_WAITING_OTHERS_NXT_ROUND = "Waiting for others..."
 let STATUS_STARTING_NEXT_ROUND = "Starting next round..."
 let STATUS_COMPUTING_BONUS = "Computing Bonuses and Penalties per round ..."
 
+let TIP_GAME_PHILOSOPHY = "Select the least probable answer for most points"
+
 let VOTES = "Votes"
 
 /* Help Titles and Messages */

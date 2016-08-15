@@ -67,6 +67,22 @@ class AlertHandler: UIViewController {
         UIApplication.topViewController()!.presentViewController(actionSheet, animated: true, completion: nil)
     }
     
+    func showPopUpBubble(popUpBuble: PopUpBubble, parentVC: UIViewController) -> PopUpTutorialVC{
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let popOverVC = storyboard.instantiateViewControllerWithIdentifier("popOver") as! PopUpTutorialVC
+        popOverVC.view.backgroundColor = UIColor.whiteColor()
+        popOverVC.modalInPopover = true
+        popOverVC.tutorialTip.text = popUpBuble.content
+        popOverVC.modalPresentationStyle = .Popover
+        popOverVC.preferredContentSize = CGSizeMake(200, 130)
+        popOverVC.popoverPresentationController?.delegate = parentVC
+        parentVC.presentViewController(popOverVC, animated: true, completion: nil)
+        popOverVC.popoverPresentationController?.sourceView = parentVC.view
+        popOverVC.popoverPresentationController?.permittedArrowDirections = popUpBuble.anchorDirection
+        popOverVC.popoverPresentationController?.sourceRect = popUpBuble.anchorPointRect
+        return popOverVC
+    }
+    
     func showWelcomeModal(landingVCSelf: LandingVC) {
         let parentVC = UIApplication.topViewController()!
         let blurEffect = UIBlurEffect(style: .Dark)

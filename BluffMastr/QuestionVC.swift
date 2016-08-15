@@ -15,11 +15,15 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var answersTable: UITableView!
     @IBOutlet weak var roundLbl: UILabel!
     
+    static var questionVC = QuestionVC()
+    
     var playerScore: Int!
     var answersArray: [String] = [String]()
+    var popUpBundle = [PopUpBubble(tipContent: TIP_GAME_PHILOSOPHY, anchorPointRect: QuestionVC().questionLbl.frame)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AlertHandler.alert.showPopUpBubble(popUpBundle[0], parentVC: self)
         answersTable.dataSource = self
         answersTable.delegate = self
         Questions.questions.listenForNextQuestion{

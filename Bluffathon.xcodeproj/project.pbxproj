@@ -16,6 +16,8 @@
 		949875BB1D025FE000BA190E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949875B81D025FE000BA190E /* GoogleService-Info.plist */; };
 		94FED3F21D4C2CFC00DFE2BA /* ConclusionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FED3F11D4C2CFC00DFE2BA /* ConclusionVC.swift */; };
 		CB0372501D371CCB00E3550D /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03724F1D371CCB00E3550D /* WelcomeVC.swift */; };
+		CB4A33651D614B4F00354FF8 /* PopUpBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4A33641D614B4F00354FF8 /* PopUpBubble.swift */; };
+		CB6A7AF01D5FE09E00EE4D1C /* PopUpTutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A7AEF1D5FE09E00EE4D1C /* PopUpTutorialVC.swift */; };
 		CB78671F1D18B2FD00E0CDB0 /* ServicesUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */; };
 		CB7B0BEC1D3868B400F44727 /* VerdictVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B0BEB1D3868B400F44727 /* VerdictVC.swift */; };
 		CB7CEFC61CD6DCDA00356DFB /* FirebaseDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CEFC51CD6DCDA00356DFB /* FirebaseDataServices.swift */; };
@@ -95,6 +97,8 @@
 		A8525379B3A15D4875E62BA8 /* Pods-BluffMastrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastrTests/Pods-BluffMastrTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC17A838EE53150E65FCC9EE /* Pods-BluffMastr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluffMastr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluffMastr/Pods-BluffMastr.debug.xcconfig"; sourceTree = "<group>"; };
 		CB03724F1D371CCB00E3550D /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		CB4A33641D614B4F00354FF8 /* PopUpBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpBubble.swift; sourceTree = "<group>"; };
+		CB6A7AEF1D5FE09E00EE4D1C /* PopUpTutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpTutorialVC.swift; sourceTree = "<group>"; };
 		CB7867181D1653B200E0CDB0 /* BluffMastr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluffMastr-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesUtil.swift; sourceTree = "<group>"; };
 		CB7B0BEB1D3868B400F44727 /* VerdictVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerdictVC.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 		CB7CEFC01CD6DB8F00356DFB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CB4A33641D614B4F00354FF8 /* PopUpBubble.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			children = (
 				CBD4B6951D24DB0700E7A674 /* AlertVC.swift */,
 				CB03724F1D371CCB00E3550D /* WelcomeVC.swift */,
+				CB6A7AEF1D5FE09E00EE4D1C /* PopUpTutorialVC.swift */,
 			);
 			name = ModalVCs;
 			sourceTree = "<group>";
@@ -639,6 +645,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB4A33651D614B4F00354FF8 /* PopUpBubble.swift in Sources */,
 				CB7CEFCE1CD6FE3F00356DFB /* MaterialButton.swift in Sources */,
 				CB7CEFC61CD6DCDA00356DFB /* FirebaseDataServices.swift in Sources */,
 				CBCFD3271CEBE79D00C4AD7B /* ThisRoundCell.swift in Sources */,
@@ -648,6 +655,7 @@
 				CB7CEFD01CD700B200356DFB /* MaterialTextField.swift in Sources */,
 				CBDA41091CD5BFD200103F2A /* LandingVC.swift in Sources */,
 				CB89CFAF1CDD7421000D3A7B /* Games.swift in Sources */,
+				CB6A7AF01D5FE09E00EE4D1C /* PopUpTutorialVC.swift in Sources */,
 				CB89CFB71CE2C173000D3A7B /* Questions.swift in Sources */,
 				9447DE7A1D525DA700B373A9 /* extensions.swift in Sources */,
 				CB7CEFC81CD6F1E000356DFB /* MaterialView.swift in Sources */,
@@ -776,8 +784,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Srikant Viswanath (8WUCP656VM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Srikant Viswanath (8WUCP656VM)";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
@@ -929,8 +937,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Srikant Viswanath (8WUCP656VM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Srikant Viswanath (8WUCP656VM)";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;

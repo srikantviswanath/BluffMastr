@@ -9,7 +9,7 @@
 import UIKit
 import pop
 
-class LandingVC: UIViewController, WelcomeVCDelegate {
+class LandingVC: UIViewController, WelcomeVCDelegate, PopUpTutorialDelegate {
 
     
     var createJoinAnimEngine: AnimationEngine!
@@ -27,6 +27,7 @@ class LandingVC: UIViewController, WelcomeVCDelegate {
     var isGameCreator = true
     var gameCreationActivityIndicator = UIActivityIndicatorView()
     var busyModalFrame = UIView()
+    var popUpTutorialBundle: [PopUpBubble] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,11 @@ class LandingVC: UIViewController, WelcomeVCDelegate {
         Questions.questions.fetchMaxNumberOfQuestions {}
         createJoinAnimEngine = AnimationEngine(leadingConstraint: CreateJoinLeadingConstr, trailingConstraint: CreateJoinTrailingConstr)
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.view.backgroundColor = UIColor.whiteColor()
+        //popUpTutorialBundle = [PopUpBubble(tipContent: TIP_GAME_PHILOSOPHY, anchorPointRect: LandingVC().ProfileView.frame), PopUpBubble(tipContent: TIP_GAME_PHILOSOPHY, anchorPointRect: LandingVC().joinGameBtn.frame)]
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,11 +58,18 @@ class LandingVC: UIViewController, WelcomeVCDelegate {
                     (true) in
                     self.createGameBtn.enabled = true
                     self.joinGameBtn.enabled = true
+                    
+                    //TODO: Need to fix the pop up bubble tutorial bundle
+                    //let  popUpVC = AlertHandler.alert.showPopUpBubble(PopUpBubble(tipContent: TIP_GAME_PHILOSOPHY, anchorPointRect: self.ProfileView.frame, anchorDirection: .Down), parentVC: self)
+                    //popUpVC.parentSourceDelegate = self
                 })
             }
         }
     }
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
     
     @IBAction func createGame(sender: UIButton!){
         view.endEditing(true)
@@ -103,6 +116,11 @@ class LandingVC: UIViewController, WelcomeVCDelegate {
     /* ==================WelcomeVC delegate method ============= */
     func updateLabelInParentVC(data: String) {
         self.screenNameLabel.text = data
+    }
+    
+    
+    //MARK: PopUpTutorial Delegate Method
+    func displayPopup() {
     }
 }
 

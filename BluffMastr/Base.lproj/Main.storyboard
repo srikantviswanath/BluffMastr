@@ -2662,6 +2662,72 @@
             </objects>
             <point key="canvasLocation" x="4153" y="2086"/>
         </scene>
+        <!--Pop Up TutorialVC-->
+        <scene sceneID="hir-hv-OUh">
+            <objects>
+                <viewController storyboardIdentifier="popOver" id="gkN-PF-FyB" customClass="PopUpTutorialVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rzS-m1-6vZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="xgr-HD-IDN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qJW-VO-h4s">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ishtipitting pitpiting nighty fitting dho. Aak paak karvepak" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="CT1-Gy-q7I">
+                                <rect key="frame" x="200" y="270" width="200" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="7uh-K4-YBD"/>
+                                    <constraint firstAttribute="height" constant="100" id="WOX-ZH-F6W"/>
+                                    <constraint firstAttribute="height" constant="200" id="jrg-Kb-b1y"/>
+                                    <constraint firstAttribute="height" constant="100" id="l97-ti-rnR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WOX-ZH-F6W"/>
+                                        <exclude reference="jrg-Kb-b1y"/>
+                                        <exclude reference="l97-ti-rnR"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahh-oN-37R">
+                                <rect key="frame" x="284" y="336" width="32" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.82745098039999998" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="ActionBtnPressed:" destination="gkN-PF-FyB" eventType="touchUpInside" id="Bwn-iQ-62A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ahh-oN-37R" firstAttribute="centerX" secondItem="qJW-VO-h4s" secondAttribute="centerX" id="03J-6Y-kal"/>
+                            <constraint firstItem="ahh-oN-37R" firstAttribute="top" secondItem="CT1-Gy-q7I" secondAttribute="bottom" constant="5" id="89k-46-Ieg"/>
+                            <constraint firstItem="CT1-Gy-q7I" firstAttribute="centerY" secondItem="qJW-VO-h4s" secondAttribute="centerY" id="Elr-PJ-X3t"/>
+                            <constraint firstItem="ahh-oN-37R" firstAttribute="top" secondItem="CT1-Gy-q7I" secondAttribute="bottom" constant="8" id="Xjg-dW-0oc"/>
+                            <constraint firstItem="CT1-Gy-q7I" firstAttribute="centerX" secondItem="qJW-VO-h4s" secondAttribute="centerX" id="jg5-FQ-vij"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Xjg-dW-0oc"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="ActionBtn" destination="ahh-oN-37R" id="KGX-ri-Xfa"/>
+                        <outlet property="tutorialTip" destination="CT1-Gy-q7I" id="jKi-Tu-HNh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pWD-EF-NxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4926" y="2091"/>
+        </scene>
     </scenes>
     <resources>
         <image name="alert_icon" width="200" height="200"/>
