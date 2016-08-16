@@ -19,7 +19,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var StartNewGameBtn: UIButton!
     
     var bonusTimer: NSTimer?
-    var bonusTableDataSource = [Int]()
+    var bonusTableDataSource = [Dictionary<String, Int>]()
     var animatingRowIndex = 0
     var doneAnimationBonuses = false
     
@@ -31,7 +31,8 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         BonusPenaltyTable.delegate = self
         BonusPenaltyTable.dataSource = self
-        ScoreCounter.text = "\(fetchPlayerScoreFromLeaderboard(Users.myScreenName))"
+        ScoreCounter.text = "17"
+        //ScoreCounter.text = "\(fetchPlayerScoreFromLeaderboard(Users.myScreenName))"
         StartNewGameBtn.hidden = true
         
     }
@@ -107,17 +108,11 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = BonusPenaltyTable.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
-            let bonus = bonusTableDataSource[indexPath.row]
+            let roundNum = Array(bonusTableDataSource[indexPath.row].keys)[0]
+            let bonus = Array(bonusTableDataSource[indexPath.row].values)[0]
             let bonusReason = BONUS_PENALTY_REASON[bonus]
             if !doneAnimationBonuses {
-                if bonus == BONUS_BLUFFMASTR_SURVIVAL || bonus == BONUS_VOTED_AGAINST_BLUFFMASTR {
-                    cell.MainLbl.textColor = UIColor(netHex: 0x00796B)
-                    playAudio(AUDIO_BONUS)
-                } else {
-                    cell.MainLbl.textColor = UIColor(netHex: COLOR_THEME)
-                    playAudio(AUDIO_PENALTY)
-                }
-                cell.configureCell("\(bonus)", score: bonusReason!)
+                cell.configureBonusCell(bonus, bonusReason: bonusReason!, roundInfo: roundNum)
                 ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + bonus)"
                 bounceScore(ScoreCounter)
             }

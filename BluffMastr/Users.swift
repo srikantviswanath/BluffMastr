@@ -16,7 +16,7 @@ class Users {
     static var myCurrentAnswer: String!
     static var mycurrentVote: String!
     ///An array to accumulate bonuses and panalities per round
-    static var myBonusHistory = [Int]()
+    static var myBonusHistory = [Dictionary<String, Int>]()
     ///To store the opponent's final score after computing Bonus and penalties in the last round
     static var  myOpponentFinalScore: Int!
     

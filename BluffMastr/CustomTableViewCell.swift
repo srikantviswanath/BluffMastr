@@ -12,6 +12,7 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var MainLbl: UILabel!
     @IBOutlet weak var scoreLbl: UILabel!
+    @IBOutlet weak var TrailingLbl: UILabel!
     @IBOutlet weak var VoteImg : UIImageView!
     
     override func awakeFromNib() {
@@ -43,6 +44,21 @@ class CustomTableViewCell: UITableViewCell {
         } else {
             VoteImg.image = UIImage(named: "alive")
         }
+    }
+    
+    func configureBonusCell(bonus: Int, bonusReason: String, roundInfo: String) {
+        var bonusWithSign = ""
+        if roundInfo != "" { TrailingLbl.text = roundInfo }
+        if bonus == BONUS_BLUFFMASTR_SURVIVAL || bonus == BONUS_VOTED_AGAINST_BLUFFMASTR {
+            bonusWithSign = "+\(bonus)"
+            scoreLbl.textColor = UIColor(netHex: 0x00796B)
+            playAudio(AUDIO_BONUS)
+        } else {
+            bonusWithSign = "\(bonus)"
+            scoreLbl.textColor = UIColor(netHex: COLOR_THEME)
+            playAudio(AUDIO_PENALTY)
+        }
+        configureCell(bonusReason, score: bonusWithSign)
     }
 
 }

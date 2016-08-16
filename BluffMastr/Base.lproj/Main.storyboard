@@ -1935,7 +1935,7 @@
         <!--VerdictVC-->
         <scene sceneID="6DO-Un-LxG">
             <objects>
-                <viewController id="Y24-xV-wIv" customClass="VerdictVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerdictVC" id="Y24-xV-wIv" customClass="VerdictVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="00i-8l-qdG"/>
                         <viewControllerLayoutGuide type="bottom" id="Kps-UA-F7p"/>
@@ -1974,7 +1974,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="2TA-DS-aOo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="2TA-DS-aOo">
                                         <rect key="frame" x="243" y="25" width="115" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="115" id="nzZ-lz-1U6"/>
@@ -1982,6 +1982,11 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="nzZ-lz-1U6"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgI-Vs-95R">
                                         <rect key="frame" x="562" y="25" width="30" height="30"/>
@@ -2012,12 +2017,14 @@
                                     <constraint firstAttribute="trailing" secondItem="hgI-Vs-95R" secondAttribute="trailing" constant="8" id="5JW-ff-Lml"/>
                                     <constraint firstItem="hc7-7J-F2X" firstAttribute="top" secondItem="2TA-DS-aOo" secondAttribute="bottom" constant="10" id="63I-Qt-URl"/>
                                     <constraint firstItem="hc7-7J-F2X" firstAttribute="centerY" secondItem="uM8-ci-x41" secondAttribute="centerY" id="8Cn-ut-jbo"/>
+                                    <constraint firstItem="2TA-DS-aOo" firstAttribute="leading" secondItem="uM8-ci-x41" secondAttribute="leading" constant="46" id="J3A-Z7-HxU"/>
                                     <constraint firstItem="hgI-Vs-95R" firstAttribute="top" secondItem="uM8-ci-x41" secondAttribute="top" constant="25" id="T4v-qK-4Ae"/>
                                     <constraint firstItem="2TA-DS-aOo" firstAttribute="centerX" secondItem="uM8-ci-x41" secondAttribute="centerX" id="YjO-se-pBZ"/>
                                     <constraint firstItem="2TA-DS-aOo" firstAttribute="top" secondItem="uM8-ci-x41" secondAttribute="top" constant="25" id="dsK-8a-Zst"/>
                                     <constraint firstItem="hc7-7J-F2X" firstAttribute="centerX" secondItem="uM8-ci-x41" secondAttribute="centerX" id="ecb-hQ-FWs"/>
                                     <constraint firstItem="2TA-DS-aOo" firstAttribute="top" secondItem="hc7-7J-F2X" secondAttribute="bottom" constant="8" id="f8M-xm-AmR"/>
                                     <constraint firstItem="hc7-7J-F2X" firstAttribute="top" secondItem="uM8-ci-x41" secondAttribute="top" constant="8" id="lDe-uH-0AB"/>
+                                    <constraint firstAttribute="trailing" secondItem="2TA-DS-aOo" secondAttribute="trailing" constant="46" id="lKh-9u-0Zk"/>
                                     <constraint firstAttribute="height" constant="140" id="ojT-Ni-6rH"/>
                                     <constraint firstItem="hc7-7J-F2X" firstAttribute="centerX" secondItem="uM8-ci-x41" secondAttribute="centerX" id="sMp-1Z-v9E"/>
                                     <constraint firstAttribute="trailing" secondItem="hc7-7J-F2X" secondAttribute="trailing" constant="10" id="xLP-y9-36o"/>
@@ -2027,6 +2034,7 @@
                                     <mask key="constraints">
                                         <exclude reference="YjO-se-pBZ"/>
                                         <exclude reference="f8M-xm-AmR"/>
+                                        <exclude reference="yXT-cv-hhy"/>
                                         <exclude reference="8Cn-ut-jbo"/>
                                         <exclude reference="lDe-uH-0AB"/>
                                         <exclude reference="sMp-1Z-v9E"/>
@@ -2066,54 +2074,68 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlK-2W-Mif" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
                                 <rect key="frame" x="20" y="191" width="560" height="356"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-EY-avV">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-EY-avV">
                                         <rect key="frame" x="8" y="8" width="544" height="340"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomTableViewCell" rowHeight="50" id="gZP-F1-trB" customClass="CustomTableViewCell" customModule="BluffMastr" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="544" height="50"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomTableViewCell" rowHeight="45" id="gZP-F1-trB" customClass="CustomTableViewCell" customModule="BluffMastr" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="544" height="45"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gZP-F1-trB" id="0ih-AW-JWh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="544" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="544" height="45"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4R0-me-VbP">
-                                                            <rect key="frame" x="126" y="14" width="290" height="22"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="GCP-gK-ODd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="544" height="45"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2E-l8-unF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="22"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="20" id="OGl-Ge-NJk"/>
-                                                                        <constraint firstAttribute="width" constant="80" id="rlg-28-B1E"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="2vI-XE-DGc">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="45"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" for not catching BluffMastr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Mfm-OF-1Ns">
+                                                                    <rect key="frame" x="53" y="0.0" width="386" height="45"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
-                                                                    <variation key="default">
-                                                                        <mask key="constraints">
-                                                                            <exclude reference="OGl-Ge-NJk"/>
-                                                                            <exclude reference="rlg-28-B1E"/>
-                                                                        </mask>
-                                                                    </variation>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penalty for not catching BluffMastr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="yBU-nX-egX">
-                                                                    <rect key="frame" x="51" y="0.0" width="239" height="22"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Fp-RD-pYN">
+                                                                    <rect key="frame" x="439" y="0.0" width="105" height="45"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="7Fp-RD-pYN" firstAttribute="leading" secondItem="Mfm-OF-1Ns" secondAttribute="trailing" constant="8" id="Qap-2D-acG"/>
+                                                                <constraint firstAttribute="trailing" secondItem="7Fp-RD-pYN" secondAttribute="trailing" id="eMF-uD-VO4"/>
+                                                            </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="Qap-2D-acG"/>
+                                                                </mask>
+                                                            </variation>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="4R0-me-VbP" firstAttribute="centerX" secondItem="0ih-AW-JWh" secondAttribute="centerX" id="4Ke-2p-A7i"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="4R0-me-VbP" secondAttribute="bottom" constant="6" id="CAG-ze-5NR"/>
-                                                        <constraint firstItem="4R0-me-VbP" firstAttribute="top" secondItem="0ih-AW-JWh" secondAttribute="topMargin" constant="6" id="Rjc-hZ-954"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GCP-gK-ODd" secondAttribute="trailing" id="461-Ak-md3"/>
+                                                        <constraint firstItem="GCP-gK-ODd" firstAttribute="top" secondItem="0ih-AW-JWh" secondAttribute="top" id="CZJ-pN-mb2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GCP-gK-ODd" secondAttribute="bottom" id="IQB-w2-Mmp"/>
+                                                        <constraint firstItem="GCP-gK-ODd" firstAttribute="centerY" secondItem="0ih-AW-JWh" secondAttribute="centerY" id="IZa-XC-Vie"/>
+                                                        <constraint firstItem="GCP-gK-ODd" firstAttribute="centerY" secondItem="0ih-AW-JWh" secondAttribute="centerY" id="Plt-tc-vMw"/>
+                                                        <constraint firstItem="GCP-gK-ODd" firstAttribute="leading" secondItem="0ih-AW-JWh" secondAttribute="leading" id="aMd-X0-eEh"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="IZa-XC-Vie"/>
+                                                            <exclude reference="Plt-tc-vMw"/>
+                                                        </mask>
+                                                    </variation>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="MainLbl" destination="D2E-l8-unF" id="5L3-hp-Y2C"/>
-                                                    <outlet property="scoreLbl" destination="yBU-nX-egX" id="ZJj-Pf-bRI"/>
+                                                    <outlet property="MainLbl" destination="Mfm-OF-1Ns" id="Qp4-dw-ypt"/>
+                                                    <outlet property="TrailingLbl" destination="7Fp-RD-pYN" id="uhv-MT-hrm"/>
+                                                    <outlet property="scoreLbl" destination="2vI-XE-DGc" id="xv6-9R-FTS"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -2204,7 +2226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ovb-2Q-fMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5565" y="1136"/>
+            <point key="canvasLocation" x="5710" y="1123"/>
         </scene>
         <!--AnswersVC-->
         <scene sceneID="Yk2-pi-e4g">

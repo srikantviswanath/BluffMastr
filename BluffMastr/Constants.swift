@@ -16,8 +16,8 @@ let BONUS_BLUFFMASTR_SURVIVAL = 5
 let BONUS_VOTED_AGAINST_BLUFFMASTR = 3
 let PENALTY_VOTED_AGAINST_INNOCENT_PLAYER = -5
 let BONUS_PENALTY_REASON = [
-    BONUS_BLUFFMASTR_SURVIVAL: "BluffMastr bonus", BONUS_VOTED_AGAINST_BLUFFMASTR: "Bonus for catching BluffMastr",
-    PENALTY_VOTED_AGAINST_INNOCENT_PLAYER: "Penalty for not catching BluffMastr"
+    BONUS_BLUFFMASTR_SURVIVAL: "BluffMastr bonus", BONUS_VOTED_AGAINST_BLUFFMASTR: " for catching BluffMastr",
+    PENALTY_VOTED_AGAINST_INNOCENT_PLAYER: " for not catching BluffMastr"
 ]
 let IS_TUTORIAL_SHOWN = "isTutorialShown"
 let SCREEN_NAME = "screenname"

@@ -25,7 +25,7 @@ class VoteResultVC: UIViewController {
         attemptToDisplayVoteResults()
     }
     
-    /* nextBtn shape shifts into BTN_VOTE_AGAIN, BTN_HOME or BTN_NEXT_ROUND based on the fate of the player after voteout */
+    /* nextBtn shape shifts into BTN_VOTE_AGAIN, BTN_GRVEYARD or BTN_NEXT_ROUND based on the fate of the player after voteout */
     @IBAction func nextBtnClicked(sender: UIButton) {
         switch nextBtn.currentTitle! {
         case BTN_VOTE_AGAIN:
@@ -69,8 +69,8 @@ class VoteResultVC: UIViewController {
                 self.ParentView.backgroundColor = UIColor(netHex: COLOR_THEME)
                 
                 let votedoutPlayer = evaluateVotes()
-                if votedoutPlayer != CODE_TIE { //if it is not a tie, display the voted out player's details and record the myPlayer's vote in his voting history
-                    Users.myBonusHistory.append(evaluateBonusOrPenaltyPerRound())
+                if votedoutPlayer != CODE_TIE { //if it is not a tie, display the voted out player's details and record the player's bonus or penalty in their bonus history
+                    Users.myBonusHistory.append(["Round \(Games.roundNumber)": evaluateBonusOrPenaltyPerRound()])
                     self.displayAndRemoveVotedoutPlayer(votedoutPlayer)
                     GameMembers.votedoutPlayers.append(votedoutPlayer)
                     FDataService.fDataService.REF_GHOST_PLAYERS.child(Games.gameUID).updateChildValues([votedoutPlayer: true])
