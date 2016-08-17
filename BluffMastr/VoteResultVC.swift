@@ -93,6 +93,7 @@ class VoteResultVC: UIViewController {
             nextBtn.setTitle(BTN_GRAVEYARD, forState: .Normal)
             teardownAfterStartingGame()
         } else {
+            playAudio(AUDIO_PLAYER_VOTEDOUT, fileType: "mp3")
             VotedoutPlayerLbl.text = votedoutPlayer
             noOfVotes.text = "(\(countVotes()[votedoutPlayer]!) \(VOTES))"
             ResultStatusLbl.text = "\(STATUS_VOTE_RESULT_PLACEHOLDER)"
