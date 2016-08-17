@@ -35,7 +35,7 @@ class CustomTableViewCell: UITableViewCell {
             scoreLbl.textColor = UIColor.lightGrayColor()
             self.userInteractionEnabled = false
         }
-        if voteoutModeEnabled {
+        if voteoutModeEnabled && !GameMembers.votedoutPlayers.contains(playerName){
             VoteImg.image = UIImage(named: "empty_vote")
         }
     }

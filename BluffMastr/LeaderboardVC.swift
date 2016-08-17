@@ -62,7 +62,9 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             VoteoutBtn.hidden = false
             let leadingScorer = Array(Games.leaderboard.first!.keys)[0]
             VCTitle.text = "\(leadingScorer) is leading"
-            AlertHandler.alert.showPopUpBubble(PopUpBubble(tipContent: TIP_START_VOTEOUT, anchorPointRect: VoteoutBtn.frame, anchorDirection: .Down), parentVC: self)
+            if Int(Games.roundNumber) == 1 {
+                AlertHandler.alert.showPopUpBubble(PopUpBubble(tipContent: TIP_START_VOTEOUT, anchorPointRect: VoteoutBtn.frame, anchorDirection: .Down), parentVC: self)
+            }
         }
     }
     
