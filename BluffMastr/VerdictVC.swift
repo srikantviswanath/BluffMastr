@@ -64,14 +64,6 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func bounceScore(uiElement: AnyObject) {
-        let scaleAnim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
-        scaleAnim.velocity = NSValue(CGSize: CGSizeMake(5.0, 5.0))
-        scaleAnim.toValue = NSValue(CGSize: CGSizeMake(1.7, 1.7))
-        scaleAnim.springBounciness = 20
-        uiElement.layer.pop_addAnimation(scaleAnim, forKey: "layerScaleSpringAnimation")
-    }
-    
     func finalVerdictAnimation() {
         let gameWinner = Array(Games.finalScores[0].keys)[0]
         let didIWin = gameWinner == Users.myScreenName
@@ -114,7 +106,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if !doneAnimationBonuses {
                 cell.configureBonusCell(bonus, bonusReason: bonusReason!, roundInfo: roundNum)
                 ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + bonus)"
-                bounceScore(ScoreCounter)
+                AnimationEngine.bounceUIElement(ScoreCounter, finalDimension: 1.7)
             }
             return cell
         } else {

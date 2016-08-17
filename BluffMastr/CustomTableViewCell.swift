@@ -27,13 +27,16 @@ class CustomTableViewCell: UITableViewCell {
         }
     }
     
-    func configureLeaderboardCell(playerName: String, score: String) {
+    func configureLeaderboardCell(playerName: String, score: String, voteoutModeEnabled: Bool) {
         configureCell(playerName, score: score)
         if GameMembers.votedoutPlayers.contains(playerName) {
             VoteImg.image = UIImage(named: "votedout_cemetery")
             MainLbl.textColor = UIColor.lightGrayColor()
             scoreLbl.textColor = UIColor.lightGrayColor()
             self.userInteractionEnabled = false
+        }
+        if voteoutModeEnabled {
+            VoteImg.image = UIImage(named: "empty_vote")
         }
     }
     

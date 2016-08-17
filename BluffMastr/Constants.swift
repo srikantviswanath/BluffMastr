@@ -38,7 +38,7 @@ let BTN_VOTE_AGAIN = "Vote Again"
 let BTN_NEXT_ROUND = "Ready >"
 let BTN_HOME = "Home"
 let BTN_DECLARE_VERDICT = "Verdict >"
-let BTN_SUBMIT = "SUBMIT"
+let BTN_VOTEOUT = "VOTEOUT"
 let BTN_GRAVEYARD = "Graveyard >"
 
 /* Audio files*/
@@ -123,6 +123,7 @@ let STATUS_VOTE_RESULT_PLACEHOLDER = "has been voted out and..."
 let STATUS_TIE = "Snap, it's a tie. Need to revote"
 let STATUS_INNOCENT_PLAYER = "is an INNOCENT player"
 let STATUS_BLUFFMASTR_FOUND = "is the BLUFFMASTR"
+let STATUS_CUMULATIVE_SCORES = "Cumulative Scores"
 let STATUS_START_VOTING = "Select a Player to Voteout"
 let STATUS_YOU_ARE_OUT = "Uh oh. You have been voted out"
 let STATUS_WAITING_OTHERS_NXT_ROUND = "Waiting for others..."
@@ -130,6 +131,7 @@ let STATUS_STARTING_NEXT_ROUND = "Starting next round..."
 let STATUS_COMPUTING_BONUS = "Computing Bonuses and Penalties per round ..."
 
 let TIP_GAME_PHILOSOPHY = "Select the least probable answer for most points"
+let TIP_START_VOTEOUT = "Discuss. When ready, select a player to voteout"
 
 let VOTES = "Votes"
 

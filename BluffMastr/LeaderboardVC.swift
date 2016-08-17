@@ -25,6 +25,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     var animatingLeaderboard = [Dictionary<String, Int>]()
     var revSortedleaderboard = [Dictionary<String, Int>]()
     var leaderBoardTimer: NSTimer?
+    var voteoutStatusTimer: NSTimer?
     var animatingRowIndex = 0
     
     override func viewDidLoad() {
@@ -43,9 +44,12 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             voteoutModeEnabled = true
             self.thisRoundStatus.text = STATUS_LAST_ROUND_SCORES
             leaderboardStatus.text = STATUS_START_VOTING
+            VoteoutBtn.setTitle(BTN_VOTEOUT, forState: .Normal)
             VCTitle.text = "\(Array(animatingLeaderboard.first!.keys)[0]) is leading"
         }
     }
+    
+    //MARK: Helper Action Utils
     
     func startAnimatingLeaderboard() {
         animatingLeaderboard.insert(revSortedleaderboard[animatingRowIndex], atIndex: 0)
@@ -55,28 +59,18 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             leaderBoardTimer?.invalidate()
             animatingRowIndex = 0
             resetReadiness()
-            AlertHandler.alert.showAlertMsg(ALERT_BEGIN_VOTING_TITLE, msg: ALERT_BEGIN_VOTING_MSG)
-            leaderboardStatus.text = STATUS_START_VOTING
             VoteoutBtn.hidden = false
-            voteoutModeEnabled = true
             let leadingScorer = Array(Games.leaderboard.first!.keys)[0]
             VCTitle.text = "\(leadingScorer) is leading"
+            AlertHandler.alert.showPopUpBubble(PopUpBubble(tipContent: TIP_START_VOTEOUT, anchorPointRect: VoteoutBtn.frame, anchorDirection: .Down), parentVC: self)
         }
     }
-    
-    @IBAction func voteoutBtnClicked(sender: UIButton!) {
-        validateVoteAndSubmit()
-    }
-    
-    @IBAction func answersBtnClicked(sender: UIButton) {
-        performSegueWithIdentifier(SEGUE_REVEAL_ANSWERS, sender: nil)
-    }
-    @IBAction func unwindFromAnswers(segue: UIStoryboardSegue) {}
     
     func displayCurrentRoundScores() {
         Scores.scores.listenForPlayersSubmissions {
             if Games.playersSubmissions.count == GameMembers.playersInGameRoom.count {
                 Scores.scores.stopListeningForPlayerScores()
+                self.leaderboardStatus.text = STATUS_CUMULATIVE_SCORES
                 self.readyToshowCurrentRoundScores = true
                 Scores.scores.fetchLeaderboardOnce {
                     self.revSortedleaderboard = Games.leaderboard.reverse()
@@ -93,6 +87,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     func validateVoteAndSubmit() {
         if markedCellIndexPath != nil {
+            voteoutStatusTimer?.invalidate()
             let votedAgainstDict = Games.leaderboard[(markedCellIndexPath?.row)!]
             let votedAgainstPlayer = Array(votedAgainstDict.keys)[0]
             if votedAgainstPlayer != Users.myScreenName {
@@ -108,7 +103,32 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
     
-    /* UICollectionView delegate methods - To display scores of this round*/
+    func bounceStatusLbl() {
+        AnimationEngine.bounceUIElement(leaderboardStatus, finalDimension: 1.0)
+    }
+
+    
+    //MARK: IBActions
+    
+    @IBAction func voteoutBtnClicked(sender: UIButton!) {
+        if voteoutModeEnabled {
+            validateVoteAndSubmit()
+        } else {
+            voteoutModeEnabled = true
+            leaderboardTableView.reloadData()
+            leaderboardStatus.text = STATUS_START_VOTING
+            VoteoutBtn.setTitle(BTN_VOTEOUT, forState: .Normal)
+            voteoutStatusTimer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: "bounceStatusLbl", userInfo: nil, repeats: true)
+        }
+        
+    }
+    
+    @IBAction func answersBtnClicked(sender: UIButton) {
+        performSegueWithIdentifier(SEGUE_REVEAL_ANSWERS, sender: nil)
+    }
+    @IBAction func unwindFromAnswers(segue: UIStoryboardSegue) {}
+    
+    //MARK: UICollectionView delegate methods
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -130,7 +150,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
     
-    /* UITableView delegate methods - To display current leaderboard standings*/
+    //MARK: UITableView delegate methods for leaderboardTableView
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -145,7 +165,7 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             if let cell = leaderboardTableView.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
                 let playerName = Array(animatingLeaderboard[indexPath.row].keys)[0]
                 let playerScore = Array(animatingLeaderboard[indexPath.row].values)[0]
-                cell.configureLeaderboardCell(playerName, score: "\(playerScore)")
+                cell.configureLeaderboardCell(playerName, score: "\(playerScore)", voteoutModeEnabled: voteoutModeEnabled)
                 return cell
             } else {
                 return UITableViewCell()
@@ -174,5 +194,9 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 selectedCell.selectedBackgroundView = bgColorView
             }
         }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
 }

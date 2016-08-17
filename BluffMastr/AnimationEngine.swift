@@ -66,4 +66,13 @@ class AnimationEngine {
         }
         completed()
     }
+    
+    class func bounceUIElement(uiElement: AnyObject, finalDimension: CGFloat) {
+        let scaleAnim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
+        scaleAnim.velocity = NSValue(CGSize: CGSizeMake(5.0, 5.0))
+        scaleAnim.toValue = NSValue(CGSize: CGSizeMake(finalDimension, finalDimension))
+        scaleAnim.springBounciness = 20
+        uiElement.layer.pop_addAnimation(scaleAnim, forKey: "layerScaleSpringAnimation")
+    }
+    
 }
