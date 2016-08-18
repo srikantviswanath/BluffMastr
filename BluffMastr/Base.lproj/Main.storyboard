@@ -1049,7 +1049,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="helpBtnClicked:" destination="Q3O-fW-ESJ" eventType="touchUpInside" id="orN-HL-faA"/>
+                                            <action selector="identityBtnClicked:" destination="Q3O-fW-ESJ" eventType="touchUpInside" id="VyQ-v4-mVk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1132,86 +1132,16 @@
                     </view>
                     <connections>
                         <outlet property="answersTable" destination="ON5-MZ-qbS" id="tkp-P8-0Al"/>
+                        <outlet property="identityBtn" destination="EUv-Vg-8iZ" id="KNs-yS-fx4"/>
                         <outlet property="questionLbl" destination="mJ6-Js-txc" id="ytF-Do-2ia"/>
                         <outlet property="roundLbl" destination="hkg-vx-2PJ" id="8wm-Q6-Xly"/>
                         <segue destination="dmd-ku-cSH" kind="showDetail" identifier="FetchScore" id="PUe-C0-YfN"/>
-                        <segue destination="8E5-JQ-KLp" kind="presentation" identifier="helpForQuestionVC" modalPresentationStyle="pageSheet" modalTransitionStyle="crossDissolve" id="WTS-yv-0a3"/>
                         <segue destination="BYZ-38-t0r" kind="showDetail" identifier="HomeGame" id="63B-jL-9BF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15A-hw-DnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3064" y="372"/>
-        </scene>
-        <!--Help For QuestionVC-->
-        <scene sceneID="hbn-Pn-Zo4">
-            <objects>
-                <viewController id="8E5-JQ-KLp" customClass="HelpForQuestionVC" customModule="BluffMastr" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CWf-Qp-Vob"/>
-                        <viewControllerLayoutGuide type="bottom" id="TxR-sS-6Oe"/>
-                    </layoutGuides>
-                    <view key="view" alpha="0.69999999999999996" contentMode="scaleToFill" id="MAj-Qn-gCl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF0-jQ-1G8">
-                                <rect key="frame" x="20" y="0.0" width="560" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="mcO-Rl-aa8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-ai-Q3a">
-                                <rect key="frame" x="285" y="75" width="30" height="517"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="1Xw-s5-2jJ" kind="unwind" unwindAction="dismissHelp:" id="vR8-Yi-IZy"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dru-ll-EUz">
-                                <rect key="frame" x="20" y="55" width="560" height="0.0"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Aqe-ai-Q3a" firstAttribute="centerX" secondItem="MAj-Qn-gCl" secondAttribute="centerX" id="2qG-Ai-52D"/>
-                            <constraint firstItem="TxR-sS-6Oe" firstAttribute="top" secondItem="Aqe-ai-Q3a" secondAttribute="bottom" constant="8" id="Rpp-gG-VMh"/>
-                            <constraint firstItem="dru-ll-EUz" firstAttribute="trailing" secondItem="MAj-Qn-gCl" secondAttribute="trailingMargin" id="S1j-mV-CW1"/>
-                            <constraint firstItem="Aqe-ai-Q3a" firstAttribute="top" secondItem="dru-ll-EUz" secondAttribute="bottom" constant="20" id="U5I-kx-alQ"/>
-                            <constraint firstItem="dru-ll-EUz" firstAttribute="top" secondItem="qF0-jQ-1G8" secondAttribute="bottom" constant="30" id="k6U-n7-aF7"/>
-                            <constraint firstItem="qF0-jQ-1G8" firstAttribute="trailing" secondItem="MAj-Qn-gCl" secondAttribute="trailingMargin" id="kG9-NQ-Vk5"/>
-                            <constraint firstItem="dru-ll-EUz" firstAttribute="top" secondItem="qF0-jQ-1G8" secondAttribute="bottom" constant="20" id="nWd-wZ-wD0"/>
-                            <constraint firstItem="qF0-jQ-1G8" firstAttribute="top" secondItem="CWf-Qp-Vob" secondAttribute="bottom" id="oQ0-1f-GLT"/>
-                            <constraint firstItem="dru-ll-EUz" firstAttribute="leading" secondItem="MAj-Qn-gCl" secondAttribute="leadingMargin" id="pcX-QY-u7e"/>
-                            <constraint firstItem="qF0-jQ-1G8" firstAttribute="leading" secondItem="MAj-Qn-gCl" secondAttribute="leadingMargin" id="q2S-oI-mHG"/>
-                            <constraint firstItem="Aqe-ai-Q3a" firstAttribute="top" secondItem="dru-ll-EUz" secondAttribute="bottom" constant="20" id="vzE-oY-Dlc"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="nWd-wZ-wD0"/>
-                                <exclude reference="vzE-oY-Dlc"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="dismissBtn" destination="Aqe-ai-Q3a" id="at0-EP-fLn"/>
-                        <outlet property="rulesLbl" destination="dru-ll-EUz" id="2VJ-Na-Lh6"/>
-                        <outlet property="titleLbl" destination="qF0-jQ-1G8" id="q6l-hA-bKW"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eDC-fP-fo4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="1Xw-s5-2jJ" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="3012" y="1169"/>
         </scene>
         <!--ScoreVC-->
         <scene sceneID="D9s-zz-bSW">
@@ -2818,9 +2748,9 @@
         <image name="voteout_help" width="216" height="186"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c5z-kU-es2"/>
-        <segue reference="2xY-4O-QaO"/>
-        <segue reference="lhi-gu-Bwe"/>
         <segue reference="Wze-wC-5DY"/>
+        <segue reference="63B-jL-9BF"/>
+        <segue reference="lhi-gu-Bwe"/>
+        <segue reference="2xY-4O-QaO"/>
     </inferredMetricsTieBreakers>
 </document>

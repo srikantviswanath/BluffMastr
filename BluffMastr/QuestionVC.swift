@@ -14,11 +14,13 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var answersTable: UITableView!
     @IBOutlet weak var roundLbl: UILabel!
+    @IBOutlet weak var identityBtn: UIButton!
     
     static var questionVC = QuestionVC()
     
     var playerScore: Int!
     var answersArray: [String] = [String]()
+    let identityBtnRect = CGRect(origin: CGPointMake((UIScreen.mainScreen().bounds.width/2)-15, UIScreen.mainScreen().bounds.height - 38), size: CGSize(width: 30.0, height: 30.0))
     //var popUpBundle = [PopUpBubble(tipContent: TIP_GAME_PHILOSOPHY, anchorPointRect: QuestionVC().questionLbl.frame)]
     
     override func viewDidLoad() {
@@ -45,17 +47,17 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @IBAction func helpBtnClicked(sender: UIButton) {
-        performSegueWithIdentifier(SEGUE_HELP_FOR_QUESTIONVC, sender: nil)
+    @IBAction func identityBtnClicked(sender: UIButton) {
+        alertIfPlayerIsBluffMstr()
     }
     
     @IBAction func dismissHelp(segue: UIStoryboardSegue) {} //for unwinding the help modal
     
     func alertIfPlayerIsBluffMstr() {
         if isPlayerBluffMastr() {
-            AlertHandler.alert.showAlertMsg(STATUS_BLUFFMATR_TITLE, msg: STATUS_BLUFFMATR_MSG)
+            AlertHandler.alert.showPopUpBubble(PopUpBubble(tipContent: STATUS_BLUFFMATR_MSG, anchorPointRect: identityBtnRect, anchorDirection: .Any), parentVC: self)
         } else {
-            AlertHandler.alert.showAlertMsg(STATUS_INNOCENT_TITLE, msg: STATUS_INNOCENT_MSG)
+            AlertHandler.alert.showPopUpBubble(PopUpBubble(tipContent: STATUS_INNOCENT_MSG, anchorPointRect: identityBtnRect, anchorDirection: .Any), parentVC: self)
         }
 
     }
@@ -98,4 +100,9 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    //MARK: UIPopoverPresentationControllerDelegate methods
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
 }
