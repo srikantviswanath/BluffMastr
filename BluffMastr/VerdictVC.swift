@@ -31,8 +31,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         BonusPenaltyTable.delegate = self
         BonusPenaltyTable.dataSource = self
-        ScoreCounter.text = "17"
-        //ScoreCounter.text = "\(fetchPlayerScoreFromLeaderboard(Users.myScreenName))"
+        ScoreCounter.text = "\(fetchPlayerScoreFromLeaderboard(Users.myScreenName))"
         StartNewGameBtn.hidden = true
         
     }
