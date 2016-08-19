@@ -15,11 +15,12 @@ class PopUpTutorialVC: UIViewController {
     
     @IBAction func ActionBtnPressed(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
-        //parentVC
+        parentVC.view.alpha = 1.0
     }
     
     var parentSourceDelegate: PopUpTutorialDelegate!
     var popUpBubbleIndex = 0
+    var parentVC: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()

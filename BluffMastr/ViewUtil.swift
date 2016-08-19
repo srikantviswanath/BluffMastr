@@ -71,7 +71,9 @@ class AlertHandler: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let popOverVC = storyboard.instantiateViewControllerWithIdentifier("popOver") as! PopUpTutorialVC
         popOverVC.view.backgroundColor = UIColor.whiteColor()
+        popOverVC.parentVC = parentVC
         popOverVC.modalInPopover = true
+        parentVC.view.alpha = 0.7
         popOverVC.tutorialTip.text = popUpBuble.content
         popOverVC.modalPresentationStyle = .Popover
         popOverVC.preferredContentSize = CGSizeMake(200, 130)
