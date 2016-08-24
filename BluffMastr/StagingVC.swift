@@ -118,6 +118,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                 GameMembers.gameMembers.observeMemberAddedOrRemoved {
                     self.playersTable.reloadData()
                     self.changeViewAfterJoin()
+                    Scores.scores.setScoreRefs()
                 }
                 GameMembers.gameMembers.gameRoomIsRemoved {
                     //self.leaveGame(nil) this is now taken care by the delegate.

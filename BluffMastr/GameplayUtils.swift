@@ -132,11 +132,44 @@ func evaluateBonusOrPenaltyPerRound() -> Int {
 }
 
 func resetStaticVariablesForNewGame() {
-    Games.leaderboard = [Dictionary<String, Int>]()
-    Games.playersSubmissions = [Dictionary<String, Int>]()
+    Games.gameUID = nil
     Games.bluffMastr = nil
+    Games.sharedToken = nil
+    Games.gameCreator = nil
+    Games.roundNumber = nil
+    Games.currentQuestionTitle = nil
     Games.currentQuestionId = nil
+    Games.answersDict = Dictionary<String, String>()
+    Games.playersSubmissions = [Dictionary<String, Int>]()
+    Games.leaderboard = [Dictionary<String, Int>]()
+    Games.finalScores = [Dictionary<String,Int>]()
+    Games.votesCastedForThisRound = Dictionary<String, String>()
+    Games.playersReadyForNextRound = [String]()
+    Games.listenGameFBHandle = nil
+    GameMembers.originalPlayersAtGameStart = [String]()
+    GameMembers.playersInGameRoom = [String]()
+    GameMembers.votedoutPlayers = [String]()
+    Users.myCurrentAnswer = nil
+    Users.mycurrentVote = nil
+    Users.myBonusHistory = [Dictionary<String, Int>]()
+    Questions.completedQuestionIds = [Int]()
+
 }
+
+func removeAllListeners() {
+    FDataService.fDataService.REF_GAMES.child(Games.gameUID).removeAllObservers()
+    FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).removeAllObservers()
+    FDataService.fDataService.REF_QUESTIONS.removeAllObservers()
+    FDataService.fDataService.REF_ANSWERS.removeAllObservers()
+    FDataService.fDataService.REF_CURRENT_ROUNDS.child(Games.gameUID).removeAllObservers()
+    FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).removeAllObservers()
+    FDataService.fDataService.REF_VOTES.child(Games.gameUID).removeAllObservers()
+    FDataService.fDataService.REF_READY_NEXT.child(Games.gameUID).removeAllObservers()
+    FDataService.fDataService.REF_GHOST_PLAYERS.child(Games.gameUID).removeAllObservers()
+    FDataService.fDataService.REF_FINAL_SCORES.child(Games.gameUID).removeAllObservers()
+}
+
+
 
 func teardownAfterStartingGame() {
     Users.users.deleteAnonymousUser()

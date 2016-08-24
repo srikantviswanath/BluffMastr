@@ -79,6 +79,7 @@ class LandingVC: UIViewController, WelcomeVCDelegate, PopUpTutorialDelegate {
         Users.users.createAnonymousUser(Users.myScreenName)
         busyModalFrame = showBusyModal(BUSY_CREATING_GAME)
         Games.games.createGame(Users.myScreenName) {
+            Scores.scores.setScoreRefs()
             self.busyModalFrame.removeFromSuperview()
             self.performSegueWithIdentifier(SEGUE_CREATE_JOIN_GAME, sender: nil)
         }

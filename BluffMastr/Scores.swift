@@ -15,6 +15,11 @@ class Scores {
     static var myLeaderboardRef = FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).child(Users.myScreenName)
     static var myFinalScoreRef = FDataService.fDataService.REF_FINAL_SCORES.child(Games.gameUID).child(Users.myScreenName)
     
+    func setScoreRefs() {
+        Scores.myLeaderboardRef = FDataService.fDataService.REF_LEADERBOARDS.child(Games.gameUID).child(Users.myScreenName)
+        Scores.myFinalScoreRef = FDataService.fDataService.REF_FINAL_SCORES.child(Games.gameUID).child(Users.myScreenName)
+    }
+    
     func resetLeaderboard() {
         var leaderBoardDict = Dictionary<String, Int>()
         for player in GameMembers.playersInGameRoom {

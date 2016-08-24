@@ -35,8 +35,12 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 ( isPlayerBluffMastr() ? self.constructAnswersArray([Int](1...10)) : self.constructAnswersArray(shuffleArray([Int](1...10))))
                 self.answersTable.reloadData()
             }
-            self.alertIfPlayerIsBluffMstr()
+            
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.alertIfPlayerIsBluffMstr()
     }
     
     @IBAction func exitGameBtnClicked(sender: AnyObject) {
