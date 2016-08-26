@@ -17,11 +17,13 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var VerdictView: UIView!
     @IBOutlet weak var BonusPenaltyTable: UITableView!
     @IBOutlet weak var StartNewGameBtn: UIButton!
+    @IBOutlet weak var FinalScoresToggleBtn: UIButton!
     
     var bonusTimer: NSTimer?
     var bonusTableDataSource = [Dictionary<String, Int>]()
     var animatingRowIndex = 0
     var doneAnimationBonuses = false
+    var showingBonuses = true //flag used for toggling between bonuses view and final scores view
     
     var busyModalFrame = UIView()
 
@@ -32,6 +34,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         BonusPenaltyTable.delegate = self
         BonusPenaltyTable.dataSource = self
         ScoreCounter.text = "\(fetchPlayerScoreFromLeaderboard(Users.myScreenName))"
+        FinalScoresToggleBtn.hidden = true
         StartNewGameBtn.hidden = true
         
     }
@@ -47,6 +50,17 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             removeAllListeners()
             resetStaticVariablesForNewGame()
         }
+    }
+    
+    @IBAction func finalScoresToggleBtnClicked(sender: UIButton) {
+        if showingBonuses {
+            showingBonuses = false
+            FinalScoresToggleBtn.setTitle("Show Bonuses", forState: .Normal)
+        } else {
+            showingBonuses = true
+            FinalScoresToggleBtn.setTitle("Final Scores", forState: .Normal)
+        }
+        BonusPenaltyTable.reloadData()
     }
     
     func animateBonusRow() {
@@ -74,6 +88,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.VerdictLbl.text = didIWin ? "You Win!" : "\(gameWinner) wins!"
             self.VerdictLbl.hidden = false
             self.StartNewGameBtn.hidden = false
+            self.FinalScoresToggleBtn.hidden = false
         }
     }
     
@@ -90,7 +105,11 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bonusTableDataSource.count
+        if showingBonuses {
+            return bonusTableDataSource.count
+        } else {
+            return Games.finalScores.count
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -99,13 +118,19 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = BonusPenaltyTable.dequeueReusableCellWithIdentifier(CUSTOM_CELL) as? CustomTableViewCell {
-            let roundNum = Array(bonusTableDataSource[indexPath.row].keys)[0]
-            let bonus = Array(bonusTableDataSource[indexPath.row].values)[0]
-            let bonusReason = BONUS_PENALTY_REASON[bonus]
-            if !doneAnimationBonuses {
-                cell.configureBonusCell(bonus, bonusReason: bonusReason!, roundInfo: roundNum)
-                ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + bonus)"
-                AnimationEngine.bounceUIElement(ScoreCounter, finalDimension: 1.7)
+            if showingBonuses {
+                let roundNum = Array(bonusTableDataSource[indexPath.row].keys)[0]
+                let bonus = Array(bonusTableDataSource[indexPath.row].values)[0]
+                let bonusReason = BONUS_PENALTY_REASON[bonus]
+                if !doneAnimationBonuses {
+                    ScoreCounter.text = "\(Int(self.ScoreCounter.text!)! + bonus)"
+                    AnimationEngine.bounceUIElement(ScoreCounter, finalDimension: 1.7)
+                }
+                cell.configureBonusCell(bonus, bonusReason: bonusReason!, roundInfo: roundNum, doneAnimatingBonuses: doneAnimationBonuses)
+            } else {
+                let playerName = Array(Games.finalScores[indexPath.row].keys)[0]
+                let finalScore = Array(Games.finalScores[indexPath.row].values)[0]
+                cell.configureFinalScoresCell(playerName, finalScore: "\(finalScore)")
             }
             return cell
         } else {

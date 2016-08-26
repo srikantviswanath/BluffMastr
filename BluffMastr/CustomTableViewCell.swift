@@ -49,19 +49,26 @@ class CustomTableViewCell: UITableViewCell {
         }
     }
     
-    func configureBonusCell(bonus: Int, bonusReason: String, roundInfo: String) {
+    func configureBonusCell(bonus: Int, bonusReason: String, roundInfo: String, doneAnimatingBonuses: Bool) {
         var bonusWithSign = ""
         if roundInfo != "" { TrailingLbl.text = roundInfo }
         if bonus == BONUS_BLUFFMASTR_SURVIVAL || bonus == BONUS_VOTED_AGAINST_BLUFFMASTR {
             bonusWithSign = "+\(bonus)"
             scoreLbl.textColor = UIColor(netHex: 0x00796B)
-            playAudio(AUDIO_BONUS)
+            if !doneAnimatingBonuses{playAudio(AUDIO_BONUS)}
         } else {
             bonusWithSign = "\(bonus)"
             scoreLbl.textColor = UIColor(netHex: COLOR_THEME)
-            playAudio(AUDIO_PENALTY)
+            if !doneAnimatingBonuses{playAudio(AUDIO_PENALTY)}
         }
         configureCell(bonusReason, score: bonusWithSign)
+    }
+    
+    func configureFinalScoresCell(playerName: String, finalScore: String) {
+        configureCell(finalScore , score: playerName)
+        TrailingLbl.text = ""
+        scoreLbl.textColor = UIColor.darkGrayColor()
+        MainLbl.textColor = UIColor.darkGrayColor()
     }
 
 }

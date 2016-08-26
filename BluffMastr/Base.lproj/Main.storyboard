@@ -1918,37 +1918,12 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgI-Vs-95R">
-                                        <rect key="frame" x="562" y="25" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="2HH-R3-GG0"/>
-                                            <constraint firstAttribute="height" constant="45" id="R3L-bE-aN9"/>
-                                            <constraint firstAttribute="height" constant="35" id="Xfw-V5-xP4"/>
-                                            <constraint firstAttribute="width" constant="35" id="fKC-wp-SEE"/>
-                                            <constraint firstAttribute="width" constant="45" id="gGt-kZ-RcH"/>
-                                            <constraint firstAttribute="height" constant="30" id="zJT-r5-Jsr"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="start_new_game"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="R3L-bE-aN9"/>
-                                                <exclude reference="Xfw-V5-xP4"/>
-                                                <exclude reference="fKC-wp-SEE"/>
-                                                <exclude reference="gGt-kZ-RcH"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="startNewGameBtnClicked:" destination="Y24-xV-wIv" eventType="touchUpInside" id="JZn-zg-fYW"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hgI-Vs-95R" secondAttribute="trailing" constant="8" id="5JW-ff-Lml"/>
                                     <constraint firstItem="hc7-7J-F2X" firstAttribute="top" secondItem="2TA-DS-aOo" secondAttribute="bottom" constant="10" id="63I-Qt-URl"/>
                                     <constraint firstItem="hc7-7J-F2X" firstAttribute="centerY" secondItem="uM8-ci-x41" secondAttribute="centerY" id="8Cn-ut-jbo"/>
                                     <constraint firstItem="2TA-DS-aOo" firstAttribute="leading" secondItem="uM8-ci-x41" secondAttribute="leading" constant="46" id="J3A-Z7-HxU"/>
-                                    <constraint firstItem="hgI-Vs-95R" firstAttribute="top" secondItem="uM8-ci-x41" secondAttribute="top" constant="25" id="T4v-qK-4Ae"/>
                                     <constraint firstItem="2TA-DS-aOo" firstAttribute="centerX" secondItem="uM8-ci-x41" secondAttribute="centerX" id="YjO-se-pBZ"/>
                                     <constraint firstItem="2TA-DS-aOo" firstAttribute="top" secondItem="uM8-ci-x41" secondAttribute="top" constant="25" id="dsK-8a-Zst"/>
                                     <constraint firstItem="hc7-7J-F2X" firstAttribute="centerX" secondItem="uM8-ci-x41" secondAttribute="centerX" id="ecb-hQ-FWs"/>
@@ -2001,11 +1976,11 @@
                                     <constraint firstAttribute="bottom" secondItem="MEW-8v-Q8l" secondAttribute="bottom" constant="7" id="r9s-pG-6Gi"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlK-2W-Mif" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="20" y="191" width="560" height="356"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DlK-2W-Mif" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
+                                <rect key="frame" x="20" y="191" width="560" height="314"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-EY-avV">
-                                        <rect key="frame" x="8" y="8" width="544" height="340"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-EY-avV">
+                                        <rect key="frame" x="8" y="8" width="544" height="283"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomTableViewCell" rowHeight="45" id="gZP-F1-trB" customClass="CustomTableViewCell" customModule="BluffMastr" customModuleProvider="target">
@@ -2092,7 +2067,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iI-Fz-cxO" customClass="MaterialView" customModule="BluffMastr" customModuleProvider="target">
-                                <rect key="frame" x="20" y="555" width="560" height="37"/>
+                                <rect key="frame" x="20" y="512" width="560" height="37"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q79-qP-TGX">
                                         <rect key="frame" x="193" y="8" width="175" height="21"/>
@@ -2120,6 +2095,33 @@
                                     <constraint firstAttribute="height" constant="37" id="dOp-PI-jEn"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="EhN-Af-1FX">
+                                <rect key="frame" x="20" y="559" width="560" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6Z-0g-3hc" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="268" height="32"/>
+                                        <color key="backgroundColor" red="0.28235294119999998" green="0.6705882353" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <state key="normal" title="Final Scores">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="finalScoresToggleBtnClicked:" destination="Y24-xV-wIv" eventType="touchUpInside" id="zLQ-XT-GzD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfa-Ft-CX7" customClass="MaterialButton" customModule="BluffMastr" customModuleProvider="target">
+                                        <rect key="frame" x="293" y="0.0" width="267" height="32"/>
+                                        <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <state key="normal" title="New Game">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startNewGameBtnClicked:" destination="Y24-xV-wIv" eventType="touchUpInside" id="Gaz-1u-ggJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -2129,25 +2131,41 @@
                             <constraint firstItem="uM8-ci-x41" firstAttribute="leading" secondItem="atI-iR-oh2" secondAttribute="leadingMargin" constant="-20" id="6ez-RR-GwT"/>
                             <constraint firstItem="1iI-Fz-cxO" firstAttribute="leading" secondItem="atI-iR-oh2" secondAttribute="leadingMargin" id="8o1-64-pSf"/>
                             <constraint firstItem="DlK-2W-Mif" firstAttribute="leading" secondItem="atI-iR-oh2" secondAttribute="leadingMargin" id="966-fP-pHE"/>
+                            <constraint firstAttribute="trailing" secondItem="EhN-Af-1FX" secondAttribute="trailing" constant="488" id="9a4-MH-PQ2"/>
+                            <constraint firstAttribute="trailing" secondItem="EhN-Af-1FX" secondAttribute="trailing" constant="20" id="CHl-Hz-rfb"/>
+                            <constraint firstItem="EhN-Af-1FX" firstAttribute="top" secondItem="1iI-Fz-cxO" secondAttribute="bottom" constant="10" id="Dps-MT-aY9"/>
+                            <constraint firstItem="EhN-Af-1FX" firstAttribute="leading" secondItem="atI-iR-oh2" secondAttribute="leading" id="H9I-z5-Deg"/>
+                            <constraint firstItem="Kps-UA-F7p" firstAttribute="top" secondItem="EhN-Af-1FX" secondAttribute="bottom" id="IUp-km-bpq"/>
                             <constraint firstItem="1iI-Fz-cxO" firstAttribute="top" secondItem="DlK-2W-Mif" secondAttribute="bottom" constant="8" id="PLl-N3-9cH"/>
                             <constraint firstItem="DlK-2W-Mif" firstAttribute="top" secondItem="g5A-7Y-ajr" secondAttribute="bottom" constant="8" id="VZq-WC-sE6"/>
                             <constraint firstItem="1iI-Fz-cxO" firstAttribute="trailing" secondItem="atI-iR-oh2" secondAttribute="trailingMargin" id="air-Fh-gNj"/>
+                            <constraint firstItem="EhN-Af-1FX" firstAttribute="leading" secondItem="atI-iR-oh2" secondAttribute="leading" constant="20" id="bPx-ap-UjC"/>
                             <constraint firstItem="uM8-ci-x41" firstAttribute="top" secondItem="atI-iR-oh2" secondAttribute="topMargin" id="cAX-xr-gkg"/>
                             <constraint firstItem="1iI-Fz-cxO" firstAttribute="top" secondItem="DlK-2W-Mif" secondAttribute="bottom" constant="8" id="cwZ-QH-9SM"/>
+                            <constraint firstAttribute="trailing" secondItem="EhN-Af-1FX" secondAttribute="trailing" id="deU-3R-ddk"/>
+                            <constraint firstItem="EhN-Af-1FX" firstAttribute="top" secondItem="1iI-Fz-cxO" secondAttribute="bottom" constant="20" id="mip-bb-fIG"/>
                             <constraint firstItem="Kps-UA-F7p" firstAttribute="top" secondItem="1iI-Fz-cxO" secondAttribute="bottom" constant="8" id="osX-Ma-AlS"/>
+                            <constraint firstItem="Kps-UA-F7p" firstAttribute="top" secondItem="EhN-Af-1FX" secondAttribute="bottom" constant="9" id="psl-gH-zvu"/>
                             <constraint firstItem="DlK-2W-Mif" firstAttribute="trailing" secondItem="atI-iR-oh2" secondAttribute="trailingMargin" id="qwL-zH-8OT"/>
                             <constraint firstItem="g5A-7Y-ajr" firstAttribute="leading" secondItem="atI-iR-oh2" secondAttribute="leadingMargin" constant="-20" id="sEa-nx-m1w"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="cwZ-QH-9SM"/>
+                                <exclude reference="9a4-MH-PQ2"/>
+                                <exclude reference="H9I-z5-Deg"/>
+                                <exclude reference="deU-3R-ddk"/>
+                                <exclude reference="mip-bb-fIG"/>
+                                <exclude reference="IUp-km-bpq"/>
+                                <exclude reference="osX-Ma-AlS"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="BonusPenaltyTable" destination="jgc-EY-avV" id="aYt-Ta-OLM"/>
+                        <outlet property="FinalScoresToggleBtn" destination="Y6Z-0g-3hc" id="Sc9-Yi-BaJ"/>
                         <outlet property="ScoreCounter" destination="EcL-Qq-AOS" id="bwE-xL-PCK"/>
-                        <outlet property="StartNewGameBtn" destination="hgI-Vs-95R" id="rKE-o1-fIb"/>
+                        <outlet property="StartNewGameBtn" destination="Jfa-Ft-CX7" id="agl-Y2-vF4"/>
                         <outlet property="VerdictImg" destination="hc7-7J-F2X" id="9R9-Sg-g0T"/>
                         <outlet property="VerdictLbl" destination="2TA-DS-aOo" id="aDz-l8-pLk"/>
                         <outlet property="VerdictView" destination="uM8-ci-x41" id="T6u-gG-4HA"/>
@@ -2744,13 +2762,12 @@
         <image name="overviewHelp" width="203" height="245"/>
         <image name="profile" width="202" height="202"/>
         <image name="questionHelp" width="203" height="203"/>
-        <image name="start_new_game" width="212" height="226"/>
         <image name="voteout_help" width="216" height="186"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Wze-wC-5DY"/>
-        <segue reference="63B-jL-9BF"/>
-        <segue reference="lhi-gu-Bwe"/>
+        <segue reference="c5z-kU-es2"/>
         <segue reference="2xY-4O-QaO"/>
+        <segue reference="lhi-gu-Bwe"/>
     </inferredMetricsTieBreakers>
 </document>
