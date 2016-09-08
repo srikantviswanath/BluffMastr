@@ -6,6 +6,7 @@ use_frameworks!
 target 'BluffMastr' do
 pod 'pop', '~> 1.0'
 pod 'Firebase'
+pod 'Instructions', '~> 0.5'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 end

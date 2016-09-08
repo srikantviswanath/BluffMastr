@@ -8,26 +8,31 @@
 
 import UIKit
 import Firebase
+import Instructions
 
-class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CoachMarksControllerDataSource {
 
     @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var answersTable: UITableView!
     @IBOutlet weak var roundLbl: UILabel!
     @IBOutlet weak var identityBtn: UIButton!
     
-    static var questionVC = QuestionVC()
+    let coachController = CoachMarksController()
     
     var playerScore: Int!
     var answersArray: [String] = [String]()
     let identityBtnRect = CGRect(origin: CGPointMake((UIScreen.mainScreen().bounds.width/2)-15, UIScreen.mainScreen().bounds.height - 38), size: CGSize(width: 30.0, height: 30.0))
-    //var popUpBundle = [PopUpBubble(tipContent: TIP_GAME_PHILOSOPHY, anchorPointRect: QuestionVC().questionLbl.frame)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //AlertHandler.alert.showPopUpBubble(popUpBundle[0], parentVC: self)
+        
+        coachController.dataSource = self
+        coachController.overlay.blurEffectStyle = .Dark
+        self.coachController.overlay.allowTap = true
+        
         answersTable.dataSource = self
         answersTable.delegate = self
+        
         Questions.questions.listenForNextQuestion{
             self.roundLbl.text = "Round: \(Games.roundNumber)"
             self.questionLbl.text = Games.currentQuestionTitle
@@ -40,7 +45,14 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.alertIfPlayerIsBluffMstr()
+        super.viewDidAppear(animated)
+        coachController.startOn(self)
+        //self.alertIfPlayerIsBluffMstr()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        coachController.stop(immediately: true)
     }
     
     @IBAction func exitGameBtnClicked(sender: AnyObject) {
@@ -109,4 +121,43 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
     }
+    
+    //MARK: CoachMarksControllerDataSource delegate methods
+    
+    func numberOfCoachMarksForCoachMarksController(coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarkForIndex index: Int) -> CoachMark {
+        switch(index) {
+        case 0:
+            return coachController.helper.coachMarkForView(questionLbl)
+        case 1:
+            var answersCoachMark = coachController.helper.coachMarkForView(answersTable)
+            answersCoachMark.arrowOrientation = .Bottom
+            return answersCoachMark
+        default:
+            return coachController.helper.coachMarkForView()
+        }
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarkViewsForIndex index: Int, coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        print("coachMarkViewsForIndex: \(index)")
+        var coachViews: (bodyView: CoachMarkBodyDefaultView, arrowView: CoachMarkArrowDefaultView?)
+        
+        coachViews = coachMarksController.helper.defaultCoachViewsWithArrow(true, withNextText: false, arrowOrientation: coachMark.arrowOrientation)
+        
+        switch(index) {
+        case 0:
+            coachViews.bodyView.hintLabel.text = "Each question is asked to 100 people and their answers are collected"
+            coachViews.bodyView.nextLabel.text = "Next"
+        case 1:
+            coachViews.bodyView.hintLabel.text = "Here are the top 10 answers sorted randomly in orde rof popularity. "
+            coachViews.bodyView.nextLabel.text = "Next"
+        default: break
+        }
+        
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+
 }
