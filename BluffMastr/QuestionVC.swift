@@ -125,7 +125,7 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     //MARK: CoachMarksControllerDataSource delegate methods
     
     func numberOfCoachMarksForCoachMarksController(coachMarksController: CoachMarksController) -> Int {
-        return 2
+        return 3
     }
     
     func coachMarksController(coachMarksController: CoachMarksController, coachMarkForIndex index: Int) -> CoachMark {
@@ -136,6 +136,8 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             var answersCoachMark = coachController.helper.coachMarkForView(answersTable)
             answersCoachMark.arrowOrientation = .Bottom
             return answersCoachMark
+        case 2:
+            return coachController.helper.coachMarkForView(identityBtn)
         default:
             return coachController.helper.coachMarkForView()
         }
@@ -149,11 +151,15 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         switch(index) {
         case 0:
-            coachViews.bodyView.hintLabel.text = "Each question is asked to 100 people and their answers are collected"
-            coachViews.bodyView.nextLabel.text = "Next"
+            coachViews.bodyView.hintLabel.text = "Each round begins with a survey question. Least common survey answer has most points and vice versa"
+            coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
         case 1:
-            coachViews.bodyView.hintLabel.text = "Here are the top 10 answers sorted randomly in orde rof popularity. "
-            coachViews.bodyView.nextLabel.text = "Next"
+            coachViews.bodyView.hintLabel.text = "These survey answers are shown in a random order. Only the BluffMastr views them sorted by score(LOW to HIGH)"
+            coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
+        case 2:
+            coachViews.bodyView.hintLabel.text = "Tap here to reveal your identity"
+            coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
+
         default: break
         }
         
