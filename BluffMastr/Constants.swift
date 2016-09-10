@@ -128,9 +128,12 @@ let STATUS_YOU_ARE_OUT = "Uh oh. You have been voted out"
 let STATUS_WAITING_OTHERS_NXT_ROUND = "Waiting for others..."
 let STATUS_STARTING_NEXT_ROUND = "Starting next round..."
 let STATUS_COMPUTING_BONUS = "Computing Bonuses and Penalties per round ..."
+let STATUS_GRAVEYARD_TITLE = "Welcome to your Graveyard"
+let STATUS_GRAVEYARD_MSG = "You could still win with endgame bonuses. Watch out for spookiness"
 
 let TIP_GAME_PHILOSOPHY = "Select the least probable answer for most points"
 let TIP_START_VOTEOUT = "Discuss. When ready, begin voting and select a player to voteout"
+let TIP_ANSWERS_KEY = "Tap here for Answers. This is what BluffMastr saw"
 
 let VOTES = "Votes"
 

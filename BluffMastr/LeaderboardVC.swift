@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Instructions
 
-class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate {
+class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate, CoachMarksControllerDataSource {
 
     @IBOutlet weak var currentScoresCollectionView: UICollectionView!
     @IBOutlet weak var leaderboardTableView: UITableView!
@@ -16,6 +17,10 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var leaderboardStatus: UILabel!
     @IBOutlet weak var VoteoutBtn: UIButton!
     @IBOutlet weak var VCTitle: UILabel!
+    @IBOutlet weak var AnswersKey: UIButton!
+    @IBOutlet weak var BeginVotingBtn: UIButton!
+    
+    let coachController = CoachMarksController()
     
     var prevMarkedCell: CustomTableViewCell = CustomTableViewCell()
     var readyToshowCurrentRoundScores: Bool?
@@ -30,8 +35,14 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        coachController.dataSource = self
+        coachController.overlay.allowTap = true
+        coachController.overlay.blurEffectStyle = .Dark
+        
         currentScoresCollectionView.delegate = self
         currentScoresCollectionView.dataSource = self
+        
         leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
         
@@ -49,6 +60,11 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        coachController.startOn(self)
+    }
+    
     //MARK: Helper Action Utils
     
     func startAnimatingLeaderboard() {
@@ -62,9 +78,9 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             VoteoutBtn.hidden = false
             let leadingScorer = Array(Games.leaderboard.first!.keys)[0]
             VCTitle.text = "\(leadingScorer) is leading"
-            if Int(Games.roundNumber) == 1 {
+            /*if Int(Games.roundNumber) == 1 {
                 AlertHandler.alert.showPopUpBubble(PopUpBubble(tipContent: TIP_START_VOTEOUT, anchorPointRect: VoteoutBtn.frame, anchorDirection: .Down), parentVC: self)
-            }
+            }*/
         }
     }
     
@@ -201,4 +217,45 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
     }
+    
+    //MARK: CoachMarksControllerDataSource Delegates
+    
+    func numberOfCoachMarksForCoachMarksController(coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarkForIndex index: Int) -> CoachMark {
+        switch(index) {
+        case 0:
+            return coachController.helper.coachMarkForView(AnswersKey)
+        case 1:
+            var answersCoachMark = coachController.helper.coachMarkForView(BeginVotingBtn)
+            answersCoachMark.arrowOrientation = .Bottom
+            return answersCoachMark
+        default:
+            return coachController.helper.coachMarkForView()
+        }
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarkViewsForIndex index: Int, coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        print("coachMarkViewsForIndex: \(index)")
+        var coachViews: (bodyView: CoachMarkBodyDefaultView, arrowView: CoachMarkArrowDefaultView?)
+        
+        coachViews = coachMarksController.helper.defaultCoachViewsWithArrow(true, withNextText: false, arrowOrientation: coachMark.arrowOrientation)
+        
+        switch(index) {
+        case 0:
+            coachViews.bodyView.hintLabel.text = TIP_ANSWERS_KEY
+            coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
+        case 1:
+            coachViews.bodyView.hintLabel.text = TIP_START_VOTEOUT
+            coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
+            
+        default: break
+        }
+        
+        return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+
+    
 }

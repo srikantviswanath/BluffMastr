@@ -1545,6 +1545,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="AnswersKey" destination="A7q-8A-ErI" id="iJ7-H5-2I3"/>
+                        <outlet property="BeginVotingBtn" destination="LRL-Pi-gPe" id="oWF-f0-CG7"/>
                         <outlet property="VCTitle" destination="bPa-Xf-i1D" id="4gF-NE-l9b"/>
                         <outlet property="VoteoutBtn" destination="LRL-Pi-gPe" id="mHa-ka-Oij"/>
                         <outlet property="currentScoresCollectionView" destination="6g2-l6-kLx" id="7L3-GY-zRb"/>
@@ -2765,9 +2767,9 @@
         <image name="voteout_help" width="216" height="186"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wze-wC-5DY"/>
-        <segue reference="63B-jL-9BF"/>
         <segue reference="lhi-gu-Bwe"/>
         <segue reference="2xY-4O-QaO"/>
+        <segue reference="c5z-kU-es2"/>
+        <segue reference="Wze-wC-5DY"/>
     </inferredMetricsTieBreakers>
 </document>
