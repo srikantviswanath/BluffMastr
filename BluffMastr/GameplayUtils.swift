@@ -9,6 +9,8 @@
 import Foundation
 import GameplayKit
 
+var EnableInGameTutorial: Bool = true
+
 func isPlayerBluffMastr() -> Bool{
     return Games.bluffMastr == Users.myScreenName
 }

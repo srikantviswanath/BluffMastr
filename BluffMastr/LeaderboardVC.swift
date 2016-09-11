@@ -60,11 +60,6 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        coachController.startOn(self)
-    }
-    
     //MARK: Helper Action Utils
     
     func startAnimatingLeaderboard() {
@@ -78,9 +73,9 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             VoteoutBtn.hidden = false
             let leadingScorer = Array(Games.leaderboard.first!.keys)[0]
             VCTitle.text = "\(leadingScorer) is leading"
-            /*if Int(Games.roundNumber) == 1 {
-                AlertHandler.alert.showPopUpBubble(PopUpBubble(tipContent: TIP_START_VOTEOUT, anchorPointRect: VoteoutBtn.frame, anchorDirection: .Down), parentVC: self)
-            }*/
+            if EnableInGameTutorial {
+                coachController.startOn(self)
+            }
         }
     }
     
@@ -137,6 +132,9 @@ class LeaderboardVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             leaderboardStatus.text = STATUS_START_VOTING
             VoteoutBtn.setTitle(BTN_VOTEOUT, forState: .Normal)
             voteoutStatusTimer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: "bounceStatusLbl", userInfo: nil, repeats: true)
+        }
+        if EnableInGameTutorial {
+            EnableInGameTutorial = false
         }
         
     }

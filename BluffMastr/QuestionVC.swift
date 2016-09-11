@@ -46,7 +46,9 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        coachController.startOn(self)
+        if EnableInGameTutorial {
+            coachController.startOn(self)
+        }
         //self.alertIfPlayerIsBluffMstr()
     }
     
