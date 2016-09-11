@@ -23,9 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         if NSUserDefaults.standardUserDefaults().boolForKey(IS_TUTORIAL_SHOWN) {
+            EnableInGameTutorial = false
             let viewController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("landingVC")
             self.window?.rootViewController = viewController
         } else {
+            EnableInGameTutorial = true
             let viewController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("ModeAOnboardingPageVC")
             self.window?.rootViewController = viewController
         }
