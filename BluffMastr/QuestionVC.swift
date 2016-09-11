@@ -110,13 +110,24 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         performSegueWithIdentifier(SEGUE_FETCH_SCORE, sender: nil)
         Users.myCurrentAnswer = answer
     }
-        
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == SEGUE_FETCH_SCORE) {
-            let destVC = segue.destinationViewController as! ScoreVC
-            destVC.playerScore = self.playerScore
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if isPlayerBluffMastr() {
+            return true
+        } else {
+            return false
         }
     }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let revealScore = UITableViewRowAction(style: .Normal, title: "\(indexPath.row + 1)") { action, index in}
+        revealScore.backgroundColor = UIColor(netHex: 0x48ABF1)
+        return [revealScore]
+    }
+    
     
     //MARK: UIPopoverPresentationControllerDelegate methods
     
@@ -127,7 +138,7 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     //MARK: CoachMarksControllerDataSource delegate methods
     
     func numberOfCoachMarksForCoachMarksController(coachMarksController: CoachMarksController) -> Int {
-        return 3
+        return 5
     }
     
     func coachMarksController(coachMarksController: CoachMarksController, coachMarkForIndex index: Int) -> CoachMark {
@@ -135,10 +146,18 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         case 0:
             return coachController.helper.coachMarkForView(questionLbl)
         case 1:
+            return coachController.helper.coachMarkForView(questionLbl)
+
+        case 2:
             var answersCoachMark = coachController.helper.coachMarkForView(answersTable)
             answersCoachMark.arrowOrientation = .Bottom
             return answersCoachMark
-        case 2:
+        case 3:
+            var answersCoachMark = coachController.helper.coachMarkForView(answersTable)
+            answersCoachMark.arrowOrientation = .Bottom
+            return answersCoachMark
+
+        case 4:
             return coachController.helper.coachMarkForView(identityBtn)
         default:
             return coachController.helper.coachMarkForView()
@@ -153,12 +172,18 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         switch(index) {
         case 0:
-            coachViews.bodyView.hintLabel.text = "Each round begins with a survey question. Least common survey answer has most points and vice versa"
-            coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
+            coachViews.bodyView.hintLabel.text = "Each round begins with a survey question"
+            coachViews.bodyView.hintLabel.textColor = UIColor.darkGrayColor()
         case 1:
-            coachViews.bodyView.hintLabel.text = "These survey answers are shown in a random order. Only the BluffMastr views them sorted by score(LOW to HIGH)"
+            coachViews.bodyView.hintLabel.text = "Least common survey answer has most points and vice versa"
             coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
         case 2:
+            coachViews.bodyView.hintLabel.text = "The scores for these survey answers are concealed. The order of answers is random"
+            coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
+        case 3:
+            coachViews.bodyView.hintLabel.text = "Only if you're the BluffMastr, swiping an answer to the left reveals score"
+            coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
+        case 4:
             coachViews.bodyView.hintLabel.text = "Tap here to reveal your identity"
             coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
 
@@ -166,6 +191,13 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
         
         return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == SEGUE_FETCH_SCORE) {
+            let destVC = segue.destinationViewController as! ScoreVC
+            destVC.playerScore = self.playerScore
+        }
     }
 
 }
