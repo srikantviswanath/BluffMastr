@@ -1,0 +1,6 @@
+framework module Pods_BluffMastrUITests {
+  umbrella header "Pods-BluffMastrUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

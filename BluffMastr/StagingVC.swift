@@ -114,20 +114,26 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         self.view.endEditing(true)
         let enteredCode = arrayOfCodes.joinWithSeparator("")
         if enteredCode.characters.count == 4 {
-            Games.games.joinGame(enteredCode, gameSlave: Users.myScreenName, sucessCompleted: {
-                GameMembers.gameMembers.observeMemberAddedOrRemoved {
-                    self.playersTable.reloadData()
-                    self.changeViewAfterJoin()
-                    Scores.scores.setScoreRefs()
-                }
-                GameMembers.gameMembers.gameRoomIsRemoved {
-                    //self.leaveGame(nil) this is now taken care by the delegate.
-                    let alertVC = AlertHandler.alert.showAlertMsg("Host Exited", msg: "Host has left the game, now quiting...")
-                    alertVC.delegate = self
-                }
-                Games.games.listenToGameChanges(SVC_GAME_BLUFFMASTER) { // Game starts as soon as bluffMastr is set for the game
-                    self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
-                }
+            Games.games.joinGame(enteredCode, gameSlave: Users.myScreenName,
+                sucessCompleted: { isScreenNameTaken in
+                    if isScreenNameTaken {
+                        let alertVC = AlertHandler.alert.showAlertMsg(ERR_DUPLICATE_SCREENAME_TITLE, msg: ERR_DUPLICATE_SCREENAME_MSG)
+                        alertVC.delegate = self
+                    } else {
+                        GameMembers.gameMembers.observeMemberAddedOrRemoved {
+                            self.playersTable.reloadData()
+                            self.changeViewAfterJoin()
+                            Scores.scores.setScoreRefs()
+                        }
+                        GameMembers.gameMembers.gameRoomIsRemoved {
+                            //self.leaveGame(nil) this is now taken care by the delegate.
+                            let alertVC = AlertHandler.alert.showAlertMsg("Host Exited", msg: "Host has left the game, now quiting...")
+                            alertVC.delegate = self
+                        }
+                        Games.games.listenToGameChanges(SVC_GAME_BLUFFMASTER) { // Game starts as soon as bluffMastr is set for the game
+                            self.performSegueWithIdentifier(SEGUE_START_GAME, sender: nil)
+                        }
+                    }
             }) { //failedCompleted closure block -> Incorrect code entered: Failed to join game
                 AlertHandler.alert.showAlertMsg(ERR_WRONG_CODE_TITLE, msg: ERR_WRONG_CODE_MSG)
                 self.resetEnteredGameCodes()
@@ -158,6 +164,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             GameMembers.gameMembers.deleteRoom()
         } else if joinBtn.hidden { // if this button is hidden, then the user already joined the game.
             GameMembers.gameMembers.removePlayerFromRoom(Users.myScreenName)
+            GameMembers.gameMembers.removeObserverForGameRoom()
         }
     }
     

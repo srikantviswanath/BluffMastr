@@ -4,25 +4,40 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Instructions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
 		<key>Pods-BluffMastr.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
+			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Pods-BluffMastrTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-BluffMastrUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
+			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -32,17 +47,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>09509628858C761CB99F0DD9D86BE5BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>418BC9FEF0357AFB1FDC780C6076FB22</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E06982BEA9D3E2F86C478738A6C960A8</key>
+		<key>6420AF7EC594E456BE7AF09BFF070E70</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F8C6BBEE89BC861E23E6EE41C6798626</key>
+		<key>7C972E00F88089B05BD4E79B3E14A3D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

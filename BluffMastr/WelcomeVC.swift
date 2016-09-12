@@ -37,13 +37,13 @@ class WelcomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func submitScreenName(sender: UIButton) {
         if let screenName = screenNameTxtField.text where screenName != "" {
-            Users.myScreenName = screenName
+            Users.myScreenName = screenName.trim()
             let userDefaults = NSUserDefaults.standardUserDefaults()
-            userDefaults.setObject(screenName, forKey: SCREEN_NAME)
+            userDefaults.setObject(screenName.trim(), forKey: SCREEN_NAME)
             userDefaults.synchronize()
-            delegate?.updateLabelInParentVC(screenName)
+            self.delegate?.updateLabelInParentVC(screenName.trim())
             self.dismissViewControllerAnimated(true, completion: nil)
-            parentBlurView.removeFromSuperview()
+            self.parentBlurView.removeFromSuperview()
         } else {
             instructionLbl.text = ERR_SCREENNAME_MISSING_TITLE
             instructionLbl.textColor = UIColor.redColor()

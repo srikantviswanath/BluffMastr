@@ -78,6 +78,8 @@ let THIS_ROUND_CELL = "ThisRoundCell"
 
 let ERR_SCREENNAME_MISSING_TITLE = "Screen Name Missing"
 let ERR_SCREENNAME_MISSIN_MSG = "You need to put on your bluffing name"
+let ERR_DUPLICATE_SCREENAME_TITLE = "Duplicate ScreenName"
+let ERR_DUPLICATE_SCREENAME_MSG = "ScreenName already taken, please choose a new one. Exiting..."
 let ERR_GAMECODE_MISSING_TITLE = "Game Code Missing"
 let ERR_GAMECODE_MISSING_MSG = "Bully the game leader until they give you the code"
 let ERR_WRONG_CODE_TITLE = "Incorrect Gamecode"

@@ -77,14 +77,20 @@ class Games {
         completed()
     }
     
-    func joinGame(enteredCode: String, gameSlave: String, sucessCompleted: GenericCompletionBlock, failedCompleted: GenericCompletionBlock) {
+    func joinGame(enteredCode: String, gameSlave: String, sucessCompleted: (Bool) -> (), failedCompleted: GenericCompletionBlock) {
         Games.REF_GAMES_BASE.queryOrderedByChild(SVC_SHARED_TOKEN).queryEqualToValue(enteredCode).observeSingleEventOfType(.Value, withBlock: { snapshot in
             if snapshot.exists() {
                 for child in snapshot.children {
                     Games.gameUID = child.key!!
-                    GameMembers.gameMembers.addMemberToRoom(gameSlave)
+                    Users.users.isScreenNameAlreadyTaken(gameSlave, completed: { (isTaken) in
+                        if isTaken {
+                            sucessCompleted(true)
+                        } else {
+                            GameMembers.gameMembers.addMemberToRoom(gameSlave)
+                            sucessCompleted(false)
+                        }
+                    })
                 }
-                sucessCompleted()
             } else {
                 failedCompleted()
             }

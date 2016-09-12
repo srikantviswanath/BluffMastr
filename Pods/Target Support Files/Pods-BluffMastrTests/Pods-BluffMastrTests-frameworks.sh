@@ -82,16 +82,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Instructions/Instructions.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/pop/pop.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Instructions/Instructions.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/pop/pop.framework"
-fi
-if [[ "$CONFIGURATION" == "Distribution" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Instructions/Instructions.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/pop/pop.framework"
-fi

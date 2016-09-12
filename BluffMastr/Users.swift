@@ -48,4 +48,17 @@ class Users {
             NSLog("[FIREBASE::FIRAUTH] Error fetching Current User.")
         }
     }
+    
+    func isScreenNameAlreadyTaken(screenName: String, completed: (Bool) -> ()) {
+        FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID)
+        .queryOrderedByKey()
+        .queryEqualToValue(screenName)
+        .observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if snapshot.exists() {
+                completed(true)
+            } else {
+                completed(false)
+            }
+        })
+    }
 }
