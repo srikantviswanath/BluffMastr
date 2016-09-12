@@ -19,13 +19,16 @@ class WelcomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     var delegate: WelcomeVCDelegate?
     var parentBlurView: UIVisualEffectView!
+    var firstTime: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if let _ = NSUserDefaults.standardUserDefaults().objectForKey(SCREEN_NAME) as? String {
             instructionLbl.text = STATUS_CHANGE_SCREENNAME
+            firstTime = false
         } else {
             instructionLbl.text = STATUS_ENTER_SCREENNAME
+            firstTime = true
         }
         self.hideKeyboardWhenTappedAround()
         self.dismissKeyboard()
@@ -68,7 +71,7 @@ class WelcomeVC: UIViewController, UIGestureRecognizerDelegate {
     /* ==================UIGestureRecognizer delegate method ============= */
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         // either I'm a genius or I should never write code again.
-        if let temp = touch.view where temp.isKindOfClass(MaterialView) {
+        if let temp = touch.view where (temp.isKindOfClass(MaterialView) || firstTime) {
             return false
         }
         return true
