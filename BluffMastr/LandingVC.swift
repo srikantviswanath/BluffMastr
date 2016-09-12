@@ -9,7 +9,7 @@
 import UIKit
 import pop
 
-class LandingVC: UIViewController, WelcomeVCDelegate, PopUpTutorialDelegate {
+class LandingVC: UIViewController, WelcomeVCDelegate {
 
     
     var createJoinAnimEngine: AnimationEngine!
@@ -21,6 +21,7 @@ class LandingVC: UIViewController, WelcomeVCDelegate, PopUpTutorialDelegate {
     @IBOutlet weak var joinGameBtn: UIButton!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var ProfileView: MaterialView!
+    @IBOutlet weak var InGameTutorialSwitch: UISwitch!
     
     var timer = NSTimer()
     
@@ -31,7 +32,7 @@ class LandingVC: UIViewController, WelcomeVCDelegate, PopUpTutorialDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProfileView.alpha = 0
+        initTutorialSwitchState()
         Questions.questions.fetchMaxNumberOfQuestions {}
         createJoinAnimEngine = AnimationEngine(leadingConstraint: CreateJoinLeadingConstr, trailingConstraint: CreateJoinTrailingConstr)
         self.hideKeyboardWhenTappedAround()
@@ -39,7 +40,6 @@ class LandingVC: UIViewController, WelcomeVCDelegate, PopUpTutorialDelegate {
     
     override func viewWillAppear(animated: Bool) {
         self.view.backgroundColor = UIColor.whiteColor()
-        //popUpTutorialBundle = [PopUpBubble(tipContent: TIP_GAME_PHILOSOPHY, anchorPointRect: LandingVC().ProfileView.frame), PopUpBubble(tipContent: TIP_GAME_PHILOSOPHY, anchorPointRect: LandingVC().joinGameBtn.frame)]
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -58,17 +58,26 @@ class LandingVC: UIViewController, WelcomeVCDelegate, PopUpTutorialDelegate {
                     (true) in
                     self.createGameBtn.enabled = true
                     self.joinGameBtn.enabled = true
-                    
-                    //TODO: Need to fix the pop up bubble tutorial bundle
-                    //let  popUpVC = AlertHandler.alert.showPopUpBubble(PopUpBubble(tipContent: TIP_GAME_PHILOSOPHY, anchorPointRect: self.ProfileView.frame, anchorDirection: .Down), parentVC: self)
-                    //popUpVC.parentSourceDelegate = self
                 })
             }
         }
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .None
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        if InGameTutorialSwitch.on {
+            EnableInGameTutorial = true
+        } else {
+            EnableInGameTutorial = false
+        }
+    }
+    
+    func initTutorialSwitchState() {
+        if EnableInGameTutorial {
+            InGameTutorialSwitch.setOn(true, animated: true)
+        } else {
+            InGameTutorialSwitch.setOn(false, animated: true)
+        }
     }
     
     @IBAction func createGame(sender: UIButton!){

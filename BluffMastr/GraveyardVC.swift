@@ -37,6 +37,11 @@ class GraveyardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        AlertHandler.alert.showAlertMsg(STATUS_GRAVEYARD_TITLE, msg: STATUS_GRAVEYARD_MSG)
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
