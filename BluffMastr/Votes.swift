@@ -34,7 +34,18 @@ class Votes {
     }
     
     ///Resets the client player's vote for the current round. Used in case of a tie
-    func resetPlayerVote() {
-        FDataService.fDataService.REF_VOTES.child(Games.gameUID).child(Users.myScreenName).removeValue()
+    func resetAllPlayersVoteAtFirebase(completed: GenericCompletionBlock) {
+        var votesStillIntact = false
+        FDataService.fDataService.REF_VOTES.child(Games.gameUID).observeSingleEventOfType(.Value, withBlock: { votesSS in
+            if Int(votesSS.childrenCount) == GameMembers.playersInGameRoom.count {
+                votesStillIntact = true
+            }
+            if votesStillIntact {
+                for player in GameMembers.playersInGameRoom {
+                    FDataService.fDataService.REF_VOTES.child(Games.gameUID).child(player).removeValue()
+                }
+            }
+            completed()
+        })
     }
 }

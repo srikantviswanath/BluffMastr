@@ -49,7 +49,9 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         if EnableInGameTutorial {
             coachController.startOn(self)
         }
-        //self.alertIfPlayerIsBluffMstr()
+        if !EnableInGameTutorial {
+            self.alertIfPlayerIsBluffMstr()
+        }
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -178,10 +180,10 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             coachViews.bodyView.hintLabel.text = "Least common survey answer has most points and vice versa"
             coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
         case 2:
-            coachViews.bodyView.hintLabel.text = "The scores for these survey answers are concealed. The order of answers is random"
+            coachViews.bodyView.hintLabel.text = "Scores for these survey answers are concealed. Order of answers is random"
             coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
         case 3:
-            coachViews.bodyView.hintLabel.text = "Only if you're the BluffMastr, swiping an answer to the left reveals score"
+            coachViews.bodyView.hintLabel.text = "However, BluffMastr can cheat by swiping an answer to the left to reveal it's score"
             coachViews.bodyView.hintLabel.textColor = UIColor(netHex: COLOR_THEME)
         case 4:
             coachViews.bodyView.hintLabel.text = "Tap here to reveal your identity"

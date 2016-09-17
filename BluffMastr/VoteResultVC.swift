@@ -30,8 +30,9 @@ class VoteResultVC: UIViewController {
         switch nextBtn.currentTitle! {
         case BTN_VOTE_AGAIN:
             Games.votesCastedForThisRound = Dictionary<String, String>()
-            Votes.votes.resetPlayerVote()
-            self.performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
+            Votes.votes.resetAllPlayersVoteAtFirebase {
+                self.performSegueWithIdentifier(SEGUE_REVOTE, sender: nil)
+            }
         case BTN_GRAVEYARD:
             self.performSegueWithIdentifier(SEGUE_GO_TO_GRAVEYARD, sender: nil)
         case BTN_NEXT_ROUND:
