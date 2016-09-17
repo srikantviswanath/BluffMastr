@@ -49,6 +49,8 @@ let AUDIO_SHOW_SCORE = "score_swoosh"
 let AUDIO_BONUS = "bonus"
 let AUDIO_PENALTY = "penalty"
 let AUDIO_PLAYER_VOTEDOUT = "player_votedout"
+let AUDIO_GAME_WIN = "game_win_music"
+let AUDIO_GAME_LOST = "game_lost_music"
 
 /* Segue and TableViewCell constants */
 

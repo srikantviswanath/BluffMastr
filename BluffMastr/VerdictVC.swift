@@ -83,6 +83,11 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         UIView.animateWithDuration(1, animations: {
             self.VerdictImg.image = UIImage(named: didIWin ? "winner_cup" : "runner_up_dislike")
             self.VerdictImg.frame = CGRectMake(UIScreen.mainScreen().bounds.width/2-20, 60, 50, 50)
+            if didIWin {
+                playAudio(AUDIO_GAME_WIN)
+            } else {
+                playAudio(AUDIO_GAME_LOST)
+            }
         }){ (true) in
             self.VerdictView.backgroundColor = UIColor(netHex: didIWin ?  0x00BFA5 : COLOR_THEME)
             self.VerdictLbl.text = didIWin ? "You Win!" : "\(gameWinner) wins!"
