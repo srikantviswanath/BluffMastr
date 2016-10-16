@@ -45,7 +45,7 @@ class VerdictVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func startNewGameBtnClicked(sender: UIButton) {
-        AlertHandler.alert.showActionSheet(ALERT_START_NEW_GAME, destructiveTitle: "Absolutely", cancelTitle: "Not Yet") {
+        AlertHandler.alert.showActionSheet(ALERT_START_NEW_GAME, destructiveTitle: "Absolutely", cancelTitle: "Not Yet", anchorPointForIpad: sender) {
             self.performSegueWithIdentifier(SEGUE_NEW_GAME_FROM_VERDICTVC, sender: nil)
             removeAllListeners()
             resetStaticVariablesForNewGame()

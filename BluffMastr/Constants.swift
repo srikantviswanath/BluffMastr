@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /* Gameplay constants */
-let MIN_PLAYERS = 1
+let MIN_PLAYERS = 4
 var TOTAL_QUESTIONS_AT_FIREBASE = 0 /*this is no longer a constant. total questions will be modified in the firbase and should be updated in the App*/
 let BONUS_BLUFFMASTR_SURVIVAL = 5
 let BONUS_VOTED_AGAINST_BLUFFMASTR = 3

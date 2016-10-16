@@ -50,18 +50,22 @@ class AlertHandler: UIViewController {
         return alertVC // To set the delegate wheverever necessary.
     }
         
-    func showActionSheet(sheetTitle: String, destructiveTitle: String,  cancelTitle: String, destructiveHandler: ()->()) {
+    func showActionSheet(sheetTitle: String, destructiveTitle: String,  cancelTitle: String, anchorPointForIpad: UIButton, destructiveHandler: ()->()) {
         let actionSheet = UIAlertController(title: sheetTitle, message: nil, preferredStyle: .ActionSheet)
         let destructiveAction = UIAlertAction(title: destructiveTitle, style: .Destructive, handler: {
             (alert: UIAlertAction!) -> Void in
                 destructiveHandler()
         })
-        let cancelAction = UIAlertAction(title: cancelTitle, style: .Cancel, handler: {
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
 
         })
         actionSheet.addAction(destructiveAction)
         actionSheet.addAction(cancelAction)
+        let  popOver = actionSheet.popoverPresentationController
+        popOver?.sourceView  = anchorPointForIpad as UIView
+        popOver?.sourceRect = (anchorPointForIpad as UIView).bounds
+        popOver?.permittedArrowDirections = UIPopoverArrowDirection.Any
         UIApplication.topViewController()!.presentViewController(actionSheet, animated: true, completion: nil)
     }
     

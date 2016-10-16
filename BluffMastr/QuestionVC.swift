@@ -60,7 +60,7 @@ class QuestionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     @IBAction func exitGameBtnClicked(sender: AnyObject) {
-        AlertHandler.alert.showActionSheet(ALERT_LEAVE_GAME_TITLE2, destructiveTitle: "Yes", cancelTitle: "No") {
+        AlertHandler.alert.showActionSheet(ALERT_LEAVE_GAME_TITLE2, destructiveTitle: "Yes", cancelTitle: "No", anchorPointForIpad: sender as! UIButton) {
             teardownAfterStartingGame()
             resetStaticVariablesForNewGame()
             self.performSegueWithIdentifier(SEGUE_HOME_GAME, sender: nil)

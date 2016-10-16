@@ -47,6 +47,12 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             }
         }
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == SEGUE_START_GAME {
+            FDataService.fDataService.REF_GAME_MEMBERS.child(Games.gameUID).removeAllObservers()
+        }
+    }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -158,6 +164,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func exitGame() {
+        GameMembers.playersInGameRoom = [String]()
         Users.users.deleteAnonymousUser()
         if (isGameCreator) {
             Games.games.deleteGame()
@@ -173,7 +180,7 @@ class StagingVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             self.exitGame()
             self.performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
         } else {
-            AlertHandler.alert.showActionSheet(ALERT_LEAVE_GAME_TITLE, destructiveTitle: "Yes", cancelTitle: "No") {
+            AlertHandler.alert.showActionSheet(ALERT_LEAVE_GAME_TITLE, destructiveTitle: "Yes", cancelTitle: "No", anchorPointForIpad: sender) {
                 self.exitGame()
                 self.performSegueWithIdentifier(SEGUE_LEAVE_GAME, sender: nil)
             }

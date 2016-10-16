@@ -18,8 +18,8 @@
 		CB0372501D371CCB00E3550D /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB03724F1D371CCB00E3550D /* WelcomeVC.swift */; };
 		CB4A33651D614B4F00354FF8 /* PopUpBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4A33641D614B4F00354FF8 /* PopUpBubble.swift */; };
 		CB4A33671D641B4E00354FF8 /* player_votedout.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB4A33661D641B4E00354FF8 /* player_votedout.mp3 */; };
-		CB5BADDE1D8DB80600E741C2 /* game_win_music.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB5BADDD1D8DB80500E741C2 /* game_win_music.wav */; };
-		CB5BADE01D8DBC5500E741C2 /* game_lost_music.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB5BADDF1D8DBC5500E741C2 /* game_lost_music.wav */; };
+		CB6057D71D9B38D40019C860 /* game_lost_music.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB6057D61D9B38D40019C860 /* game_lost_music.wav */; };
+		CB6057D91D9B38ED0019C860 /* game_win_music.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB6057D81D9B38ED0019C860 /* game_win_music.wav */; };
 		CB6A7AF01D5FE09E00EE4D1C /* PopUpTutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A7AEF1D5FE09E00EE4D1C /* PopUpTutorialVC.swift */; };
 		CB78671F1D18B2FD00E0CDB0 /* ServicesUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */; };
 		CB7B0BEC1D3868B400F44727 /* VerdictVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B0BEB1D3868B400F44727 /* VerdictVC.swift */; };
@@ -102,8 +102,8 @@
 		CB03724F1D371CCB00E3550D /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		CB4A33641D614B4F00354FF8 /* PopUpBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpBubble.swift; sourceTree = "<group>"; };
 		CB4A33661D641B4E00354FF8 /* player_votedout.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = player_votedout.mp3; sourceTree = "<group>"; };
-		CB5BADDD1D8DB80500E741C2 /* game_win_music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = game_win_music.wav; path = ../../game_win_music.wav; sourceTree = "<group>"; };
-		CB5BADDF1D8DBC5500E741C2 /* game_lost_music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = game_lost_music.wav; path = ../../game_lost_music.wav; sourceTree = "<group>"; };
+		CB6057D61D9B38D40019C860 /* game_lost_music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = game_lost_music.wav; path = "../../../swift tutorial/game_lost_music.wav"; sourceTree = "<group>"; };
+		CB6057D81D9B38ED0019C860 /* game_win_music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = game_win_music.wav; path = "../../../swift tutorial/game_win_music.wav"; sourceTree = "<group>"; };
 		CB6A7AEF1D5FE09E00EE4D1C /* PopUpTutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpTutorialVC.swift; sourceTree = "<group>"; };
 		CB7867181D1653B200E0CDB0 /* BluffMastr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluffMastr-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB78671E1D18B2FD00E0CDB0 /* ServicesUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesUtil.swift; sourceTree = "<group>"; };
@@ -299,8 +299,8 @@
 				CBF846051D1B947200F457E7 /* score_swoosh.wav */,
 				CBAD61FE1D3DE4A8004D9D1A /* bonus.wav */,
 				CBD5ED501D52FA7400B2257E /* spooky_breath.wav */,
-				CB5BADDD1D8DB80500E741C2 /* game_win_music.wav */,
-				CB5BADDF1D8DBC5500E741C2 /* game_lost_music.wav */,
+				CB6057D61D9B38D40019C860 /* game_lost_music.wav */,
+				CB6057D81D9B38ED0019C860 /* game_win_music.wav */,
 				CBB70EC41D5450E6002342DC /* female_scream.mp3 */,
 				CB4A33661D641B4E00354FF8 /* player_votedout.mp3 */,
 				CBAD61FC1D3DE32B004D9D1A /* penalty.wav */,
@@ -494,17 +494,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB5BADE01D8DBC5500E741C2 /* game_lost_music.wav in Resources */,
 				CBAD61FD1D3DE32B004D9D1A /* penalty.wav in Resources */,
 				CBDA41141CD5BFD200103F2A /* LaunchScreen.storyboard in Resources */,
 				CBB98B231D0A6C1500089FE8 /* wrong_vote_out.wav in Resources */,
 				CB4A33671D641B4E00354FF8 /* player_votedout.mp3 in Resources */,
 				CBF846061D1B947200F457E7 /* score_swoosh.wav in Resources */,
+				CB6057D91D9B38ED0019C860 /* game_win_music.wav in Resources */,
 				CBAD61FF1D3DE4A8004D9D1A /* bonus.wav in Resources */,
 				949875B91D025FE000BA190E /* GoogleService-Info.plist in Resources */,
 				CBDA41111CD5BFD200103F2A /* Assets.xcassets in Resources */,
 				CBB98B211D0A6C0B00089FE8 /* game_over.wav in Resources */,
-				CB5BADDE1D8DB80600E741C2 /* game_win_music.wav in Resources */,
+				CB6057D71D9B38D40019C860 /* game_lost_music.wav in Resources */,
 				CBDA410C1CD5BFD200103F2A /* Main.storyboard in Resources */,
 				CBD5ED511D52FA7400B2257E /* spooky_breath.wav in Resources */,
 				CBB98B251D0A6C1E00089FE8 /* bluffmastr_voted_out.wav in Resources */,
@@ -816,10 +816,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathonn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Distribution;
@@ -949,11 +952,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathonn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -969,10 +975,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BluffMastr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathonn;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghutles.Bluffathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BluffMastr/BluffMastr-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
